@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k:v for k,v in d.items\\(\\) if 'mcp' in k.lower\\(\\) or 'figma' in k.lower\\(\\)}, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); keys=list\\(d.keys\\(\\)\\); print\\(keys[:20]\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('mcpServers', d.get\\('mcp', d.get\\('projects', {}\\)\\)\\), indent=2\\)\\)\")",
+      "mcp__mcp-registry__search_mcp_registry",
+      "mcp__mcp-registry__suggest_connectors",
+      "Bash(cp /Users/karenhuang/Documents/KIN/Photos/IMBA/victor-c53HvA-blYQ-unsplash.jpg /Users/karenhuang/Documents/KIN/Claude/assets/images/hero-bg.jpg)",
+      "Bash(cp /Users/karenhuang/Documents/KIN/Photos/WAC.JPG /Users/karenhuang/Documents/KIN/Claude/assets/images/card-sports.jpg)",
+      "Bash(cp /Users/karenhuang/Documents/KIN/Photos/IMBA/jVih6q7rR7oT7JhWcxaZV3DlA.jpg /Users/karenhuang/Documents/KIN/Claude/assets/images/card-experiences.jpg)",
+      "Bash(cp '/Users/karenhuang/Documents/KIN/Photos/Screenshot 2026-04-04 at 1.27.02 PM.png' /Users/karenhuang/Documents/KIN/Claude/assets/images/card-immersive.jpg)",
+      "Bash(cp /Users/karenhuang/Documents/KIN/Photos/Swimmer.jpg /Users/karenhuang/Documents/KIN/Claude/assets/images/hl-wac.jpg)",
+      "Bash(xxd)",
+      "Bash(python3 -c ':*)",
+      "Bash(ls /Users/karenhuang/Documents/KIN/Claude/*.html)"
+    ]
+  }
+}
