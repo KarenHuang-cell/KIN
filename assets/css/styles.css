@@ -1487,6 +1487,26 @@ body.nav-open { overflow: hidden; }
     /* ── Footer ──────────────────────────────────────────────── */
     .footer__top { grid-template-columns: 1fr; gap: 32px; }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    /* ── WAC case study — tablet ─────────────────────────────── */
+    .cs-stats__inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px 24px;
+        justify-items: center;
+    }
+    .cs-gallery__img         { height: 360px; }
+    .cs-content__inner       { grid-template-columns: 1fr; gap: 40px; }
+    .cs-sidebar__title       { margin-bottom: 32px; }
+    .cs-body p               { max-width: 100%; }
+}
+
+/* ── WAC case study — phone ──────────────────────────────────── */
+@media (max-width: 620px) {
+    .cs-stats__inner         { grid-template-columns: 1fr; }
+    .cs-stat__num            { font-size: 56px; line-height: 56px; }
+    .cs-gallery__img         { height: 240px; }
+    .cs-services__grid       { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Touch devices — labels always visible (no hover available) */
