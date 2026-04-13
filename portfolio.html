@@ -165,7 +165,7 @@
 <script>
     // ── Load includes ─────────────────────────────────────────────────
     function loadInclude(id, url, callback) {
-        fetch(url)
+        fetch(url + '?v=' + Date.now())
             .then(r => r.text())
             .then(html => {
                 document.getElementById(id).outerHTML = html;
