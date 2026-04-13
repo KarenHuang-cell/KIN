@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management &amp; Delivery — KIN</title>
+    <meta name="description" content="KIN specialises in world-class international sporting events that attract global audiences and elevate destination profiles." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=9" />
+</head>
+<body>
+
+<!-- ================================================================
+     NAVIGATION
+================================================================ -->
+<div id="nav-include"></div>
+
+
+<div class="site-wrap">
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section class="svc-hero" aria-labelledby="svc-edm-hl">
+    <div class="svc-hero__inner">
+        <p class="eyebrow reveal">Event Management &amp; Delivery</p>
+        <h1 id="svc-edm-hl" class="svc-hero__title reveal reveal-delay-1">
+            World class events that<br />
+            transform destinations
+        </h1>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     FEATURE IMAGE
+================================================================ -->
+<section class="svc-image" aria-label="IMBA venue">
+    <div class="svc-image__inner reveal">
+        <img src="assets/images/imba.jpeg"
+             alt="IMBA — purpose-built event venue"
+             class="svc-image__img" />
+    </div>
+</section>
+
+
+<!-- ================================================================
+     LIGHT CONTENT SECTION
+================================================================ -->
+<section class="svc-content" aria-label="Event management services">
+    <div class="svc-content__inner">
+
+        <!-- Intro paragraph -->
+        <p class="svc-intro reveal">
+            We specialise in world-class international sporting events that attract
+            global audiences, generate tourism dollars, and elevate destination profiles.
+        </p>
+
+        <!-- Expertise spans -->
+        <div class="svc-expertise reveal">
+            <p class="svc-expertise__heading">Our Expertise Spans:</p>
+            <div class="svc-expertise__cols">
+                <ul class="svc-expertise__list">
+                    <li>Strategic Event Planning</li>
+                    <li>Economic impact assessment and planning</li>
+                    <li>Event Infrastructure &amp; Build-Up</li>
+                    <li>Temporary and permanent venue transformation</li>
+                    <li>Technical installation and overlay</li>
+                    <li>Spectator experience design</li>
+                    <li>Media and broadcast facility setup</li>
+                    <li>Logistics Coordination &amp; Operations</li>
+                    <li>Multi-stakeholder project management</li>
+                </ul>
+                <ul class="svc-expertise__list">
+                    <li>Transportation and accommodation coordination</li>
+                    <li>Accreditation and security protocols</li>
+                    <li>Vendor management and procurement</li>
+                    <li>Stakeholder Management</li>
+                    <li>International federation liaison</li>
+                    <li>Government agency coordination</li>
+                    <li>Sponsor activation support</li>
+                    <li>Community engagement programs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Detail rows -->
+        <dl class="svc-detail">
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Championship-Level<br />Sports Event Expertise</dt>
+                <dd class="svc-detail__desc">
+                    <p>We specialise in delivering world-class international sporting events that attract global audiences, generate tourism dollars, and elevate destination profiles.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Tournament Operations<br />Excellence</dt>
+                <dd class="svc-detail__desc">
+                    <ul class="svc-detail__list">
+                        <li>Competition management and scheduling</li>
+                        <li>Athlete services and team coordination</li>
+                        <li>Technical officials and judging systems</li>
+                        <li>Results management and technology integration</li>
+                    </ul>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Spectator Experience<br />Design</dt>
+                <dd class="svc-detail__desc">
+                    <ul class="svc-detail__list">
+                        <li>Fan zones and activation spaces</li>
+                        <li>Hospitality and VIP experiences</li>
+                        <li>Wayfinding and venue navigation</li>
+                        <li>Food &amp; beverage operations</li>
+                    </ul>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Media &amp; Broadcast<br />Support</dt>
+                <dd class="svc-detail__desc">
+                    <ul class="svc-detail__list">
+                        <li>International Broadcast Center (IBC) setup</li>
+                        <li>Press facilities and mixed zones</li>
+                        <li>Photographer and media positions</li>
+                        <li>Digital content creation support</li>
+                    </ul>
+                </dd>
+            </div>
+
+        </dl>
+
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CTA BAND
+================================================================ -->
+<div id="cta-include"></div>
+
+
+</div><!-- /site-wrap -->
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<div id="footer-include"></div>
+
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const list   = nav.querySelector('.nav__list');
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        burger.addEventListener('click', () => {
+            const open = list.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta.html');
+    loadInclude('footer-include', 'includes/footer.html');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>

@@ -1156,17 +1156,17 @@ ul  { list-style: none; }
 }
 
 .svc-hero__title {
-    font-size: 64px;
+    font-size: 48px;
     font-weight: 800;
-    line-height: 72px;
-    letter-spacing: -2px;
+    line-height: 50px;
+    letter-spacing: -1.5px;
     color: var(--clr-text);
     margin: 16px 0 0;
 }
 
 /* ── Large feature image ───────────────────────────────────── */
 .svc-image {
-    padding: 0 var(--gutter);
+    padding: 0 var(--gutter) var(--section-v);
 }
 
 .svc-image__inner {
@@ -1225,6 +1225,114 @@ ul  { list-style: none; }
     font-weight: 400;
     line-height: 22px;
     color: var(--clr-muted);
+}
+
+.svc-card__link {
+    margin-top: auto;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-accent);
+    text-decoration: none;
+}
+.svc-card__link:hover { opacity: 0.75; }
+
+/* ── Light content section ─────────────────────────────────── */
+.svc-content {
+    background: #f2f2ef;
+    padding: var(--section-v) 0;
+    width: 100%;
+}
+
+.svc-content__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+.svc-intro {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #1a1a1a;
+    max-width: 600px;
+    margin-bottom: 56px;
+}
+
+/* Expertise spans */
+.svc-expertise {
+    margin-bottom: 56px;
+}
+
+.svc-expertise__heading {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-accent);
+    margin-bottom: 20px;
+}
+
+.svc-expertise__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+}
+
+.svc-expertise__list {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+}
+
+.svc-expertise__list li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #1a1a1a;
+}
+
+/* Detail rows */
+.svc-detail {
+    border-top: 1px solid rgba(0,0,0,0.10);
+}
+
+.svc-detail__item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+
+.svc-detail__term {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #1a1a1a;
+}
+
+.svc-detail__desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #3a3a3a;
+}
+
+.svc-detail__desc p { margin-bottom: 10px; }
+
+.svc-detail__list {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+}
+
+.svc-detail__list li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #3a3a3a;
 }
 
 
@@ -1327,8 +1435,10 @@ body.nav-open { overflow: hidden; }
     }
 
     /* ── Services page — 1-col ───────────────────────────────── */
-    .svc-cards__grid { grid-template-columns: 1fr; gap: 40px; }
-    .svc-image__img  { height: 280px; }
+    .svc-cards__grid         { grid-template-columns: 1fr; gap: 40px; }
+    .svc-image__img          { height: 240px; }
+    .svc-expertise__cols     { grid-template-columns: 1fr; }
+    .svc-detail__item        { grid-template-columns: 1fr; gap: 12px; }
 
     /* ── About ───────────────────────────────────────────────── */
     .about__headline { font-size: 22px; line-height: 28px; }
