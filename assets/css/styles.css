@@ -34,13 +34,14 @@
     --clr-dim:      rgba(255,255,255,0.30);     /* Labels, legal text       */
     --clr-border:   rgba(255,255,255,0.08);     /* Dividers                 */
     --clr-accent:   #00C1E6;                    /* Teal highlight / CTA     */
+    --clr-navy:     #031D45;                    /* KIN corporate navy       */
 
     /* --- Typography --- */
     --font:         'Plus Jakarta Sans', sans-serif;
 
     /* --- Layout --- */
     --nav-h:        64px;       /* Navigation bar height                    */
-    --gutter:       56px;       /* Horizontal page padding                  */
+    --margin:       56px;       /* Horizontal page padding                  */
     --section-v:    96px;       /* Vertical section padding (top & bottom)  */
     --max-w:        1280px;     /* Maximum site width — change here         */
 
@@ -135,7 +136,7 @@ ul  { list-style: none; }
     height: var(--nav-h);       /* ← nav height: 64px */
     display: flex;
     align-items: center;
-    padding: 0 var(--gutter);
+    padding: 0 var(--margin);
     /* No backdrop-filter here — it would prevent dropdown blur from working.
        The blur is handled by ::before instead. */
 }
@@ -203,7 +204,7 @@ ul  { list-style: none; }
     margin-left: 14px;
     padding: 8px 20px;
     background: var(--clr-accent);
-    color: #08080F;
+    color: var(--clr-navy);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.88px;     /* 0.08em at 11px */
@@ -317,7 +318,7 @@ ul  { list-style: none; }
     min-height: 600px;
     display: flex;
     align-items: flex-end;
-    padding: 0 var(--gutter) 80px;
+    padding: 0 var(--margin) 80px;
     overflow: hidden;
 }
 
@@ -364,7 +365,7 @@ ul  { list-style: none; }
    Centred single column.
 ============================================================ */
 .about {
-    padding: var(--section-v) var(--gutter);
+    padding: var(--section-v) var(--margin);
     text-align: center;
 }
 
@@ -437,7 +438,7 @@ ul  { list-style: none; }
    Labels hidden until hover — overlay and text fade in.
    Adjust gap: to change spacing between cards.
 ============================================================ */
-.services { padding: 0 var(--gutter) var(--section-v); }
+.services { padding: 0 var(--margin) var(--section-v); }
 
 .cards-three {
     display: grid;
@@ -505,7 +506,7 @@ ul  { list-style: none; }
    Row 2: small left (1 col)  + large right (2 cols)
    Adjust grid-auto-rows to change card heights.
 ============================================================ */
-.highlights { padding: 0 var(--gutter) var(--section-v); }
+.highlights { padding: 0 var(--margin) var(--section-v); }
 
 .highlights-grid {
     display: grid;
@@ -589,10 +590,19 @@ ul  { list-style: none; }
    Centred strip between content and footer.
 ============================================================ */
 .cta-band {
-    padding: var(--section-v) var(--gutter);
+    padding: var(--section-v) var(--margin);
     text-align: center;
     border-top: 1px solid var(--clr-border);
     border-bottom: 1px solid var(--clr-border);
+}
+
+.cta-band--light {
+    border-top-color: rgba(3,29,69,0.12);
+    border-bottom-color: rgba(3,29,69,0.12);
+}
+
+.cta-band--light .cta-band__headline {
+    color: var(--clr-navy);
 }
 
 /* "Let's create defining moments" — Figma spec: 36px / 40px */
@@ -623,7 +633,7 @@ ul  { list-style: none; }
 
 .btn--outline:hover {
     background: var(--clr-accent);
-    color: #08080F;
+    color: var(--clr-navy);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,193,230,0.28);
 }
@@ -636,8 +646,38 @@ ul  { list-style: none; }
 ============================================================ */
 .footer {
     background: var(--clr-bg-2);
-    padding: 56px var(--gutter) 28px;
+    padding: 56px var(--margin) 28px;
 }
+
+.footer--light {
+    background: #e8e8e4;
+}
+
+.footer--light .footer__logo img {
+    filter: brightness(0) saturate(100%) invert(8%) sepia(60%) saturate(900%) hue-rotate(195deg) brightness(50%);
+}
+
+.footer--light .footer__top {
+    border-bottom-color: rgba(3,29,69,0.12);
+}
+
+.footer--light .footer__contact-info,
+.footer--light .footer__contact-info a { color: #888; }
+.footer--light .footer__contact-info a:hover { color: var(--clr-navy); }
+
+.footer--light .footer__col-label { color: var(--clr-navy); }
+
+.footer--light .footer__join-text { color: #888; }
+
+.footer--light .social-icon { border-color: #ccc; }
+.footer--light .social-icon svg { fill: #888; }
+.footer--light .social-icon:hover { border-color: var(--clr-accent); background: rgba(0,193,230,0.08); }
+.footer--light .social-icon:hover svg { fill: var(--clr-accent); }
+
+.footer--light .footer__copy,
+.footer--light .footer__legal,
+.footer--light .footer__legal a { color: #aaa; }
+.footer--light .footer__legal a:hover { color: #666; }
 
 .footer__inner {
     max-width: var(--max-w);
@@ -734,7 +774,7 @@ ul  { list-style: none; }
 .portfolio-hero__inner {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 0 var(--gutter) 40px;
+    padding: 0 var(--margin) 40px;
 }
 
 .portfolio-hero__title {
@@ -787,7 +827,7 @@ ul  { list-style: none; }
 .portfolio-grid-wrap {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 0 var(--gutter) var(--section-v);
+    padding: 0 var(--margin) var(--section-v);
 }
 
 .portfolio-grid {
@@ -840,7 +880,7 @@ ul  { list-style: none; }
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    padding: 0 var(--gutter) 80px;
+    padding: 0 var(--margin) 80px;
 }
 
 .cs-hero__img {
@@ -884,7 +924,7 @@ ul  { list-style: none; }
 
 /* ── Intro ────────────────────────────────────────────────── */
 .cs-intro {
-    padding: var(--section-v) var(--gutter);
+    padding: var(--section-v) var(--margin);
     text-align: center;
 }
 
@@ -916,7 +956,7 @@ ul  { list-style: none; }
 
 /* ── Stats ────────────────────────────────────────────────── */
 .cs-stats {
-    padding: var(--section-v) var(--gutter);
+    padding: var(--section-v) var(--margin);
 }
 
 .cs-stats__inner {
@@ -958,7 +998,7 @@ ul  { list-style: none; }
 
 /* ── Gallery ──────────────────────────────────────────────── */
 .cs-gallery {
-    padding: 0 var(--gutter) 0;
+    padding: 0 var(--margin) 0;
 }
 
 .cs-gallery__wrap {
@@ -1005,7 +1045,7 @@ ul  { list-style: none; }
 
 /* ── Content (sidebar + body) ─────────────────────────────── */
 .cs-content {
-    padding: var(--section-v) var(--gutter);
+    padding: var(--section-v) var(--margin);
     border-top: 1px solid var(--clr-border);
 }
 
@@ -1147,7 +1187,7 @@ ul  { list-style: none; }
 ============================================================ */
 
 .svc-hero {
-    padding: calc(var(--nav-h) + var(--section-v)) var(--gutter) 80px;
+    padding: calc(var(--nav-h) + var(--section-v)) var(--margin) 80px;
 }
 
 .svc-hero__inner {
@@ -1174,7 +1214,7 @@ ul  { list-style: none; }
 
 /* ── Large feature image ───────────────────────────────────── */
 .svc-image {
-    padding: 0 var(--gutter) var(--section-v);
+    padding: 0 var(--margin) var(--section-v);
 }
 
 .svc-image__inner {
@@ -1192,7 +1232,7 @@ ul  { list-style: none; }
 
 /* ── Three-column service cards ────────────────────────────── */
 .svc-cards {
-    padding: var(--section-v) var(--gutter);
+    padding: var(--section-v) var(--margin);
 }
 
 .svc-cards__inner {
@@ -1256,7 +1296,7 @@ ul  { list-style: none; }
 .svc-content__inner {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 0 var(--gutter);
+    padding: 0 var(--margin);
 }
 
 .svc-intro {
@@ -1358,7 +1398,7 @@ body.nav-open { overflow: hidden; }
 
     /* ── Spacing tokens ──────────────────────────────────────── */
     :root {
-        --gutter: 64px;
+        --margin: 64px;
         --section-v: 60px;
     }
 
@@ -1507,7 +1547,7 @@ body.nav-open { overflow: hidden; }
 
 /* ── WAC case study — phone ──────────────────────────────────── */
 @media (max-width: 620px) {
-    :root { --gutter: 32px; }
+    :root { --margin: 32px; }
     .cs-stats__inner         { grid-template-columns: 1fr; }
     .cs-stat__num            { font-size: 56px; line-height: 56px; }
     .cs-gallery__img         { height: 240px; }
@@ -1520,6 +1560,214 @@ body.nav-open { overflow: hidden; }
     .hl-card__text           { opacity: 1; transform: translateY(0); }
     .project-card__overlay   { opacity: 1; }
     .project-card__text      { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ============================================================
+   16. LIGHT NAV (nav--light modifier)
+   Used on light-background pages like Corporate Information.
+============================================================ */
+
+.nav--light::before {
+    background: rgba(242,242,239,0.92);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.nav--light.scrolled::before {
+    background: rgba(242,242,239,0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Dark logo on light nav */
+.nav--light .nav__logo img {
+    filter: brightness(0);
+}
+
+/* Dark links */
+.nav--light .nav__link {
+    color: rgba(3,29,69,0.55);
+}
+
+.nav--light .nav__link:hover {
+    color: var(--clr-navy);
+    background: rgba(3,29,69,0.06);
+}
+
+/* Dropdown — light background, dark text */
+.nav--light .nav__dropdown {
+    background: rgba(242,242,239,0.96);
+    border: 1px solid rgba(3,29,69,0.10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.nav--light .nav__dropdown a,
+.nav--light .nav__dd-item {
+    color: rgba(3,29,69,0.55);
+}
+
+.nav--light .nav__dropdown a:hover {
+    color: var(--clr-navy);
+    background: rgba(3,29,69,0.05);
+}
+
+.nav--light .nav__dd-item--disabled {
+    color: rgba(3,29,69,0.25);
+}
+
+.nav--light .nav__dd-item--active {
+    color: var(--clr-accent);
+}
+
+/* Hamburger — dark bars on light bg */
+.nav--light .nav__hamburger span {
+    background: var(--clr-navy);
+}
+
+/* Mobile overlay — light bg */
+@media (max-width: 1100px) {
+    .nav--light .nav__list {
+        background: #f2f2ef;
+    }
+    .nav--light .nav__link {
+        color: rgba(3,29,69,0.35);
+    }
+    .nav--light .nav__link:hover {
+        color: var(--clr-navy);
+        background: none;
+    }
+}
+
+
+/* ============================================================
+   17. CORPORATE INFORMATION PAGE
+============================================================ */
+
+.corp-page {
+    background: #f2f2ef;
+    min-height: 100vh;
+}
+
+/* Hero / intro band */
+.corp-hero {
+    padding: calc(var(--nav-h) + 64px) var(--margin) 56px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.corp-hero .eyebrow {
+    color: var(--clr-accent);
+    margin-bottom: 16px;
+}
+
+.corp-hero__title {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--clr-navy);
+}
+
+/* Section (Board / Executive) */
+.corp-section {
+    padding: 0 var(--margin) var(--section-v);
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.corp-section__heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--clr-navy);
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(3,29,69,0.12);
+}
+
+/* Person grid */
+.corp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 40px;
+}
+
+/* Person card */
+.corp-card {}
+
+.corp-card__photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(100%);
+    margin-bottom: 20px;
+}
+
+.corp-card__name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-navy);
+    margin-bottom: 4px;
+}
+
+.corp-card__title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.corp-card__toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-accent);
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.corp-card__toggle:hover { opacity: 0.75; }
+
+/* Bio panel — hidden by default, revealed by JS */
+.corp-card__bio {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(3,29,69,0.10);
+}
+
+.corp-card__bio.is-open { display: block; }
+
+.corp-card__bio p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.corp-card__bio p:last-child { margin-bottom: 0; }
+
+/* Mobile */
+@media (max-width: 1100px) {
+    .corp-hero { padding-top: calc(var(--nav-h) + 48px); }
+    .corp-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+}
+
+@media (max-width: 620px) {
+    .corp-grid { grid-template-columns: 1fr; }
+    .corp-hero__title { letter-spacing: -1px; }
 }
 
 
