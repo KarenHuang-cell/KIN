@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curate &amp; Create — KIN</title>
+    <meta name="description" content="KIN brings to life unforgettable Art & Cultural experiences that inspire, educate, and position destinations as creative innovation hubs." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=14" />
+</head>
+<body>
+
+<div id="nav-include"></div>
+
+<div class="site-wrap">
+
+<section class="svc-hero" aria-labelledby="svc-curate-hl">
+    <div class="svc-hero__inner">
+        <p class="eyebrow reveal">What We Do</p>
+        <h1 id="svc-curate-hl" class="svc-hero__title reveal reveal-delay-1">Curate &amp; Create</h1>
+        <p class="svc-hero__sub reveal reveal-delay-2">Incubating Cultural and Immersive IPs That Attracts Global Audiences</p>
+    </div>
+</section>
+
+<section class="svc-image" aria-label="Curate and Create event">
+    <div class="svc-image__inner reveal">
+        <img src="assets/images/svc-curate.jpg"
+             alt="KIN — curate and create cultural experiences"
+             class="svc-image__img" />
+    </div>
+</section>
+
+</div><!-- /site-wrap -->
+
+<section class="svc-content" aria-label="Curate and create services">
+    <div class="svc-content__inner">
+
+        <p class="svc-intro reveal">
+            Connecting ideas through immersive and emotional storytelling, we bring to life
+            unforgettable Art &amp; Cultural experiences that inspire, educate, and position
+            destinations as creative innovation hubs.
+        </p>
+
+        <div class="svc-expertise reveal">
+            <p class="svc-expertise__heading">Cultural Programming for Tourism Growth:</p>
+            <div class="svc-expertise__cols">
+                <ul class="svc-expertise__list">
+                    <li>IP Asset Development</li>
+                    <li>Concept incubation and development</li>
+                    <li>Content creation and production</li>
+                    <li>Rights acquisition and co-creation partnerships</li>
+                    <li>Immersive Art Experiences</li>
+                    <li>Large-scale multimedia installations</li>
+                    <li>Interactive digital art exhibitions</li>
+                    <li>Touring exhibitions and traveling shows</li>
+                    <li>Cultural festivals and programs</li>
+                    <li>Storytelling Activations</li>
+                </ul>
+                <ul class="svc-expertise__list">
+                    <li>Heritage narratives brought to life</li>
+                    <li>Community stories amplified</li>
+                    <li>Tourism-Focused Cultural Products</li>
+                    <li>Signature experiences unique to your destination</li>
+                    <li>Instagram-worthy moments that drive social sharing</li>
+                    <li>Seasonal programming that encourages repeat visitation</li>
+                </ul>
+            </div>
+        </div>
+
+        <dl class="svc-detail">
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Our Approach</dt>
+                <dd class="svc-detail__desc">
+                    <p>We don't just execute cultural projects — we develop cultural assets that become synonymous with your destination, attracting visitors, generating media coverage, and creating lasting emotional connections.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Value for Destinations</dt>
+                <dd class="svc-detail__desc">
+                    <ul class="svc-detail__list">
+                        <li>Position your city as a cultural tourism leader</li>
+                        <li>Create unique experiences that can't be replicated elsewhere</li>
+                        <li>Generate year-round programming to smooth tourism seasonality</li>
+                        <li>Build cultural brand equity that transcends individual events</li>
+                    </ul>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Value for Cultural Institutions</dt>
+                <dd class="svc-detail__desc">
+                    <ul class="svc-detail__list">
+                        <li>Increase visitor numbers and engagement</li>
+                        <li>Create blockbuster exhibitions that drive ticket sales</li>
+                        <li>Develop traveling shows with revenue potential</li>
+                        <li>Build institutional reputation and donor appeal</li>
+                    </ul>
+                </dd>
+            </div>
+
+        </dl>
+
+    </div>
+</section>
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const list   = nav.querySelector('.nav__list');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        burger.addEventListener('click', () => {
+            const open = list.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta.html');
+    loadInclude('footer-include', 'includes/footer.html');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>

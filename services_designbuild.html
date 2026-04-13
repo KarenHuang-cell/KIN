@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design &amp; Build — KIN</title>
+    <meta name="description" content="KIN crafts immersive spaces that become must-visit destinations — combining innovation, craftsmanship, and storytelling." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=14" />
+</head>
+<body>
+
+<div id="nav-include"></div>
+
+<div class="site-wrap">
+
+<section class="svc-hero" aria-labelledby="svc-db-hl">
+    <div class="svc-hero__inner">
+        <p class="eyebrow reveal">What We Do</p>
+        <h1 id="svc-db-hl" class="svc-hero__title reveal reveal-delay-1">Design &amp; Build</h1>
+        <p class="svc-hero__sub reveal reveal-delay-2">Creating Experiential Destinations That Drive Tourism</p>
+    </div>
+</section>
+
+<section class="svc-image" aria-label="Design and build event venue">
+    <div class="svc-image__inner reveal">
+        <img src="assets/images/svc-designbuild.jpg"
+             alt="KIN — design and build event infrastructure"
+             class="svc-image__img" />
+    </div>
+</section>
+
+</div><!-- /site-wrap -->
+
+<section class="svc-content" aria-label="Design and build services">
+    <div class="svc-content__inner">
+
+        <p class="svc-intro reveal">
+            We work with galleries, museums, visitor centers, themed attractions, and world
+            expositions to craft immersive spaces that become must-visit destinations —
+            combining innovation, craftsmanship, and storytelling to captivate audiences
+            and drive sustained visitation.
+        </p>
+
+        <div class="svc-expertise reveal">
+            <p class="svc-expertise__heading">Transforming Spaces into Tourism Assets:</p>
+            <div class="svc-expertise__cols">
+                <ul class="svc-expertise__list">
+                    <li>Experience Centers &amp; Visitor Attractions</li>
+                    <li>Brand experience centers</li>
+                    <li>Heritage and cultural centers</li>
+                    <li>Interactive discovery spaces</li>
+                    <li>Tourism information centers</li>
+                    <li>Museums &amp; Galleries</li>
+                    <li>Permanent exhibition design and build</li>
+                    <li>Temporary exhibition installation</li>
+                    <li>Themed Attractions</li>
+                </ul>
+                <ul class="svc-expertise__list">
+                    <li>Immersive storytelling environments</li>
+                    <li>Character-based experiences</li>
+                    <li>Themed retail and F&amp;B spaces</li>
+                    <li>World Expositions &amp; Major Events</li>
+                    <li>National pavilion design and build</li>
+                    <li>Thematic zone creation</li>
+                    <li>Large-scale installations</li>
+                    <li>Experiential journey design</li>
+                </ul>
+            </div>
+        </div>
+
+        <dl class="svc-detail">
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Strategic Consultation</dt>
+                <dd class="svc-detail__desc">
+                    <p>Understanding your vision, audience, and destination goals.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Concept Development</dt>
+                <dd class="svc-detail__desc">
+                    <p>Creative storytelling that aligns with tourism positioning.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Design &amp; Engineering</dt>
+                <dd class="svc-detail__desc">
+                    <p>Technical planning that ensures quality and durability.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Fabrication &amp; Production</dt>
+                <dd class="svc-detail__desc">
+                    <p>Trusted partner networks.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Installation &amp; Commissioning</dt>
+                <dd class="svc-detail__desc">
+                    <p>Seamless on-site execution and testing.</p>
+                </dd>
+            </div>
+
+            <div class="svc-detail__item reveal">
+                <dt class="svc-detail__term">Operations Support</dt>
+                <dd class="svc-detail__desc">
+                    <p>Ongoing maintenance and experience optimization.</p>
+                </dd>
+            </div>
+
+        </dl>
+
+    </div>
+</section>
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const list   = nav.querySelector('.nav__list');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        burger.addEventListener('click', () => {
+            const open = list.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta.html');
+    loadInclude('footer-include', 'includes/footer.html');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>
