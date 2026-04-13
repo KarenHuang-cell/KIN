@@ -133,7 +133,6 @@ ul  { list-style: none; }
     inset-inline: 0;
     z-index: 200;
     height: var(--nav-h);       /* ← nav height: 64px */
-    min-width: 960px;
     display: flex;
     align-items: center;
     padding: 0 var(--gutter);
