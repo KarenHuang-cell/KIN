@@ -28,7 +28,29 @@
       "Bash(sips -Z 1200 --setProperty formatOptions 80 \"/Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg\" --out \"/Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg\")",
       "Bash(grep -rn \"eyebrow--page\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
       "Bash(sips -g pixelWidth -g pixelHeight /Users/karenhuang/Documents/KIN/Claude/Photos/Management.jpg)",
-      "Bash(sips --resampleWidth 1200 /Users/karenhuang/Documents/KIN/Claude/Photos/Management.jpg --out /Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg)"
+      "Bash(sips --resampleWidth 1200 /Users/karenhuang/Documents/KIN/Claude/Photos/Management.jpg --out /Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg)",
+      "Bash(ls /Users/karenhuang/Documents/KIN/Claude/assets/images/mgmt-*)",
+      "Bash(sed -i '' 's|href=\"/about/team\"|href=\"management-team.html\"|g' /Users/karenhuang/Documents/KIN/Claude/includes/nav.html /Users/karenhuang/Documents/KIN/Claude/includes/nav-light.html)",
+      "Bash(sed -i '' 's/styles\\\\.css?v=39/styles.css?v=40/g' /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "Bash(grep -rn \"LEARN MORE\\\\|learn.more\\\\|Learn More\" /Users/karenhuang/Documents/KIN/Claude/*.html /Users/karenhuang/Documents/KIN/Claude/includes/*.html)",
+      "Bash(sed -i '' 's/class=\"svc-card__link\"/class=\"svc-card__link link-action\"/g' /Users/karenhuang/Documents/KIN/Claude/services.html)",
+      "Bash(grep -rn \"section-hd__link\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "Bash(sed -i '' 's/class=\"section-hd__link\"/class=\"section-hd__link link-action\"/g' /Users/karenhuang/Documents/KIN/Claude/index.html)",
+      "Bash(grep -rn \"ir-view-all\\\\|contact-bottom__link\\\\|about-mission__link\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "Bash(sed -i '' 's|class=\"about-mission__link\"|class=\"about-mission__link link-action\"|g' /Users/karenhuang/Documents/KIN/Claude/about.html)",
+      "Bash(sed -i '' 's|class=\"contact-bottom__link\"|class=\"contact-bottom__link link-action\"|g' /Users/karenhuang/Documents/KIN/Claude/contact.html)",
+      "Bash(sed -i '' 's|<a href=\"/investor-relations/sgx\">View All|<a href=\"/investor-relations/sgx\" class=\"link-action\">View All|g' /Users/karenhuang/Documents/KIN/Claude/investor-relations.html)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude diff HEAD assets/css/styles.css)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude show HEAD:assets/css/styles.css)",
+      "Bash(sed -i '' '1319s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(sed -i '' '1609s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(sed -i '' '1617s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(sed -i '' '1636s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(sed -i '' '1668s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(sed -i '' '2034s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(sed -i '' '2249s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude diff assets/css/styles.css)",
+      "Bash(python3)"
     ]
   }
 }
