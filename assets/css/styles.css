@@ -1242,7 +1242,7 @@ ul  { list-style: none; }
 /* Prevent scroll when mobile nav is open */
 body.nav-open { overflow: hidden; }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
 
     /* ── Spacing tokens ──────────────────────────────────────── */
     :root {
