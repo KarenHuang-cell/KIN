@@ -1484,8 +1484,12 @@ body.nav-open { overflow: hidden; }
         white-space: normal;
     }
 
-    /* ── Footer ──────────────────────────────────────────────── */
-    .footer__top { grid-template-columns: 1fr; gap: 32px; }
+    /* ── Footer — 2-col: contact left, join+follow right ────── */
+    .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+    .footer__top > div:first-child { grid-row: span 2; }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
 
     /* ── WAC case study — tablet ─────────────────────────────── */
