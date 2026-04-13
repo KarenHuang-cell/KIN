@@ -44,6 +44,8 @@
     --margin:       56px;       /* Horizontal page padding                  */
     --section-v:    96px;       /* Vertical section padding (top & bottom)  */
     --max-w:        1280px;     /* Maximum site width — change here         */
+    --w-narrow:     600px;      /* Narrow text block width                  */
+    --w-mid:        800px;      /* Mid text block width                     */
 
     /* --- Animation --- */
     --ease:         0.3s ease;
@@ -95,29 +97,64 @@ ul  { list-style: none; }
    Colour controlled by --clr-accent in tokens.
 ============================================================ */
 .eyebrow {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-    color: var(--clr-accent);
-    margin-bottom: 12px;
-    line-height: 14px;
-}
-
-/* Larger eyebrow used directly above page-level H1 titles */
-.eyebrow--page {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 3.5px;
     text-transform: uppercase;
     color: var(--clr-accent);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     line-height: 20px;
 }
 
+/* Smaller eyebrow for tight contexts (stat labels, meta, sidebar) */
+.eyebrow--sm {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+/* Colour modifier — navy instead of teal */
+.eyebrow--navy { color: var(--clr-navy); }
+
+/* Extra margin above page-level H1 titles */
+.eyebrow--page { margin-bottom: 16px; }
+
 
 /* ============================================================
-   5. UTILITY: SCROLL-REVEAL
+   5. SHARED TYPOGRAPHY
+   Grouped declarations — individual rules keep only unique
+   properties (margins, max-widths) on top of these.
+============================================================ */
+
+/* Body text — light pages (#555) */
+.svc-expertise__list li,
+.svc-detail__desc,
+.svc-detail__list li,
+.ir-hero__body p,
+.ir-item__title,
+.contact-detail__value,
+.contact-bottom__text,
+.about-brand__body p,
+.about-mission__body p,
+.timeline__desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #555;
+}
+
+/* Body text — dark pages (muted white, medium weight) */
+.about__body,
+.cs-intro__body,
+.cs-meta dd,
+.cs-targets__list li {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--clr-muted);
+}
+
+/* ============================================================
+   6. UTILITY: SCROLL-REVEAL
    Elements with class="reveal" start invisible and fade up
    when they enter the viewport. JS adds .is-visible.
    Stagger with: reveal-delay-1, -2, -3
@@ -381,7 +418,7 @@ ul  { list-style: none; }
 }
 
 .about__inner {
-    max-width: 600px;           /* ← max width of about text block */
+    max-width: var(--w-narrow);           /* ← max width of about text block */
     margin: 0 auto;
 }
 
@@ -394,13 +431,6 @@ ul  { list-style: none; }
     margin-bottom: 18px;
 }
 
-/* Agency statement body copy — Figma spec: 24px / 32px / medium */
-.about__body {
-    font-size: 16px;            /* ← body copy size (Figma: 24px, scaled down) */
-    line-height: 22px;
-    font-weight: 500;
-    color: var(--clr-muted);
-}
 
 
 /* ============================================================
@@ -666,7 +696,7 @@ ul  { list-style: none; }
 }
 
 .footer--light .footer__logo img {
-    filter: brightness(0);
+    filter: none;
 }
 
 .footer--light .footer__top {
@@ -716,28 +746,23 @@ ul  { list-style: none; }
 }
 
 .footer__contact-info {
-    font-size: 12px;
-    color: rgba(255,255,255,0.45);
-    line-height: 22px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.50);
+    line-height: 18px;
 }
 
-.footer__contact-info a { color: rgba(255,255,255,0.45); transition: color 0.15s ease; }
+.footer__contact-info a { color: rgba(255,255,255,0.50); transition: color 0.15s ease; }
 .footer__contact-info a:hover { color: #fff; }
 
 .footer__col-label {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
     color: var(--clr-dim);
     margin-bottom: 12px;
-    line-height: 20px;
 }
 
 .footer__join-text {
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(255,255,255,0.50);
-    line-height: 22px;
+    line-height: 18px;
 }
 
 /* Social icon row */
@@ -803,7 +828,7 @@ ul  { list-style: none; }
     font-weight: 400;
     line-height: 28px;
     color: var(--clr-muted);
-    max-width: 460px;
+    max-width: var(--w-narrow);
     margin-bottom: 40px;
 }
 
@@ -955,10 +980,6 @@ ul  { list-style: none; }
 }
 
 .cs-intro__body {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-    color: var(--clr-muted);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -999,11 +1020,6 @@ ul  { list-style: none; }
 
 .cs-stat__label {
     display: block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-    color: var(--clr-accent);
     text-align: center;
     line-height: 1.6;
 }
@@ -1086,21 +1102,12 @@ ul  { list-style: none; }
 }
 
 .cs-meta dt {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-    color: var(--clr-accent);
     margin-top: 28px;
 }
 
 .cs-meta dt:first-child { margin-top: 0; }
 
 .cs-meta dd {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-    color: var(--clr-muted);
     margin: 6px 0 0 0;
 }
 
@@ -1111,7 +1118,7 @@ ul  { list-style: none; }
     line-height: 22px;
     color: var(--clr-muted);
     margin-bottom: 20px;
-    max-width: 600px;
+    max-width: var(--w-narrow);
 }
 
 .cs-body h3 {
@@ -1182,10 +1189,6 @@ ul  { list-style: none; }
 }
 
 .cs-targets__list li {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-    color: var(--clr-muted);
     margin-bottom: 10px;
 }
 
@@ -1317,11 +1320,11 @@ ul  { list-style: none; }
 ─────────────────────────────────────────────────────────── */
 
 .svc-intro {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-    max-width: 600px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--clr-navy);
+    max-width: var(--w-mid);
     margin-bottom: 56px;
 }
 
@@ -1331,11 +1334,10 @@ ul  { list-style: none; }
 }
 
 .svc-expertise__heading {
-    font-size: 13px;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--clr-accent);
+    line-height: 36px;
+    color: var(--clr-navy);
     margin-bottom: 20px;
 }
 
@@ -1351,12 +1353,6 @@ ul  { list-style: none; }
     margin: 0;
 }
 
-.svc-expertise__list li {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-}
 
 /* Detail rows */
 .svc-detail {
@@ -1378,14 +1374,24 @@ ul  { list-style: none; }
     color: var(--clr-navy);
 }
 
-.svc-detail__desc {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-}
 
 .svc-detail__desc p { margin-bottom: 10px; }
+
+/* 6-column horizontal layout for Design & Build process steps */
+.svc-detail--cols {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 32px;
+    border-top: 1px solid rgba(0,0,0,0.10);
+    padding-top: 32px;
+    border-bottom: none;
+}
+.svc-detail--cols .svc-detail__item {
+    display: block;
+    padding: 0;
+    border-bottom: none;
+    grid-template-columns: unset;
+}
 
 .svc-detail__list {
     list-style: disc;
@@ -1393,12 +1399,6 @@ ul  { list-style: none; }
     margin: 0;
 }
 
-.svc-detail__list li {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-}
 
 
 /* ============================================================
@@ -1504,6 +1504,7 @@ body.nav-open { overflow: hidden; }
     .svc-image__img          { height: 240px; }
     .svc-expertise__cols     { grid-template-columns: 1fr; }
     .svc-detail__item        { grid-template-columns: 1fr; gap: 8px; }
+    .svc-detail--cols        { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
     /* ── About ───────────────────────────────────────────────── */
     .about__headline { font-size: 22px; line-height: 28px; }
@@ -1571,6 +1572,12 @@ body.nav-open { overflow: hidden; }
     .cs-services__grid       { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── Services detail cols — phone ───────────────────────────── */
+@media (max-width: 620px) {
+    .svc-detail--cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .svc-intro        { font-size: 18px; }
+}
+
 /* Touch devices — labels always visible (no hover available) */
 @media (hover: none) {
     .hl-card__overlay        { opacity: 1; }
@@ -1591,6 +1598,8 @@ body.nav-open { overflow: hidden; }
     -webkit-backdrop-filter: blur(2px);
 }
 
+.nav--light .nav__logo img { filter: none; }
+
 .nav--light.scrolled::before {
     background: rgba(242,242,239,0.98);
     backdrop-filter: blur(12px);
@@ -1598,10 +1607,6 @@ body.nav-open { overflow: hidden; }
 }
 
 /* Dark logo on light nav */
-.nav--light .nav__logo img {
-    /* white SVG → #031D45 navy */
-    filter: invert(1) sepia(1) saturate(6) hue-rotate(185deg) brightness(0.25);
-}
 
 /* Dark links */
 .nav--light .nav__link {
@@ -1725,11 +1730,6 @@ body.nav-open { overflow: hidden; }
 }
 
 .corp-card__name {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--clr-navy);
     margin-bottom: 4px;
 }
 
@@ -1812,14 +1812,10 @@ body.nav-open { overflow: hidden; }
 }
 
 .ir-hero__body {
-    max-width: 600px;
+    max-width: var(--w-narrow);
 }
 
 .ir-hero__body p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
     margin-bottom: 16px;
 }
 
@@ -1903,12 +1899,6 @@ body.nav-open { overflow: hidden; }
 
 .ir-sidebar__link {
     display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--clr-navy);
-    line-height: 1.4;
     padding: 10px 0;
     border-bottom: 1px solid rgba(3,29,69,0.10);
     transition: color 0.15s ease;
@@ -1940,24 +1930,13 @@ body.nav-open { overflow: hidden; }
 }
 
 .ir-item__meta {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--clr-navy);
     margin-bottom: 8px;
 }
 
 .ir-item__meta span { color: var(--clr-accent); }
 
-.ir-section { max-width: 600px; }
+.ir-section { max-width: var(--w-narrow); }
 
-.ir-item__title {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-}
 
 .ir-item__title a {
     color: var(--clr-accent);
@@ -2068,20 +2047,9 @@ body.nav-open { overflow: hidden; }
 .contact-detail { margin-bottom: 24px; }
 
 .contact-detail__label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--clr-navy);
     margin-bottom: 6px;
 }
 
-.contact-detail__value {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-}
 
 .contact-detail__value a {
     color: #555;
@@ -2097,11 +2065,6 @@ body.nav-open { overflow: hidden; }
 
 .contact-form__label {
     display: block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--clr-navy);
     margin-bottom: 10px;
 }
 
@@ -2181,19 +2144,10 @@ body.nav-open { overflow: hidden; }
 }
 
 .contact-bottom__heading {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--clr-navy);
     margin-bottom: 16px;
 }
 
 .contact-bottom__text {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
     margin-bottom: 20px;
     max-width: 400px;
 }
@@ -2297,15 +2251,11 @@ body.nav-open { overflow: hidden; }
 }
 
 .about-brand__body {
-    max-width: 640px;
+    max-width: var(--w-mid);
     margin: 0 auto;
 }
 
 .about-brand__body p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
     margin-bottom: 16px;
 }
 
@@ -2333,11 +2283,7 @@ body.nav-open { overflow: hidden; }
 }
 
 .about-mission__body p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
-    max-width: 600px;
+    max-width: var(--w-narrow);
     margin-bottom: 16px;
 }
 
@@ -2352,7 +2298,7 @@ body.nav-open { overflow: hidden; }
 }
 
 .about-mission__link {
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -2469,10 +2415,6 @@ body.nav-open { overflow: hidden; }
 }
 
 .timeline__desc {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #555;
     max-width: 480px;
     margin: 0 auto;
 }
@@ -2502,7 +2444,7 @@ body.nav-open { overflow: hidden; }
 
 .about-leadership__photo {
     width: 100%;
-    max-width: 560px;
+    max-width: 800px;
     display: block;
     margin: 0 auto 40px;
     object-fit: cover;

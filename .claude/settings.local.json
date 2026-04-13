@@ -25,7 +25,10 @@
       "Bash(sed -i '' 's/class=\"eyebrow reveal\">Event Management/class=\"eyebrow--page reveal\">Event Management/g' /Users/karenhuang/Documents/KIN/Claude/services.html /Users/karenhuang/Documents/KIN/Claude/services_edm.html)",
       "Bash(sed -i '' 's/class=\"eyebrow reveal\">What We Do/class=\"eyebrow--page reveal\">What We Do/g' /Users/karenhuang/Documents/KIN/Claude/services_curate.html /Users/karenhuang/Documents/KIN/Claude/services_designbuild.html)",
       "Bash(grep -rn \"eyebrow--page\\\\|class=\\\\\"eyebrow\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
-      "Bash(sips -Z 1200 --setProperty formatOptions 80 \"/Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg\" --out \"/Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg\")"
+      "Bash(sips -Z 1200 --setProperty formatOptions 80 \"/Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg\" --out \"/Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg\")",
+      "Bash(grep -rn \"eyebrow--page\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/karenhuang/Documents/KIN/Claude/Photos/Management.jpg)",
+      "Bash(sips --resampleWidth 1200 /Users/karenhuang/Documents/KIN/Claude/Photos/Management.jpg --out /Users/karenhuang/Documents/KIN/Claude/assets/images/about-leadership.jpg)"
     ]
   }
 }
