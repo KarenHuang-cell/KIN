@@ -357,7 +357,6 @@ ul  { list-style: none; }
     line-height: 90px;
     letter-spacing: -3px;
     color: #fff;
-    white-space: nowrap;        /* prevents words wrapping beyond the <br> */
 }
 
 
@@ -414,7 +413,6 @@ ul  { list-style: none; }
     font-weight: 700;
     line-height: 30px;
     letter-spacing: -0.48px;   /* -0.02em at 24px */
-    white-space: nowrap;
 }
 
 /* "View all projects →" */
@@ -603,7 +601,6 @@ ul  { list-style: none; }
     font-size: 36px;            /* ← CTA headline size */
     font-weight: 800;
     line-height: 40px;
-    white-space: nowrap;
     margin-bottom: 32px;
 }
 
@@ -1242,7 +1239,7 @@ ul  { list-style: none; }
 /* Prevent scroll when mobile nav is open */
 body.nav-open { overflow: hidden; }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
     /* ── Spacing tokens ──────────────────────────────────────── */
     :root {
