@@ -1315,14 +1315,20 @@ body.nav-open { overflow: hidden; }
     .nav__hamburger.is-open span:nth-child(2) { opacity: 0; }
     .nav__hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ── Hero ────────────────────────────────────────────────── */
+    /* ── Hero / page headlines — all pages ──────────────────── */
     .hero { padding-bottom: 56px; }
-    .hero__headline {
-        font-size: 44px;
-        line-height: 48px;
+    .hero__headline,
+    .portfolio-hero__title,
+    .cs-hero__title,
+    .svc-hero__title {
+        font-size: 48px;
+        line-height: 54px;
         letter-spacing: -1.5px;
-        white-space: normal;
     }
+
+    /* ── Services page — 1-col ───────────────────────────────── */
+    .svc-cards__grid { grid-template-columns: 1fr; gap: 40px; }
+    .svc-image__img  { height: 280px; }
 
     /* ── About ───────────────────────────────────────────────── */
     .about__headline { font-size: 22px; line-height: 28px; }
