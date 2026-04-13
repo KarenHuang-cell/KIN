@@ -1358,7 +1358,7 @@ body.nav-open { overflow: hidden; }
 
     /* ── Spacing tokens ──────────────────────────────────────── */
     :root {
-        --gutter: 20px;
+        --gutter: 64px;
         --section-v: 60px;
     }
 
@@ -1507,6 +1507,7 @@ body.nav-open { overflow: hidden; }
 
 /* ── WAC case study — phone ──────────────────────────────────── */
 @media (max-width: 620px) {
+    :root { --gutter: 32px; }
     .cs-stats__inner         { grid-template-columns: 1fr; }
     .cs-stat__num            { font-size: 56px; line-height: 56px; }
     .cs-gallery__img         { height: 240px; }
