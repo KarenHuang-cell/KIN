@@ -15,7 +15,9 @@
       "Bash(cp /Users/karenhuang/Documents/KIN/Photos/Swimmer.jpg /Users/karenhuang/Documents/KIN/Claude/assets/images/hl-wac.jpg)",
       "Bash(xxd)",
       "Bash(python3 -c ':*)",
-      "Bash(ls /Users/karenhuang/Documents/KIN/Claude/*.html)"
+      "Bash(ls /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "Bash(cp \"/Users/karenhuang/Documents/KIN/Photos/waterpolo.jpg\" \"/Users/karenhuang/Documents/KIN/Claude/assets/images/wac-hero.jpg\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/01b7d9ed-90a6-4e1a-b826-738f906c3dcf\" -o \"/Users/karenhuang/Documents/KIN/Claude/assets/images/wac-arena.jpg\")"
     ]
   }
 }

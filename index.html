@@ -136,7 +136,7 @@
     <div class="highlights-grid" role="list">
 
         <!-- Row 1 left — large -->
-        <article class="hl-card hl-card--wac reveal" role="listitem">
+        <a href="wac-case-study.html" class="hl-card hl-card--wac reveal" role="listitem">
             <div class="hl-card__img"
                  style="background-image: url('assets/images/hl-wac-2025.webp'); background-position: center 30%;"
                  role="img" aria-label="World Aquatics Championships 2025"></div>
@@ -145,7 +145,7 @@
                 <h3 class="hl-card__title">World Aquatics Championships 2025</h3>
                 <p class="hl-card__sub">— Singapore&rsquo;s largest aquatics event</p>
             </div>
-        </article>
+        </a>
 
         <!-- Row 1 right — small -->
         <article class="hl-card hl-card--hsbc reveal reveal-delay-1" role="listitem">
@@ -215,10 +215,19 @@
 
     // Nav
     loadInclude('nav-include', 'includes/nav.html', () => {
-        const nav = document.getElementById('nav');
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const list   = nav.querySelector('.nav__list');
+
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         }, { passive: true });
+
+        burger.addEventListener('click', () => {
+            const open = list.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+        });
     });
 
     // CTA band
