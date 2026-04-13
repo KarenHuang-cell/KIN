@@ -225,6 +225,7 @@
             const open = list.classList.toggle('is-open');
             burger.classList.toggle('is-open', open);
             burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
         });
     });
 
