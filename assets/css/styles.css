@@ -1332,12 +1332,10 @@ body.nav-open { overflow: hidden; }
     .section-hd { flex-direction: column; align-items: flex-start; gap: 10px; }
     .section-hd__title { white-space: normal; }
 
-    /* ── Service cards (3-col → 1-col, labels always visible) ── */
+    /* ── Service cards (3-col → 1-col) ──────────────────────── */
     .cards-three { grid-template-columns: 1fr; }
-    .project-card__overlay { opacity: 1; }
-    .project-card__text    { opacity: 1; transform: translateY(0); }
 
-    /* ── Highlights (asymmetric → 1-col, labels always visible) ─ */
+    /* ── Highlights (asymmetric → 1-col) ────────────────────── */
     .highlights-grid {
         grid-template-columns: 1fr;
         grid-auto-rows: 260px;
@@ -1346,8 +1344,15 @@ body.nav-open { overflow: hidden; }
     .hl-card--hsbc,
     .hl-card--odyssea,
     .hl-card--fide { grid-column: 1 / 2; }
-    .hl-card__overlay { opacity: 1; }
-    .hl-card__text    { opacity: 1; transform: translateY(0); }
+
+    /* ── Portfolio grid (3-col → 1-col) ─────────────────────── */
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: 280px;
+    }
+    .pg-item--1, .pg-item--2, .pg-item--3,
+    .pg-item--4, .pg-item--5, .pg-item--6,
+    .pg-item--7 { grid-column: 1 / 2; grid-row: auto; }
 
     /* ── CTA band ────────────────────────────────────────────── */
     .cta-band__headline {
@@ -1359,6 +1364,14 @@ body.nav-open { overflow: hidden; }
     /* ── Footer ──────────────────────────────────────────────── */
     .footer__top { grid-template-columns: 1fr; gap: 32px; }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* Touch devices — labels always visible (no hover available) */
+@media (hover: none) {
+    .hl-card__overlay        { opacity: 1; }
+    .hl-card__text           { opacity: 1; transform: translateY(0); }
+    .project-card__overlay   { opacity: 1; }
+    .project-card__text      { opacity: 1; transform: translateY(0); }
 }
 
 
