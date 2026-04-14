@@ -6,16 +6,26 @@
 
     <ul class="nav__list" role="list">
 
-        <li class="nav__item">
-            <a href="about.html" class="nav__link nav__link--has-dd">About</a>
+        <li class="nav__item nav__item--has-dd">
+            <div class="nav__item-row">
+                <a href="about.html" class="nav__link nav__link--has-dd">About</a>
+                <button class="nav__dd-toggle" aria-expanded="false" aria-label="Expand About menu">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
             <div class="nav__dropdown">
                 <a href="about-mission.html">Mission, Vision &amp; Values</a>
                 <a href="management-team.html">Management Team</a>
             </div>
         </li>
 
-        <li class="nav__item">
-            <a href="services.html" class="nav__link nav__link--has-dd">Services</a>
+        <li class="nav__item nav__item--has-dd">
+            <div class="nav__item-row">
+                <a href="services.html" class="nav__link nav__link--has-dd">Services</a>
+                <button class="nav__dd-toggle" aria-expanded="false" aria-label="Expand Services menu">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
             <div class="nav__dropdown">
                 <a href="services_edm.html">Event Delivery &amp; Management</a>
                 <a href="services_designbuild.html">Design &amp; Build</a>
@@ -23,19 +33,31 @@
             </div>
         </li>
 
-        <li class="nav__item">
-            <a href="portfolio.html" class="nav__link nav__link--has-dd">Portfolio</a>
+        <li class="nav__item nav__item--has-dd">
+            <div class="nav__item-row">
+                <a href="portfolio.html" class="nav__link nav__link--has-dd">Portfolio</a>
+                <button class="nav__dd-toggle" aria-expanded="false" aria-label="Expand Portfolio menu">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
             <div class="nav__dropdown">
                 <a href="media-coverage.html">Media Coverage</a>
             </div>
         </li>
 
         <li class="nav__item">
-            <a href="/insights" class="nav__link">Insights</a>
+            <div class="nav__item-row">
+                <a href="/insights" class="nav__link">Insights</a>
+            </div>
         </li>
 
-        <li class="nav__item">
-            <a href="investor-relations.html" class="nav__link nav__link--has-dd">Investor Relations</a>
+        <li class="nav__item nav__item--has-dd">
+            <div class="nav__item-row">
+                <a href="investor-relations.html" class="nav__link nav__link--has-dd">Investor Relations</a>
+                <button class="nav__dd-toggle" aria-expanded="false" aria-label="Expand Investor Relations menu">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
             <div class="nav__dropdown">
                 <a href="investor-relations.html#sgx">SGX Announcements</a>
                 <span class="nav__dd-item nav__dd-item--disabled">Prospectus</span>
@@ -56,3 +78,14 @@
     </button>
 
 </nav>
+
+<script>
+    /* Mobile accordion for nav dropdowns — runs once after nav is injected */
+    document.querySelectorAll('#nav .nav__dd-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.nav__item');
+            var isOpen = item.classList.toggle('mob-dd-open');
+            this.setAttribute('aria-expanded', String(isOpen));
+        });
+    });
+</script>

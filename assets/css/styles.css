@@ -1484,8 +1484,58 @@ body.nav-open { overflow: hidden; }
     }
     .nav__link:hover { color: #fff; background: none; }
     .nav__link--has-dd::after { display: none; }
-    .nav__dropdown          { display: none !important; }
     .nav__cta               { display: none; }
+
+    /* Mobile accordion */
+    .nav__item-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav__dd-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px 4px 8px 16px;
+        color: rgba(255,255,255,0.45);
+        transition: color 0.2s ease, transform 0.25s ease;
+        flex-shrink: 0;
+    }
+    .nav__dd-toggle svg { display: block; }
+    .nav__item.mob-dd-open .nav__dd-toggle {
+        transform: rotate(180deg);
+        color: #fff;
+    }
+    .nav__dropdown {
+        display: none;
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+        padding: 0 0 8px 0;
+        min-width: 0;
+        flex-direction: column;
+        gap: 0;
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+    }
+    .nav__item.mob-dd-open .nav__dropdown {
+        display: flex;
+    }
+    .nav__dropdown a,
+    .nav__dropdown .nav__dd-item {
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 0;
+        color: rgba(255,255,255,0.5);
+        border-radius: 0;
+        background: none;
+    }
+    .nav__dropdown a:hover { color: #fff; background: none; }
 
     /* Hamburger sits above the overlay (nav z-index: 200 > list z-index: 199) */
     .nav__hamburger {
@@ -1684,6 +1734,17 @@ body.nav-open { overflow: hidden; }
         color: var(--clr-navy);
         background: none;
     }
+    .nav--light .nav__dd-toggle {
+        color: rgba(3,29,69,0.35);
+    }
+    .nav--light .nav__item.mob-dd-open .nav__dd-toggle {
+        color: var(--clr-navy);
+    }
+    .nav--light .nav__dropdown a,
+    .nav--light .nav__dropdown .nav__dd-item {
+        color: rgba(3,29,69,0.45);
+    }
+    .nav--light .nav__dropdown a:hover { color: var(--clr-navy); }
 }
 
 
