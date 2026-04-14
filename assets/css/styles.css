@@ -782,6 +782,7 @@ ul  { list-style: none; }
 
 .footer__join-text {
     font-size: 14px;
+    max-width: 13em;
     color: rgba(255,255,255,0.50);
     line-height: 18px;
 }
@@ -2068,7 +2069,7 @@ body.nav-open { overflow: hidden; }
 .ir-item__title a:hover { opacity: 0.75; }
 
 .ir-view-all {
-    display: flex;
+    display: none;
     justify-content: flex-end;
     margin-top: 12px;
 }
