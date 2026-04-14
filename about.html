@@ -141,14 +141,26 @@
     // ── Milestones timeline ────────────────────────────────────
     (function () {
         const MILESTONES = [
-            { title: 'Foundation',               desc: 'KIN is founded with a vision to transform event delivery in Asia.' },
-            { title: 'Experiential Evolution',   desc: 'Expanded into design & build of immersive experiences with Hong Kong Disneyland\'s Castle of Magical Dreams gallery.' },
-            { title: 'Championship Breakthrough',desc: 'First major event tourism win: ATP250 Singapore Tennis Open, establishing KIN\'s credentials in international sports delivery.' },
-            { title: 'Capability Expansion',     desc: 'Incorporation of KIN Design & Build Pte Ltd, formalizing our experiential spaces division.' },
-            { title: 'Regional Growth',          desc: 'Geographic expansion bringing KIN\'s event tourism expertise to new destinations.' },
-            { title: 'Landmark Achievement',     desc: 'World Aquatics Championships Singapore 2025—Southeast Asia\'s first World Aquatics Championships, marking KIN\'s largest event tourism project to date.' },
-            { title: 'Marketplace Recognition',  desc: 'Recognised as one of the top 50 local enterprises that contributed to Singapore economic development, receiving the E50 Awards.' }
+            { year: '2017', title: 'Foundation',               desc: 'KIN is founded with a vision to transform event delivery in Asia.' },
+            { year: '2020', title: 'Experiential Evolution',   desc: 'Expanded into design & build of immersive experiences with Hong Kong Disneyland\'s Castle of Magical Dreams gallery.' },
+            { year: '2021', title: 'Championship Breakthrough',desc: 'First major event tourism win: ATP250 Singapore Tennis Open, establishing KIN\'s credentials in international sports delivery.' },
+            { year: '2023', title: 'Capability Expansion',     desc: 'Incorporation of KIN Design & Build Pte Ltd, formalizing our experiential spaces division.' },
+            { year: '2024', title: 'Regional Growth',          desc: 'Geographic expansion bringing KIN\'s event tourism expertise to new destinations.' },
+            { year: '2025', title: 'Landmark Achievement',     desc: 'World Aquatics Championships Singapore 2025—Southeast Asia\'s first World Aquatics Championships, marking KIN\'s largest event tourism project to date.' },
+            { year: '2025', title: 'Marketplace Recognition',  desc: 'Recognised as one of the top 50 local enterprises that contributed to Singapore economic development, receiving the E50 Awards.' }
         ];
+
+        // Populate vertical list (tablet / mobile)
+        const vContainer = document.getElementById('tl-vertical');
+        if (vContainer) {
+            vContainer.innerHTML = MILESTONES.map(ms => `
+                <div class="tl-vitem">
+                    <span class="tl-vitem__year">${ms.year}</span>
+                    <h3 class="tl-vitem__title">${ms.title}</h3>
+                    <p class="tl-vitem__desc">${ms.desc}</p>
+                </div>`).join('');
+            vContainer.removeAttribute('aria-hidden');
+        }
 
         const yearBtns   = Array.from(document.querySelectorAll('.tl-year'));
         const dotBtns    = Array.from(document.querySelectorAll('.tl-dot'));
