@@ -92,3 +92,15 @@
     </div>
 
 </nav>
+<script>
+    /* Close mob-nav on any link click (handles same-page anchors) */
+    document.getElementById('mob-nav').addEventListener('click', function(e) {
+        if (e.target.closest('a')) {
+            const burger = document.querySelector('.nav__hamburger');
+            this.classList.remove('is-open');
+            burger && burger.classList.remove('is-open');
+            burger && burger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
+        }
+    });
+</script>
