@@ -1662,7 +1662,7 @@ body.nav-open { overflow: hidden; }
         gap: 24px;
         position: fixed;
         inset: 0;
-        background: var(--clr-navy);
+        background: var(--clr-bg);
         padding: 80px 32px 48px;
         overflow-y: auto;
         z-index: 199;
