@@ -2081,9 +2081,7 @@ body.nav-open { overflow: hidden; }
     .ir-hero        { padding-top: calc(var(--nav-h) + 48px); }
     .ir-video__img  { height: 360px; }
     .ir-content     { grid-template-columns: 1fr; gap: 40px; }
-    .ir-sidebar__nav { flex-direction: row; flex-wrap: wrap; position: static; }
-    .ir-sidebar__link { border-bottom: none; border-top: none; padding: 6px 0; margin-right: 20px; }
-    .ir-sidebar__link:first-child { border-top: none; }
+    .ir-sidebar__nav { display: none; }
 }
 
 @media (max-width: 620px) {
