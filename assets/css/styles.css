@@ -1891,7 +1891,7 @@ body.nav-open { overflow: hidden; }
 }
 
 .ir-hero__body {
-    max-width: var(--w-narrow);
+    max-width: 800px;
 }
 
 .ir-hero__body p {
