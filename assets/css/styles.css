@@ -1155,6 +1155,7 @@ ul  { list-style: none; }
     line-height: 36px;
     color: #fff;
     margin: 36px 0 8px;
+    max-width: var(--w-narrow);
 }
 
 /* Services */
@@ -1845,6 +1846,10 @@ body.nav-open { overflow: hidden; }
 .corp-featured__content {
     padding-top: 8px;
     grid-column: 2 / 4;
+}
+
+.corp-featured__content .corp-card__bio {
+    max-width: var(--w-narrow);
 }
 
 /* Mobile */
@@ -2669,7 +2674,7 @@ body.nav-open { overflow: hidden; }
 
 /* Stack photo + text inside regular cards */
 .mgmt-card--regular .mgmt-card__photo {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 4;
     margin-bottom: 16px;
 }
 

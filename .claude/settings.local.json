@@ -50,7 +50,10 @@
       "Bash(sed -i '' '2034s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
       "Bash(sed -i '' '2249s/var\\(--clr-bg\\)/var\\(--clr-bg-light\\)/' /Users/karenhuang/Documents/KIN/Claude/assets/css/styles.css)",
       "Bash(git -C /Users/karenhuang/Documents/KIN/Claude diff assets/css/styles.css)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "WebFetch(domain:kingsmen.listedcompany.com)",
+      "WebSearch",
+      "WebFetch(domain:www.kin.net)"
     ]
   }
 }
