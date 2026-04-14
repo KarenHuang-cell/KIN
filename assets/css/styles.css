@@ -1445,99 +1445,10 @@ body.nav-open { overflow: hidden; }
     /* ── Navigation ──────────────────────────────────────────── */
     .nav { padding: 0 20px; }
 
-    /* Full-screen overlay — always flex, toggled via opacity */
-    .nav__list {
-        display: flex;
-        position: fixed;
-        inset: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        background: var(--clr-bg);
-        padding: 0 32px 40px;
-        gap: 0;
-        z-index: 199;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.35s ease, visibility 0.35s ease;
-    }
-    .nav__list.is-open {
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-    }
+    /* Hide desktop list entirely on mobile */
+    .nav__list { display: none; }
 
-    .nav__item { border-bottom: none; }
-
-    .nav__link {
-        width: 100%;
-        justify-content: flex-start;
-        font-size: 36px;
-        font-weight: 800;
-        line-height: 1;
-        letter-spacing: -1px;
-        padding: 14px 0;
-        color: rgba(255,255,255,0.45);
-        border-radius: 0;
-        background: none;
-    }
-    .nav__link:hover { color: #fff; background: none; }
-    .nav__link--has-dd::after { display: none; }
-    .nav__cta               { display: none; }
-
-    /* Mobile accordion */
-    .nav__item-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .nav__dd-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px 4px 8px 16px;
-        color: rgba(255,255,255,0.45);
-        transition: color 0.2s ease, transform 0.25s ease;
-        flex-shrink: 0;
-    }
-    .nav__dd-toggle svg { display: block; }
-    .nav__item.mob-dd-open .nav__dd-toggle {
-        transform: rotate(180deg);
-        color: #fff;
-    }
-    .nav__dropdown {
-        display: none;
-        position: static;
-        box-shadow: none;
-        border: none;
-        background: none;
-        padding: 0 0 8px 0;
-        min-width: 0;
-        flex-direction: column;
-        gap: 0;
-        opacity: 1;
-        pointer-events: auto;
-        visibility: visible;
-    }
-    .nav__item.mob-dd-open .nav__dropdown {
-        display: flex;
-    }
-    .nav__dropdown a,
-    .nav__dropdown .nav__dd-item {
-        font-size: 18px;
-        font-weight: 500;
-        padding: 8px 0;
-        color: rgba(255,255,255,0.5);
-        border-radius: 0;
-        background: none;
-    }
-    .nav__dropdown a:hover { color: #fff; background: none; }
-
-    /* Hamburger sits above the overlay (nav z-index: 200 > list z-index: 199) */
+    /* Hamburger — sits above overlay (z-index: 200) */
     .nav__hamburger {
         display: flex;
         flex-direction: column;
@@ -1548,6 +1459,8 @@ body.nav-open { overflow: hidden; }
         border: none;
         padding: 8px;
         margin-left: auto;
+        z-index: 200;
+        position: relative;
     }
     .nav__hamburger span {
         display: block;
@@ -1722,29 +1635,97 @@ body.nav-open { overflow: hidden; }
     background: var(--clr-navy);
 }
 
-/* Mobile overlay — light bg */
+/* Hamburger bar colour on light pages */
+.nav--light .nav__hamburger span { background: var(--clr-navy); }
+
+/* ── Mobile / tablet overlay ────────────────────────────────
+   Completely separate from desktop .nav__dropdown.
+   No shared classes — zero bleed from desktop styles.
+============================================================ */
+.mob-nav {
+    display: none; /* shown only in mobile media query */
+}
+
 @media (max-width: 1100px) {
-    .nav--light .nav__list {
-        background: var(--clr-bg-light);
+
+    /* Hide desktop list, show hamburger */
+    .nav__list { display: none; }
+    .nav__cta  { display: none; }
+    .nav__hamburger { display: flex; }
+    .nav--light .nav__hamburger span { background: var(--clr-navy); }
+    .nav--light .nav__hamburger.is-open span { background: #fff; }
+
+    /* Overlay */
+    .mob-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        position: fixed;
+        inset: 0;
+        background: var(--clr-navy);
+        padding: 80px 32px 48px;
+        overflow-y: auto;
+        z-index: 199;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
     }
-    .nav--light .nav__link {
-        color: rgba(3,29,69,0.35);
+    .mob-nav.is-open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
     }
-    .nav--light .nav__link:hover {
-        color: var(--clr-navy);
-        background: none;
+
+    /* Nav group */
+    .mob-nav__group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
-    .nav--light .nav__dd-toggle {
-        color: rgba(3,29,69,0.35);
+
+    /* Parent link */
+    .mob-nav__parent {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: #dddddd;
+        text-decoration: none;
+        line-height: 1;
     }
-    .nav--light .nav__item.mob-dd-open .nav__dd-toggle {
-        color: var(--clr-navy);
+    .mob-nav__parent:hover { color: #fff; }
+
+    /* Child link */
+    .mob-nav__child {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #dddddd;
+        text-decoration: none;
+        line-height: 1;
     }
-    .nav--light .nav__dropdown a,
-    .nav--light .nav__dropdown .nav__dd-item {
-        color: rgba(3,29,69,0.45);
+    .mob-nav__child:hover { color: #fff; }
+
+    /* Contact CTA */
+    .mob-nav__cta {
+        display: inline-flex;
+        align-self: center;
+        margin-top: 8px;
+        padding: 15px 40px;
+        background: var(--clr-accent);
+        color: #fff;
+        border-radius: 100px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-decoration: none;
     }
-    .nav--light .nav__dropdown a:hover { color: var(--clr-navy); }
 }
 
 

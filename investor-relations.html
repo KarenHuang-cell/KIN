@@ -122,12 +122,12 @@
     loadInclude('nav-include', 'includes/nav-light.html', () => {
         const nav    = document.getElementById('nav');
         const burger = nav.querySelector('.nav__hamburger');
-        const list   = nav.querySelector('.nav__list');
+        const mobNav = document.getElementById('mob-nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         }, { passive: true });
         burger.addEventListener('click', () => {
-            const open = list.classList.toggle('is-open');
+            const open = mobNav.classList.toggle('is-open');
             burger.classList.toggle('is-open', open);
             burger.setAttribute('aria-expanded', String(open));
             document.body.classList.toggle('nav-open', open);
