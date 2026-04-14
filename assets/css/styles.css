@@ -2525,24 +2525,92 @@ body.nav-open { overflow: hidden; }
     object-fit: cover;
 }
 
-/* Mobile */
+/* ── Vertical timeline (tablet & mobile) ─────────────────── */
+.tl-vertical {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    padding-left: 44px; /* space for dot column */
+}
+
+/* The vertical connector line */
+.tl-vertical::before {
+    content: '';
+    position: absolute;
+    left: 9px; /* centre of 20px dot */
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background: #c8cdd8;
+}
+
+.tl-vitem {
+    position: relative;
+}
+
+/* Dot */
+.tl-vitem::before {
+    content: '';
+    position: absolute;
+    left: -35px; /* pull back into the dot column */
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00c1e6;
+    z-index: 1;
+}
+
+.tl-vitem__year {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #00c1e6;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tl-vitem__title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #031d45;
+    margin: 0 0 6px;
+}
+
+.tl-vitem__desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 23px;
+    color: #6d6d69;
+    margin: 0;
+}
+
+/* Responsive */
 @media (max-width: 1100px) {
     .about-hero      { padding-top: calc(var(--nav-h) + 48px); }
     .about-mission   { grid-template-columns: 1fr; gap: 32px; }
     .about-mission__links { align-items: flex-start; }
-    .tl-year { font-size: 14px; letter-spacing: 1px; }
-    .tl-year.is-active { font-size: 22px; line-height: 28px; }
-    .tl-years { height: 28px; }
 }
 
-@media (max-width: 620px) {
-    .about-hero__title   { letter-spacing: -1.5px; }
-    .tl-year { font-size: 9px; letter-spacing: 0.02em; }
-    .tl-year.is-active { font-size: 14px; line-height: 18px; }
-    .tl-years { height: 18px; }
-    .tl-content { width: 200px; }
-    .tl-content__title { font-size: 18px; }
-    .tl-content-row { height: 180px; }
+/* Switch to vertical timeline below 860px */
+@media (max-width: 860px) {
+    .tl-wrap     { display: none; }
+    .tl-vertical { display: flex; }
+}
+
+@media (max-width: 480px) {
+    .about-hero__title { letter-spacing: -1.5px; }
+    .tl-vertical  { gap: 32px; padding-left: 36px; }
+    .tl-vitem::before { left: -27px; width: 14px; height: 14px; }
+    .tl-vertical::before { left: 6px; }
+    .tl-vitem__title { font-size: 18px; }
+    .tl-vitem__desc  { font-size: 14px; line-height: 21px; }
 }
 
 
