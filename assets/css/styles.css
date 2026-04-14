@@ -1865,6 +1865,7 @@ body.nav-open { overflow: hidden; }
     .corp-grid { grid-template-columns: 1fr; }
     .corp-hero__title { letter-spacing: -1px; }
     .corp-featured { grid-template-columns: 1fr; gap: 24px; }
+    .corp-featured__content { grid-column: 1; }
 }
 
 
