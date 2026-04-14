@@ -2363,115 +2363,135 @@ body.nav-open { overflow: hidden; }
 
 .about-mission__link:hover { opacity: 0.75; }
 
-/* Timeline section */
+/* Timeline / Milestones section */
 .about-timeline {
     padding: var(--section-v) var(--margin);
-    max-width: var(--max-w);
-    margin: 0 auto;
 }
 
-.about-timeline .eyebrow { margin-bottom: 12px; }
+.about-timeline .eyebrow { margin-bottom: 16px; }
 
 .about-timeline__heading {
-    font-size: clamp(24px, 2.5vw, 36px);
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0;
     color: var(--clr-navy);
-    margin-bottom: 56px;
+    margin-bottom: 80px;
 }
 
-/* Track */
-.timeline__track {
+.tl-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Row 1 — years */
+.tl-years {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px; /* fixed height prevents layout jump when active year changes size */
+}
+
+.tl-year {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #999;
+    line-height: 34px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: color 0.35s ease;
+}
+
+.tl-year.is-active {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 40px;
+    color: #00c1e6;
+}
+
+/* Row 2 — dots */
+.tl-dots {
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    padding-bottom: 0;
-    margin-bottom: 48px;
+    align-items: center;
 }
 
-/* Horizontal line */
-.timeline__track::before {
+.tl-dots::before {
     content: '';
     position: absolute;
-    bottom: 8px;
+    top: 50%;
     left: 0;
     right: 0;
     height: 1px;
-    background: rgba(3,29,69,0.15);
+    background: #c8cdd8;
+    transform: translateY(-50%);
 }
 
-/* Individual node */
-.timeline__node {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    position: relative;
-    padding-bottom: 0;
-}
-
-.timeline__year {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: rgba(3,29,69,0.35);
-    transition: color 0.2s ease;
-    user-select: none;
-}
-
-.timeline__dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(3,29,69,0.20);
-    border: 2px solid rgba(3,29,69,0.20);
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+.tl-dot {
     position: relative;
     z-index: 1;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #a8b8cc;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.45s cubic-bezier(0.16,1,0.3,1),
+                transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                box-shadow 0.45s cubic-bezier(0.16,1,0.3,1);
 }
 
-.timeline__node:hover .timeline__dot,
-.timeline__node.is-active .timeline__dot {
-    background: var(--clr-accent);
-    border-color: var(--clr-accent);
-    transform: scale(1.5);
+.tl-dot.is-active {
+    background: #00c1e6;
+    transform: scale(1.6);
+    box-shadow: 0 0 0 5px rgba(0,193,230,0.18);
 }
 
-.timeline__node:hover .timeline__year,
-.timeline__node.is-active .timeline__year {
-    color: var(--clr-accent);
-    font-size: 13px;
-    font-weight: 800;
+/* Row 3 — content */
+.tl-content-row {
+    position: relative;
+    height: 156px;
 }
 
-/* Content panel */
-.timeline__content {
-    text-align: center;
-    min-height: 80px;
-    padding: 0 var(--margin);
+.tl-content {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    opacity: 1;
+    transition: left 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease;
 }
 
-.timeline__active-year {
-    font-size: 48px;
-    font-weight: 800;
-    letter-spacing: -1.5px;
-    color: var(--clr-navy);
-    line-height: 1;
-    margin-bottom: 12px;
+.tl-content.is-fading {
+    opacity: 0;
 }
 
-.timeline__title {
-    font-size: 20px;
+.tl-content__title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--clr-navy);
-    margin-bottom: 10px;
+    line-height: 32px;
+    color: #031d45;
+    margin-bottom: 8px;
 }
 
-.timeline__desc {
-    max-width: 480px;
-    margin: 0 auto;
+.tl-content__desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    color: #6d6d69;
 }
 
 /* Leadership section */
@@ -2510,16 +2530,19 @@ body.nav-open { overflow: hidden; }
     .about-hero      { padding-top: calc(var(--nav-h) + 48px); }
     .about-mission   { grid-template-columns: 1fr; gap: 32px; }
     .about-mission__links { align-items: flex-start; }
-    .timeline__active-year { font-size: 36px; }
-    .timeline__year  { font-size: 10px; }
+    .tl-year { font-size: 14px; letter-spacing: 1px; }
+    .tl-year.is-active { font-size: 22px; line-height: 28px; }
+    .tl-years { height: 28px; }
 }
 
 @media (max-width: 620px) {
     .about-hero__title   { letter-spacing: -1.5px; }
-    .timeline__track     { gap: 0; }
-    .timeline__year      { font-size: 9px; letter-spacing: 0; }
-    .timeline__active-year { font-size: 28px; }
-    .timeline__content   { padding: 0; }
+    .tl-year { font-size: 9px; letter-spacing: 0.02em; }
+    .tl-year.is-active { font-size: 14px; line-height: 18px; }
+    .tl-years { height: 18px; }
+    .tl-content { width: 200px; }
+    .tl-content__title { font-size: 18px; }
+    .tl-content-row { height: 180px; }
 }
 
 

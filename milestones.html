@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Milestones — KIN</title>
+    <meta name="description" content="KIN's journey from foundation to landmark achievements in event tourism across Asia." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=43" />
+
+    <style>
+        /* ── Page shell ───────────────────────────────────────── */
+        .ms-page {
+            background: #f7f7f7;
+        }
+
+        /* ── Section ──────────────────────────────────────────── */
+        .ms-section {
+            background: #f7f7f7;
+            padding: 128px 120px;
+        }
+
+        .ms-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        /* ── Header ───────────────────────────────────────────── */
+        .ms-header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ms-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 4.2px;
+            text-transform: uppercase;
+            color: #00c1e6;
+            line-height: 20px;
+        }
+
+        .ms-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 40px;
+            color: #031d45;
+            text-transform: capitalize;
+        }
+
+        /* ── Timeline ─────────────────────────────────────────── */
+        .ms-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Row 1: years */
+        .ms-years {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* active year is taller, align bottoms */
+        }
+
+        .ms-year-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            line-height: 34px;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s, font-size 0.15s, line-height 0.15s, letter-spacing 0.15s;
+            white-space: nowrap;
+            /* no padding — pure text */
+        }
+
+        .ms-year-btn.is-active {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 0;
+            line-height: 40px;
+            color: #00c1e6;
+        }
+
+        /* Row 2: dots line */
+        .ms-dots-row {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* The horizontal line */
+        .ms-dots-row::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #c8cdd8;
+            transform: translateY(-50%);
+        }
+
+        .ms-dot-btn {
+            position: relative;
+            z-index: 1;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #a8b8cc;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+
+        .ms-dot-btn.is-active {
+            background: #00c1e6;
+            transform: scale(1.6);
+            box-shadow: 0 0 0 4px rgba(0, 193, 230, 0.25);
+        }
+
+        /* Row 3: content */
+        .ms-content-row {
+            position: relative;
+            height: 156px;
+        }
+
+        .ms-content {
+            position: absolute;
+            width: 300px;
+            top: 0;
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ms-content__title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+            color: #031d45;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .ms-content__desc {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #6d6d69;
+        }
+
+        /* ── Responsive ───────────────────────────────────────── */
+        @media (max-width: 1200px) {
+            .ms-section { padding: 80px 60px; }
+            .ms-year-btn { font-size: 18px; letter-spacing: 1px; }
+            .ms-year-btn.is-active { font-size: 28px; }
+            .ms-content__title { font-size: 20px; white-space: normal; }
+        }
+
+        @media (max-width: 760px) {
+            .ms-section { padding: 64px 24px; }
+            .ms-inner { gap: 48px; }
+            .ms-year-btn { font-size: 11px; letter-spacing: 0.03em; }
+            .ms-year-btn.is-active { font-size: 18px; }
+            .ms-content { width: 180px; }
+            .ms-content__title { font-size: 16px; white-space: normal; }
+            .ms-content__desc { font-size: 13px; }
+            .ms-content-row { height: 200px; }
+        }
+    </style>
+</head>
+<body class="about-page ms-page">
+
+<div id="nav-include"></div>
+
+<section class="ms-section" aria-labelledby="ms-heading">
+    <div class="ms-inner">
+
+        <div class="ms-header">
+            <p class="ms-eyebrow">The Journey</p>
+            <h2 class="ms-heading" id="ms-heading">Our Milestones</h2>
+        </div>
+
+        <div class="ms-timeline" id="ms-timeline">
+
+            <!-- Row 1: Year labels -->
+            <div class="ms-years" id="ms-years">
+                <span class="ms-year-btn" data-index="0">2017</span>
+                <span class="ms-year-btn" data-index="1">2020</span>
+                <span class="ms-year-btn" data-index="2">2021</span>
+                <span class="ms-year-btn is-active" data-index="3">2023</span>
+                <span class="ms-year-btn" data-index="4">2024</span>
+                <span class="ms-year-btn" data-index="5">2025</span>
+                <span class="ms-year-btn" data-index="6">2025</span>
+            </div>
+
+            <!-- Row 2: Dots on a line -->
+            <div class="ms-dots-row" id="ms-dots-row">
+                <button class="ms-dot-btn" aria-label="2017" data-index="0"></button>
+                <button class="ms-dot-btn" aria-label="2020" data-index="1"></button>
+                <button class="ms-dot-btn" aria-label="2021" data-index="2"></button>
+                <button class="ms-dot-btn is-active" aria-label="2023" data-index="3"></button>
+                <button class="ms-dot-btn" aria-label="2024" data-index="4"></button>
+                <button class="ms-dot-btn" aria-label="2025 (1)" data-index="5"></button>
+                <button class="ms-dot-btn" aria-label="2025 (2)" data-index="6"></button>
+            </div>
+
+            <!-- Row 3: Content panel (positioned under active dot) -->
+            <div class="ms-content-row" id="ms-content-row">
+                <div class="ms-content" id="ms-content">
+                    <h3 class="ms-content__title" id="ms-title"></h3>
+                    <p class="ms-content__desc" id="ms-desc"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const list   = nav.querySelector('.nav__list');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        burger.addEventListener('click', () => {
+            const open = list.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+
+    // ── Data ───────────────────────────────────────────────────
+    const MILESTONES = [
+        {
+            year:  '2017',
+            title: 'Foundation',
+            desc:  'KIN is founded with a vision to transform event delivery in Asia.'
+        },
+        {
+            year:  '2020',
+            title: 'Experiential Evolution',
+            desc:  'Expanded into design & build of immersive experiences with Hong Kong Disneyland\'s Castle of Magical Dreams gallery.'
+        },
+        {
+            year:  '2021',
+            title: 'Championship Breakthrough',
+            desc:  'First major event tourism win: ATP250 Singapore Tennis Open, establishing KIN\'s credentials in international sports delivery.'
+        },
+        {
+            year:  '2023',
+            title: 'Capability Expansion',
+            desc:  'Incorporation of KIN Design & Build Pte Ltd, formalizing our experiential spaces division.'
+        },
+        {
+            year:  '2024',
+            title: 'Regional Growth',
+            desc:  'Geographic expansion bringing KIN\'s event tourism expertise to new destinations.'
+        },
+        {
+            year:  '2025',
+            title: 'Landmark Achievement',
+            desc:  'World Aquatics Championships Singapore 2025—Southeast Asia\'s first World Aquatics Championships, marking KIN\'s largest event tourism project to date.'
+        },
+        {
+            year:  '2025',
+            title: 'Marketplace Recognition',
+            desc:  'Recognised as one of the top 50 local enterprises that contributed to Singapore economic development, receiving the E50 Awards.'
+        }
+    ];
+
+    // ── Logic ──────────────────────────────────────────────────
+    (function () {
+        const yearBtns  = Array.from(document.querySelectorAll('.ms-year-btn'));
+        const dotBtns   = Array.from(document.querySelectorAll('.ms-dot-btn'));
+        const contentEl = document.getElementById('ms-content');
+        const titleEl   = document.getElementById('ms-title');
+        const descEl    = document.getElementById('ms-desc');
+        const dotsRow   = document.getElementById('ms-dots-row');
+        const contentRow = document.getElementById('ms-content-row');
+
+        let activeIndex = 3;
+
+        function positionContent(index) {
+            const dot      = dotBtns[index];
+            const dotRect  = dot.getBoundingClientRect();
+            const rowRect  = contentRow.getBoundingClientRect();
+            const dotCenterX = dotRect.left - rowRect.left + dotRect.width / 2;
+            const contentW   = contentEl.offsetWidth;
+
+            let left = dotCenterX - contentW / 2;
+            // Clamp within row bounds
+            left = Math.max(0, Math.min(left, rowRect.width - contentW));
+            contentEl.style.left = left + 'px';
+        }
+
+        function activate(index) {
+            yearBtns.forEach(b => b.classList.remove('is-active'));
+            dotBtns.forEach(b => b.classList.remove('is-active'));
+
+            yearBtns[index].classList.add('is-active');
+            dotBtns[index].classList.add('is-active');
+
+            titleEl.textContent = MILESTONES[index].title;
+            descEl.textContent  = MILESTONES[index].desc;
+
+            activeIndex = index;
+            positionContent(index);
+        }
+
+        // Hover on year or dot
+        yearBtns.forEach((btn, i) => {
+            btn.addEventListener('mouseenter', () => activate(i));
+        });
+        dotBtns.forEach((btn, i) => {
+            btn.addEventListener('mouseenter', () => activate(i));
+        });
+
+        // Click to lock
+        yearBtns.forEach((btn, i) => {
+            btn.addEventListener('click', () => activate(i));
+        });
+        dotBtns.forEach((btn, i) => {
+            btn.addEventListener('click', () => activate(i));
+        });
+
+        // Init + reposition on resize
+        activate(activeIndex);
+        window.addEventListener('resize', () => positionContent(activeIndex), { passive: true });
+    })();
+</script>
+
+</body>
+</html>
