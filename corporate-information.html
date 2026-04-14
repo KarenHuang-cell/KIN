@@ -128,6 +128,62 @@
         .ci2-person__body p:last-child {
             margin-bottom: 0;
         }
+
+        /* ── Tablet (≤ 1024px) ── */
+        @media (max-width: 1024px) {
+            .ci2-hero {
+                padding: calc(var(--nav-h) + 48px) 48px 48px;
+            }
+            .ci2-section {
+                padding: 0 48px 64px;
+            }
+            .ci2-hero__title {
+                font-size: 44px;
+                line-height: 52px;
+            }
+            .ci2-person {
+                grid-template-columns: 200px 1fr;
+                gap: 0 40px;
+            }
+            .ci2-person__photo {
+                width: 200px;
+                height: 267px;
+            }
+            .ci2-person__bio {
+                max-width: 100%;
+            }
+        }
+
+        /* ── Mobile (≤ 640px) ── */
+        @media (max-width: 640px) {
+            .ci2-hero {
+                padding: calc(var(--nav-h) + 40px) 24px 40px;
+            }
+            .ci2-section {
+                padding: 0 24px 56px;
+            }
+            .ci2-hero__title {
+                font-size: 36px;
+                line-height: 44px;
+            }
+            .ci2-section__heading {
+                font-size: 18px;
+                line-height: 26px;
+            }
+            .ci2-person {
+                grid-template-columns: 1fr;
+                gap: 24px 0;
+            }
+            .ci2-person__photo {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 3 / 4;
+                max-width: 280px;
+            }
+            .ci2-person__bio {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body class="corp-page ci2-page">

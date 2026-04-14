@@ -60,6 +60,25 @@
         </div>
     </section>
 
+    <!-- SVG filter: removes white/near-white pixels from logo images -->
+    <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="logo-filter" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+                <feColorMatrix type="saturate" values="0" />
+                <feColorMatrix type="matrix"
+                    values="1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                           -9 -9 -9 30 -10" />
+                <feComponentTransfer>
+                    <feFuncR type="linear" slope="0.775" />
+                    <feFuncG type="linear" slope="0.775" />
+                    <feFuncB type="linear" slope="0.775" />
+                </feComponentTransfer>
+            </filter>
+        </defs>
+    </svg>
+
     <!-- Accreditations -->
     <section class="accreditations reveal" aria-labelledby="accred-heading">
         <p class="eyebrow eyebrow--page">Accreditations</p>
@@ -67,43 +86,13 @@
         <p class="accreditations__body">Our accreditations reflect our commitment to delivering world-class event tourism experiences with the highest standards of quality, safety, and sustainability.</p>
 
         <div class="accreditations__logos">
-
-            <!-- bizSAFE STAR -->
-            <svg class="accreditations__logo" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="bizSAFE STAR">
-                <rect x="1" y="1" width="118" height="62" rx="4" stroke="#BBBBBB" stroke-width="1.5"/>
-                <text x="60" y="28" font-family="sans-serif" font-size="13" font-weight="700" fill="#333" text-anchor="middle">biz</text>
-                <text x="60" y="44" font-family="sans-serif" font-size="11" fill="#555" text-anchor="middle">SAFE STAR</text>
-            </svg>
-
-            <!-- ISO / Certification mark -->
-            <svg class="accreditations__logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Certification mark">
-                <circle cx="32" cy="32" r="30" stroke="#BBBBBB" stroke-width="1.5"/>
-                <circle cx="32" cy="32" r="22" stroke="#BBBBBB" stroke-width="1"/>
-                <text x="32" y="36" font-family="sans-serif" font-size="11" fill="#555" text-anchor="middle">CERT</text>
-            </svg>
-
-            <!-- BCA -->
-            <svg class="accreditations__logo" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Building and Construction Authority">
-                <rect x="1" y="1" width="118" height="62" rx="4" stroke="#BBBBBB" stroke-width="1.5"/>
-                <text x="60" y="28" font-family="sans-serif" font-size="14" font-weight="700" fill="#333" text-anchor="middle">BCA</text>
-                <text x="60" y="44" font-family="sans-serif" font-size="9" fill="#777" text-anchor="middle">Building &amp; Construction</text>
-            </svg>
-
-            <!-- CaseTrust -->
-            <svg class="accreditations__logo" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CaseTrust Accreditation">
-                <rect x="1" y="1" width="118" height="62" rx="4" stroke="#BBBBBB" stroke-width="1.5"/>
-                <text x="60" y="28" font-family="sans-serif" font-size="12" font-weight="700" fill="#333" text-anchor="middle">CaseTrust</text>
-                <text x="60" y="44" font-family="sans-serif" font-size="9" fill="#777" text-anchor="middle">Accredited</text>
-            </svg>
-
-            <!-- G-BIZ / EPPU -->
-            <svg class="accreditations__logo" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Singapore Government Supplier — EPPU Registered">
-                <rect x="1" y="1" width="118" height="62" rx="4" stroke="#BBBBBB" stroke-width="1.5"/>
-                <text x="60" y="26" font-family="sans-serif" font-size="11" fill="#777" text-anchor="middle">Singapore Gov't</text>
-                <text x="60" y="40" font-family="sans-serif" font-size="13" font-weight="700" fill="#333" text-anchor="middle">EPPU</text>
-                <text x="60" y="53" font-family="sans-serif" font-size="9" fill="#777" text-anchor="middle">Registered Supplier</text>
-            </svg>
-
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/Quality.png"       alt="ISO 9001:2015 Quality Management — EQA IMS Accredited Certification Body" /></span>
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/Environmental.png"  alt="ISO 14001:2015 Environmental Management — EQA IMS Accredited Certification Body" /></span>
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/Occupational.png"   alt="ISO 45001:2018 Occupational Health &amp; Safety — EQA IMS Accredited Certification Body" /></span>
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/GeBIZ EPPU.png"     alt="GeBIZ Singapore Registered Government Supplier — EPPU Registered" /></span>
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/Biz Safe Logo.svg"  alt="bizSAFE STAR" /></span>
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/bca-logo.svg"       alt="Building and Construction Authority" /></span>
+            <span class="accreditations__logo-wrap"><img class="accreditations__logo" src="assets/accreditations/PWM.svg"            alt="Progressive Wage Mark" /></span>
         </div>
     </section>
 
