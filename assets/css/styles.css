@@ -2538,7 +2538,7 @@ body.nav-open { overflow: hidden; }
 .tl-vertical::before {
     content: '';
     position: absolute;
-    left: 9px; /* centre of 20px dot */
+    left: 19px; /* padding-left(44) - dot-offset(35) + dot-radius(10) */
     top: 10px;
     bottom: 10px;
     width: 1px;
@@ -2608,7 +2608,7 @@ body.nav-open { overflow: hidden; }
     .about-hero__title { letter-spacing: -1.5px; }
     .tl-vertical  { gap: 32px; padding-left: 36px; }
     .tl-vitem::before { left: -27px; width: 14px; height: 14px; }
-    .tl-vertical::before { left: 6px; }
+    .tl-vertical::before { left: 16px; } /* padding(36) - dot-offset(27) + dot-radius(7) */
     .tl-vitem__title { font-size: 18px; }
     .tl-vitem__desc  { font-size: 14px; line-height: 21px; }
 }
