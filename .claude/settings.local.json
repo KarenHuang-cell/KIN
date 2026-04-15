@@ -54,7 +54,8 @@
       "WebFetch(domain:kingsmen.listedcompany.com)",
       "WebSearch",
       "WebFetch(domain:www.kin.net)",
-      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__use_figma"
+      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__use_figma",
+      "Bash(grep -rl \"styles.css?v=43\" /Users/karenhuang/Documents/KIN/Claude/*.html)"
     ]
   }
 }
