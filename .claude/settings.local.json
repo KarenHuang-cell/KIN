@@ -61,7 +61,15 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(gh api:*)",
-      "Bash(git remote:*)"
+      "Bash(git remote:*)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude branch -a)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude worktree list)",
+      "Bash(grep -l \"distracted-einstein\" /Users/karenhuang/.claude/projects/-Users-karenhuang-Documents-KIN-Claude/*.jsonl)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude reflog)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude status)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude log origin/main..HEAD --oneline)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude log HEAD..origin/main --oneline)",
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude diff --stat origin/main HEAD)"
     ]
   }
 }
