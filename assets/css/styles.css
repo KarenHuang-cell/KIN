@@ -418,6 +418,36 @@ video.hero__bg {
     object-fit: cover;
 }
 
+/* Sound toggle button */
+.hero__sound-toggle {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.hero__sound-toggle:hover {
+    background: rgba(0,0,0,0.5);
+    border-color: #fff;
+}
+
+.hero__sound-icon {
+    width: 20px;
+    height: 20px;
+}
+
 @media (max-width: 620px) {
     .hero:has(video) {
         height: auto;

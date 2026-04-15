@@ -25,11 +25,23 @@
 ================================================================ -->
 <section class="hero" aria-label="Hero">
 
-    <video class="hero__bg hero__video" autoplay muted loop playsinline
+    <video class="hero__bg hero__video" id="hero-video" autoplay muted loop playsinline
            aria-label="KIN showreel">
         <source src="Kin Video Edit_V1.mp4" type="video/mp4" />
     </video>
 
+    <button class="hero__sound-toggle" id="sound-toggle" aria-label="Unmute video">
+        <svg class="hero__sound-icon hero__sound-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+        <svg class="hero__sound-icon hero__sound-icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+    </button>
 
 </section>
 
@@ -245,6 +257,19 @@
 
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
+
+    // ── Hero video sound toggle ──────────────────────────────────────
+    const vid = document.getElementById('hero-video');
+    const btn = document.getElementById('sound-toggle');
+    const iconOff = btn.querySelector('.hero__sound-icon--off');
+    const iconOn  = btn.querySelector('.hero__sound-icon--on');
+
+    btn.addEventListener('click', () => {
+        vid.muted = !vid.muted;
+        iconOff.style.display = vid.muted ? '' : 'none';
+        iconOn.style.display  = vid.muted ? 'none' : '';
+        btn.setAttribute('aria-label', vid.muted ? 'Unmute video' : 'Mute video');
+    });
 </script>
 
 </body>
