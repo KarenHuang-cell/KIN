@@ -57,7 +57,10 @@
       "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__use_figma",
       "Bash(grep -rl \"styles.css?v=43\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
       "Bash(sed -i '' 's|<a href=\"/insights\" class=\"nav__link\">Insights</a>|<span class=\"nav__link nav__link--disabled\">Insights</span>|g' /Users/karenhuang/Documents/KIN/Claude/includes/nav-light.html /Users/karenhuang/Documents/KIN/Claude/includes/nav.html)",
-      "Bash(sed -i '' 's|<a href=\"/insights\" class=\"mob-nav__parent\">Insights</a>|<span class=\"mob-nav__parent mob-nav__parent--disabled\">Insights</span>|g' /Users/karenhuang/Documents/KIN/Claude/includes/nav-light.html /Users/karenhuang/Documents/KIN/Claude/includes/nav.html)"
+      "Bash(sed -i '' 's|<a href=\"/insights\" class=\"mob-nav__parent\">Insights</a>|<span class=\"mob-nav__parent mob-nav__parent--disabled\">Insights</span>|g' /Users/karenhuang/Documents/KIN/Claude/includes/nav-light.html /Users/karenhuang/Documents/KIN/Claude/includes/nav.html)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(gh api:*)"
     ]
   }
 }
