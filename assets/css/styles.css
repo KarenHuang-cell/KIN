@@ -418,6 +418,18 @@ video.hero__bg {
     object-fit: cover;
 }
 
+@media (max-width: 620px) {
+    .hero:has(video) {
+        height: auto;
+        min-height: 0;
+        padding: 0;
+    }
+    video.hero__bg {
+        position: relative;
+        object-fit: contain;
+    }
+}
+
 /* Dark gradient — improves text legibility */
 .hero__overlay {
     position: absolute;
