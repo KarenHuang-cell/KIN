@@ -60,7 +60,8 @@
       "Bash(sed -i '' 's|<a href=\"/insights\" class=\"mob-nav__parent\">Insights</a>|<span class=\"mob-nav__parent mob-nav__parent--disabled\">Insights</span>|g' /Users/karenhuang/Documents/KIN/Claude/includes/nav-light.html /Users/karenhuang/Documents/KIN/Claude/includes/nav.html)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(gh api:*)"
+      "Bash(gh api:*)",
+      "Bash(git remote:*)"
     ]
   }
 }
