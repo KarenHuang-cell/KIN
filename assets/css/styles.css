@@ -597,7 +597,7 @@ ul  { list-style: none; }
 
 .hl-card__img {
     position: absolute;
-    inset: 0;
+    inset: -1px;
     background-size: cover;
     background-position: center;
     transition: transform 0.7s cubic-bezier(.25,.46,.45,.94);
