@@ -1,0 +1,77 @@
+PROJECT FILE: olympic-esports-week-2023.html
+PAGE TITLE: Olympic Esports Week Singapore 2023 — KIN
+META DESC: How KIN helped deliver the inaugural Olympic Esports Week at Suntec Singapore — the IOC's first-ever live festival and global competition dedicated to virtual and simulated sports.
+
+HERO IMAGE: OEW2023_article_pic_1.jpeg
+HERO TITLE: Olympic Esports Week
+HERO SUBTITLE: The IOC's Inaugural Virtual Sports Festival
+
+EYEBROW: Where physical meets digital
+INTRO HEADLINE: Delivering the IOC's first-ever live esports festival in Singapore
+INTRO BODY:
+  The Olympic Movement gathered at Suntec Singapore on 22 June to launch
+  the inaugural Olympic Esports Week. The IOC, Ministry of Culture,
+  Community and Youth, Sport Singapore, and the Singapore National Olympic
+  Council partnered to create the IOC's first-ever festival and global
+  competition dedicated to virtual and simulated sports.
+
+  KIN worked tirelessly with the IOC as part of the Local Organising
+  Committee. Being an inaugural multi-sport event, the team focused on
+  adapting and acquiring knowledge during the planning process —
+  collaborating with stakeholders to develop schedules that accommodated
+  both rehearsal and competition timings across 15 sports and games over
+  three days.
+
+STATS: (up to 4)
+  - 1st / IOC esports event ever held
+  - 15 / Sports and games across two stages
+  - 3 / Days of competition and programming
+  - 4 / Partners: IOC, MCCY, SportSG, SNOC
+
+CAROUSEL IMAGES:
+  OEW2023_article_pic_1.jpeg
+  OEW2023_article_pic_2.jpeg
+  OEW2023_article_pic_3.jpeg
+  OEW2023_article_pic_4.jpeg
+
+SIDEBAR TITLE: Setting the precedent
+CLIENT: Singapore National Olympic Council (SNOC)
+DATE: 23–25 June 2023
+LOCATION: Suntec Singapore
+
+BODY:
+  ### Multi-Sport Logistics
+  To accommodate 15 sports and games over three days, two stages were
+  utilised. With limited time allocated for each reset between events,
+  close collaboration with tournament operations, broadcast teams, and
+  sports presentation teams was critical to keeping everything on schedule.
+
+  ### Free-to-Play Zone
+  A Free-to-Play zone was conceptualised as a vast arcade, creating an open
+  and inviting atmosphere within the venue. The welcoming ambiance ensured
+  all attendees felt included, regardless of their familiarity with esports.
+
+  ### Olympic Esports Forum
+  The Forum served as a platform for open dialogue and knowledge sharing
+  among industry leaders in sports and esports. Topics included the future
+  of esports technology, Singapore as a global esports hub, diversity and
+  inclusivity in the ecosystem, player welfare, and standards for fair play
+  and integrity.
+
+  ### Opening Ceremony
+  A dazzling opening ceremony celebrated inclusivity and diversity,
+  leveraging innovative technologies including holographic projection, laser
+  projection mapping, and automation to create a show that blurred the lines
+  between the physical and digital worlds.
+
+SERVICES:
+  - Budgetary projection and management
+  - Event Planning & Management
+  - Design, Production & Build
+  - Logistics, Operation & Furnishing
+  - Audio-Visual System & Show Presentation
+  - Overall Event Delivery
+
+KIN TARGETS:
+  To acquire knowledge, set a good precedent for future editions, and
+  create an elevated and memorable experience for all stakeholders.

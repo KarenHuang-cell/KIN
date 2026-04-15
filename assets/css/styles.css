@@ -411,6 +411,13 @@ ul  { list-style: none; }
     animation: hero-zoom 8s cubic-bezier(.25,.46,.45,.94) forwards;
 }
 
+/* Video variant of hero background */
+video.hero__bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Dark gradient — improves text legibility */
 .hero__overlay {
     position: absolute;
