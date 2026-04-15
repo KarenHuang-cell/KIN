@@ -93,42 +93,77 @@
 
             <!-- Slide 1 -->
             <div class="cs-gallery__slide">
-                <img src="assets/images/wac-arena.jpg"
+                <img src="assets/images/KIN_WAC2025_Arena_01.jpg"
                      alt="WAC 2025 competition arena"
                      class="cs-gallery__img" />
             </div>
 
             <!-- Slide 2 -->
             <div class="cs-gallery__slide">
-                <img src="assets/images/hl-wac-2025.webp"
-                     alt="World Aquatics Championships 2025"
+                <img src="assets/images/KIN_WAC2025_Arena_02.jpg"
+                     alt="WAC 2025 arena interior"
                      class="cs-gallery__img" />
             </div>
 
             <!-- Slide 3 -->
             <div class="cs-gallery__slide">
-                <img src="assets/images/wac-hero.jpg"
-                     alt="Water polo at WAC 2025"
+                <img src="assets/images/KIN_WAC2025_Arena_03.jpg"
+                     alt="WAC 2025 arena venue"
                      class="cs-gallery__img" />
             </div>
 
             <!-- Slide 4 -->
             <div class="cs-gallery__slide">
-                <img src="assets/images/hl-wac.jpg"
-                     alt="WAC 2025 venue"
+                <img src="assets/images/WCH_DiveTwr_pano.jpeg"
+                     alt="WAC 2025 high diving tower panorama"
                      class="cs-gallery__img" />
             </div>
 
             <!-- Slide 5 -->
             <div class="cs-gallery__slide">
-                <img src="assets/images/portfolio-diver.jpg"
-                     alt="High diving at WAC 2025"
-                     class="cs-gallery__img" style="object-position: center top;" />
+                <img src="assets/images/wch-30_DiveTwr.jpg"
+                     alt="WAC 2025 high diving tower"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/IBC_02.jpeg"
+                     alt="WAC 2025 International Broadcast Centre"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/IBC_03.jpeg"
+                     alt="WAC 2025 IBC broadcast operations"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/IBC_04.jpeg"
+                     alt="WAC 2025 IBC technical setup"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/IBC_05.jpeg"
+                     alt="WAC 2025 IBC broadcast hub"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 10 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/IBC_06.jpeg"
+                     alt="WAC 2025 IBC facilities"
+                     class="cs-gallery__img" />
             </div>
 
             <!-- Clone of slide 1 — for seamless loop -->
             <div class="cs-gallery__slide" aria-hidden="true">
-                <img src="assets/images/wac-arena.jpg"
+                <img src="assets/images/KIN_WAC2025_Arena_01.jpg"
                      alt=""
                      class="cs-gallery__img" />
             </div>
@@ -138,6 +173,11 @@
 
     <div class="cs-gallery__dots" id="cs-carousel-dots" aria-hidden="true">
         <span class="cs-gallery__dot cs-gallery__dot--active"></span>
+        <span class="cs-gallery__dot"></span>
+        <span class="cs-gallery__dot"></span>
+        <span class="cs-gallery__dot"></span>
+        <span class="cs-gallery__dot"></span>
+        <span class="cs-gallery__dot"></span>
         <span class="cs-gallery__dot"></span>
         <span class="cs-gallery__dot"></span>
         <span class="cs-gallery__dot"></span>
@@ -303,7 +343,7 @@
 
     // ── Carousel ──────────────────────────────────────────────────────
     (function () {
-        const TOTAL = 5;
+        const TOTAL = 10;
         const track = document.getElementById('cs-carousel-track');
         const dots  = Array.from(document.getElementById('cs-carousel-dots').children);
         let current = 0;
