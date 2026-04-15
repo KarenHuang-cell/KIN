@@ -945,7 +945,7 @@ ul  { list-style: none; }
 .cs-hero {
     position: relative;
     height: 720px;
-    background: #00c1e6;
+    background: #000;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
