@@ -69,7 +69,13 @@
       "Bash(git -C /Users/karenhuang/Documents/KIN/Claude status)",
       "Bash(git -C /Users/karenhuang/Documents/KIN/Claude log origin/main..HEAD --oneline)",
       "Bash(git -C /Users/karenhuang/Documents/KIN/Claude log HEAD..origin/main --oneline)",
-      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude diff --stat origin/main HEAD)"
+      "Bash(git -C /Users/karenhuang/Documents/KIN/Claude diff --stat origin/main HEAD)",
+      "Bash(grep -r \"background-image\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "Bash([ ! -f \"/Users/karenhuang/Documents/KIN/Claude/$img\" ])",
+      "Bash(grep -h \"assets/css\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
+      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_design_context",
+      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_metadata",
+      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_screenshot"
     ]
   }
 }
