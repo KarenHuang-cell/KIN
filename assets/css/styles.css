@@ -784,6 +784,14 @@ ul  { list-style: none; }
     margin-bottom: 12px;
 }
 
+.footer__join-text a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    opacity: 0.8;
+}
+.footer__join-text a:hover { opacity: 1; }
+
 .footer__join-text {
     font-size: 14px;
     max-width: 13em;
@@ -821,7 +829,7 @@ ul  { list-style: none; }
 .footer__bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 24px;
     padding-top: 24px;
 }
@@ -1541,7 +1549,7 @@ body.nav-open { overflow: hidden; }
         gap: 32px;
     }
     .footer__top > div:first-child { grid-row: span 2; }
-    .footer__bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer__bottom { justify-content: flex-end; }
 
     /* ── WAC case study — tablet ─────────────────────────────── */
     .cs-stats__inner {
@@ -2284,7 +2292,7 @@ body.nav-open { overflow: hidden; }
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 24px;
 }
 

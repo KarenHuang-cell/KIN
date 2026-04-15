@@ -75,7 +75,9 @@
       "Bash(grep -h \"assets/css\" /Users/karenhuang/Documents/KIN/Claude/*.html)",
       "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_design_context",
       "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_metadata",
-      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_screenshot"
+      "mcp__f70c28dd-5abf-4877-97aa-f495747376f0__get_screenshot",
+      "Bash(sed -i '' 's|<p class=\"footer__legal\">|<p class=\"footer__legal\">© 2026 Kin. All Rights Reserved. \\\\&nbsp;|\\\\&nbsp; |g' /Users/karenhuang/Documents/KIN/Claude/includes/footer-light.html /Users/karenhuang/Documents/KIN/Claude/includes/footer.html)",
+      "Bash(sed -i '' 's|&nbsp;|&amp;nbsp;|g' /Users/karenhuang/Documents/KIN/Claude/includes/footer-light.html /Users/karenhuang/Documents/KIN/Claude/includes/footer.html)"
     ]
   }
 }
