@@ -3364,3 +3364,23 @@ body.nav-open { overflow: hidden; }
 @keyframes hero-fade {
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ============================================================
+   GLOBAL H1 OVERRIDES — must be last to win cascade
+============================================================ */
+@media (max-width: 1100px) {
+    .hero__headline,
+    .portfolio-hero__title,
+    .cs-hero__title,
+    .svc-hero__title,
+    .about-hero__title,
+    .corp-hero__title,
+    .ir-hero__title,
+    .contact-hero__title,
+    .mv-split__heading {
+        font-size: 48px;
+        line-height: 54px;
+        letter-spacing: -1.5px;
+    }
+}
+
