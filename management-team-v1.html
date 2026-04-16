@@ -3,59 +3,64 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Management Team — KIN (V2)</title>
+    <title>Management Team — KIN (V1)</title>
     <meta name="description" content="Meet the leadership team behind KIN Experience Management." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css?v=44" />
     <style>
-        /* V2 — Photo as accent strip below text */
-        .v2-hero {
-            padding: calc(var(--nav-h) + 48px) var(--margin) 0;
-            max-width: var(--max-w);
-            margin: 0 auto;
+        /* V1 — Photo bleeds to right edge */
+        .v1-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 520px;
+            overflow: hidden;
         }
 
-        .v2-hero .eyebrow { color: var(--clr-accent); margin-bottom: 12px; }
+        .v1-hero__text {
+            padding: calc(var(--nav-h) + 48px) 48px 48px var(--margin);
+            max-width: 640px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        .v2-hero__title {
+        .v1-hero__text .eyebrow { color: var(--clr-accent); margin-bottom: 12px; }
+
+        .v1-hero__title {
             font-size: clamp(32px, 3.5vw, 48px);
             font-weight: 800;
             line-height: 1.08;
             letter-spacing: -1.5px;
             color: var(--clr-navy);
-            max-width: 560px;
+            max-width: 420px;
             margin-bottom: 16px;
         }
 
-        .v2-hero__sub {
+        .v1-hero__sub {
             font-size: 15px;
             font-weight: 400;
             line-height: 1.55;
             color: #555;
-            max-width: 520px;
-            margin-bottom: 40px;
+            max-width: 400px;
         }
 
-        .v2-hero__strip {
+        .v1-hero__photo {
             width: 100%;
-            aspect-ratio: 2.8 / 1;
+            height: 100%;
             object-fit: cover;
-            object-position: center 22%;
+            object-position: center 25%;
             display: block;
-            border-radius: 8px;
-            border: 1px solid rgba(3,29,69,0.08);
         }
-
-        .v2-spacer { height: 48px; }
 
         @media (max-width: 860px) {
-            .v2-hero { padding-top: calc(var(--nav-h) + 36px); }
-            .v2-hero__strip { aspect-ratio: 2 / 1; }
+            .v1-hero { grid-template-columns: 1fr; min-height: auto; }
+            .v1-hero__text { padding: calc(var(--nav-h) + 36px) var(--margin) 32px; }
+            .v1-hero__photo { height: 360px; }
         }
 
-        /* Bios — cyan title accent, rounded photos */
+        /* Bios — left accent border */
         .corp-bios { display: flex; flex-direction: column; gap: 0; }
 
         .corp-bio {
@@ -64,6 +69,8 @@
             gap: 32px;
             align-items: start;
             padding: 36px 0;
+            border-left: 2px solid transparent;
+            padding-left: 0;
             border-bottom: 1px solid rgba(3,29,69,0.06);
         }
         .corp-bio:last-child { border-bottom: none; }
@@ -74,11 +81,10 @@
             object-fit: cover;
             object-position: center top;
             filter: grayscale(100%);
-            border-radius: 4px;
         }
 
         .corp-bio__text { padding-top: 4px; max-width: 600px; }
-        .corp-bio__text .corp-card__title { margin-bottom: 14px; color: var(--clr-accent); font-size: 13px; font-weight: 600; }
+        .corp-bio__text .corp-card__title { margin-bottom: 16px; }
         .corp-bio__text p:not(.person-name):not(.corp-card__title) {
             font-size: 14px; font-weight: 400; line-height: 20px; color: #555; margin-bottom: 10px;
         }
@@ -96,14 +102,17 @@
 
 <div class="site-wrap">
 
-    <!-- V2: Text then photo strip -->
-    <div class="v2-hero reveal">
-        <p class="eyebrow eyebrow--page">Meet the Team</p>
-        <h1 class="v2-hero__title">80+ years in the arena.</h1>
-        <p class="v2-hero__sub">The people behind KIN have delivered Youth Olympic Games, Southeast Asian Games, FIFA World Cups, and Universal Studios Singapore &mdash; before building this company from the ground up.</p>
-        <img src="assets/images/about-leadership.jpg" alt="KIN leadership team" class="v2-hero__strip" />
+    <!-- V1: Photo bleeds right -->
+    <div class="v1-hero reveal">
+        <div class="v1-hero__text">
+            <p class="eyebrow eyebrow--page">Meet the Team</p>
+            <h1 class="v1-hero__title">80+ years in the arena.</h1>
+            <p class="v1-hero__sub">The people behind KIN have delivered Youth Olympic Games, Southeast Asian Games, FIFA World Cups, and Universal Studios Singapore &mdash; before building this company from the ground up.</p>
+        </div>
+        <img src="assets/images/about-leadership.jpg"
+             alt="KIN leadership team"
+             class="v1-hero__photo" />
     </div>
-    <div class="v2-spacer"></div>
 
     <!-- Management Team -->
     <section class="corp-section" aria-labelledby="mgmt-heading">
