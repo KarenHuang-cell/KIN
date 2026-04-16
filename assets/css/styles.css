@@ -1096,7 +1096,7 @@ video.hero__bg {
 }
 
 .cs-hero__title {
-    font-size: 72px;
+    font-size: 80px;
     font-weight: 800;
     line-height: 80px;
     letter-spacing: -1px;
@@ -1887,7 +1887,7 @@ body.nav-open { overflow: hidden; }
 }
 
 .corp-hero__title {
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: 80px;
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -2px;
@@ -2141,7 +2141,7 @@ body.nav-open { overflow: hidden; }
 .ir-hero .eyebrow { margin-bottom: 16px; }
 
 .ir-hero__title {
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: 80px;
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -2px;
@@ -2421,7 +2421,7 @@ body.nav-open { overflow: hidden; }
 .contact-hero .eyebrow { margin-bottom: 16px; }
 
 .contact-hero__title {
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: 80px;
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -2px;
@@ -2642,7 +2642,7 @@ body.nav-open { overflow: hidden; }
 .about-hero .eyebrow--page { margin-bottom: 16px; }
 
 .about-hero__title {
-    font-size: clamp(48px, 6vw, 88px);
+    font-size: 80px;
     font-weight: 800;
     line-height: 1.0;
     letter-spacing: -2.5px;
@@ -3027,7 +3027,7 @@ body.nav-open { overflow: hidden; }
 }
 
 .mv-split__heading {
-    font-size: clamp(36px, 4vw, 52px);
+    font-size: 80px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -2px;
