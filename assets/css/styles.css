@@ -3368,6 +3368,17 @@ body.nav-open { overflow: hidden; }
 /* ============================================================
    GLOBAL H1 OVERRIDES — must be last to win cascade
 ============================================================ */
+
+/* Light-page H1s: thicker rendering to match dark-page appearance */
+.about-hero__title,
+.corp-hero__title,
+.ir-hero__title,
+.contact-hero__title,
+.mv-split__heading {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+
 @media (max-width: 1100px) {
     .hero__headline,
     .portfolio-hero__title,
