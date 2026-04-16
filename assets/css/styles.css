@@ -480,10 +480,10 @@ video.hero__bg {
 
 /* Main hero headline */
 .hero__headline {
-    font-size: clamp(48px, 7vw, 90px);
+    font-size: 90px;
     font-weight: 800;
     line-height: 1;
-    letter-spacing: clamp(-1.5px, -0.25vw, -3px);
+    letter-spacing: -3px;
     color: #fff;
 }
 
@@ -1607,6 +1607,7 @@ body.nav-open { overflow: hidden; }
 
     /* ── Hero / page headlines — all pages ──────────────────── */
     .hero { padding-bottom: 56px; }
+    .hero__headline,
     .portfolio-hero__title,
     .cs-hero__title,
     .svc-hero__title,

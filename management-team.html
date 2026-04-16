@@ -30,7 +30,7 @@
         .corp-intro__title {
             font-size: 80px;
             font-weight: 800;
-            line-height: 1.05;
+            line-height: 1;
             letter-spacing: -1.5px;
             color: var(--clr-navy);
             max-width: 500px;
@@ -56,7 +56,9 @@
                 padding-top: calc(var(--nav-h) + 32px);
                 gap: 32px;
             }
-            .corp-intro__photo { max-width: 480px; }
+            .corp-intro__photo { max-width: 100%; }
+            .corp-intro__title { max-width: 100%; }
+            .corp-intro__sub { max-width: 100%; }
         }
 
         /* Bios-loaded layout */
