@@ -79,7 +79,12 @@
       "Bash(sed -i '' 's|<p class=\"footer__legal\">|<p class=\"footer__legal\">© 2026 Kin. All Rights Reserved. \\\\&nbsp;|\\\\&nbsp; |g' /Users/karenhuang/Documents/KIN/Claude/includes/footer-light.html /Users/karenhuang/Documents/KIN/Claude/includes/footer.html)",
       "Bash(sed -i '' 's|&nbsp;|&amp;nbsp;|g' /Users/karenhuang/Documents/KIN/Claude/includes/footer-light.html /Users/karenhuang/Documents/KIN/Claude/includes/footer.html)",
       "Bash(git worktree:*)",
-      "Bash(ls /Users/karenhuang/Documents/KIN/Claude/*.mp4)"
+      "Bash(ls /Users/karenhuang/Documents/KIN/Claude/*.mp4)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(ls -la *.mp4)",
+      "Bash(ls -la Photos/*.mp4)",
+      "Bash(git check-ignore:*)"
     ]
   }
 }
