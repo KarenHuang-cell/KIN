@@ -767,6 +767,7 @@ video.hero__bg {
 }
 
 .cta-band--light {
+    background: var(--clr-bg-light);
     border-top-color: rgba(3,29,69,0.12);
     border-bottom: none;
 }

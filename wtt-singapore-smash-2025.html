@@ -12,6 +12,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/styles.css?v=47" />
+    <style>
+        @media (min-width: 621px) {
+            .cs-hero {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                height: 100vh;
+            }
+            .cs-intro,
+            .cs-stats,
+            .cs-gallery,
+            .cs-content,
+            .cta-band,
+            .footer {
+                position: relative;
+                z-index: 10;
+                background: var(--clr-bg);
+            }
+            .cs-intro::before {
+                content: '';
+                position: absolute;
+                bottom: 100%;
+                left: 0;
+                right: 0;
+                height: 460px;
+                background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(13,13,13,0.45) 50%, transparent 100%);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+            .cs-intro.gradient-active::before {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -242,6 +277,14 @@
 
 
 <script>
+    // ── Panel-reveal gradient: activate after scrolling past 100px ────
+    (function () {
+        const intro = document.querySelector('.cs-intro');
+        window.addEventListener('scroll', function () {
+            intro.classList.toggle('gradient-active', window.scrollY > 100);
+        }, { passive: true });
+    })();
+
     // ── Load includes ─────────────────────────────────────────────────
     function loadInclude(id, url, callback) {
         fetch(url + '?v=' + Date.now())
