@@ -498,16 +498,16 @@ video.hero__bg {
 }
 
 .about__inner {
-    max-width: var(--w-narrow);           /* ← max width of about text block */
+    max-width: 720px;
     margin: 0 auto;
 }
 
 /* "Engineers of experiences…" heading */
 .about__headline {
-    font-size: 26px;            /* ← about section heading size */
+    font-size: 30px;
     font-weight: 700;
-    line-height: 32px;
-    letter-spacing: -0.52px;   /* -0.02em at 26px */
+    line-height: 36px;
+    letter-spacing: -0.6px;
     margin-bottom: 18px;
 }
 
@@ -530,10 +530,10 @@ video.hero__bg {
 
 /* "Transforming cities…" / "See our highlights" */
 .section-hd__title {
-    font-size: 24px;            /* ← section heading size */
+    font-size: 30px;
     font-weight: 700;
-    line-height: 30px;
-    letter-spacing: -0.48px;   /* -0.02em at 24px */
+    line-height: 36px;
+    letter-spacing: -0.6px;
 }
 
 /* "View all projects →" */
