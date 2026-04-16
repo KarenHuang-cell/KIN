@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corporate Information — KIN</title>
+    <meta name="description" content="Meet the Board of Directors and Executive Directors of KIN Experience Management." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=48" />
+
+    <style>
+        /* ── Corporate Information V2 — aligned to management-team-redesign-v2 ── */
+
+        .ci-v2 {
+            background: var(--clr-bg-light);
+        }
+
+        /* Hero */
+        .ci-v2__hero {
+            padding: calc(var(--nav-h) + 64px) var(--margin) 56px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        .ci-v2__eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--clr-accent);
+            margin-bottom: 16px;
+        }
+        .ci-v2__hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 64px;
+            color: var(--clr-navy);
+        }
+
+        /* Section wrapper */
+        .ci-v2__section {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--margin) 80px;
+        }
+        .ci-v2__section + .ci-v2__section {
+            padding-top: 40px;
+        }
+
+        /* Section heading */
+        .ci-v2__heading {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 30px;
+            color: var(--clr-navy);
+            margin-bottom: 8px;
+        }
+        .ci-v2__rule {
+            display: none;
+        }
+
+        /* Person row */
+        .ci-v2__person {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 64px;
+            padding: 56px 0;
+            border-top: 1px solid rgba(3,29,69,0.12);
+            position: relative;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .ci-v2__person.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .ci-v2__person:last-child {
+            border-bottom: none;
+        }
+
+        /* Photo */
+        .ci-v2__photo-wrap {
+            position: relative;
+        }
+        .ci-v2__photo {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: grayscale(100%) contrast(1.04);
+            transition: filter 0.5s ease;
+        }
+        .ci-v2__person:hover .ci-v2__photo {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        /* Bio column */
+        .ci-v2__bio {
+            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .ci-v2__name {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 36px;
+            letter-spacing: -0.6px;
+            color: var(--clr-navy);
+            margin-bottom: 10px;
+        }
+        .ci-v2__title {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .ci-v2__accent {
+            width: 32px;
+            height: 2px;
+            background: var(--clr-accent);
+            margin-bottom: 20px;
+        }
+        .ci-v2__body p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .ci-v2__body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Tablet (≤ 1024px) ── */
+        @media (max-width: 1024px) {
+            .ci-v2__hero {
+                padding: calc(var(--nav-h) + 48px) 48px 48px;
+            }
+            .ci-v2__section {
+                padding: 0 48px 64px;
+            }
+            .ci-v2__hero-title {
+                font-size: 44px;
+                line-height: 52px;
+            }
+        }
+
+        /* ── Mobile (≤ 640px) ── */
+        @media (max-width: 640px) {
+            .ci-v2__hero {
+                padding: calc(var(--nav-h) + 40px) 24px 40px;
+            }
+            .ci-v2__section {
+                padding: 0 24px 56px;
+            }
+            .ci-v2__hero-title {
+                font-size: 36px;
+                line-height: 44px;
+            }
+            .ci-v2__heading {
+                font-size: 18px;
+                line-height: 26px;
+            }
+            .ci-v2__person {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 48px 0;
+            }
+            .ci-v2__photo {
+                aspect-ratio: 4 / 3;
+                object-position: center 20%;
+                max-height: 300px;
+                width: 100%;
+            }
+            .ci-v2__name {
+                font-size: 26px;
+                line-height: 32px;
+            }
+
+            /* Mobile bio toggle */
+            .ci-v2__body p:not(:first-child) {
+                display: none;
+            }
+            .ci-v2__bio.bio-open .ci-v2__body p {
+                display: block;
+            }
+            .ci-v2__toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: none;
+                border: 1px solid rgba(3,29,69,0.12);
+                padding: 8px 16px;
+                margin-top: 20px;
+                font-family: var(--font);
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--clr-navy);
+                cursor: pointer;
+                transition: background 0.2s, color 0.2s;
+            }
+            .ci-v2__toggle:hover {
+                background: var(--clr-navy);
+                color: #fff;
+            }
+        }
+
+        /* Hide toggle on desktop */
+        .ci-v2__toggle {
+            display: none;
+        }
+    </style>
+</head>
+<body class="corp-page ci-v2">
+
+<div id="nav-include"></div>
+
+<div class="site-wrap">
+
+    <!-- Hero -->
+    <div class="ci-v2__hero reveal">
+        <p class="ci-v2__eyebrow">Investor Relations</p>
+        <h1 class="ci-v2__hero-title">Corporate Information</h1>
+    </div>
+
+    <!-- Board of Directors -->
+    <section class="ci-v2__section" aria-labelledby="bod-heading">
+        <h2 class="ci-v2__heading" id="bod-heading">Board of Directors</h2>
+        <hr class="ci-v2__rule" />
+
+        <!-- Ko Chee Wah -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-Ko_Chee_Wah_2026.jpg"
+                     alt="Ko Chee Wah"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Ko Chee Wah</p>
+                <p class="ci-v2__title">Executive Chairman</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Mr Ko Chee Wah is the Executive Chairman and co-founder of the Group, providing strategic mentorship and guidance on business direction and development. Mr Ko was appointed as a Director of our Company on 6 January 2023 and was later redesignated as Executive Chairman on 30 March 2026.</p>
+                <p>With over 30 years of experience in the MICE industry, Mr Ko brings deep industry expertise and an extensive global network. Prior to founding the Group, Mr Ko was the co-founder, Executive Director and Group Managing Director of Cityneon Holdings Pte. Ltd., where he led the origination and execution of major international projects, including Universal Studios Singapore at Resorts World Sentosa, the Nanjing Youth Olympic Games 2014, and the Southeast Asian Games 2015. Earlier in his career, he held management roles at Sim Lim Company (Pte) Limited and Wing Tai Enterprises Pte. Ltd.</p>
+                <p>Mr Ko holds a Bachelor of Business Administration from the University of Singapore, now known as the National University of Singapore.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vincent Chai -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-Vincent_2026.jpg"
+                     alt="Vincent Chai"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Vincent Chai</p>
+                <p class="ci-v2__title">Executive Director and Chief Executive Officer</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>As Chief Executive Officer and co-founder of the Group, Mr Vincent Chai is responsible for setting its overall vision and strategic direction. He brings over 20 years of experience in events and experience creation. Mr Chai was appointed as a Director of our Company on 6 January 2023 and was later redesignated as an Executive Director on 30 March 2026.</p>
+                <p>Prior to co-founding the Group, Mr Chai was a Senior Project Manager at Cityneon Events Pte. Ltd., where he played a key role in delivering major projects such as the Nanjing Youth Olympic Games 2014 and the Southeast Asian Games 2015. He was also the founder of Kinemat Pte. Ltd., a youth marketing agency, and has entrepreneurial experience in establishing and operating dining and entertainment businesses in Singapore.</p>
+                <p>Mr Chai holds a Bachelor of Social Science (Money, Banking and Finance) from the University of Birmingham, as well as a Diploma in Mechatronics from Singapore Polytechnic. His combined experience across project execution, entrepreneurship, and strategic leadership underpins the Group's ability to innovate and scale within the evolving events and experiential tourism landscape.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leong Yue Kheong -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-BOD_Leong.jpg"
+                     alt="Leong Yue Kheong"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Leong Yue Kheong</p>
+                <p class="ci-v2__title">Lead Independent Director</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Appointed as Lead Independent Director on 30 March 2026, Mr Leong Yue Kheong brings extensive leadership experience across tourism, public sector development, and strategic planning. He is the founder of 3 Quensz, a consulting firm specialising in coaching, mentoring, and tourism master planning.</p>
+                <p>Mr Leong previously served as Deputy Chief Executive Officer (Development) of Mandai Park Development Pte. Ltd., where he led the planning and execution of key developments within the Mandai wildlife and nature precinct, including Bird Paradise and the Mandai Rainforest Resort.</p>
+                <p>Prior to that, he was Assistant Chief Executive of the Singapore Tourism Board, where he led international and marketing efforts to strengthen Singapore's global tourism positioning. He also served as Project Director for the inaugural Formula One Singapore night race in 2008.</p>
+                <p>Before entering the tourism sector, Mr Leong served in the Singapore Armed Forces for 30 years, attaining the rank of Brigadier-General and receiving multiple Public Administration Medals for his contributions.</p>
+                <p>He holds a Master of Social Science (Counselling) from the University of South Australia and completed the Stanford–National University of Singapore Executive Program. He is also a Fellow of the Australian College of Defence and Strategic Studies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ong Lizhen, Daisy -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-BOD_Daisy.jpg"
+                     alt="Ong Lizhen, Daisy"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Ong Lizhen, Daisy</p>
+                <p class="ci-v2__title">Independent Director</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Ms Daisy Ong was appointed as Independent Director on 30 March 2026. With over 20 years of experience in audit, accounting, investments, and finance, Ms Ong is currently the Chief Financial Officer of Fu Yu Corporation Limited and also serves as an Independent Director of HG Metal Manufacturing Limited, a company listed on the SGX Mainboard. Prior to her current roles, she was the Chief Financial Officer of Allied Technologies Limited.</p>
+                <p>Ms Ong began her career with Ernst &amp; Young LLP and subsequently held various finance and leadership roles across companies listed on the SGX, Hong Kong Exchange, and Australian Securities Exchange.</p>
+                <p>Ms Ong holds a Bachelor of Accountancy from Nanyang Technological University and is a member of the Institute of Singapore Chartered Accountants.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lim Jun Xiong, Steven -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-BOD_Steven.jpg"
+                     alt="Lim Jun Xiong, Steven"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Lim Jun Xiong, Steven</p>
+                <p class="ci-v2__title">Independent Director</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Mr Steven Lim was appointed as Independent Director on 30 March 2026, and brings more than 30 years of experience in the financial, trust, and wealth management industry. Mr Steven Lim has held senior leadership roles across major financial institutions, including serving as Chief Executive Officer of SG Trust (Asia) Ltd, a subsidiary of Société Générale Private Banking, and as Managing Director of Global Wealth Solutions at HSBC Investment Bank Asia Limited.</p>
+                <p>He began his career at PricewaterhouseCoopers LLP and has since built extensive expertise in financial services and wealth advisory. Mr Lim currently serves as an independent director for several SGX-listed companies, including HC Surgical Specialists Limited, Baker Technology Limited, and Riverstone Holdings Limited.</p>
+                <p>He holds a Bachelor of Commerce from the University of Newcastle (New South Wales) and is a Fellow of CPA Australia and the Institute of Certified Public Accountants of Singapore, as well as a member of the Society of Trust and Estate Practitioners (Singapore Branch).</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Executive Directors -->
+    <section class="ci-v2__section" aria-labelledby="exec-heading">
+        <h2 class="ci-v2__heading" id="exec-heading">Executive Directors</h2>
+        <hr class="ci-v2__rule" />
+
+        <!-- Adrian Tan -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-adrian_2026.jpg"
+                     alt="Adrian Tan"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Adrian Tan</p>
+                <p class="ci-v2__title">Chief Commercial Officer</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Mr Adrian Tan is the CCO and co-founder of the Group, and is responsible for overseeing sales, commercial strategy, partnerships, and marketing initiatives.</p>
+                <p>With almost 20 years of experience in experience creation and event presentation, Mr Tan previously served as an Accounts Manager at Cityneon Events Pte. Ltd., where he was involved in the delivery and execution of major events, including the Singapore 2010 Youth Olympic Games, Singapore National Games 2012, and the 2015 Southeast Asian and Para Games.</p>
+                <p>He also served as Deputy Overlay Manager for the Malaysian Southeast Asian Games Organising Committee, advising on venue planning, logistics, and cross-functional coordination for the 2017 Southeast Asian Games in Kuala Lumpur. Mr Tan began his career as a producer at Kinemat Pte. Ltd., where he led the creation of live shows and advertising content.</p>
+                <p>He holds a Diploma in Audio Engineering from the School of Audio Engineering. His strong commercial acumen and hands-on experience in large-scale event execution support the Group's ability to drive revenue growth and build long-term client partnerships.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clement Tan -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-Clement_2026.jpg"
+                     alt="Clement Tan"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Clement Tan</p>
+                <p class="ci-v2__title">Chief Operating Officer</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Mr Clement Tan oversees project operations and manpower resources across the Group's businesses, with extensive experience in operational leadership and large-scale event execution.</p>
+                <p>Prior to co-founding the Group, Mr Tan was the General Manager (Sports Division) and Business Development Manager at Cityneon Events Pte. Ltd., where he was responsible for managing operations, driving business development, and overseeing staff training. During his tenure, he was involved in major international events, including the Nanjing 2013 Asian Youth Games, Nanjing 2014 Youth Olympic Games, and the 2015 Southeast Asian and Para Games in Singapore.</p>
+                <p>Mr Tan has also served as a consultant for the Nanjing 2014 Youth Olympic Games and provided consultancy services for the 2018 FIFA World Cup in Russia. Earlier in his career, he was the Head of Logistics Resource Management for the Singapore Youth Olympic Games Organising Committee and served as an officer in the Singapore Armed Forces for 10 years.</p>
+                <p>Mr Tan holds a Diploma in Business from Temasek Polytechnic and a Bachelor of Science in Management (Honours) from the University of London. His deep operational expertise and disciplined leadership underpin the Group's ability to deliver complex, large-scale projects efficiently.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Raymond Lee -->
+        <div class="ci-v2__person reveal">
+            <div class="ci-v2__photo-wrap">
+                <img src="assets/images/mgmt-Raymond.jpg"
+                     alt="Raymond Lee"
+                     class="ci-v2__photo" />
+            </div>
+            <div class="ci-v2__bio">
+                <p class="ci-v2__name">Raymond Lee</p>
+                <p class="ci-v2__title">Group Financial Controller</p>
+                <div class="ci-v2__accent"></div>
+                <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
+                <div class="ci-v2__body">
+                <p>Mr Raymond Lee joined the Group in February 2025 and is responsible for overseeing the Group's financial reporting, audit, treasury, tax, mergers and acquisitions, and internal control functions. Mr Lee has significant experience in financial management within SGX-listed companies.</p>
+                <p>Prior to joining the Group, Mr Lee served as Group Financial Controller at Catalist-listed Livingstone Health Holdings Limited, and has held senior finance roles at Dyna-Mac Holdings Pte. Ltd., ISDN Holdings Limited, and Chasen Holdings Limited. His experience has provided him with strong familiarity with financial reporting standards and compliance requirements for companies listed on the SGX-ST.</p>
+                <p>Mr Lee began his career as an auditor at BDO LLP. He holds a Master of Business (Professional Accounting) from the University of South Australia and a Bachelor of Business Administration (Honours) from Northwood University. He is also a member of CPA Australia.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div><!-- /site-wrap -->
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        burger.addEventListener('click', () => {
+            const open = mobNav.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, i * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+
+    // Mobile bio toggles
+    document.querySelectorAll('.ci-v2__toggle').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const bio = this.closest('.ci-v2__bio');
+            const open = bio.classList.toggle('bio-open');
+            this.setAttribute('aria-expanded', String(open));
+            this.textContent = open ? 'Close bio' : 'Read full bio';
+        });
+    });
+</script>
+
+</body>
+</html>

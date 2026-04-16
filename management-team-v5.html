@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management Team — KIN Experience Management</title>
+    <meta name="description" content="Meet the leadership team behind KIN Experience Management." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=47" />
+
+    <style>
+        /* ================================================================
+           MANAGEMENT TEAM — V5: PRESTIGE DARK INDEX
+           Direction: Cinematic hero + numbered editorial accordion on black
+           Inspired by: top-tier PE/consulting team pages, Awwwards finalists
+        ================================================================ */
+
+        html, body { background: #000; }
+
+        /* Nav: transparent over hero, fades to black on scroll */
+        #nav { background: transparent; }
+        #nav.scrolled { background: rgba(0,0,0,0.95); backdrop-filter: blur(12px); }
+
+
+        /* ── HERO ─────────────────────────────────────────────────────── */
+
+        .mt-hero {
+            position: relative;
+            height: 100svh;
+            min-height: 600px;
+            max-height: 960px;
+            overflow: hidden;
+        }
+
+        .mt-hero__img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            filter: grayscale(100%) contrast(1.08) brightness(0.85);
+            transform: scale(1.02);
+            transition: transform 8s ease;
+        }
+
+        /* Slow zoom-in on load */
+        .mt-hero__img.is-loaded { transform: scale(1); }
+
+        /* Gradient: transparent at top → solid black at bottom */
+        .mt-hero__gradient {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to bottom,
+                    rgba(0,0,0,0.25) 0%,
+                    rgba(0,0,0,0.05) 25%,
+                    rgba(0,0,0,0.4)  60%,
+                    rgba(0,0,0,0.92) 85%,
+                    #000 100%
+                );
+        }
+
+        /* Subtle teal vignette from the right */
+        .mt-hero__tint {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse 60% 70% at 85% 30%,
+                rgba(0,193,230,0.07) 0%,
+                transparent 70%
+            );
+            pointer-events: none;
+        }
+
+        .mt-hero__content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0 var(--margin) 72px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .mt-hero__eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--clr-accent);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.7s 0.3s forwards;
+        }
+
+        .mt-hero__heading {
+            font-size: clamp(56px, 7.5vw, 116px);
+            font-weight: 800;
+            line-height: 0.93;
+            letter-spacing: -2.5px;
+            color: #fff;
+            max-width: 720px;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.8s 0.5s forwards;
+        }
+
+        .mt-hero__heading em {
+            font-style: italic;
+            font-weight: 800;
+            color: var(--clr-accent);
+        }
+
+        .mt-hero__sub {
+            margin-top: 28px;
+            font-size: 15px;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.5);
+            max-width: 460px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.7s 0.75s forwards;
+        }
+
+        /* Scroll indicator */
+        .mt-hero__scroll {
+            position: absolute;
+            bottom: 72px;
+            right: var(--margin);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            opacity: 0;
+            animation: fadeUp 0.7s 1.1s forwards;
+        }
+
+        .mt-hero__scroll::before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            animation: scrollLine 1.8s 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollLine {
+            0%   { transform: scaleY(1); transform-origin: top; }
+            50%  { transform: scaleY(0.3); transform-origin: top; }
+            51%  { transform: scaleY(0.3); transform-origin: bottom; }
+            100% { transform: scaleY(1); transform-origin: bottom; }
+        }
+
+
+        /* ── TEAM SECTION ─────────────────────────────────────────────── */
+
+        .mt-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--margin) 140px;
+        }
+
+        /* Section meta bar */
+        .mt-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 48px 0 0;
+            margin-bottom: 2px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            opacity: 0;
+            animation: fadeUp 0.6s 0.2s forwards;
+        }
+
+        .mt-meta__label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+        }
+
+
+        /* ── PERSON ROW ───────────────────────────────────────────────── */
+
+        .mt-list { margin: 0; }
+
+        .mt-person {
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        /* The clickable trigger row */
+        .mt-person__row {
+            display: grid;
+            grid-template-columns: 68px 1fr 88px 56px;
+            gap: 24px;
+            align-items: center;
+            padding: 28px 0;
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.2s ease;
+        }
+
+        /* Dim siblings on hover */
+        .mt-list:hover .mt-person:not(:hover) .mt-person__row { opacity: 0.4; }
+        .mt-list:hover .mt-person.is-open .mt-person__row { opacity: 1; }
+
+        /* Ordinal */
+        .mt-person__num {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--clr-accent);
+            opacity: 0.45;
+            transition: opacity 0.25s ease;
+            padding-top: 2px;
+            align-self: start;
+        }
+
+        .mt-person:hover .mt-person__num,
+        .mt-person.is-open .mt-person__num { opacity: 1; }
+
+        /* Name + title block */
+        .mt-person__info { display: flex; flex-direction: column; gap: 5px; }
+
+        .mt-person__role {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--clr-accent);
+            opacity: 0.7;
+            transition: opacity 0.25s ease;
+        }
+
+        .mt-person:hover .mt-person__role,
+        .mt-person.is-open .mt-person__role { opacity: 1; }
+
+        .mt-person__name {
+            font-size: clamp(26px, 3.2vw, 44px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.02;
+            color: #fff;
+            transition: color 0.25s ease;
+        }
+
+        .mt-person.is-open .mt-person__name { color: var(--clr-accent); }
+
+        /* Thumbnail portrait */
+        .mt-person__thumb {
+            width: 88px;
+            height: 114px;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(100%);
+            opacity: 0.55;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+            display: block;
+        }
+
+        .mt-person:hover .mt-person__thumb,
+        .mt-person.is-open .mt-person__thumb {
+            opacity: 1;
+            filter: grayscale(100%) contrast(1.05);
+        }
+
+        /* +/− toggle */
+        .mt-person__toggle {
+            justify-self: end;
+            align-self: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.35);
+            line-height: 1;
+            transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .mt-person:hover .mt-person__toggle {
+            border-color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .mt-person.is-open .mt-person__toggle {
+            border-color: var(--clr-accent);
+            color: var(--clr-accent);
+            background: rgba(0,193,230,0.08);
+        }
+
+
+        /* ── BIO ACCORDION ────────────────────────────────────────────── */
+
+        .mt-person__bio {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mt-person.is-open .mt-person__bio {
+            grid-template-rows: 1fr;
+        }
+
+        .mt-person__bio-inner { overflow: hidden; }
+
+        .mt-person__bio-body {
+            /* Indent to align with name column */
+            padding: 0 0 40px calc(68px + 24px);
+            max-width: 640px;
+        }
+
+        .mt-person__bio-body p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.48);
+            margin-bottom: 14px;
+        }
+
+        .mt-person__bio-body p:last-child { margin-bottom: 0; }
+
+
+        /* ── SCROLL REVEAL ────────────────────────────────────────────── */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.65s cubic-bezier(.22,.61,.36,1),
+                        transform 0.65s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-d1 { transition-delay: 0.05s; }
+        .reveal-d2 { transition-delay: 0.1s; }
+        .reveal-d3 { transition-delay: 0.15s; }
+        .reveal-d4 { transition-delay: 0.2s; }
+        .reveal-d5 { transition-delay: 0.25s; }
+
+
+        /* ── ANIMATIONS ───────────────────────────────────────────────── */
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* ── RESPONSIVE ───────────────────────────────────────────────── */
+
+        @media (max-width: 860px) {
+            .mt-hero__content { padding-bottom: 56px; }
+            .mt-wrap { padding: 0 32px 100px; }
+
+            .mt-person__row {
+                grid-template-columns: 48px 1fr 64px 40px;
+                gap: 16px;
+                padding: 22px 0;
+            }
+
+            .mt-person__thumb { width: 64px; height: 83px; }
+            .mt-person__bio-body { padding-left: calc(48px + 16px); }
+        }
+
+        @media (max-width: 560px) {
+            .mt-hero { max-height: 780px; }
+            .mt-wrap { padding: 0 20px 80px; }
+
+            .mt-person__row {
+                grid-template-columns: 36px 1fr 36px;
+                gap: 12px;
+            }
+
+            /* Hide photo on smallest screens */
+            .mt-person__thumb { display: none; }
+
+            .mt-person__bio-body { padding-left: calc(36px + 12px); }
+
+            .mt-hero__scroll { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="nav-include"></div>
+
+<div class="site-wrap">
+
+    <!-- ── HERO ── -->
+    <div class="mt-hero">
+        <img src="assets/images/about-leadership.jpg"
+             alt="KIN leadership team"
+             class="mt-hero__img"
+             id="heroImg" />
+        <div class="mt-hero__gradient"></div>
+        <div class="mt-hero__tint"></div>
+
+        <div class="mt-hero__content">
+            <p class="mt-hero__eyebrow">Management Team</p>
+            <h1 class="mt-hero__heading">80+ years<br>in the <em>arena.</em></h1>
+            <p class="mt-hero__sub">The people behind KIN have delivered Youth Olympic Games, Southeast Asian Games, FIFA World Cups, and Universal Studios Singapore — before building this company from the ground up.</p>
+        </div>
+
+        <div class="mt-hero__scroll">Scroll</div>
+    </div>
+
+
+    <!-- ── MANAGEMENT TEAM ── -->
+    <div class="mt-wrap">
+
+        <div class="mt-meta">
+            <span class="mt-meta__label">Leadership</span>
+            <span class="mt-meta__label">05 Members</span>
+        </div>
+
+        <div class="mt-list" role="list">
+
+            <!-- 01 → Ko Chee Wah -->
+            <div class="mt-person reveal reveal-d1" role="listitem">
+                <div class="mt-person__row" role="button" tabindex="0" aria-expanded="false">
+                    <span class="mt-person__num">01</span>
+                    <div class="mt-person__info">
+                        <span class="mt-person__role">Executive Chairman</span>
+                        <span class="mt-person__name">Ko Chee Wah</span>
+                    </div>
+                    <img src="assets/images/mgmt-Ko_Chee_Wah_2026.jpg"
+                         alt="Ko Chee Wah"
+                         class="mt-person__thumb"
+                         loading="lazy" />
+                    <span class="mt-person__toggle" aria-hidden="true">+</span>
+                </div>
+                <div class="mt-person__bio">
+                    <div class="mt-person__bio-inner">
+                        <div class="mt-person__bio-body">
+                            <p>Mr. Ko Chee Wah is the Executive Chairman and co-founder of the Group, providing strategic mentorship and guidance on business direction and development. Mr. Ko was appointed as a Director of our Company on 6 January 2023 and was later redesignated as Executive Chairman on 30 March 2026.</p>
+                            <p>With over 30 years of experience in the MICE industry, Mr. Ko brings deep industry expertise and an extensive global network. Prior to founding the Group, Mr. Ko was the co-founder, Executive Director and Group Managing Director of Cityneon Holdings Pte. Ltd., where he led the origination and execution of major international projects, including Universal Studios Singapore at Resorts World Sentosa, the Nanjing Youth Olympic Games 2014, and the Southeast Asian Games 2015. Earlier in his career, he held management roles at Sim Lim Company (Pte) Limited and Wing Tai Enterprises Pte. Ltd.</p>
+                            <p>Mr. Ko holds a Bachelor of Business Administration from the University of Singapore, now known as the National University of Singapore.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02 → Vincent Chai -->
+            <div class="mt-person reveal reveal-d2" role="listitem">
+                <div class="mt-person__row" role="button" tabindex="0" aria-expanded="false">
+                    <span class="mt-person__num">02</span>
+                    <div class="mt-person__info">
+                        <span class="mt-person__role">Executive Director & CEO</span>
+                        <span class="mt-person__name">Vincent Chai</span>
+                    </div>
+                    <img src="assets/images/mgmt-Vincent_2026.jpg"
+                         alt="Vincent Chai"
+                         class="mt-person__thumb"
+                         loading="lazy" />
+                    <span class="mt-person__toggle" aria-hidden="true">+</span>
+                </div>
+                <div class="mt-person__bio">
+                    <div class="mt-person__bio-inner">
+                        <div class="mt-person__bio-body">
+                            <p>As Chief Executive Officer and co-founder of the Group, Mr. Vincent Chai is responsible for setting its overall vision and strategic direction. He brings over 20 years of experience in events and experience creation. Mr. Chai was appointed as a Director of our Company on 6 January 2023 and was later redesignated as an Executive Director on 30 March 2026.</p>
+                            <p>Prior to co-founding the Group, Mr. Chai was a Senior Project Manager at Cityneon Events Pte. Ltd., where he played a key role in delivering major projects such as the Nanjing Youth Olympic Games 2014 and the Southeast Asian Games 2015. He was also the founder of Kinemat Pte. Ltd., a youth marketing agency, and has entrepreneurial experience in establishing and operating dining and entertainment businesses in Singapore.</p>
+                            <p>Mr. Chai holds a Bachelor of Social Science (Money, Banking and Finance) from the University of Birmingham, as well as a Diploma in Mechatronics from Singapore Polytechnic. His combined experience across project execution, entrepreneurship, and strategic leadership underpins the Group's ability to innovate and scale within the evolving events and experiential tourism landscape.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 → Adrian Tan -->
+            <div class="mt-person reveal reveal-d3" role="listitem">
+                <div class="mt-person__row" role="button" tabindex="0" aria-expanded="false">
+                    <span class="mt-person__num">03</span>
+                    <div class="mt-person__info">
+                        <span class="mt-person__role">Chief Commercial Officer</span>
+                        <span class="mt-person__name">Adrian Tan</span>
+                    </div>
+                    <img src="assets/images/mgmt-adrian_2026.jpg"
+                         alt="Adrian Tan"
+                         class="mt-person__thumb"
+                         loading="lazy" />
+                    <span class="mt-person__toggle" aria-hidden="true">+</span>
+                </div>
+                <div class="mt-person__bio">
+                    <div class="mt-person__bio-inner">
+                        <div class="mt-person__bio-body">
+                            <p>Mr. Adrian Tan is the CCO and co-founder of the Group, responsible for overseeing sales, commercial strategy, partnerships, and marketing initiatives.</p>
+                            <p>With almost 20 years of experience in experience creation and event presentation, Mr. Tan previously served as an Accounts Manager at Cityneon Events Pte. Ltd., where he was involved in the delivery and execution of major events, including the Singapore 2010 Youth Olympic Games, Singapore National Games 2012, and the 2015 Southeast Asian and Para Games.</p>
+                            <p>He also served as Deputy Overlay Manager for the Malaysian Southeast Asian Games Organising Committee, advising on venue planning, logistics, and cross-functional coordination for the 2017 Southeast Asian Games in Kuala Lumpur. Mr. Tan began his career as a producer at Kinemat Pte. Ltd., where he led the creation of live shows and advertising content.</p>
+                            <p>He holds a Diploma in Audio Engineering from the School of Audio Engineering. His strong commercial acumen and hands-on experience in large-scale event execution support the Group's ability to drive revenue growth and build long-term client partnerships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 → Clement Tan -->
+            <div class="mt-person reveal reveal-d4" role="listitem">
+                <div class="mt-person__row" role="button" tabindex="0" aria-expanded="false">
+                    <span class="mt-person__num">04</span>
+                    <div class="mt-person__info">
+                        <span class="mt-person__role">Chief Operating Officer</span>
+                        <span class="mt-person__name">Clement Tan</span>
+                    </div>
+                    <img src="assets/images/mgmt-Clement_2026.jpg"
+                         alt="Clement Tan"
+                         class="mt-person__thumb"
+                         loading="lazy" />
+                    <span class="mt-person__toggle" aria-hidden="true">+</span>
+                </div>
+                <div class="mt-person__bio">
+                    <div class="mt-person__bio-inner">
+                        <div class="mt-person__bio-body">
+                            <p>Mr. Clement Tan oversees project operations and manpower resources across the Group's businesses, with extensive experience in operational leadership and large-scale event execution.</p>
+                            <p>Prior to co-founding the Group, Mr. Tan was the General Manager (Sports Division) and Business Development Manager at Cityneon Events Pte. Ltd., where he was responsible for managing operations, driving business development, and overseeing staff training. During his tenure, he was involved in major international events, including the Nanjing 2013 Asian Youth Games, Nanjing 2014 Youth Olympic Games, and the 2015 Southeast Asian and Para Games in Singapore.</p>
+                            <p>Mr. Tan has also served as a consultant for the Nanjing 2014 Youth Olympic Games and provided consultancy services for the 2018 FIFA World Cup in Russia. Earlier in his career, he was the Head of Logistics Resource Management for the Singapore Youth Olympic Games Organising Committee and served as an officer in the Singapore Armed Forces for 10 years.</p>
+                            <p>Mr. Tan holds a Diploma in Business from Temasek Polytechnic and a Bachelor of Science in Management (Honours) from the University of London. His deep operational expertise and disciplined leadership underpin the Group's ability to deliver complex, large-scale projects efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05 → Raymond Lee -->
+            <div class="mt-person reveal reveal-d5" role="listitem">
+                <div class="mt-person__row" role="button" tabindex="0" aria-expanded="false">
+                    <span class="mt-person__num">05</span>
+                    <div class="mt-person__info">
+                        <span class="mt-person__role">Group Financial Controller</span>
+                        <span class="mt-person__name">Raymond Lee</span>
+                    </div>
+                    <img src="assets/images/mgmt-Raymond.jpg"
+                         alt="Raymond Lee"
+                         class="mt-person__thumb"
+                         loading="lazy" />
+                    <span class="mt-person__toggle" aria-hidden="true">+</span>
+                </div>
+                <div class="mt-person__bio">
+                    <div class="mt-person__bio-inner">
+                        <div class="mt-person__bio-body">
+                            <p>Mr. Raymond Lee joined the Group in February 2025 and is responsible for overseeing the Group's financial reporting, audit, treasury, tax, mergers and acquisitions, and internal control functions. Mr. Lee has significant experience in financial management within SGX-listed companies.</p>
+                            <p>Prior to joining the Group, Mr. Lee served as Group Financial Controller at Catalist-listed Livingstone Health Holdings Limited, and has held senior finance roles at Dyna-Mac Holdings Pte. Ltd., ISDN Holdings Limited, and Chasen Holdings Limited. His experience has provided him with strong familiarity with financial reporting standards and compliance requirements for companies listed on the SGX-ST.</p>
+                            <p>Mr. Lee began his career as an auditor at BDO LLP. He holds a Master of Business (Professional Accounting) from the University of South Australia and a Bachelor of Business Administration (Honours) from Northwood University. He is also a member of CPA Australia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /mt-list -->
+
+    </div><!-- /mt-wrap -->
+
+</div><!-- /site-wrap -->
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    /* ── INCLUDES ── */
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            })
+            .catch(() => {});
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav && nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        if (!nav) return;
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        if (burger && mobNav) {
+            burger.addEventListener('click', () => {
+                const open = mobNav.classList.toggle('is-open');
+                burger.classList.toggle('is-open', open);
+                burger.setAttribute('aria-expanded', String(open));
+                document.body.classList.toggle('nav-open', open);
+            });
+        }
+    });
+
+    loadInclude('cta-include',    'includes/cta.html');
+    loadInclude('footer-include', 'includes/footer.html');
+
+    /* ── HERO SLOW-ZOOM ── */
+    const heroImg = document.getElementById('heroImg');
+    if (heroImg) {
+        heroImg.addEventListener('load', () => heroImg.classList.add('is-loaded'));
+        if (heroImg.complete) heroImg.classList.add('is-loaded');
+    }
+
+    /* ── ACCORDION ── */
+    document.querySelectorAll('.mt-person').forEach(person => {
+        const row    = person.querySelector('.mt-person__row');
+        const toggle = person.querySelector('.mt-person__toggle');
+
+        function openPerson() {
+            const isOpen = person.classList.contains('is-open');
+            // Close all others
+            document.querySelectorAll('.mt-person.is-open').forEach(p => {
+                p.classList.remove('is-open');
+                p.querySelector('.mt-person__row').setAttribute('aria-expanded', 'false');
+                p.querySelector('.mt-person__toggle').textContent = '+';
+            });
+            // Toggle this one
+            if (!isOpen) {
+                person.classList.add('is-open');
+                row.setAttribute('aria-expanded', 'true');
+                toggle.textContent = '−';
+                // Smooth scroll into view after transition starts
+                setTimeout(() => {
+                    person.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 80);
+            }
+        }
+
+        row.addEventListener('click', openPerson);
+
+        // Keyboard accessibility
+        row.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openPerson();
+            }
+        });
+    });
+
+    /* ── SCROLL REVEAL ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            revealObserver.observe(el);
+        });
+    }
+
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>
