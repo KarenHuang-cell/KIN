@@ -91,8 +91,9 @@
         .hero__inner {
             position: relative;
             z-index: 1;
-            max-width: 1100px;
+            max-width: var(--max-w);
             width: 100%;
+            padding: 0 var(--margin);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 48px;
@@ -135,9 +136,9 @@
 
         /* ── BIOS SECTION ─────────────────────────────── */
         .bios-section {
-            max-width: 1100px;
+            max-width: var(--max-w);
             margin: 0 auto;
-            padding: 80px 60px 120px;
+            padding: 80px var(--margin) 120px;
         }
 
         .section-label {
@@ -264,7 +265,7 @@
             .hero__sub { max-width: 100%; }
             .hero__orb { width: 300px; height: 300px; top: -5%; right: -10%; }
 
-            .bios-section { padding: 0 32px 80px; }
+            .bios-section { padding: 0 var(--margin) 80px; }
             .section-label { padding: 56px 0 40px; }
 
             .bio {
@@ -286,7 +287,7 @@
         @media (max-width: 480px) {
             .hero { height: 45vh; padding: 0 24px 32px; padding-top: var(--nav-h); }
             .hero__title { letter-spacing: -1.5px; }
-            .bios-section { padding: 0 24px 64px; }
+            .bios-section { padding: 0 var(--margin) 64px; }
         }
 
         /* ── MOBILE BIO TOGGLE ────────────────────────── */

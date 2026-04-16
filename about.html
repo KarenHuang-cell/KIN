@@ -10,104 +10,248 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=47" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=48" />
+    <style>
+        /* ── About page — panel reveal redesign ── */
+
+        /* Kill the default about-page light bg so the hero shows through */
+        .about-page { background: #000; }
+
+        /* ── HERO — sticky, full viewport, supertrees image ── */
+        .about-hero-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        .about-hero-img__bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.04);
+            animation: hero-zoom 8s cubic-bezier(.25,.46,.45,.94) forwards;
+        }
+
+        .about-hero-img__overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(110deg, rgba(8,8,15,0.78) 0%, rgba(8,8,15,0.22) 55%, rgba(8,8,15,0.04) 100%),
+                linear-gradient(to top,  rgba(8,8,15,0.92) 0%, rgba(8,8,15,0.18) 40%, transparent 65%);
+            z-index: 1;
+        }
+
+        .about-hero-img__content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 var(--margin) 80px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .about-hero-img__title {
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -2.5px;
+            color: #fff;
+            max-width: 900px;
+        }
+
+        /* Hero spacer — pushes content below the fixed hero */
+        .about-hero-spacer {
+            height: 100vh;
+            position: relative;
+            z-index: 0;
+        }
+
+        /* ── BORN FROM LEGACY — homepage-style centered section on dark bg ── */
+        .about-legacy {
+            position: relative;
+            z-index: 1;
+            background: #000;
+            padding: var(--section-v) var(--margin);
+            text-align: center;
+        }
+
+        .about-legacy__inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .about-legacy .eyebrow {
+            margin-bottom: 20px;
+        }
+
+        .about-legacy__heading {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: -0.6px;
+            color: #fff;
+            margin-bottom: 32px;
+        }
+
+        .about-legacy__body p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            color: var(--clr-muted);
+            margin-bottom: 16px;
+        }
+
+        .about-legacy__body p:last-child { margin-bottom: 0; }
+
+        /* ── PANEL REVEAL — light panel slides up over dark sections ── */
+        .about-panel {
+            position: relative;
+            z-index: 2;
+            background: var(--clr-bg-light);
+            border-radius: 0;
+        }
+
+        .about-panel__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        /* Override about-mission for light bg */
+        .about-panel .about-mission {
+            border-top: 1px solid rgba(3,29,69,0.10);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            .about-hero-img__title {
+                font-size: 48px;
+                letter-spacing: -1.5px;
+            }
+            .about-hero-img__content {
+                padding-bottom: 56px;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .about-hero-img__title {
+                font-size: 36px;
+                letter-spacing: -1px;
+            }
+            .about-hero-img__content {
+                padding-bottom: 40px;
+            }
+        }
+    </style>
 </head>
 <body class="about-page">
 
 <div id="nav-include"></div>
 
-<div class="site-wrap">
-
-    <!-- Hero -->
-    <div class="about-hero reveal">
-        <p class="eyebrow eyebrow--page">About Us</p>
-        <h1 class="about-hero__title">We are Kin</h1>
-        <p class="about-hero__sub">Redefining Event Tourism. Creating Iconic Moments.</p>
+<!-- ── HERO — fixed supertrees image ── -->
+<div class="about-hero-img">
+    <div class="about-hero-img__bg"></div>
+    <div class="about-hero-img__overlay"></div>
+    <div class="about-hero-img__content">
+        <h1 class="about-hero-img__title">Born From Legacy.<br>Built For The Future.</h1>
     </div>
+</div>
 
-    <!-- Brand story -->
-    <section class="about-brand" aria-labelledby="brand-heading">
-        <h2 class="about-brand__heading reveal" id="brand-heading">Born From Legacy. Built For The Future.</h2>
-        <div class="about-brand__body reveal reveal-delay-1">
+<!-- Spacer to push content below the fixed hero -->
+<div class="about-hero-spacer"></div>
+
+<!-- ── BORN FROM LEGACY — dark bg, homepage style ── -->
+<section class="about-legacy">
+    <div class="about-legacy__inner">
+        <p class="eyebrow reveal">About Us</p>
+        <h2 class="about-legacy__heading reveal reveal-delay-1">From stadium floors to museum halls.</h2>
+        <div class="about-legacy__body reveal reveal-delay-2">
             <p>At KIN, we believe that behind every iconic destination lies a story of vision, dedication, and the relentless pursuit of excellence. We believe that world-class events and cultural experiences have the unique ability to unite communities, attract global audiences, and create economic legacies that last a lifetime.</p>
             <p>We recognise that it is the seamless orchestration of every detail—from the first planning meeting to the final celebration—that transforms cities into must-visit destinations and events into unforgettable moments.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Mission -->
-    <section class="about-mission reveal" aria-label="Brand mission">
-        <div class="about-mission__left">
-            <h2 class="about-mission__heading">From Global Sports To Destination Transformation</h2>
-        </div>
-        <div class="about-mission__body">
-            <p>Birthed from a legacy of curating and delivering large-scale international sporting events, we are now pioneering the future of event tourism in Singapore and beyond. As specialists in city programming and destination development, we bring together sports, culture, and creativity to craft experiences that drive visitor arrivals, generate economic impact, and elevate global recognition.</p>
-            <p>With proven expertise in sports and live event management, cultural programming, and experiential design, we unite international federations, tourism boards, established brands, and local communities to create truly iconic moments—masterfully executing everything from championship sporting spectacles to immersive cultural attractions and signature brand activations.</p>
-            <div class="about-mission__links">
-                <a href="about-mission.html" class="about-mission__link link-action">Mission, Vision &amp; Values &nbsp;→</a>
-                <a href="/about/accreditation" class="about-mission__link link-action">Accreditation &nbsp;→</a>
+<!-- ── PANEL REVEAL — light bg slides up ── -->
+<div class="about-panel">
+    <div class="about-panel__inner">
+
+        <!-- Mission -->
+        <section class="about-mission reveal" aria-label="Brand mission">
+            <div class="about-mission__left">
+                <h2 class="about-mission__heading">From Global Sports To Destination Transformation</h2>
             </div>
-        </div>
-    </section>
-
-    <!-- Timeline / Milestones -->
-    <section class="about-timeline" aria-labelledby="timeline-heading">
-        <p class="eyebrow">The Journey</p>
-        <h2 class="about-timeline__heading" id="timeline-heading">Our Milestones</h2>
-
-        <!-- Vertical layout: tablet & mobile (populated by JS) -->
-        <div class="tl-vertical" id="tl-vertical" aria-hidden="true"></div>
-
-        <div class="tl-wrap">
-
-            <!-- Row 1: year labels -->
-            <div class="tl-years" id="tl-years">
-                <span class="tl-year" data-index="0">2017</span>
-                <span class="tl-year" data-index="1">2020</span>
-                <span class="tl-year" data-index="2">2021</span>
-                <span class="tl-year" data-index="3">2023</span>
-                <span class="tl-year" data-index="4">2024</span>
-                <span class="tl-year is-active" data-index="5">2025</span>
-                <span class="tl-year" data-index="6">2025</span>
+            <div class="about-mission__body">
+                <p>Birthed from a legacy of curating and delivering large-scale international sporting events, we are now pioneering the future of event tourism in Singapore and beyond. As specialists in city programming and destination development, we bring together sports, culture, and creativity to craft experiences that drive visitor arrivals, generate economic impact, and elevate global recognition.</p>
+                <p>With proven expertise in sports and live event management, cultural programming, and experiential design, we unite international federations, tourism boards, established brands, and local communities to create truly iconic moments—masterfully executing everything from championship sporting spectacles to immersive cultural attractions and signature brand activations.</p>
             </div>
+        </section>
 
-            <!-- Row 2: dots on a line -->
-            <div class="tl-dots" id="tl-dots">
-                <button class="tl-dot" data-index="0" aria-label="2017"></button>
-                <button class="tl-dot" data-index="1" aria-label="2020"></button>
-                <button class="tl-dot" data-index="2" aria-label="2021"></button>
-                <button class="tl-dot" data-index="3" aria-label="2023"></button>
-                <button class="tl-dot" data-index="4" aria-label="2024"></button>
-                <button class="tl-dot is-active" data-index="5" aria-label="2025"></button>
-                <button class="tl-dot" data-index="6" aria-label="2025"></button>
-            </div>
+        <!-- Timeline / Milestones -->
+        <section class="about-timeline" aria-labelledby="timeline-heading">
+            <p class="eyebrow">The Journey</p>
+            <h2 class="about-timeline__heading" id="timeline-heading">Our Milestones</h2>
 
-            <!-- Row 3: content panel -->
-            <div class="tl-content-row" id="tl-content-row">
-                <div class="tl-content" id="tl-content">
-                    <h3 class="tl-content__title" id="tl-title"></h3>
-                    <p class="tl-content__desc" id="tl-desc"></p>
+            <!-- Vertical layout: tablet & mobile (populated by JS) -->
+            <div class="tl-vertical" id="tl-vertical" aria-hidden="true"></div>
+
+            <div class="tl-wrap">
+                <!-- Row 1: year labels -->
+                <div class="tl-years" id="tl-years">
+                    <span class="tl-year" data-index="0">2017</span>
+                    <span class="tl-year" data-index="1">2020</span>
+                    <span class="tl-year" data-index="2">2021</span>
+                    <span class="tl-year" data-index="3">2023</span>
+                    <span class="tl-year" data-index="4">2024</span>
+                    <span class="tl-year is-active" data-index="5">2025</span>
+                    <span class="tl-year" data-index="6">2025</span>
+                </div>
+
+                <!-- Row 2: dots on a line -->
+                <div class="tl-dots" id="tl-dots">
+                    <button class="tl-dot" data-index="0" aria-label="2017"></button>
+                    <button class="tl-dot" data-index="1" aria-label="2020"></button>
+                    <button class="tl-dot" data-index="2" aria-label="2021"></button>
+                    <button class="tl-dot" data-index="3" aria-label="2023"></button>
+                    <button class="tl-dot" data-index="4" aria-label="2024"></button>
+                    <button class="tl-dot is-active" data-index="5" aria-label="2025"></button>
+                    <button class="tl-dot" data-index="6" aria-label="2025"></button>
+                </div>
+
+                <!-- Row 3: content panel -->
+                <div class="tl-content-row" id="tl-content-row">
+                    <div class="tl-content" id="tl-content">
+                        <h3 class="tl-content__title" id="tl-title"></h3>
+                        <p class="tl-content__desc" id="tl-desc"></p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <!-- Leadership -->
+        <section class="about-leadership reveal" aria-labelledby="leadership-heading">
+            <p class="eyebrow">The Leadership</p>
+            <h2 class="about-leadership__heading" id="leadership-heading">Leadership Built On 80+ Years Of Collective Experience</h2>
+            <a href="management-team.html">
+                <img src="assets/images/about-leadership.jpg"
+                     alt="KIN leadership team"
+                     class="about-leadership__photo" />
+            </a>
+            <a href="management-team.html" class="btn--outline">Meet The Team</a>
+        </section>
 
-    <!-- Leadership -->
-    <section class="about-leadership reveal" aria-labelledby="leadership-heading">
-        <p class="eyebrow">The Leadership</p>
-        <h2 class="about-leadership__heading" id="leadership-heading">Leadership Built On 80+ Years Of Collective Experience</h2>
-        <a href="management-team.html">
-            <img src="assets/images/about-leadership.jpg"
-                 alt="KIN leadership team"
-                 class="about-leadership__photo" />
-        </a>
-        <a href="management-team.html" class="btn--outline">Meet The Team</a>
-    </section>
+    </div>
 
-</div><!-- /site-wrap -->
+    <div id="cta-include"></div>
+    <div id="footer-include"></div>
 
-<div id="cta-include"></div>
-<div id="footer-include"></div>
+</div><!-- /about-panel -->
 
 <script>
     function loadInclude(id, url, callback) {
@@ -120,7 +264,7 @@
             });
     }
 
-    loadInclude('nav-include', 'includes/nav-light.html', () => {
+    loadInclude('nav-include', 'includes/nav.html', () => {
         const nav    = document.getElementById('nav');
         const burger = nav.querySelector('.nav__hamburger');
         const mobNav = document.getElementById('mob-nav');
@@ -150,7 +294,6 @@
             { year: '2025', title: 'Marketplace Recognition',  desc: 'Recognised as one of the top 50 local enterprises that contributed to Singapore economic development, receiving the E50 Awards.' }
         ];
 
-        // Populate vertical list (tablet / mobile)
         const vContainer = document.getElementById('tl-vertical');
         if (vContainer) {
             vContainer.innerHTML = MILESTONES.map(ms => `
@@ -170,7 +313,6 @@
         const contentRow = document.getElementById('tl-content-row');
         const dotsRow    = document.getElementById('tl-dots');
 
-        // Inject the grey track line and cyan progress fill
         const trackEl = document.createElement('div');
         trackEl.className = 'tl-dots__track';
         dotsRow.appendChild(trackEl);
@@ -213,16 +355,12 @@
 
         function activate(i) {
             if (i === activeIndex || fading) return;
-
             yearBtns.forEach(b => b.classList.remove('is-active'));
             dotBtns.forEach(b  => b.classList.remove('is-active'));
             yearBtns[i].classList.add('is-active');
             dotBtns[i].classList.add('is-active');
             activeIndex = i;
-
             updateFill(i);
-
-            // Smooth crossfade: fade out → swap → reposition → fade in
             fading = true;
             contentEl.classList.add('is-fading');
             setTimeout(() => {
@@ -237,7 +375,6 @@
         yearBtns.forEach((b, i) => { b.addEventListener('mouseenter', () => activate(i)); b.addEventListener('click', () => activate(i)); });
         dotBtns.forEach((b, i)  => { b.addEventListener('mouseenter', () => activate(i)); b.addEventListener('click', () => activate(i)); });
 
-        // Init: wait for fonts, then reveal with entrance pulse
         contentEl.style.opacity = '0';
         document.fonts.ready.then(() => {
             titleEl.textContent = MILESTONES[activeIndex].title;
@@ -246,8 +383,6 @@
             positionContent(activeIndex);
             updateFill(activeIndex);
             contentEl.style.opacity = '1';
-
-            // Ripple runs automatically via CSS on .is-active
         });
 
         window.addEventListener('resize', () => {
