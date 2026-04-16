@@ -1609,7 +1609,12 @@ body.nav-open { overflow: hidden; }
     .hero { padding-bottom: 56px; }
     .portfolio-hero__title,
     .cs-hero__title,
-    .svc-hero__title {
+    .svc-hero__title,
+    .about-hero__title,
+    .corp-hero__title,
+    .ir-hero__title,
+    .contact-hero__title,
+    .mv-split__heading {
         font-size: 48px;
         line-height: 54px;
         letter-spacing: -1.5px;
