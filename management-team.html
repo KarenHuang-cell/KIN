@@ -104,16 +104,46 @@
 
         .corp-bio__text p:last-child { margin-bottom: 0; }
 
+        /* Mobile bio toggle — hidden on desktop */
+        .corp-bio__toggle {
+            display: none;
+        }
+
         @media (max-width: 620px) {
+            .corp-intro__title { font-size: 40px; letter-spacing: -1px; }
             .corp-bio {
-                grid-template-columns: 120px 1fr;
-                gap: 20px;
+                grid-template-columns: 1fr;
+                gap: 16px;
                 padding: 28px 0;
             }
 
-            .corp-bio__text p {
+            .corp-bio__text p:not(.person-name):not(.corp-card__title) {
                 font-size: 13px;
                 line-height: 19px;
+            }
+
+            /* Hide bio paragraphs on mobile by default */
+            .corp-bio__text p:not(.person-name):not(.corp-card__title):not(.corp-bio__toggle) {
+                display: none;
+            }
+
+            .corp-bio__text.bio-open p:not(.person-name):not(.corp-card__title):not(.corp-bio__toggle) {
+                display: block;
+            }
+
+            .corp-bio__toggle {
+                display: inline-block;
+                background: none;
+                border: none;
+                padding: 0;
+                font-family: var(--font);
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--clr-accent);
+                cursor: pointer;
+                margin-top: 4px;
             }
         }
     </style>
@@ -149,6 +179,7 @@
                 <div class="corp-bio__text">
                     <p class="corp-card__name person-name">Ko Chee Wah</p>
                     <p class="corp-card__title">Executive Chairman</p>
+                    <button class="corp-bio__toggle" aria-expanded="false">Bio</button>
                     <p>Mr. Ko Chee Wah is the Executive Chairman and co-founder of the Group, providing strategic mentorship and guidance on business direction and development. Mr. Ko was appointed as a Director of our Company on 6 January 2023 and was later redesignated as Executive Chairman on 30 March 2026.</p>
                     <p>With over 30 years of experience in the MICE industry, Mr. Ko brings deep industry expertise and an extensive global network. Prior to founding the Group, Mr. Ko was the co-founder, Executive Director and Group Managing Director of Cityneon Holdings Pte. Ltd., where he led the origination and execution of major international projects, including Universal Studios Singapore at Resorts World Sentosa, the Nanjing Youth Olympic Games 2014, and the Southeast Asian Games 2015. Earlier in his career, he held management roles at Sim Lim Company (Pte) Limited and Wing Tai Enterprises Pte. Ltd.</p>
                     <p>Mr. Ko holds a Bachelor of Business Administration from the University of Singapore, now known as the National University of Singapore.</p>
@@ -162,6 +193,7 @@
                 <div class="corp-bio__text">
                     <p class="corp-card__name person-name">Vincent Chai</p>
                     <p class="corp-card__title">Executive Director and Chief Executive Officer</p>
+                    <button class="corp-bio__toggle" aria-expanded="false">Bio</button>
                     <p>As Chief Executive Officer and co-founder of the Group, Mr. Vincent Chai is responsible for setting its overall vision and strategic direction. He brings over 20 years of experience in events and experience creation. Mr. Chai was appointed as a Director of our Company on 6 January 2023 and was later redesignated as an Executive Director on 30 March 2026.</p>
                     <p>Prior to co-founding the Group, Mr. Chai was a Senior Project Manager at Cityneon Events Pte. Ltd., where he played a key role in delivering major projects such as the Nanjing Youth Olympic Games 2014 and the Southeast Asian Games 2015. He was also the founder of Kinemat Pte. Ltd., a youth marketing agency, and has entrepreneurial experience in establishing and operating dining and entertainment businesses in Singapore.</p>
                     <p>Mr. Chai holds a Bachelor of Social Science (Money, Banking and Finance) from the University of Birmingham, as well as a Diploma in Mechatronics from Singapore Polytechnic. His combined experience across project execution, entrepreneurship, and strategic leadership underpins the Group's ability to innovate and scale within the evolving events and experiential tourism landscape.</p>
@@ -175,6 +207,7 @@
                 <div class="corp-bio__text">
                     <p class="corp-card__name person-name">Adrian Tan</p>
                     <p class="corp-card__title">Chief Commercial Officer (CCO)</p>
+                    <button class="corp-bio__toggle" aria-expanded="false">Bio</button>
                     <p>Mr. Adrian Tan is the CCO and co-founder of the Group, and is responsible for overseeing sales, commercial strategy, partnerships, and marketing initiatives.</p>
                     <p>With almost 20 years of experience in experience creation and event presentation, Mr. Tan previously served as an Accounts Manager at Cityneon Events Pte. Ltd., where he was involved in the delivery and execution of major events, including the Singapore 2010 Youth Olympic Games, Singapore National Games 2012, and the 2015 Southeast Asian and Para Games.</p>
                     <p>He also served as Deputy Overlay Manager for the Malaysian Southeast Asian Games Organising Committee, advising on venue planning, logistics, and cross-functional coordination for the 2017 Southeast Asian Games in Kuala Lumpur. Mr. Tan began his career as a producer at Kinemat Pte. Ltd., where he led the creation of live shows and advertising content.</p>
@@ -189,6 +222,7 @@
                 <div class="corp-bio__text">
                     <p class="corp-card__name person-name">Clement Tan</p>
                     <p class="corp-card__title">Chief Operating Officer (COO)</p>
+                    <button class="corp-bio__toggle" aria-expanded="false">Bio</button>
                     <p>Mr. Clement Tan oversees project operations and manpower resources across the Group's businesses, with extensive experience in operational leadership and large-scale event execution.</p>
                     <p>Prior to co-founding the Group, Mr. Tan was the General Manager (Sports Division) and Business Development Manager at Cityneon Events Pte. Ltd., where he was responsible for managing operations, driving business development, and overseeing staff training. During his tenure, he was involved in major international events, including the Nanjing 2013 Asian Youth Games, Nanjing 2014 Youth Olympic Games, and the 2015 Southeast Asian and Para Games in Singapore.</p>
                     <p>Mr. Tan has also served as a consultant for the Nanjing 2014 Youth Olympic Games and provided consultancy services for the 2018 FIFA World Cup in Russia. Earlier in his career, he was the Head of Logistics Resource Management for the Singapore Youth Olympic Games Organising Committee and served as an officer in the Singapore Armed Forces for 10 years.</p>
@@ -203,6 +237,7 @@
                 <div class="corp-bio__text">
                     <p class="corp-card__name person-name">Raymond Lee</p>
                     <p class="corp-card__title">Group Financial Controller</p>
+                    <button class="corp-bio__toggle" aria-expanded="false">Bio</button>
                     <p>Mr. Raymond Lee joined the Group in February 2025 and is responsible for overseeing the Group's financial reporting, audit, treasury, tax, mergers and acquisitions, and internal control functions. Mr Lee has significant experience in financial management within SGX-listed companies.</p>
                     <p>Prior to joining the Group, Mr. Lee served as Group Financial Controller at Catalist-listed Livingstone Health Holdings Limited, and has held senior finance roles at Dyna-Mac Holdings Pte. Ltd., ISDN Holdings Limited, and Chasen Holdings Limited. His experience has provided him with strong familiarity with financial reporting standards and compliance requirements for companies listed on the SGX-ST.</p>
                     <p>Mr. Lee began his career as an auditor at BDO LLP. He holds a Master of Business (Professional Accounting) from the University of South Australia and a Bachelor of Business Administration (Honours) from Northwood University. He is also a member of CPA Australia.</p>
@@ -245,6 +280,16 @@
 
     loadInclude('cta-include', 'includes/cta-light.html');
     loadInclude('footer-include', 'includes/footer-light.html');
+
+    // Mobile bio toggles
+    document.querySelectorAll('.corp-bio__toggle').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const text = this.closest('.corp-bio__text');
+            const open = text.classList.toggle('bio-open');
+            this.setAttribute('aria-expanded', String(open));
+            this.textContent = open ? 'Close' : 'Bio';
+        });
+    });
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
