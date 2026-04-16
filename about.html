@@ -168,8 +168,19 @@
         const titleEl    = document.getElementById('tl-title');
         const descEl     = document.getElementById('tl-desc');
         const contentRow = document.getElementById('tl-content-row');
+        const dotsRow    = document.getElementById('tl-dots');
+
+        // Inject the grey track line and cyan progress fill
+        const trackEl = document.createElement('div');
+        trackEl.className = 'tl-dots__track';
+        dotsRow.appendChild(trackEl);
+
+        const fillEl = document.createElement('div');
+        fillEl.className = 'tl-dots__fill';
+        dotsRow.appendChild(fillEl);
 
         let activeIndex = 5;
+        let fading = false;
 
         function positionContent(i) {
             const dot     = dotBtns[i];
@@ -181,38 +192,69 @@
             contentEl.style.left = left + 'px';
         }
 
+        function positionTrack() {
+            const dotsRect  = dotsRow.getBoundingClientRect();
+            const firstRect = dotBtns[0].getBoundingClientRect();
+            const lastRect  = dotBtns[dotBtns.length - 1].getBoundingClientRect();
+            const left      = firstRect.left - dotsRect.left + firstRect.width / 2;
+            const right     = lastRect.left - dotsRect.left + lastRect.width / 2;
+            trackEl.style.left  = left + 'px';
+            trackEl.style.width = (right - left) + 'px';
+            fillEl.style.left   = left + 'px';
+        }
+
+        function updateFill(i) {
+            const firstRect = dotBtns[0].getBoundingClientRect();
+            const dotRect   = dotBtns[i].getBoundingClientRect();
+            const start     = firstRect.left + firstRect.width / 2;
+            const end       = dotRect.left + dotRect.width / 2;
+            fillEl.style.width = Math.max(0, end - start) + 'px';
+        }
+
         function activate(i) {
-            if (i === activeIndex) return;
+            if (i === activeIndex || fading) return;
 
             yearBtns.forEach(b => b.classList.remove('is-active'));
-            dotBtns.forEach(b => b.classList.remove('is-active'));
+            dotBtns.forEach(b  => b.classList.remove('is-active'));
             yearBtns[i].classList.add('is-active');
             dotBtns[i].classList.add('is-active');
             activeIndex = i;
 
-            // Crossfade: fade out, swap content + reposition, fade in
-            contentEl.style.opacity = '0';
+            updateFill(i);
+
+            // Smooth crossfade: fade out → swap → reposition → fade in
+            fading = true;
+            contentEl.classList.add('is-fading');
             setTimeout(() => {
                 titleEl.textContent = MILESTONES[i].title;
                 descEl.textContent  = MILESTONES[i].desc;
                 positionContent(i);
-                contentEl.style.opacity = '1';
-            }, 250);
+                contentEl.classList.remove('is-fading');
+                fading = false;
+            }, 180);
         }
 
         yearBtns.forEach((b, i) => { b.addEventListener('mouseenter', () => activate(i)); b.addEventListener('click', () => activate(i)); });
         dotBtns.forEach((b, i)  => { b.addEventListener('mouseenter', () => activate(i)); b.addEventListener('click', () => activate(i)); });
 
-        // Init: wait for fonts so positionContent measures correctly, then fade in
+        // Init: wait for fonts, then reveal with entrance pulse
         contentEl.style.opacity = '0';
         document.fonts.ready.then(() => {
             titleEl.textContent = MILESTONES[activeIndex].title;
             descEl.textContent  = MILESTONES[activeIndex].desc;
+            positionTrack();
             positionContent(activeIndex);
+            updateFill(activeIndex);
             contentEl.style.opacity = '1';
+
+            // Ripple runs automatically via CSS on .is-active
         });
 
-        window.addEventListener('resize', () => positionContent(activeIndex), { passive: true });
+        window.addEventListener('resize', () => {
+            positionTrack();
+            positionContent(activeIndex);
+            updateFill(activeIndex);
+        }, { passive: true });
     })();
 
     // ── Scroll reveal ─────────────────────────────────────────

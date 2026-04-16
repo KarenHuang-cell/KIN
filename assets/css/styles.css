@@ -1877,6 +1877,10 @@ body.nav-open { overflow: hidden; }
     margin: 0 auto;
 }
 
+.corp-hero--tight {
+    padding: calc(var(--nav-h) + 40px) var(--margin) 32px;
+}
+
 .corp-hero .eyebrow {
     color: var(--clr-accent);
     margin-bottom: 16px;
@@ -1888,6 +1892,30 @@ body.nav-open { overflow: hidden; }
     line-height: 1.05;
     letter-spacing: -2px;
     color: var(--clr-navy);
+}
+
+.corp-hero__sub {
+    font-size: clamp(15px, 1.4vw, 17px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #555;
+    max-width: 640px;
+    margin-top: 20px;
+}
+
+/* Group photo banner */
+.corp-banner {
+    padding: 0 var(--margin);
+    max-width: var(--max-w);
+    margin: 0 auto 48px;
+}
+
+.corp-banner__img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
 }
 
 /* Section (Board / Executive) */
@@ -1914,21 +1942,51 @@ body.nav-open { overflow: hidden; }
 }
 
 .corp-grid--4col { grid-template-columns: repeat(4, 1fr); }
+.corp-grid--team { grid-template-columns: repeat(5, 1fr); gap: 40px 32px; }
+.corp-grid--team-4 { grid-template-columns: repeat(4, 1fr); gap: 40px 32px; }
+
+/* Chairman — prominent horizontal card */
+.corp-chair {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(3,29,69,0.10);
+}
+
+.corp-chair__photo {
+    width: 220px;
+    flex-shrink: 0;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%);
+}
+
+.corp-chair__info {
+    padding-top: 8px;
+}
+
+.corp-chair__info .corp-card__bio {
+    text-align: left;
+}
 
 .corp-featured--4col { grid-template-columns: 1fr 3fr; }
 .corp-featured--4col .corp-card__bio { max-width: var(--w-narrow); }
 
 /* Person card */
-.corp-card {}
+.corp-card { text-align: center; }
 
 .corp-card__photo {
     width: 100%;
+    max-width: 200px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center top;
     display: block;
     filter: grayscale(100%);
-    margin-bottom: 20px;
+    margin: 0 auto 16px;
 }
 
 .corp-card__name {
@@ -1936,10 +1994,10 @@ body.nav-open { overflow: hidden; }
 }
 
 .corp-card__title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    color: #555;
-    margin-bottom: 12px;
+    color: #777;
+    margin-bottom: 10px;
     line-height: 1.4;
 }
 
@@ -1961,20 +2019,33 @@ body.nav-open { overflow: hidden; }
 
 /* Bio panel — hidden by default, revealed by JS */
 .corp-card__bio {
-    display: none;
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 12px;
+    padding-top: 12px;
     border-top: 1px solid rgba(3,29,69,0.10);
+    text-align: left;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
+    margin-top: 0;
+    padding-top: 0;
+    border-top-color: transparent;
 }
 
-.corp-card__bio.is-open { display: block; }
+.corp-card__bio.is-open {
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top-color: rgba(3,29,69,0.10);
+}
 
 .corp-card__bio p {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 19px;
     color: #555;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .corp-card__bio p:last-child { margin-bottom: 0; }
@@ -2026,20 +2097,33 @@ body.nav-open { overflow: hidden; }
     max-width: var(--w-narrow);
 }
 
-/* Mobile */
+/* Tablet */
 @media (max-width: 1100px) {
     .corp-hero { padding-top: calc(var(--nav-h) + 48px); }
+    .corp-hero--tight { padding-top: calc(var(--nav-h) + 36px); }
     .corp-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+    .corp-grid--team { grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+    .corp-grid--team-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+    .corp-chair { gap: 24px; }
+    .corp-chair__photo { width: 180px; }
     .corp-grid--4col { grid-template-columns: repeat(2, 1fr); }
     .corp-featured--4col { grid-template-columns: 1fr; }
     .corp-featured { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .corp-banner__img { max-height: 280px; }
 }
 
+/* Mobile */
 @media (max-width: 620px) {
     .corp-grid { grid-template-columns: 1fr; }
+    .corp-grid--team { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+    .corp-grid--team-4 { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+    .corp-chair { flex-direction: column; align-items: center; text-align: center; }
+    .corp-chair__photo { width: 200px; }
+    .corp-chair__info { text-align: center; }
     .corp-hero__title { letter-spacing: -1px; }
     .corp-featured { grid-template-columns: 1fr; gap: 24px; }
     .corp-featured__content { grid-column: 1; }
+    .corp-banner__img { max-height: 200px; }
 }
 
 
@@ -2671,29 +2755,31 @@ body.nav-open { overflow: hidden; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px; /* fixed height prevents layout jump when active year changes size */
+    height: 40px;
+    padding: 0 120px;
 }
 
 .tl-year {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     letter-spacing: 0;
     text-transform: uppercase;
-    color: #999;
-    line-height: 34px;
+    color: #b0b5be;
+    line-height: 1;
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
-    transition: color 0.35s ease;
+    transform-origin: center center;
+    transition: color 0.4s cubic-bezier(0.16,1,0.3,1),
+                transform 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 
 .tl-year.is-active {
-    font-size: 36px;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0;
-    line-height: 40px;
     color: #00c1e6;
+    transform: scale(2.1);
 }
 
 /* Row 2 — dots */
@@ -2702,17 +2788,30 @@ body.nav-open { overflow: hidden; }
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 120px;
 }
 
-.tl-dots::before {
-    content: '';
+/* Grey track line — positioned by JS to span first→last dot */
+.tl-dots__track {
     position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
     height: 1px;
     background: #c8cdd8;
     transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Cyan progress fill along the line */
+.tl-dots__fill {
+    position: absolute;
+    top: 50%;
+    left: 120px;
+    height: 2px;
+    width: 0;
+    background: #00c1e6;
+    transform: translateY(-50%);
+    transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+    pointer-events: none;
 }
 
 .tl-dot {
@@ -2737,6 +2836,17 @@ body.nav-open { overflow: hidden; }
     box-shadow: 0 0 0 5px rgba(0,193,230,0.18);
 }
 
+/* Ripple — continuous loop on active dot */
+@keyframes tl-dot-ripple {
+    0%   { box-shadow: 0 0 0 0   rgba(0,193,230,0.35); }
+    70%  { box-shadow: 0 0 0 14px rgba(0,193,230,0);    }
+    100% { box-shadow: 0 0 0 14px rgba(0,193,230,0);    }
+}
+
+.tl-dot.is-active {
+    animation: tl-dot-ripple 1.8s ease-out infinite;
+}
+
 /* Row 3 — content */
 .tl-content-row {
     position: relative;
@@ -2745,30 +2855,33 @@ body.nav-open { overflow: hidden; }
 
 .tl-content {
     position: absolute;
-    width: 300px;
+    width: 240px;
     top: 0;
+    text-align: center;
     opacity: 1;
-    transition: left 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease;
+    transition: left 0.55s cubic-bezier(0.25,0.8,0.25,1),
+                opacity 0.3s ease;
 }
 
 .tl-content.is-fading {
     opacity: 0;
+    transition: opacity 0.15s ease;
 }
 
 .tl-content__title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 32px;
+    line-height: 24px;
     color: #031d45;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .tl-content__desc {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 22px;
+    line-height: 19px;
     color: #6d6d69;
 }
 
