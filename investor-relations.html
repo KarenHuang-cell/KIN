@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=47" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=49" />
 </head>
 <body class="corp-page">
 
@@ -43,68 +43,52 @@
         </div>
     </div>
 
-    <!-- Content: sidebar + sections -->
-    <div class="ir-content">
+    <!-- Corporate Structure + Prospectus -->
+    <div class="ir-below">
 
-        <!-- Sidebar nav -->
-        <aside class="ir-sidebar" aria-label="Investor relations navigation">
-            <nav class="ir-sidebar__nav">
-                <a href="#sgx" class="ir-sidebar__link eyebrow eyebrow--sm eyebrow--navy ir-sidebar__link--active">SGX Announcements</a>
-                <a href="#prospectus" class="ir-sidebar__link eyebrow eyebrow--sm eyebrow--navy">Prospectus</a>
-                <a href="corporate-information.html" class="ir-sidebar__link eyebrow eyebrow--sm eyebrow--navy">Corporate Information</a>
-                <a href="#financial" class="ir-sidebar__link eyebrow eyebrow--sm eyebrow--navy">Financial Highlights</a>
-            </nav>
-        </aside>
+        <!-- Corporate Structure -->
+        <section class="ir-below__col reveal" id="corp-structure" aria-labelledby="corp-structure-heading">
+            <h2 class="ir-below__heading" id="corp-structure-heading">Corporate Structure</h2>
+            <img src="assets/images/ir-corporate-structure.png"
+                 alt="KIN corporate structure: Kin Global Limited → Kin Productions Pte Ltd → Kin D+B Pte Ltd (75%) and Kin Middle East W.L.L (100%)"
+                 class="ir-corp-structure__img" />
+        </section>
 
-        <!-- Main content -->
-        <main>
+        <!-- Prospectus -->
+        <section class="ir-below__col reveal" id="prospectus" aria-labelledby="prospectus-heading">
+            <h2 class="ir-below__heading" id="prospectus-heading">Prospectus</h2>
 
-            <!-- SGX Announcements -->
-            <section class="ir-section reveal" id="sgx" aria-labelledby="sgx-heading">
-                <h2 class="ir-section__heading" id="sgx-heading">Sgx Announcements</h2>
+            <a href="https://www.kin.net/wp-content/uploads/2026/04/Final_Offer_Document.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+                <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+                <span class="ir-prospectus__text">
+                    <span class="ir-prospectus__date">14th Apr 2026</span>
+                    <span class="ir-prospectus__title">Final Offer Document</span>
+                </span>
+            </a>
 
-                <div class="ir-item">
-                    <p class="ir-item__meta eyebrow eyebrow--sm eyebrow--navy">01 Apr 2026 &bull; <span>SGX Announcement</span></p>
-                    <p class="ir-item__title">Disclosure Of Interest / Changes In Interest Of Director / Chief Executive Officer – Disclosure Of Changes In Interest Of Director And Substantial Shareholder – Mr. Lim Yingjie Eugene</p>
-                </div>
+            <a href="https://www.kin.net/wp-content/uploads/2026/04/Final_Product_Highlights_Sheet.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+                <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+                <span class="ir-prospectus__text">
+                    <span class="ir-prospectus__date">14th Apr 2026</span>
+                    <span class="ir-prospectus__title">Final Product Highlights Sheet</span>
+                </span>
+            </a>
 
-                <div class="ir-view-all">
-                    <a href="/investor-relations/sgx" class="link-action">View All &nbsp;→</a>
-                </div>
-            </section>
+            <a href="https://www.kin.net/wp-content/uploads/2026/04/Kin_Global_Limited_CorporatePresentation.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+                <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+                <span class="ir-prospectus__text">
+                    <span class="ir-prospectus__date">14th Apr 2026</span>
+                    <span class="ir-prospectus__title">Corporate Presentation</span>
+                </span>
+            </a>
 
-            <!-- Newsroom -->
-            <section class="ir-section reveal" id="newsroom" aria-labelledby="newsroom-heading">
-                <h2 class="ir-section__heading" id="newsroom-heading">Newsroom</h2>
+        </section>
 
-                <div class="ir-item">
-                    <p class="ir-item__meta eyebrow eyebrow--sm eyebrow--navy">01 Apr 2026 &bull; <span>SGX Announcement</span></p>
-                    <p class="ir-item__title">
-                        <a href="#">Hyperlink only! Changes In Interest Of Director / Chief Executive Officer – Disclosure Of Changes In Interest Of Director And Substantial Shareholder – Mr. Lim Yingjie Eugene</a>
-                    </p>
-                </div>
-            </section>
-
-            <!-- Financial Highlights -->
-            <section class="ir-section reveal" id="financial" aria-labelledby="financial-heading">
-                <h2 class="ir-section__heading" id="financial-heading">Financial Highlights</h2>
-
-                <div class="ir-item">
-                    <p class="ir-item__meta eyebrow eyebrow--sm eyebrow--navy">01 Apr 2026 &bull; <span>SGX Announcement</span></p>
-                    <p class="ir-item__title">Disclosure Of Interest / Changes In Interest Of Director / Chief Executive Officer – Disclosure Of Changes In Interest Of Director And Substantial Shareholder – Mr. Lim Yingjie Eugene</p>
-                </div>
-
-                <div class="ir-view-all">
-                    <a href="/investor-relations/financial" class="link-action">View All &nbsp;→</a>
-                </div>
-            </section>
-
-        </main>
-
-    </div><!-- /ir-content -->
+    </div><!-- /ir-below -->
 
 </div><!-- /site-wrap -->
 
+<div id="cta-include"></div>
 <div id="footer-include"></div>
 
 <script>
@@ -133,6 +117,7 @@
         });
     });
 
+    loadInclude('cta-include', 'includes/cta-light.html');
     loadInclude('footer-include', 'includes/footer-light.html');
 
     // Scroll reveal

@@ -2314,6 +2314,93 @@ body.nav-open { overflow: hidden; }
 
 
 /* ============================================================
+   18a. IR BELOW — Corporate Structure + Prospectus
+============================================================ */
+.ir-below {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 60px var(--margin) var(--section-v);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 60px 80px;
+    align-items: start;
+}
+
+.ir-below__col { min-width: 0; }
+
+.ir-below__heading {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    color: var(--clr-navy);
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #b0b0af;
+}
+
+/* Corporate structure diagram */
+.ir-corp-structure__img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Prospectus list items */
+.ir-prospectus__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 0 40px 0;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.ir-prospectus__item:last-child { padding-bottom: 0; }
+.ir-prospectus__item:hover { opacity: 0.7; }
+
+.ir-prospectus__icon {
+    width: 32px;
+    height: auto;
+    flex-shrink: 0;
+    display: block;
+}
+
+.ir-prospectus__text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ir-prospectus__date {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--clr-accent);
+}
+
+.ir-prospectus__title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 25px;
+    color: var(--clr-navy);
+}
+
+@media (max-width: 1100px) {
+    .ir-below { grid-template-columns: 1fr; gap: 60px; padding-top: 40px; }
+}
+
+@media (max-width: 620px) {
+    .ir-below__heading { font-size: 24px; line-height: 32px; margin-bottom: 28px; }
+    .ir-prospectus__title { font-size: 15px; line-height: 22px; }
+}
+
+/* ============================================================
    18b. FINANCIAL HIGHLIGHTS PAGE
 ============================================================ */
 
