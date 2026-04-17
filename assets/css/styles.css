@@ -3110,7 +3110,7 @@ body.nav-open { overflow: hidden; }
     display: grid;
     grid-template-columns: 5fr 7fr;
     gap: clamp(32px, 5vw, 80px);
-    align-items: center;
+    align-items: end;
 }
 
 .mv-split__img {
@@ -3118,6 +3118,10 @@ body.nav-open { overflow: hidden; }
     aspect-ratio: 4/5;
     object-fit: cover;
     display: block;
+}
+
+.mv-split__content {
+    align-self: end;
 }
 
 .mv-split__heading {
