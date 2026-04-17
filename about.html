@@ -12,19 +12,16 @@
 
     <link rel="stylesheet" href="assets/css/styles.css?v=48" />
     <style>
-        /* ── About page — panel reveal redesign ── */
-
-        /* Kill the default about-page light bg so the hero shows through */
         .about-page { background: #000; }
 
-        /* ── HERO — sticky, full viewport, supertrees image ── */
+        /* ── HERO — sticky behind everything ── */
         .about-hero-img {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             height: 100vh;
+            width: 100%;
             z-index: 0;
+            overflow: hidden;
         }
 
         .about-hero-img__bg {
@@ -42,7 +39,7 @@
             inset: 0;
             background:
                 linear-gradient(110deg, rgba(8,8,15,0.78) 0%, rgba(8,8,15,0.22) 55%, rgba(8,8,15,0.04) 100%),
-                linear-gradient(to top,  rgba(8,8,15,0.92) 0%, rgba(8,8,15,0.18) 40%, transparent 65%);
+                linear-gradient(to top, rgba(8,8,15,0.92) 0%, rgba(8,8,15,0.18) 40%, transparent 65%);
             z-index: 1;
         }
 
@@ -66,32 +63,56 @@
             max-width: 900px;
         }
 
-        /* Hero spacer — pushes content below the fixed hero */
-        .about-hero-spacer {
+        /* ── STICKY PANELS — recede as the next one scrolls up ── */
+        .about-panel {
+            position: sticky;
+            top: 0;
             height: 100vh;
-            position: relative;
-            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            will-change: transform, opacity;
         }
 
-        /* ── BORN FROM LEGACY — homepage-style centered section on dark bg ── */
-        .about-legacy {
-            position: relative;
-            z-index: 1;
+        .about-panel--dark {
             background: #000;
-            padding: var(--section-v) var(--margin);
+            z-index: 1;
             text-align: center;
         }
 
-        .about-legacy__inner {
+        .about-panel--dark .about-panel__content {
             max-width: 720px;
+            padding: 0 var(--margin);
+        }
+
+        .about-panel--mission {
+            background: var(--clr-bg-light);
+            z-index: 2;
+            box-shadow: 0 -20px 60px rgba(0,0,0,0.1);
+        }
+
+        .about-panel--timeline {
+            background: #E3E2DE;
+            z-index: 3;
+            box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
+        }
+
+        .about-panel__content {
+            width: 100%;
+            max-width: var(--max-w);
             margin: 0 auto;
+            padding: 0 var(--margin);
         }
 
-        .about-legacy .eyebrow {
-            margin-bottom: 20px;
+        /* Spacer after each sticky panel */
+        .about-panel-spacer {
+            height: 40vh;
+            position: relative;
         }
 
-        .about-legacy__heading {
+        /* Dark panel typography */
+        .about-dark__heading {
             font-size: 30px;
             font-weight: 700;
             line-height: 36px;
@@ -100,7 +121,7 @@
             margin-bottom: 32px;
         }
 
-        .about-legacy__body p {
+        .about-dark__body p {
             font-size: 16px;
             font-weight: 400;
             line-height: 22px;
@@ -108,45 +129,45 @@
             margin-bottom: 16px;
         }
 
-        .about-legacy__body p:last-child { margin-bottom: 0; }
+        .about-dark__body p:last-child { margin-bottom: 0; }
 
-        /* ── PANEL REVEAL — light panel slides up over dark sections ── */
-        .about-panel {
-            position: relative;
-            z-index: 2;
-            background: var(--clr-bg-light);
-            border-radius: 0;
-        }
+        .about-panel--dark .eyebrow { margin-bottom: 20px; }
 
-        .about-panel__inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-        }
-
-        /* Override about-mission for light bg */
+        /* Mission overrides */
         .about-panel .about-mission {
-            border-top: 1px solid rgba(3,29,69,0.10);
+            border-top: none;
+            padding: 0;
+            max-width: none;
+        }
+
+        /* Timeline overrides */
+        .about-panel .about-timeline {
+            padding: 0;
+        }
+
+        /* ── FINAL SECTION — normal scroll, not sticky ── */
+        .about-final {
+            position: relative;
+            z-index: 4;
+            background: var(--clr-bg-light);
+            box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
+        }
+
+        .about-final .about-leadership {
+            padding-top: 80px;
         }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1100px) {
-            .about-hero-img__title {
-                font-size: 48px;
-                letter-spacing: -1.5px;
-            }
-            .about-hero-img__content {
-                padding-bottom: 56px;
-            }
+            .about-hero-img__title { font-size: 48px; letter-spacing: -1.5px; }
+            .about-hero-img__content { padding-bottom: 56px; }
         }
 
         @media (max-width: 620px) {
-            .about-hero-img__title {
-                font-size: 36px;
-                letter-spacing: -1px;
-            }
-            .about-hero-img__content {
-                padding-bottom: 40px;
-            }
+            .about-hero-img__title { font-size: 36px; letter-spacing: -1px; }
+            .about-hero-img__content { padding-bottom: 40px; }
+            .about-panel { min-height: 100vh; height: auto; padding: 80px 0; }
+            .about-panel--dark { padding: 80px 0; }
         }
     </style>
 </head>
@@ -154,35 +175,31 @@
 
 <div id="nav-include"></div>
 
-<!-- ── HERO — fixed supertrees image ── -->
-<div class="about-hero-img">
+<!-- ── HERO — sticky ── -->
+<section class="about-hero-img">
     <div class="about-hero-img__bg"></div>
     <div class="about-hero-img__overlay"></div>
     <div class="about-hero-img__content">
         <h1 class="about-hero-img__title">Born From Legacy.<br>Built For The Future.</h1>
     </div>
-</div>
+</section>
 
-<!-- Spacer to push content below the fixed hero -->
-<div class="about-hero-spacer"></div>
-
-<!-- ── BORN FROM LEGACY — dark bg, homepage style ── -->
-<section class="about-legacy">
-    <div class="about-legacy__inner">
+<!-- ── PANEL 1: DARK ── -->
+<div class="about-panel about-panel--dark" data-panel>
+    <div class="about-panel__content">
         <p class="eyebrow reveal">About Us</p>
-        <h2 class="about-legacy__heading reveal reveal-delay-1">From stadium floors to museum halls.</h2>
-        <div class="about-legacy__body reveal reveal-delay-2">
+        <h2 class="about-dark__heading reveal reveal-delay-1">From stadium floors to museum halls.</h2>
+        <div class="about-dark__body reveal reveal-delay-2">
             <p>At KIN, we believe that behind every iconic destination lies a story of vision, dedication, and the relentless pursuit of excellence. We believe that world-class events and cultural experiences have the unique ability to unite communities, attract global audiences, and create economic legacies that last a lifetime.</p>
             <p>We recognise that it is the seamless orchestration of every detail—from the first planning meeting to the final celebration—that transforms cities into must-visit destinations and events into unforgettable moments.</p>
         </div>
     </div>
-</section>
+</div>
+<div class="about-panel-spacer"></div>
 
-<!-- ── PANEL REVEAL — light bg slides up ── -->
-<div class="about-panel">
-    <div class="about-panel__inner">
-
-        <!-- Mission -->
+<!-- ── PANEL 2: MISSION ── -->
+<div class="about-panel about-panel--mission" data-panel>
+    <div class="about-panel__content">
         <section class="about-mission reveal" aria-label="Brand mission">
             <div class="about-mission__left">
                 <h2 class="about-mission__heading">From Global Sports To Destination Transformation</h2>
@@ -192,17 +209,20 @@
                 <p>With proven expertise in sports and live event management, cultural programming, and experiential design, we unite international federations, tourism boards, established brands, and local communities to create truly iconic moments—masterfully executing everything from championship sporting spectacles to immersive cultural attractions and signature brand activations.</p>
             </div>
         </section>
+    </div>
+</div>
+<div class="about-panel-spacer"></div>
 
-        <!-- Timeline / Milestones -->
+<!-- ── PANEL 3: TIMELINE ── -->
+<div class="about-panel about-panel--timeline" data-panel>
+    <div class="about-panel__content">
         <section class="about-timeline" aria-labelledby="timeline-heading">
             <p class="eyebrow">The Journey</p>
             <h2 class="about-timeline__heading" id="timeline-heading">Our Milestones</h2>
 
-            <!-- Vertical layout: tablet & mobile (populated by JS) -->
             <div class="tl-vertical" id="tl-vertical" aria-hidden="true"></div>
 
             <div class="tl-wrap">
-                <!-- Row 1: year labels -->
                 <div class="tl-years" id="tl-years">
                     <span class="tl-year" data-index="0">2017</span>
                     <span class="tl-year" data-index="1">2020</span>
@@ -213,7 +233,6 @@
                     <span class="tl-year" data-index="6">2025</span>
                 </div>
 
-                <!-- Row 2: dots on a line -->
                 <div class="tl-dots" id="tl-dots">
                     <button class="tl-dot" data-index="0" aria-label="2017"></button>
                     <button class="tl-dot" data-index="1" aria-label="2020"></button>
@@ -224,7 +243,6 @@
                     <button class="tl-dot" data-index="6" aria-label="2025"></button>
                 </div>
 
-                <!-- Row 3: content panel -->
                 <div class="tl-content-row" id="tl-content-row">
                     <div class="tl-content" id="tl-content">
                         <h3 class="tl-content__title" id="tl-title"></h3>
@@ -233,25 +251,28 @@
                 </div>
             </div>
         </section>
-
-        <!-- Leadership -->
-        <section class="about-leadership reveal" aria-labelledby="leadership-heading">
-            <p class="eyebrow">The Leadership</p>
-            <h2 class="about-leadership__heading" id="leadership-heading">Leadership Built On 80+ Years Of Collective Experience</h2>
-            <a href="management-team.html">
-                <img src="assets/images/about-leadership.jpg"
-                     alt="KIN leadership team"
-                     class="about-leadership__photo" />
-            </a>
-            <a href="management-team.html" class="btn--outline">Meet The Team</a>
-        </section>
-
     </div>
+</div>
+<div class="about-panel-spacer"></div>
+
+<!-- ── FINAL SECTION — leadership + CTA + footer, scrolls normally ── -->
+<div class="about-final">
+
+    <section class="about-leadership reveal" aria-labelledby="leadership-heading">
+        <p class="eyebrow">The Leadership</p>
+        <h2 class="about-leadership__heading" id="leadership-heading">Leadership Built On 80+ Years Of Collective Experience</h2>
+        <a href="management-team.html">
+            <img src="assets/images/about-leadership.jpg"
+                 alt="KIN leadership team"
+                 class="about-leadership__photo" />
+        </a>
+        <a href="management-team.html" class="btn--outline">Meet The Team</a>
+    </section>
 
     <div id="cta-include"></div>
     <div id="footer-include"></div>
 
-</div><!-- /about-panel -->
+</div>
 
 <script>
     function loadInclude(id, url, callback) {
@@ -410,6 +431,44 @@
     }
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
+
+    // ── Receding panel animation ──────────────────────────────
+    (function () {
+        const panels = Array.from(document.querySelectorAll('[data-panel]'));
+        const finalSection = document.querySelector('.about-final');
+        if (!panels.length) return;
+
+        function onScroll() {
+            const vh = window.innerHeight;
+
+            panels.forEach((panel, i) => {
+                const nextEl = panels[i + 1] || finalSection;
+                if (!nextEl) {
+                    panel.style.transform = '';
+                    panel.style.opacity = '';
+                    panel.style.filter = '';
+                    return;
+                }
+
+                const nextRect = nextEl.getBoundingClientRect();
+                const overlap = Math.max(0, vh - nextRect.top);
+                const progress = Math.min(1, overlap / vh);
+
+                if (progress > 0) {
+                    const scale = 1 - (progress * 0.05);
+                    const opacity = 1 - (progress * 0.6);
+                    panel.style.transform = `scale(${scale})`;
+                    panel.style.opacity = opacity;
+                } else {
+                    panel.style.transform = '';
+                    panel.style.opacity = '';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    })();
 </script>
 
 </body>
