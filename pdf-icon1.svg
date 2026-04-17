@@ -1,0 +1,16 @@
+<svg viewBox="0 0 56 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document body -->
+  <path d="M 8 0 H 38 L 52 14 V 64 Q 52 68 48 68 H 8 Q 4 68 4 64 V 4 Q 4 0 8 0 Z" fill="#031D45"/>
+  <!-- Fold corner -->
+  <path d="M 38 0 L 52 14 H 38 Z" fill="#00C1E6"/>
+  <!-- PDF label -->
+  <text
+    x="28" y="41"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="800"
+    font-size="14"
+    letter-spacing="2"
+    fill="white">PDF</text>
+</svg>
