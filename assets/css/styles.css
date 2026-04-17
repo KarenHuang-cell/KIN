@@ -3110,7 +3110,7 @@ body.nav-open { overflow: hidden; }
     display: grid;
     grid-template-columns: 5fr 7fr;
     gap: clamp(32px, 5vw, 80px);
-    align-items: end;
+    align-items: stretch;
 }
 
 .mv-split__img {
@@ -3121,7 +3121,10 @@ body.nav-open { overflow: hidden; }
 }
 
 .mv-split__content {
-    align-self: end;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .mv-split__heading {
