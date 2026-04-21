@@ -12,8 +12,15 @@
 }
 
 .ir-corp-figure {
-    display: inline-block;
+    display: block;
+    max-width: 600px;
     margin: 0;
+}
+
+.ir-corp-feature .ir-corp-structure__img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .ir-corp-caption {
