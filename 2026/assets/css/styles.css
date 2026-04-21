@@ -2483,6 +2483,56 @@ body.nav-open { overflow: hidden; }
     color: var(--clr-navy);
 }
 
+/* Corporate Structure — full-width feature slot */
+.ir-corp-feature {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--margin) 80px;
+}
+
+.ir-corp-figure {
+    display: block;
+    max-width: 800px;
+    margin: 0;
+}
+
+.ir-corp-feature .ir-corp-structure__img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ir-corp-label { margin-bottom: 40px; }
+
+/* SGX Announcements */
+.ir-sgx__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.ir-sgx__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 28px 0;
+}
+
+.ir-sgx__date {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--clr-accent);
+}
+
+.ir-sgx__name {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 25px;
+    color: var(--clr-navy);
+}
+
 @media (max-width: 1100px) {
     .ir-below { grid-template-columns: 1fr; gap: 60px; padding-top: 40px; }
 }
@@ -2490,6 +2540,7 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 620px) {
     .ir-below__heading { font-size: 24px; line-height: 32px; margin-bottom: 28px; }
     .ir-prospectus__title { font-size: 15px; line-height: 22px; }
+    .ir-sgx__name { font-size: 15px; line-height: 22px; }
 }
 
 /* ============================================================
