@@ -1,0 +1,32 @@
+.contact-detail__value a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.contact-form__status {
+    display: none;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+.contact-form__status--success {
+    display: block;
+    background: #e8f7f0;
+    color: #1a7a4a;
+    border: 1px solid #a8dfc0;
+}
+
+.contact-form__status--error {
+    display: block;
+    background: #fdf0f0;
+    color: #c0392b;
+    border: 1px solid #f5b7b1;
+}

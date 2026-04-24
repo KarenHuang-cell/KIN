@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HSBC SVNS Singapore 2025 — KIN</title>
+    <meta name="description" content="How KIN delivered HSBC SVNS Singapore 2025 at the National Stadium — a rugby festival blending world-class sport, fan-first experiences, and sustainable event practices for over 42,000 attendees." />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=55" />
+    <style>
+        @media (min-width: 621px) {
+            .cs-hero {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                height: 100vh;
+            }
+            .cs-intro,
+            .cs-stats,
+            .cs-gallery,
+            .cs-content,
+            .cta-band,
+            .footer {
+                position: relative;
+                z-index: 10;
+                background: var(--clr-bg);
+            }
+            .cs-intro::before {
+                content: '';
+                position: absolute;
+                bottom: 100%;
+                left: 0;
+                right: 0;
+                height: 460px;
+                background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(13,13,13,0.45) 50%, transparent 100%);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+            .cs-intro.gradient-active::before {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVIGATION (loaded from includes/nav.html)
+================================================================ -->
+<div id="nav-include"></div>
+
+
+<!-- ================================================================
+     HERO
+     Full-bleed, sits behind the nav. Text anchored bottom-left.
+================================================================ -->
+<section class="cs-hero" aria-label="HSBC SVNS Singapore hero">
+    <div class="cs-hero__img"
+         style="background-image: url('assets/images/HSBC SVNS 2025_selected_01.webp'); background-position: center center;"
+         role="img" aria-label="HSBC SVNS Singapore 2025 at the National Stadium"></div>
+    <div class="cs-hero__gradient" aria-hidden="true"></div>
+    <div class="cs-hero__text">
+        <h1 class="cs-hero__title">HSBC SVNS Singapore</h1>
+        <p class="cs-hero__sub">Rugby Meets Festival Culture</p>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     INTRO  (centred, max-width 1100px)
+================================================================ -->
+<section class="cs-intro" aria-labelledby="cs-intro-hl">
+    <div class="cs-intro__inner">
+        <p class="eyebrow reveal">Fan-first, future-forward</p>
+        <h2 id="cs-intro-hl" class="cs-intro__headline reveal reveal-delay-1">
+            Redefining sports entertainment<br />
+            at the National Stadium
+        </h2>
+        <div class="cs-intro__body reveal reveal-delay-2">
+            <p>In April 2025, the National Stadium at Singapore Sports Hub once again played host to one of the most anticipated events in sports: HSBC SVNS Singapore 2025. The stadium was transformed into a vibrant playground for rugby enthusiasts and culture aficionados alike, redefining sports entertainment with over 42,000 attendees expected.</p>
+            <p>More than a tournament, it was a global festival blending rugby&rsquo;s fast-paced action with immersive entertainment, sustainable practices, and next-level fan engagement. World Rugby envisioned the Singapore edition to expand rugby&rsquo;s reach beyond the pitch and appeal to broader audiences through sport, food, music, and interactive experiences.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     STATS BAR
+================================================================ -->
+<section class="cs-stats" aria-label="Key statistics">
+    <div class="cs-stats__inner">
+
+        <div class="cs-stat reveal">
+            <span class="cs-stat__num">42,000+</span>
+            <span class="cs-stat__label eyebrow eyebrow--sm">Expected<br />attendees</span>
+        </div>
+
+        <div class="cs-stat reveal reveal-delay-1">
+            <span class="cs-stat__num">4+</span>
+            <span class="cs-stat__label eyebrow eyebrow--sm">Months of planning<br />from December 2024</span>
+        </div>
+
+        <div class="cs-stat reveal reveal-delay-2">
+            <span class="cs-stat__num">SG60</span>
+            <span class="cs-stat__label eyebrow eyebrow--sm">Old School Games<br />for Singapore&rsquo;s 60th</span>
+        </div>
+
+        <div class="cs-stat reveal reveal-delay-3">
+            <span class="cs-stat__num">0</span>
+            <span class="cs-stat__label eyebrow eyebrow--sm">Reported challenges<br />during delivery</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CAROUSEL
+================================================================ -->
+<section class="cs-gallery" aria-label="Event photography">
+    <div class="cs-gallery__wrap">
+        <div class="cs-gallery__track" id="cs-carousel-track">
+
+            <!-- Slide 1 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/HSBC SVNS 2025_selected_02.webp"
+                     alt="HSBC SVNS Singapore 2025 fan experience"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/HSBC SVNS 2025_selected_03.webp"
+                     alt="HSBC SVNS Singapore 2025 event setup"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="cs-gallery__slide">
+                <img src="assets/images/HSBC SVNS 2025_selected_04.webp"
+                     alt="HSBC SVNS Singapore 2025 rugby action"
+                     class="cs-gallery__img" />
+            </div>
+
+            <!-- Clone of slide 1 — for seamless loop -->
+            <div class="cs-gallery__slide" aria-hidden="true">
+                <img src="assets/images/HSBC SVNS 2025_selected_02.webp"
+                     alt=""
+                     class="cs-gallery__img" />
+            </div>
+
+        </div>
+    </div>
+
+    <div class="cs-gallery__dots" id="cs-carousel-dots" aria-hidden="true">
+        <span class="cs-gallery__dot cs-gallery__dot--active"></span>
+        <span class="cs-gallery__dot"></span>
+        <span class="cs-gallery__dot"></span>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     MAIN CONTENT  (sidebar + narrative)
+================================================================ -->
+<section class="cs-content" aria-label="Project details">
+    <div class="cs-content__inner">
+
+        <!-- Left sidebar -->
+        <aside class="cs-sidebar">
+            <h2 class="cs-sidebar__title reveal">
+                Beyond the pitch
+            </h2>
+            <dl class="cs-meta reveal reveal-delay-1">
+                <dt class="eyebrow eyebrow--sm">Client</dt>
+                <dd>World Rugby</dd>
+                <dt class="eyebrow eyebrow--sm">Date</dt>
+                <dd>5&ndash;6 April 2025</dd>
+                <dt class="eyebrow eyebrow--sm">Location</dt>
+                <dd>National Stadium, Singapore Sports Hub</dd>
+            </dl>
+        </aside>
+
+        <!-- Right narrative -->
+        <div class="cs-body reveal reveal-delay-1">
+
+            <h3>The Vision</h3>
+            <p>World Rugby designed the Singapore edition with three key objectives: promote the global growth of rugby by creating a shared cultural experience that resonated across borders; attract a diverse audience by integrating sports with entertaining fan zones, live performances, and interactive activities; and craft a unique festival atmosphere with innovations like Beach Clubs and Gourmet Food Markets.</p>
+
+            <h3>The Fan Experience</h3>
+            <p>Kickback Zones at the Beach Club let fans unwind in beautifully designed spaces alongside the tournament. Gourmet Food Markets offered a variety of culinary delights, elevating the event into a full lifestyle experience. Live music and interactive performances filled the air with festival vibes, making it a celebration of community and entertainment.</p>
+
+            <h3>Branding and Identity</h3>
+            <p>The branding embraced the SVNS Masterbrand while integrating Singapore&rsquo;s unique cultural identity. This localisation effort included a custom sun logo, tricode branding, and vibrant colour schemes connecting the global narrative to the local audience.</p>
+
+            <h3>KIN&rsquo;s Role</h3>
+            <p>KIN played a vital role in on-ground execution and logistics across several fronts: event delivery and build from venue setup to intricate constructions; venue design matching the event&rsquo;s festive atmosphere; player services and back-of-house operations; fan engagement activities through innovative interactive zones; sports presentation and spectator experience; and overall logistics management across venue operations, stakeholder coordination, and scheduling.</p>
+
+            <h3>SG60 and Community</h3>
+            <p>A highlight was the Sports Tryout Zone, which included a nostalgic twist for Singapore&rsquo;s 60th birthday. Traditional &ldquo;Old School Games&rdquo; brought childhood memories back to life while fostering cultural connection and community celebration.</p>
+
+            <h3>Sustainability</h3>
+            <p>Sustainability was a core pillar, not an afterthought. KIN helped integrate eco-friendly practices including a bagless policy, recycling bins with educational signage, green venue selection, biodegradable utensils, sustainable catering with ethical ingredient sourcing, and plastic bottle reduction &mdash; creating a forward-thinking, environmentally conscious event model.</p>
+
+            <!-- Services provided -->
+            <div class="cs-services">
+                <h3 class="cs-services__heading">Services Provided</h3>
+                <div class="cs-services__grid">
+                    <div class="cs-service">
+                        <div class="cs-service__icon" aria-hidden="true">
+                            <!-- Calendar / planning -->
+                            <img src="assets/icons/event-planning.svg" alt="" width="40" height="40" />
+                        </div>
+                        <span class="cs-service__label">Event Planning<br />&amp; Management</span>
+                    </div>
+                    <div class="cs-service">
+                        <div class="cs-service__icon" aria-hidden="true">
+                            <!-- Drafting compass -->
+                            <img src="assets/icons/compass.svg" alt="" width="40" height="40" />
+                        </div>
+                        <span class="cs-service__label">Design, Production<br />&amp; Build</span>
+                    </div>
+                    <div class="cs-service">
+                        <div class="cs-service__icon" aria-hidden="true">
+                            <!-- Delivery truck -->
+                            <img src="assets/icons/truck.svg" alt="" width="40" height="40" />
+                        </div>
+                        <span class="cs-service__label">Logistics, Operation<br />&amp; Furnishing</span>
+                    </div>
+                    <div class="cs-service">
+                        <div class="cs-service__icon" aria-hidden="true">
+                            <!-- Speaker / AV -->
+                            <img src="assets/icons/speakers.svg" alt="" width="40" height="40" />
+                        </div>
+                        <span class="cs-service__label">Audio-Visual System<br />&amp; Show Presentation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KIN Targets -->
+            <div class="cs-targets">
+                <h3 class="cs-targets__heading">KIN Targets</h3>
+                <ul class="cs-targets__list">
+                    <li>Promote global growth of rugby</li>
+                    <li>Attract diverse audience</li>
+                    <li>Create a unique festival atmosphere</li>
+                </ul>
+            </div>
+
+        </div><!-- /cs-body -->
+
+        <!-- Project navigation -->
+        <nav class="cs-proj-nav" aria-label="Project navigation">
+            <a href="port_world-aquatics-championship.html" class="cs-proj-nav__link cs-proj-nav__link--prev">&larr;&nbsp;&nbsp;World Aquatics Championship</a>
+            <a href="port_singapore-tennis-open-2021.html" class="cs-proj-nav__link cs-proj-nav__link--next">Singapore Tennis Open&nbsp;&nbsp;&rarr;</a>
+        </nav>
+
+    </div><!-- /cs-content__inner -->
+</section>
+
+
+<!-- ================================================================
+     CTA BAND (loaded from includes/cta.html)
+================================================================ -->
+<div id="cta-include"></div>
+
+<!-- ================================================================
+     FOOTER (loaded from includes/footer.html)
+================================================================ -->
+<div id="footer-include"></div>
+
+
+<script>
+    // ── Panel-reveal gradient: activate after scrolling past 100px ────
+    (function () {
+        const intro = document.querySelector('.cs-intro');
+        window.addEventListener('scroll', function () {
+            intro.classList.toggle('gradient-active', window.scrollY > 100);
+        }, { passive: true });
+    })();
+
+    // ── Load includes ─────────────────────────────────────────────────
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        burger.addEventListener('click', () => {
+            const open = mobNav.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta.html');
+    loadInclude('footer-include', 'includes/footer.html');
+
+    // ── Carousel ──────────────────────────────────────────────────────
+    (function () {
+        const TOTAL = 4;
+        const track = document.getElementById('cs-carousel-track');
+        const dots  = Array.from(document.getElementById('cs-carousel-dots').children);
+        let current = 0;
+        let busy = false;
+
+        function goTo(index, animate) {
+            if (animate === false) track.style.transition = 'none';
+            track.style.transform = 'translateX(-' + (index * 100) + '%)';
+            if (animate === false) void track.offsetWidth;
+            if (animate === false) track.style.transition = '';
+            dots.forEach((d, i) => d.classList.toggle('cs-gallery__dot--active', i === index % TOTAL));
+        }
+
+        function advance() {
+            if (busy) return;
+            busy = true;
+            current++;
+            goTo(current, true);
+
+            if (current === TOTAL) {
+                track.addEventListener('transitionend', function reset() {
+                    track.removeEventListener('transitionend', reset);
+                    current = 0;
+                    goTo(0, false);
+                    busy = false;
+                }, { once: true });
+            } else {
+                track.addEventListener('transitionend', function () { busy = false; }, { once: true });
+            }
+        }
+
+        // Click image → next slide
+        track.addEventListener('click', advance);
+
+        // Click dot → jump to that slide
+        dots.forEach((dot, i) => {
+            dot.style.cursor = 'pointer';
+            dot.addEventListener('click', function () {
+                if (busy) return;
+                busy = true;
+                current = i;
+                goTo(current, true);
+                track.addEventListener('transitionend', function () { busy = false; }, { once: true });
+            });
+        });
+    })();
+
+    // ── Scroll-reveal ─────────────────────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>

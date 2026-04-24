@@ -3,14 +3,58 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KIN — Experience Management</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>KIN | Experience Management &amp; Events Tourism, Singapore</title>
     <meta name="description" content="KIN engineers world-class sporting events, immersive exhibitions, and cultural experiences that turn cities into global destinations." />
+    <link rel="canonical" href="https://www.kin.net/index.html" />
+    <meta property="og:title" content="KIN | Experience Management &amp; Events Tourism, Singapore" />
+    <meta property="og:description" content="KIN engineers world-class sporting events, immersive exhibitions, and cultural experiences that turn cities into global destinations." />
+    <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.jpg" />
+    <meta property="og:url" content="https://www.kin.net/index.html" />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "KIN Global",
+      "legalName": "Kin Global Limited",
+      "alternateName": "Kin Productions",
+      "url": "https://www.kin.net/",
+      "logo": "https://www.kin.net/assets/images/kin-logo-navy.svg",
+      "description": "KIN engineers world-class sporting events, immersive exhibitions, and cultural experiences that turn cities into global destinations.",
+      "foundingDate": "2017",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "51 Tai Seng Avenue #04-06, Pixel Red, Lobby C",
+        "addressLocality": "Singapore",
+        "postalCode": "533941",
+        "addressCountry": "SG"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+65-6386-9958",
+        "contactType": "customer service",
+        "email": "info@kin.net",
+        "areaServed": "SG",
+        "availableLanguage": "English"
+      }],
+      "sameAs": [
+        "https://www.linkedin.com/company/kin-productions-pte-ltd/",
+        "https://www.instagram.com/kindotnet/",
+        "https://www.facebook.com/kinproductionspteltd/"
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=48" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=55" />
 </head>
 <body>
 
@@ -25,16 +69,30 @@
 ================================================================ -->
 <section class="hero" aria-label="Hero">
 
-    <div class="hero__bg"
-         style="background-image: url('assets/images/hero-bg.jpg');"
-         role="img" aria-label="Gardens by the Bay, Singapore"></div>
+    <video class="hero__bg" autoplay muted loop playsinline aria-hidden="true" id="heroVideo">
+    </video>
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="hero__content">
         <h1 class="hero__headline">
-            Your city is the video
+            Your city is the destination
         </h1>
     </div>
+
+    <button class="hero__sound-toggle is-muted" aria-label="Unmute video" id="soundToggle">
+        <!-- Sound on -->
+        <svg class="sound-icon sound-icon--on" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h3l5 4V5Z" fill="currentColor"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            <path d="M18.36 5.64a9 9 0 0 1 0 12.73" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+        <!-- Sound off -->
+        <svg class="sound-icon sound-icon--off" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h3l5 4V5Z" fill="currentColor"/>
+            <line x1="22" y1="9" x2="16" y2="15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            <line x1="16" y1="9" x2="22" y2="15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+    </button>
 
 </section>
 
@@ -80,7 +138,7 @@
         <article class="project-card reveal" role="listitem">
             <a href="services_edm.html" class="project-card__link">
                 <div class="project-card__img"
-                     style="background-image: url('assets/images/card-sports.jpg');"
+                     style="background-image: url('assets/images/card-sports.webp');"
                      role="img" aria-label="Sports"></div>
                 <div class="project-card__overlay" aria-hidden="true"></div>
                 <div class="project-card__text">
@@ -94,13 +152,13 @@
         <article class="project-card reveal reveal-delay-1" role="listitem">
             <a href="services_designbuild.html" class="project-card__link">
                 <div class="project-card__img"
-                     style="background-image: url('assets/images/card-experiences.jpg');"
+                     style="background-image: url('assets/images/card-experiences.webp');"
                      role="img" aria-label="Experiences"></div>
                 <div class="project-card__overlay" aria-hidden="true"></div>
                 <div class="project-card__text">
                     <p class="project-card__name">Experiences</p>
                     <p class="project-card__sub">Creating experiential environments that become must-visit attractions</p>
-                    <p class="project-card__desc">We partner with galleries, museums, visitor centres, themed attractions, and world expositions to create extraordinary spaces that transform cities into cultural tourism hubs — captivating audiences and generating sustained visitation.</p>
+                    <p class="project-card__desc">We partner with galleries, museums, visitor centres, themed attractions, and world expositions to create extraordinary spaces that transform cities into cultural tourism hubs &mdash; captivating audiences and generating sustained visitation.</p>
                 </div>
             </a>
         </article>
@@ -108,7 +166,7 @@
         <article class="project-card reveal reveal-delay-2" role="listitem">
             <a href="services_curate.html" class="project-card__link">
                 <div class="project-card__img"
-                     style="background-image: url('assets/images/card-immersive.jpg'); background-position: center top;"
+                     style="background-image: url('assets/images/card-immersive.webp'); background-position: center top;"
                      role="img" aria-label="Immersive Spaces"></div>
                 <div class="project-card__overlay" aria-hidden="true"></div>
                 <div class="project-card__text">
@@ -146,9 +204,9 @@
     <div class="highlights-grid" role="list">
 
         <!-- Row 1 left — large -->
-        <a href="wac-case-study.html" class="hl-card hl-card--wac reveal" role="listitem">
+        <a href="port_world-aquatics-championship.html" class="hl-card hl-card--wac reveal" role="listitem">
             <div class="hl-card__img"
-                 style="background-image: url('assets/images/hl-wac-2025.webp'); background-position: center 30%;"
+                 style="background-image: url('assets/images/KIN_WAC2025_Arena_03.webp'); background-position: center 30%;"
                  role="img" aria-label="World Aquatics Championships 2025"></div>
             <div class="hl-card__overlay" aria-hidden="true"></div>
             <div class="hl-card__text">
@@ -158,9 +216,9 @@
         </a>
 
         <!-- Row 1 right — small -->
-        <a href="hsbc-svns-singapore-2025.html" class="hl-card hl-card--hsbc reveal reveal-delay-1" role="listitem">
+        <a href="port_hsbc-svns-singapore-2025.html" class="hl-card hl-card--hsbc reveal reveal-delay-1" role="listitem">
             <div class="hl-card__img"
-                 style="background-image: url('assets/images/HSBC_SVNS2025_01.jpeg');"
+                 style="background-image: url('assets/images/HSBC SVNS 2025_selected_01.webp');"
                  role="img" aria-label="HSBC SVNS Singapore"></div>
             <div class="hl-card__overlay" aria-hidden="true"></div>
             <div class="hl-card__text">
@@ -170,9 +228,9 @@
         </a>
 
         <!-- Row 2 left — small -->
-        <a href="singapore-odyssea.html" class="hl-card hl-card--odyssea reveal reveal-delay-1" role="listitem">
+        <a href="port_singapore-odyssea.html" class="hl-card hl-card--odyssea reveal reveal-delay-1" role="listitem">
             <div class="hl-card__img"
-                 style="background-image: url('assets/images/hl-odyssea.jpg');"
+                 style="background-image: url('assets/images/hl-odyssea.webp');"
                  role="img" aria-label="Singapore Odyssea"></div>
             <div class="hl-card__overlay" aria-hidden="true"></div>
             <div class="hl-card__text">
@@ -182,9 +240,9 @@
         </a>
 
         <!-- Row 2 right — large -->
-        <a href="fide-world-championship-2024.html" class="hl-card hl-card--fide reveal reveal-delay-2" role="listitem">
+        <a href="port_fide-world-championship-2024.html" class="hl-card hl-card--fide reveal reveal-delay-2" role="listitem">
             <div class="hl-card__img"
-                 style="background-image: url('assets/images/hl-fide.jpg');"
+                 style="background-image: url('assets/images/hl-fide.webp');"
                  role="img" aria-label="FIDE World Championship"></div>
             <div class="hl-card__overlay" aria-hidden="true"></div>
             <div class="hl-card__text">
@@ -262,6 +320,37 @@
 
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
+
+    // ── Responsive hero video ─────────────────────────────────
+    (function() {
+        const video = document.getElementById('heroVideo');
+        const src = window.innerWidth > 1100
+            ? 'assets/videos/Kin-homepage.mp4'
+            : 'assets/videos/Kin-homepage-mobile.mp4';
+        video.src = src;
+        video.load();
+
+        // Respect prefers-reduced-motion: pause hero video for users who
+        // have requested reduced motion at the OS level (WCAG 2.2.2).
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const applyMotionPref = () => {
+            if (reduce.matches) video.pause();
+            else video.play().catch(() => {});
+        };
+        applyMotionPref();
+        reduce.addEventListener('change', applyMotionPref);
+    })();
+
+    // ── Sound toggle ──────────────────────────────────────────
+    const soundBtn  = document.getElementById('soundToggle');
+    const heroVideo = document.querySelector('.hero__bg');
+
+    soundBtn.addEventListener('click', () => {
+        const muting = !heroVideo.muted;
+        heroVideo.muted = muting;
+        soundBtn.classList.toggle('is-muted', muting);
+        soundBtn.setAttribute('aria-label', muting ? 'Unmute video' : 'Mute video');
+    });
 </script>
 
 </body>

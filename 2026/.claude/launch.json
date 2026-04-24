@@ -4,8 +4,8 @@
     {
       "name": "kin-site",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3100", "2026"],
-      "port": 3100,
+      "runtimeArgs": ["serve", "-p", "3001", "."],
+      "port": 3001,
       "autoPort": false
     }
   ]
