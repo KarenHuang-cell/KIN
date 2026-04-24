@@ -1708,6 +1708,7 @@ body.nav-open { overflow: hidden; }
     .cs-hero__title,
     .svc-hero__title,
     .about-hero__title,
+    .about-hero-img__title,
     .corp-hero__title,
     .ir-hero__title,
     .contact-hero__title,
@@ -3680,6 +3681,10 @@ body.nav-open { overflow: hidden; }
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+
+/* ── Desktop-only forced line break utility (hide <br class="br-desktop"> on tablet/mobile) ── */
+.br-desktop { display: none; }
+@media (min-width: 900px) { .br-desktop { display: inline; } }
 
 /* ── Hero headline — phone clamp (placed last so it wins cascade) ── */
 @media (max-width: 620px) {

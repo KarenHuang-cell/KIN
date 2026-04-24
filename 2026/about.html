@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=55" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=59" />
     <style>
         .about-page { background: #000; }
 
@@ -65,12 +65,17 @@
         }
 
         .about-hero-img__title {
-            font-size: clamp(48px, 6vw, 80px);
             font-weight: 800;
-            line-height: 1.0;
-            letter-spacing: -2.5px;
             color: #fff;
             max-width: 900px;
+        }
+
+        @media (min-width: 1101px) {
+            .about-hero-img__title {
+                font-size: clamp(48px, 6vw, 80px);
+                line-height: 1.0;
+                letter-spacing: -2.5px;
+            }
         }
 
         /* ── STICKY PANELS — recede as the next one scrolls up ── */
@@ -169,7 +174,6 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1100px) {
-            .about-hero-img__title { font-size: 48px; letter-spacing: -1.5px; }
             .about-hero-img__content { padding-bottom: 56px; }
         }
 
@@ -190,7 +194,7 @@
     <div class="about-hero-img__bg"></div>
     <div class="about-hero-img__overlay"></div>
     <div class="about-hero-img__content">
-        <h1 class="about-hero-img__title">Kin puts cities on<br>the world stage</h1>
+        <h1 class="about-hero-img__title">Kin puts cities on <br class="br-desktop">the world stage</h1>
     </div>
 </section>
 
