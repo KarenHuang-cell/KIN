@@ -1,8 +1,6 @@
 name: Deploy 2026/ to Bluehost
 
-# Trigger only on manual button-press for now (Phase 1 testing).
-# After dry-run looks correct, we'll uncomment the `push` trigger
-# so deploys happen automatically on every push to main.
+# Deploys automatically on every push to main, OR can be triggered manually.
 on:
   workflow_dispatch:
   # push:
@@ -23,9 +21,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./2026/
           server-dir: /public_html/
-          # SAFETY: dry-run is true for first test — shows what WOULD upload, doesn't actually transfer.
-          # Set to false after verifying the file list looks correct.
-          dry-run: true
+          # Real deploy mode. Set to true if you want to test what would upload without transferring.
+          dry-run: false
           # Files/folders that should NEVER be uploaded to the live site
           exclude: |
             **/.DS_Store
