@@ -1,0 +1,40 @@
+name: Deploy 2026/ to Bluehost
+
+# Trigger only on manual button-press for now (Phase 1 testing).
+# After dry-run looks correct, we'll uncomment the `push` trigger
+# so deploys happen automatically on every push to main.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 162.241.244.144
+          username: developer@kin.net
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./2026/
+          server-dir: /public_html/
+          # SAFETY: dry-run is true for first test — shows what WOULD upload, doesn't actually transfer.
+          # Set to false after verifying the file list looks correct.
+          dry-run: true
+          # Files/folders that should NEVER be uploaded to the live site
+          exclude: |
+            **/.DS_Store
+            **/.git*
+            **/.git*/**
+            **/Photos/**
+            **/backups/**
+            **/*.psd
+            **/*.af
+            **/test.txt
+            **/.claude/**
+            **/node_modules/**
