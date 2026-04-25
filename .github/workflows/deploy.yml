@@ -38,3 +38,4 @@ jobs:
             **/test.txt
             **/.claude/**
             **/node_modules/**
+            **/images_jpg/**
