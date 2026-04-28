@@ -3,8 +3,8 @@ name: Deploy 2026/ to Bluehost
 # Deploys automatically on every push to main, OR can be triggered manually.
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
 
 jobs:
   deploy:
