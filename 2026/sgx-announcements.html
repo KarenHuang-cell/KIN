@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Media Coverage &amp; Press | KIN Experience Management</title>
+    <meta name="description" content="KIN in the press — media coverage and news features from major publications." />
+    <link rel="canonical" href="https://www.kin.net/media-coverage.html" />
+    <meta property="og:title" content="Media Coverage &amp; Press | KIN Experience Management" />
+    <meta property="og:description" content="KIN in the press — media coverage and news features from major publications." />
+    <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.webp" />
+    <meta property="og:url" content="https://www.kin.net/media-coverage.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=59" />
+</head>
+<body class="corp-page">
+
+<div id="nav-include"></div>
+
+<div class="site-wrap">
+
+    <!-- Hero -->
+    <div class="media-hero reveal">
+        <p class="eyebrow eyebrow--page">Investor Relations</p>
+        <h1 class="media-hero__title">SGX Announcements</h1>
+    </div>
+
+    <!-- Year-grouped article list -->
+    <section class="media-content" aria-label="SGX Announcements">
+
+        <!-- 2025 -->
+        <div class="media-year-group reveal">
+            <div class="media-year">2025</div>
+            <div class="media-articles">
+
+                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/T79GQJ1S0FVLIWH8/6acd6d8f78bb448234ae8a47b98f2715e9af691e4dd789a5dbf2aee9ca1c1862" target="_blank" rel="noopener">
+                    <span class="ir-sgx__date">24 April 2026 // Waiver</span>
+                    <span class="ir-sgx__name">Extension of Time to Hold the First AGM for the Financial Year Ended 31 December 2025<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                </a>
+
+                <a class="ir-sgx__item" href="assets/pdfs/Kin%20Global%20Limited%20-%20Trading%20Day%20Debut%20Press%20Release.pdf" target="_blank" rel="noopener">
+                    <span class="ir-sgx__date">23 April 2026 // Press Release</span>
+                    <span class="ir-sgx__name">Kin Global Closes Trading Debut at S$0.265, 15.2% higher than IPO Issue Price<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                </a>
+
+                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DE3OXOCIJDGV7IBL/5e9acb6ead8da825ae2cf20bee3d003af3e6bf62e29af92f16d2389f29424d20" target="_blank" rel="noopener">
+                    <span class="ir-sgx__date">23 April 2026 // Equity - Listing Confirmation</span>
+                    <span class="ir-sgx__name">Admission to the Official List of SGX-Catalist<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                </a>
+
+                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/HN3BVA8FTQGOAEF3/83aa1d6a9c8e3b08b3f7999900b03599f73dc4133a85e025be2ac3bab4ee340a" target="_blank" rel="noopener">
+                    <span class="ir-sgx__date">22 April 2026 // General</span>
+                    <span class="ir-sgx__name">Balloting Results Announcement<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                </a>
+
+                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/4CVWU9KJMH4TJIAM/9d7f4683c3ab3ab82366c30e2044e393b9463f39d173a1b0d747374582f032d1" target="_blank" rel="noopener">
+                    <span class="ir-sgx__date">22 April 2026 // General</span>
+                    <span class="ir-sgx__name">Balloting Results Press Release and Corporate Presentation<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                </a>
+
+                            <a href="https://www.sgx.com/securities/company-announcements?value=KIN%20GLOBAL%20LIMITED&type=company" class="ir-sgx__more" target="_blank" rel="noopener">View on SGX&nbsp;&nbsp;&rarr;</a>
+  
+            </div>
+        </div>
+
+
+    </section>
+
+</div><!-- /site-wrap -->
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        burger.addEventListener('click', () => {
+            const open = mobNav.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>

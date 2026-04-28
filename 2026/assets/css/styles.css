@@ -3482,6 +3482,8 @@ body.nav-open { overflow: hidden; }
     padding-top: 30px; /* aligns with article title, below meta line */
 }
 
+.media-year-group:has(.ir-sgx__item) .media-year { padding-top: 0; }
+
 /* Right column — max-width controlled by variable */
 .media-articles {
     max-width: var(--media-article-w);
