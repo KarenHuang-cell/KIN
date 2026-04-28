@@ -2566,6 +2566,7 @@ body.nav-open { overflow: hidden; }
 }
 
 .ir-sgx__ext {
+    display: inline-block;
     margin-left: 8px;
     vertical-align: -0.2em;
     flex-shrink: 0;
