@@ -1929,7 +1929,7 @@ body.nav-open { overflow: hidden; }
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0;
-        color: #dddddd;
+        color: var(--clr-accent);
         text-decoration: none;
         line-height: 1;
     }
