@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Investor Relations | KIN Global, Singapore (SGX Catalist)</title>
+    <meta name="description" content="KIN Global is Singapore's largest sports events management company and curator of global sports events." />
+    <link rel="canonical" href="https://www.kin.net/investor-relations.html" />
+    <meta property="og:title" content="Investor Relations | KIN Global, Singapore (SGX Catalist)" />
+    <meta property="og:description" content="KIN Global is Singapore's largest sports events management company and curator of global sports events." />
+    <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.webp" />
+    <meta property="og:url" content="https://www.kin.net/investor-relations.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+    <style>
+        /* ─────────────────────────────────────────────────────────
+           IR v1 — REDESIGN
+           Real 12-col grid. Right column has a *purpose* now:
+           a sticky "key facts" rail, a filings sidebar, a structure
+           figure caption. Nothing floats in empty space.
+           ───────────────────────────────────────────────────────── */
+
+        :root {
+            --v1-cream: #ECECE8;
+            --v1-warmer: #E3E2DE;
+            --v1-card: #F5F4F0;
+            --v1-ink: #0E1A2B;
+            --v1-body: #3a3a3a;
+            --v1-muted: #6e6e6e;
+            --v1-cyan: #6BC9E8;
+            --v1-rule: rgba(14,26,43,0.10);
+            --v1-rule-strong: rgba(14,26,43,0.18);
+            --v1-grid-gutter: 24px;
+            --v1-grid-max: 1280px;
+            --v1-grid-pad: clamp(24px, 5vw, 80px);
+        }
+
+        body.ir-v1 {
+            background: var(--v1-cream);
+            color: var(--v1-body);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Defuse all reveal/transition state — render immediately */
+        body.ir-v1 .reveal,
+        body.ir-v1 [class*="reveal-delay"] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .v1-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--v1-grid-gutter);
+            max-width: var(--v1-grid-max);
+            margin: 0 auto;
+            padding: 0 var(--v1-grid-pad);
+        }
+
+        /* ── Type primitives ── */
+        .v1-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v1-ink);
+            margin: 0 0 24px;
+        }
+        .v1-eyebrow--cyan { color: var(--v1-cyan); }
+        .v1-eyebrow--muted { color: var(--v1-muted); }
+
+        .v1-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: var(--v1-ink);
+            line-height: 1.0;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
+        .v1-display em {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 144;
+            letter-spacing: -0.01em;
+        }
+
+        .v1-lead {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 72;
+            font-size: clamp(20px, 2.2vw, 28px);
+            line-height: 1.45;
+            color: var(--v1-ink);
+            margin: 0 0 32px;
+        }
+
+        .v1-body {
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--v1-body);
+            margin: 0 0 20px;
+        }
+        .v1-body:last-child { margin-bottom: 0; }
+
+        /* ── Frosted nav (light variant) ── */
+        #nav.scrolled,
+        #nav.is-light {
+            background: rgba(236, 236, 232, 0.78) !important;
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            box-shadow: 0 1px 0 rgba(14,26,43,0.06);
+            transition: background 280ms ease, backdrop-filter 280ms ease;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           1. HERO
+           Left (cols 2–7): eyebrow + H1 + lead + body
+           Right (cols 9–12): KEY FACTS rail — finally has a job.
+           ───────────────────────────────────────────────────────── */
+        .v1-ir-hero {
+            padding: clamp(140px, 18vw, 220px) 0 clamp(96px, 12vw, 140px);
+        }
+
+        .v1-ir-hero__head {
+            grid-column: 2 / span 6;
+        }
+
+        .v1-ir-hero__title {
+            font-size: clamp(56px, 8vw, 120px);
+            margin-bottom: 32px;
+        }
+
+        .v1-ir-hero__lead {
+            grid-column: 2 / span 6;
+            margin-top: 0;
+        }
+
+        .v1-ir-hero__body {
+            grid-column: 2 / span 6;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--v1-body);
+        }
+
+        /* Key facts rail — the right column now means something */
+        .v1-ir-facts {
+            grid-column: 9 / span 4;
+            align-self: start;
+            border-top: 1px solid var(--v1-rule-strong);
+            padding-top: 24px;
+            margin-top: 12px;
+        }
+
+        .v1-ir-facts__row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--v1-rule);
+        }
+
+        .v1-ir-facts__label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v1-muted);
+            white-space: nowrap;
+        }
+
+        .v1-ir-facts__value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--v1-ink);
+            text-align: right;
+        }
+
+        .v1-ir-facts__value em {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-variation-settings: "opsz" 72;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           2. METRICS STRIP — what investors actually want first
+           ───────────────────────────────────────────────────────── */
+        .v1-metrics {
+            background: var(--v1-warmer);
+            padding: clamp(56px, 8vw, 88px) 0;
+        }
+
+        .v1-metrics__list {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .v1-metric {
+            padding: 0 24px;
+            border-left: 1px solid var(--v1-rule);
+        }
+        .v1-metric:first-child { border-left: none; padding-left: 0; }
+
+        .v1-metric__num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 144;
+            font-size: clamp(48px, 6vw, 88px);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--v1-ink);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .v1-metric__label {
+            font-size: 13px;
+            line-height: 1.4;
+            color: var(--v1-muted);
+            max-width: 22ch;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           3. CORPORATE STRUCTURE — figure with caption
+           ───────────────────────────────────────────────────────── */
+        .v1-section { padding: clamp(96px, 14vw, 160px) 0; }
+
+        .v1-section__head {
+            grid-column: 2 / -2;
+            margin-bottom: 64px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .v1-section__heading {
+            font-size: clamp(36px, 4.4vw, 56px);
+        }
+
+        .v1-section__index {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v1-muted);
+        }
+
+        .v1-corp__figure {
+            grid-column: 3 / span 8;
+            background: var(--v1-card);
+            border: 1px solid var(--v1-rule);
+            border-radius: 6px;
+            padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 48px);
+            text-align: center;
+        }
+
+        .v1-corp__img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 32px;
+        }
+
+        .v1-corp__caption {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 72;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--v1-muted);
+            max-width: 50ch;
+            margin: 0 auto;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           4. DISCLOSURES — asymmetric on purpose, balanced visually
+           Left (cols 2–8): SGX feed
+           Right (cols 9–12): Filings sidebar
+           ───────────────────────────────────────────────────────── */
+        .v1-disclosures { padding: clamp(96px, 14vw, 160px) 0; background: var(--v1-warmer); }
+
+        .v1-sgx { grid-column: 2 / span 7; }
+        .v1-filings { grid-column: 9 / span 4; }
+
+        .v1-block-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            padding-bottom: 20px;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--v1-rule-strong);
+        }
+
+        .v1-block-head__title {
+            font-size: clamp(22px, 2.4vw, 30px);
+            font-weight: 700;
+            color: var(--v1-ink);
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        .v1-block-head__count {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v1-muted);
+        }
+
+        /* SGX list */
+        .v1-sgx__list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .v1-sgx__item {
+            display: block;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--v1-rule);
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 220ms ease;
+        }
+        .v1-sgx__item:hover { padding-left: 8px; }
+
+        .v1-sgx__date {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v1-cyan);
+            margin-bottom: 8px;
+        }
+
+        .v1-sgx__category {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--v1-muted);
+            margin-bottom: 12px;
+        }
+
+        .v1-sgx__name {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--v1-ink);
+            letter-spacing: -0.005em;
+        }
+
+        .v1-sgx__name svg {
+            flex-shrink: 0;
+            margin-top: 4px;
+            opacity: 0.5;
+            transition: opacity 220ms ease;
+        }
+        .v1-sgx__item:hover .v1-sgx__name svg { opacity: 1; }
+
+        .v1-sgx__more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 32px;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--v1-ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--v1-ink);
+            transition: gap 220ms ease;
+        }
+        .v1-sgx__more:hover { gap: 16px; }
+
+        /* Filings sidebar */
+        .v1-filings__list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .v1-filing {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--v1-rule);
+            text-decoration: none;
+            color: inherit;
+            transition: background 220ms ease;
+        }
+        .v1-filing:hover { background: rgba(14,26,43,0.02); }
+
+        .v1-filing__icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 48px;
+            background: #fff;
+            border: 1px solid var(--v1-rule);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--v1-ink);
+            position: relative;
+        }
+        .v1-filing__icon::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(225deg, var(--v1-warmer) 50%, transparent 50%);
+            border-left: 1px solid var(--v1-rule);
+            border-bottom: 1px solid var(--v1-rule);
+        }
+
+        .v1-filing__text { flex: 1; min-width: 0; }
+
+        .v1-filing__date {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v1-muted);
+            margin-bottom: 6px;
+        }
+
+        .v1-filing__title {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--v1-ink);
+            letter-spacing: -0.005em;
+        }
+
+        .v1-filing__size {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            color: var(--v1-muted);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           5. INVESTOR CONTACT — closing CTA
+           ───────────────────────────────────────────────────────── */
+        .v1-ir-contact {
+            padding: clamp(96px, 14vw, 160px) 0;
+        }
+
+        .v1-ir-contact__inner {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--v1-grid-gutter);
+            align-items: end;
+            border-top: 1px solid var(--v1-rule-strong);
+            padding-top: 64px;
+        }
+
+        .v1-ir-contact__heading {
+            grid-column: 1 / span 7;
+            font-size: clamp(32px, 4vw, 52px);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--v1-ink);
+            font-weight: 700;
+            margin: 0;
+        }
+        .v1-ir-contact__heading em {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 144;
+        }
+
+        .v1-ir-contact__cta {
+            grid-column: 9 / span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .v1-ir-contact__email {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--v1-ink);
+            text-decoration: none;
+            padding: 16px 24px;
+            border: 1px solid var(--v1-ink);
+            border-radius: 999px;
+            transition: background 220ms ease, color 220ms ease;
+        }
+        .v1-ir-contact__email:hover {
+            background: var(--v1-ink);
+            color: #fff;
+        }
+        .v1-ir-contact__email::after {
+            content: "→";
+            font-size: 16px;
+        }
+
+        .v1-ir-contact__hours {
+            font-size: 13px;
+            color: var(--v1-muted);
+            line-height: 1.5;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           Responsive
+           ───────────────────────────────────────────────────────── */
+        @media (max-width: 1100px) {
+            .v1-corp__figure { grid-column: 2 / -2; }
+        }
+
+        @media (max-width: 900px) {
+            .v1-ir-hero__head,
+            .v1-ir-hero__lead,
+            .v1-ir-hero__body,
+            .v1-ir-facts,
+            .v1-sgx,
+            .v1-filings,
+            .v1-ir-contact__heading,
+            .v1-ir-contact__cta {
+                grid-column: 1 / -1;
+            }
+            .v1-ir-facts {
+                margin-top: 48px;
+            }
+            .v1-metrics__list { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+            .v1-metric { border-left: none; padding-left: 0; }
+            .v1-metric:nth-child(2) { padding-left: 24px; border-left: 1px solid var(--v1-rule); }
+            .v1-metric:nth-child(4) { padding-left: 24px; border-left: 1px solid var(--v1-rule); }
+        }
+
+        @media (max-width: 620px) {
+            .v1-metrics__list { grid-template-columns: 1fr; }
+            .v1-metric { border-left: none !important; padding-left: 0 !important; }
+            .v1-metric + .v1-metric { border-top: 1px solid var(--v1-rule); padding-top: 24px; }
+            .v1-ir-contact__inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="corp-page ir-v1">
+
+<div id="nav-include"></div>
+
+<!-- ────────────────────────────────────────────────────────
+     1. HERO — left content, right key-facts rail
+     ──────────────────────────────────────────────────────── -->
+<section class="v1-ir-hero">
+    <div class="v1-grid">
+        <div class="v1-ir-hero__head">
+            <p class="v1-eyebrow v1-eyebrow--cyan">01 — At a glance</p>
+            <h1 class="v1-display v1-ir-hero__title">
+                Investor <em>Relations</em>
+            </h1>
+        </div>
+
+        <p class="v1-lead v1-ir-hero__lead">
+            KIN Global is Singapore's largest sports events management company and curator of global sports events.
+        </p>
+
+        <div class="v1-ir-hero__body">
+            <p>Since its inception in 2017, the Group has delivered over 500 successful projects, specialising in the full value chain of sporting experiences and events — from conceptualisation, planning and design through to coordination, management and execution of major local and international events. KIN Global is positioning itself as a key player across the broader events tourism sector, encompassing MICE, entertainment, sports, lifestyle and experiential, and arts and culture.</p>
+        </div>
+
+        <aside class="v1-ir-facts" aria-label="Key facts">
+            <div class="v1-ir-facts__row">
+                <span class="v1-ir-facts__label">Listed</span>
+                <span class="v1-ir-facts__value">SGX Catalist</span>
+            </div>
+            <div class="v1-ir-facts__row">
+                <span class="v1-ir-facts__label">Founded</span>
+                <span class="v1-ir-facts__value">Singapore, <em>2017</em></span>
+            </div>
+            <div class="v1-ir-facts__row">
+                <span class="v1-ir-facts__label">Divisions</span>
+                <span class="v1-ir-facts__value">Three</span>
+            </div>
+            <div class="v1-ir-facts__row">
+                <span class="v1-ir-facts__label">Projects</span>
+                <span class="v1-ir-facts__value"><em>500+</em> delivered</span>
+            </div>
+            <div class="v1-ir-facts__row">
+                <span class="v1-ir-facts__label">FY end</span>
+                <span class="v1-ir-facts__value">31 December</span>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────
+     2. METRICS STRIP — display numerals as graphic
+     ──────────────────────────────────────────────────────── -->
+<section class="v1-metrics">
+    <div class="v1-grid">
+        <ul class="v1-metrics__list">
+            <li class="v1-metric">
+                <span class="v1-metric__num">500+</span>
+                <p class="v1-metric__label">Projects delivered since 2017</p>
+            </li>
+            <li class="v1-metric">
+                <span class="v1-metric__num">8</span>
+                <p class="v1-metric__label">Years of operating history</p>
+            </li>
+            <li class="v1-metric">
+                <span class="v1-metric__num">3</span>
+                <p class="v1-metric__label">Specialised divisions across the value chain</p>
+            </li>
+            <li class="v1-metric">
+                <span class="v1-metric__num">2</span>
+                <p class="v1-metric__label">Wholly-owned operating subsidiaries</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────
+     3. CORPORATE STRUCTURE — figure with caption, real frame
+     ──────────────────────────────────────────────────────── -->
+<section class="v1-section">
+    <div class="v1-grid">
+        <header class="v1-section__head">
+            <h2 class="v1-display v1-section__heading">
+                Corporate <em>structure</em>
+            </h2>
+            <span class="v1-section__index">02 — Group</span>
+        </header>
+
+        <figure class="v1-corp__figure">
+            <img src="assets/images/CorporateStructure.svg"
+                 alt="KIN corporate structure: Kin Global Limited → Kin Productions Pte Ltd → Kin D+B Pte Ltd (75%) and Kin Middle East W.L.L (100%)"
+                 class="v1-corp__img" />
+            <figcaption class="v1-corp__caption">
+                Kin Global Limited holds full ownership of its operating subsidiaries, with controlling stakes in two specialised regional entities.
+            </figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────
+     4. DISCLOSURES — SGX feed (wide) + Filings (sidebar)
+     ──────────────────────────────────────────────────────── -->
+<section class="v1-disclosures">
+    <div class="v1-grid">
+        <header class="v1-section__head" style="grid-column: 2 / -2;">
+            <h2 class="v1-display v1-section__heading">
+                Disclosures &amp; <em>filings</em>
+            </h2>
+            <span class="v1-section__index">03 — Latest</span>
+        </header>
+
+        <section class="v1-sgx" aria-labelledby="sgx-h">
+            <header class="v1-block-head">
+                <h3 class="v1-block-head__title" id="sgx-h">SGX Announcements</h3>
+                <span class="v1-block-head__count">4 latest</span>
+            </header>
+
+            <ul class="v1-sgx__list">
+                <li>
+                    <a class="v1-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
+                        <span class="v1-sgx__date">28 April 2026</span>
+                        <span class="v1-sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="v1-sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Tan Thiam Hoe, Clement
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="v1-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
+                        <span class="v1-sgx__date">28 April 2026</span>
+                        <span class="v1-sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="v1-sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Tan Soo Meng Adrian
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="v1-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
+                        <span class="v1-sgx__date">28 April 2026</span>
+                        <span class="v1-sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="v1-sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Vincent Chai Cheng Hong
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="v1-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
+                        <span class="v1-sgx__date">28 April 2026</span>
+                        <span class="v1-sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="v1-sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Ko Chee Wah
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <a href="sgx-announcements.html" class="v1-sgx__more">All announcements <span aria-hidden="true">→</span></a>
+        </section>
+
+        <aside class="v1-filings" aria-labelledby="filings-h">
+            <header class="v1-block-head">
+                <h3 class="v1-block-head__title" id="filings-h">Prospectus</h3>
+                <span class="v1-block-head__count">3 docs</span>
+            </header>
+
+            <ul class="v1-filings__list">
+                <li>
+                    <a href="https://www.kin.net/wp-content/uploads/2026/04/Final_Offer_Document.pdf" class="v1-filing" target="_blank" rel="noopener">
+                        <span class="v1-filing__icon">PDF</span>
+                        <span class="v1-filing__text">
+                            <span class="v1-filing__date">14 Apr 2026</span>
+                            <span class="v1-filing__title">Final Offer Document</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kin.net/wp-content/uploads/2026/04/Final_Product_Highlights_Sheet.pdf" class="v1-filing" target="_blank" rel="noopener">
+                        <span class="v1-filing__icon">PDF</span>
+                        <span class="v1-filing__text">
+                            <span class="v1-filing__date">14 Apr 2026</span>
+                            <span class="v1-filing__title">Final Product Highlights Sheet</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kin.net/wp-content/uploads/2026/04/Kin_Global_Limited_CorporatePresentation.pdf" class="v1-filing" target="_blank" rel="noopener">
+                        <span class="v1-filing__icon">PDF</span>
+                        <span class="v1-filing__text">
+                            <span class="v1-filing__date">14 Apr 2026</span>
+                            <span class="v1-filing__title">Corporate Presentation</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────
+     5. INVESTOR CONTACT — closing
+     ──────────────────────────────────────────────────────── -->
+<section class="v1-ir-contact">
+    <div class="v1-grid">
+        <div class="v1-ir-contact__inner">
+            <h2 class="v1-ir-contact__heading">
+                Investor <em>enquiries</em>?<br>
+                We respond personally.
+            </h2>
+            <div class="v1-ir-contact__cta">
+                <a href="mailto:ir@kin.net" class="v1-ir-contact__email">ir@kin.net</a>
+                <p class="v1-ir-contact__hours">Mon–Fri, 9am–6pm SGT<br>Response within one business day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav    = document.getElementById('nav');
+        if (!nav) return;
+        nav.classList.add('is-light');
+
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        if (burger && mobNav) {
+            burger.addEventListener('click', () => {
+                const open = mobNav.classList.toggle('is-open');
+                burger.classList.toggle('is-open', open);
+                burger.setAttribute('aria-expanded', String(open));
+                document.body.classList.toggle('nav-open', open);
+            });
+        }
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+</script>
+
+</body>
+</html>
