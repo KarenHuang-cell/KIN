@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Event Management &amp; Delivery | KIN Global, Singapore</title>
+    <meta name="description" content="KIN specialises in world-class international sporting events that attract global audiences and elevate destination profiles." />
+    <link rel="canonical" href="https://www.kin.net/services_edm.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+    <style>
+        /* ─────────────────────────────────────────────────────────
+           SERVICES — EDM v1
+           Same system as services_v1: Plus Jakarta + Newsreader.
+           Adds: capability matrix, pillar blocks, related case studies.
+           ───────────────────────────────────────────────────────── */
+
+        :root {
+            --v1-cream: #ECECE8;
+            --v1-warmer: #E3E2DE;
+            --v1-card: #F5F4F0;
+            --v1-ink: #0E1A2B;
+            --v1-body: #3a3a3a;
+            --v1-muted: #6e6e6e;
+            --v1-cyan: #6BC9E8;
+            --v1-rule: rgba(14,26,43,0.10);
+            --v1-rule-strong: rgba(14,26,43,0.18);
+            --v1-grid-gutter: 24px;
+            --v1-grid-max: 1280px;
+            --v1-grid-pad: clamp(24px, 5vw, 80px);
+        }
+
+        body.svc-edm-v1 {
+            background: var(--v1-cream);
+            color: var(--v1-body);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.svc-edm-v1 .reveal,
+        body.svc-edm-v1 [class*="reveal-delay"] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .v1-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--v1-grid-gutter);
+            max-width: var(--v1-grid-max);
+            margin: 0 auto;
+            padding: 0 var(--v1-grid-pad);
+        }
+
+        /* Type primitives */
+        .v1-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v1-ink);
+            margin: 0 0 24px;
+        }
+        .v1-eyebrow--cyan { color: var(--v1-cyan); }
+        .v1-eyebrow--muted { color: var(--v1-muted); }
+
+        .v1-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: var(--v1-ink);
+            line-height: 1.0;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
+        .v1-display--ondark { color: #fff; }
+        .v1-display em {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-variation-settings: "opsz" 72;
+            letter-spacing: -0.005em;
+        }
+
+        .v1-lead {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 36;
+            font-size: clamp(20px, 2vw, 26px);
+            line-height: 1.5;
+            color: var(--v1-ink);
+            margin: 0 0 32px;
+        }
+
+        /* Newsreader ROMAN bold for capability category labels */
+        .v1-cat {
+            font-family: 'Newsreader', serif;
+            font-style: normal;
+            font-weight: 600;
+            font-variation-settings: "opsz" 24;
+            font-size: 22px;
+            line-height: 1.25;
+            color: var(--v1-ink);
+            letter-spacing: -0.005em;
+            margin: 0 0 12px;
+        }
+
+        .v1-body {
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--v1-body);
+            margin: 0 0 20px;
+        }
+
+        #nav.scrolled,
+        #nav.is-light {
+            background: rgba(236, 236, 232, 0.78) !important;
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            box-shadow: 0 1px 0 rgba(14,26,43,0.06);
+            transition: background 280ms ease, backdrop-filter 280ms ease;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           1. HERO — dark, with breadcrumb-eyebrow + right-rail meta
+           ───────────────────────────────────────────────────────── */
+        .v1-edm-hero {
+            background: var(--v1-ink);
+            padding: clamp(140px, 18vw, 220px) 0 clamp(96px, 12vw, 140px);
+            color: #fff;
+            position: relative;
+        }
+
+        .v1-edm-hero__head { grid-column: 1 / span 8; }
+
+        .v1-edm-hero .v1-eyebrow { color: var(--v1-cyan); }
+
+        .v1-edm-hero__breadcrumb {
+            grid-column: 1 / -1;
+            margin-bottom: 24px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+        }
+        .v1-edm-hero__breadcrumb a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+        .v1-edm-hero__breadcrumb a:hover { color: #fff; }
+        .v1-edm-hero__breadcrumb-sep {
+            display: inline-block;
+            margin: 0 12px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .v1-edm-hero__title {
+            font-size: clamp(48px, 8vw, 112px);
+            line-height: 0.96;
+            margin: 0;
+            max-width: 14ch;
+        }
+
+        .v1-edm-hero__meta {
+            grid-column: 9 / span 4;
+            align-self: end;
+            border-top: 1px solid rgba(255,255,255,0.18);
+            padding-top: 24px;
+        }
+
+        .v1-edm-hero__meta-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+
+        .v1-edm-hero__meta-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .v1-edm-hero__meta-val {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            text-align: right;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           2. FEATURE IMAGE
+           ───────────────────────────────────────────────────────── */
+        .v1-edm-image { background: var(--v1-ink); position: relative; }
+        .v1-edm-image__img {
+            display: block;
+            width: 100%;
+            height: clamp(360px, 60vh, 640px);
+            object-fit: cover;
+        }
+        .v1-edm-image__caption {
+            position: absolute;
+            bottom: 24px;
+            right: clamp(24px, 5vw, 80px);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
+            background: rgba(14,26,43,0.4);
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           3. INTRO + LEAD
+           ───────────────────────────────────────────────────────── */
+        .v1-edm-intro { padding: clamp(96px, 14vw, 160px) 0; }
+
+        .v1-edm-intro__head { grid-column: 2 / span 9; margin-bottom: 48px; }
+        .v1-edm-intro__heading {
+            font-size: clamp(40px, 5.4vw, 72px);
+        }
+
+        .v1-edm-intro__lead { grid-column: 2 / span 7; }
+        .v1-edm-intro__body { grid-column: 2 / span 6; }
+
+        .v1-edm-intro__aside {
+            grid-column: 9 / span 4;
+            border-left: 1px solid var(--v1-rule);
+            padding-left: 24px;
+            align-self: start;
+        }
+        .v1-edm-intro__aside-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v1-ink);
+            margin-bottom: 12px;
+        }
+        .v1-edm-intro__aside-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .v1-edm-intro__aside-list li {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--v1-body);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--v1-rule);
+        }
+        .v1-edm-intro__aside-list li:last-child { border-bottom: none; }
+
+        /* ─────────────────────────────────────────────────────────
+           4. CAPABILITY MATRIX — replaces the flat bullet list
+           Newsreader ROMAN bold for category labels (the second-face
+           move that gives the system more range)
+           ───────────────────────────────────────────────────────── */
+        .v1-cap-matrix {
+            background: var(--v1-warmer);
+            padding: clamp(96px, 14vw, 160px) 0;
+        }
+
+        .v1-cap-matrix__head { grid-column: 2 / -2; margin-bottom: 64px; }
+
+        .v1-cap-matrix__heading {
+            font-size: clamp(36px, 4.6vw, 56px);
+        }
+
+        .v1-cap-matrix__sub {
+            grid-column: 2 / span 7;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--v1-body);
+            margin-top: 24px;
+        }
+
+        .v1-cap-matrix__grid {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .v1-cap-col {
+            padding: 40px 0 0;
+            border-top: 1px solid var(--v1-rule-strong);
+        }
+        .v1-cap-col + .v1-cap-col { padding-left: clamp(24px, 4vw, 56px); }
+        .v1-cap-col:nth-child(2),
+        .v1-cap-col:nth-child(4) {
+            border-left: 1px solid var(--v1-rule-strong);
+        }
+
+        .v1-cap-cluster { margin-bottom: 40px; }
+        .v1-cap-cluster:last-child { margin-bottom: 0; }
+
+        .v1-cap-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .v1-cap-list li {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--v1-body);
+            padding: 8px 0;
+            position: relative;
+            padding-left: 18px;
+        }
+        .v1-cap-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 6px;
+            height: 1px;
+            background: var(--v1-cyan);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           5. PILLARS — what we do at championship level
+           ───────────────────────────────────────────────────────── */
+        .v1-pillars { padding: clamp(96px, 14vw, 160px) 0; }
+
+        .v1-pillars__head { grid-column: 2 / -2; margin-bottom: 80px; }
+        .v1-pillars__heading {
+            font-size: clamp(36px, 4.6vw, 56px);
+        }
+
+        .v1-pillar {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--v1-grid-gutter);
+            padding: clamp(40px, 6vw, 72px) 0;
+            border-top: 1px solid var(--v1-rule-strong);
+        }
+        .v1-pillar:last-child { border-bottom: 1px solid var(--v1-rule-strong); }
+
+        .v1-pillar__num {
+            grid-column: 2 / span 1;
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-variation-settings: "opsz" 72;
+            font-size: clamp(40px, 4.4vw, 60px);
+            line-height: 1;
+            color: var(--v1-muted);
+            letter-spacing: -0.02em;
+        }
+
+        .v1-pillar__title {
+            grid-column: 4 / span 4;
+            font-size: clamp(22px, 2.4vw, 30px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+            color: var(--v1-ink);
+            margin: 0;
+        }
+
+        .v1-pillar__body {
+            grid-column: 9 / span 4;
+        }
+
+        .v1-pillar__desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--v1-body);
+            margin: 0 0 16px;
+        }
+
+        .v1-pillar__list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .v1-pillar__list li {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--v1-body);
+            padding: 6px 0;
+            position: relative;
+            padding-left: 18px;
+        }
+        .v1-pillar__list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 1px;
+            background: var(--v1-cyan);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           6. SELECTED WORK — link out to case studies
+           ───────────────────────────────────────────────────────── */
+        .v1-selected {
+            background: var(--v1-warmer);
+            padding: clamp(96px, 14vw, 160px) 0;
+        }
+
+        .v1-selected__head { grid-column: 2 / -2; margin-bottom: 56px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .v1-selected__heading { font-size: clamp(36px, 4.6vw, 52px); }
+
+        .v1-selected__list {
+            grid-column: 2 / -2;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .v1-selected__item {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px auto;
+            gap: 24px;
+            align-items: baseline;
+            padding: 28px 0;
+            border-top: 1px solid var(--v1-rule);
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 220ms ease;
+        }
+        .v1-selected__item:last-child { border-bottom: 1px solid var(--v1-rule); }
+        .v1-selected__item:hover { padding-left: 8px; }
+
+        .v1-selected__year {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 22px;
+            color: var(--v1-muted);
+        }
+
+        .v1-selected__name {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            color: var(--v1-ink);
+        }
+
+        .v1-selected__cat {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v1-muted);
+        }
+
+        .v1-selected__arrow {
+            font-size: 20px;
+            color: var(--v1-ink);
+            opacity: 0.4;
+            transition: opacity 200ms ease, transform 200ms ease;
+        }
+        .v1-selected__item:hover .v1-selected__arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           7. CLOSING
+           ───────────────────────────────────────────────────────── */
+        .v1-edm-close { padding: clamp(96px, 14vw, 160px) 0; }
+
+        .v1-edm-close__inner {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--v1-grid-gutter);
+            align-items: end;
+            border-top: 1px solid var(--v1-rule-strong);
+            padding-top: 64px;
+        }
+
+        .v1-edm-close__heading {
+            grid-column: 1 / span 8;
+            font-size: clamp(32px, 4vw, 52px);
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: var(--v1-ink);
+            font-weight: 700;
+            margin: 0;
+            max-width: 22ch;
+        }
+        .v1-edm-close__heading em {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .v1-edm-close__cta {
+            grid-column: 9 / span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .v1-edm-close__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--v1-ink);
+            color: #fff;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 220ms ease;
+        }
+        .v1-edm-close__btn:hover { background: var(--v1-cyan); color: var(--v1-ink); }
+        .v1-edm-close__btn::after { content: "→"; font-size: 16px; }
+
+        .v1-edm-close__note {
+            font-size: 13px;
+            color: var(--v1-muted);
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .v1-pillar__num { grid-column: 2 / span 2; }
+            .v1-pillar__title { grid-column: 4 / span 5; }
+            .v1-pillar__body { grid-column: 2 / -2; margin-top: 16px; }
+            .v1-selected__item {
+                grid-template-columns: 60px 1fr auto;
+            }
+            .v1-selected__cat { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            .v1-edm-hero__head,
+            .v1-edm-hero__meta,
+            .v1-edm-intro__head,
+            .v1-edm-intro__lead,
+            .v1-edm-intro__body,
+            .v1-edm-intro__aside,
+            .v1-cap-matrix__sub,
+            .v1-edm-close__heading,
+            .v1-edm-close__cta {
+                grid-column: 1 / -1;
+            }
+            .v1-edm-hero__meta { margin-top: 48px; }
+            .v1-edm-intro__aside { border-left: none; padding-left: 0; border-top: 1px solid var(--v1-rule); padding-top: 24px; margin-top: 32px; }
+            .v1-cap-matrix__grid { grid-template-columns: 1fr; }
+            .v1-cap-col + .v1-cap-col { padding-left: 0; border-left: none; }
+            .v1-pillar__num,
+            .v1-pillar__title,
+            .v1-pillar__body { grid-column: 1 / -1; }
+            .v1-edm-close__inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="svc-edm-v1">
+
+<div id="nav-include"></div>
+
+<!-- 1. HERO -->
+<section class="v1-edm-hero">
+    <div class="v1-grid">
+        <p class="v1-edm-hero__breadcrumb">
+            <a href="services.html">Services</a>
+            <span class="v1-edm-hero__breadcrumb-sep">/</span>
+            <span>Event Delivery &amp; Management</span>
+        </p>
+        <div class="v1-edm-hero__head">
+            <p class="v1-eyebrow">01 — Discipline</p>
+            <h1 class="v1-display v1-display--ondark v1-edm-hero__title">
+                World-class events that <em>transform</em> destinations.
+            </h1>
+        </div>
+
+        <aside class="v1-edm-hero__meta">
+            <div class="v1-edm-hero__meta-row">
+                <span class="v1-edm-hero__meta-label">Discipline</span>
+                <span class="v1-edm-hero__meta-val">Event delivery</span>
+            </div>
+            <div class="v1-edm-hero__meta-row">
+                <span class="v1-edm-hero__meta-label">Federations</span>
+                <span class="v1-edm-hero__meta-val">FINA · FIBA · FIDE · BWF</span>
+            </div>
+            <div class="v1-edm-hero__meta-row">
+                <span class="v1-edm-hero__meta-label">Largest event</span>
+                <span class="v1-edm-hero__meta-val">WAC Singapore 2025</span>
+            </div>
+            <div class="v1-edm-hero__meta-row">
+                <span class="v1-edm-hero__meta-label">Markets</span>
+                <span class="v1-edm-hero__meta-val">SG · Regional</span>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- 2. FEATURE IMAGE -->
+<section class="v1-edm-image">
+    <img src="assets/images/KIN_WAC2025_Arena_03.webp"
+         alt="World Aquatics Championships 2025 — arena built by KIN in Singapore"
+         class="v1-edm-image__img" />
+    <span class="v1-edm-image__caption">World Aquatics Championships, Singapore 2025</span>
+</section>
+
+<!-- 3. INTRO -->
+<section class="v1-edm-intro">
+    <div class="v1-grid">
+        <header class="v1-edm-intro__head">
+            <p class="v1-eyebrow v1-eyebrow--muted">02 — The work</p>
+            <h2 class="v1-display v1-edm-intro__heading">
+                Tournament-grade <em>operations.</em>
+            </h2>
+        </header>
+
+        <p class="v1-lead v1-edm-intro__lead">
+            We specialise in world-class international sporting events that attract global audiences, generate tourism dollars, and elevate destination profiles.
+        </p>
+
+        <div class="v1-edm-intro__body">
+            <p class="v1-body">
+                From World Aquatics Championships to FIBA Intercontinental Cups, we deliver tournament-grade operations for international federations — on time, on budget, and to the standard the world expects. We've spent eight years building the operational DNA that turns a host-city bid into an event the entire world watches.
+            </p>
+        </div>
+
+        <aside class="v1-edm-intro__aside">
+            <span class="v1-edm-intro__aside-label">At this discipline</span>
+            <ul class="v1-edm-intro__aside-list">
+                <li>500+ projects delivered</li>
+                <li>Singapore-headquartered, regional reach</li>
+                <li>Direct federation relationships</li>
+                <li>End-to-end operational ownership</li>
+            </ul>
+        </aside>
+    </div>
+</section>
+
+<!-- 4. CAPABILITY MATRIX -->
+<section class="v1-cap-matrix">
+    <div class="v1-grid">
+        <header class="v1-cap-matrix__head">
+            <p class="v1-eyebrow v1-eyebrow--muted">03 — Capabilities</p>
+            <h2 class="v1-display v1-cap-matrix__heading">
+                What <em>we do.</em>
+            </h2>
+        </header>
+        <p class="v1-cap-matrix__sub">
+            Five capability clusters across the full value chain — from strategic planning through execution, broadcast, and post-event reporting.
+        </p>
+
+        <div class="v1-cap-matrix__grid">
+            <div class="v1-cap-col">
+                <div class="v1-cap-cluster">
+                    <p class="v1-cat">Strategic event planning</p>
+                    <ul class="v1-cap-list">
+                        <li>Host-city bid support</li>
+                        <li>Economic impact assessment</li>
+                        <li>Master programme design</li>
+                        <li>Risk and contingency planning</li>
+                    </ul>
+                </div>
+                <div class="v1-cap-cluster">
+                    <p class="v1-cat">Event infrastructure &amp; build-up</p>
+                    <ul class="v1-cap-list">
+                        <li>Temporary and permanent venue transformation</li>
+                        <li>Technical installation and overlay</li>
+                        <li>Spectator experience design</li>
+                        <li>Media and broadcast facility setup</li>
+                    </ul>
+                </div>
+                <div class="v1-cap-cluster">
+                    <p class="v1-cat">Logistics coordination &amp; operations</p>
+                    <ul class="v1-cap-list">
+                        <li>Multi-stakeholder project management</li>
+                        <li>Transportation and accommodation</li>
+                        <li>Accreditation and security protocols</li>
+                        <li>Vendor management and procurement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="v1-cap-col">
+                <div class="v1-cap-cluster">
+                    <p class="v1-cat">Stakeholder management</p>
+                    <ul class="v1-cap-list">
+                        <li>International federation liaison</li>
+                        <li>Government agency coordination</li>
+                        <li>Sponsor activation support</li>
+                        <li>Community engagement programmes</li>
+                    </ul>
+                </div>
+                <div class="v1-cap-cluster">
+                    <p class="v1-cat">Tournament operations</p>
+                    <ul class="v1-cap-list">
+                        <li>Competition management and scheduling</li>
+                        <li>Athlete services and team coordination</li>
+                        <li>Technical officials and judging systems</li>
+                        <li>Results management and tech integration</li>
+                    </ul>
+                </div>
+                <div class="v1-cap-cluster">
+                    <p class="v1-cat">Media &amp; broadcast support</p>
+                    <ul class="v1-cap-list">
+                        <li>International Broadcast Center (IBC) setup</li>
+                        <li>Press facilities and mixed zones</li>
+                        <li>Photographer and media positions</li>
+                        <li>Digital content creation support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. PILLARS -->
+<section class="v1-pillars">
+    <div class="v1-grid">
+        <header class="v1-pillars__head">
+            <p class="v1-eyebrow v1-eyebrow--muted">04 — How we deliver</p>
+            <h2 class="v1-display v1-pillars__heading">
+                Four pillars, <em>one standard.</em>
+            </h2>
+        </header>
+
+        <article class="v1-pillar">
+            <span class="v1-pillar__num">i</span>
+            <h3 class="v1-pillar__title">Championship-level sports event expertise</h3>
+            <div class="v1-pillar__body">
+                <p class="v1-pillar__desc">
+                    Tournament-grade operations for international federations — on time, on budget, and to the standard the world expects.
+                </p>
+            </div>
+        </article>
+
+        <article class="v1-pillar">
+            <span class="v1-pillar__num">ii</span>
+            <h3 class="v1-pillar__title">Tournament operations excellence</h3>
+            <div class="v1-pillar__body">
+                <ul class="v1-pillar__list">
+                    <li>Competition management and scheduling</li>
+                    <li>Athlete services and team coordination</li>
+                    <li>Technical officials and judging systems</li>
+                    <li>Results management and technology integration</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="v1-pillar">
+            <span class="v1-pillar__num">iii</span>
+            <h3 class="v1-pillar__title">Spectator experience design</h3>
+            <div class="v1-pillar__body">
+                <ul class="v1-pillar__list">
+                    <li>Fan zones and activation spaces</li>
+                    <li>Hospitality and VIP experiences</li>
+                    <li>Wayfinding and venue navigation</li>
+                    <li>Food &amp; beverage operations</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="v1-pillar">
+            <span class="v1-pillar__num">iv</span>
+            <h3 class="v1-pillar__title">Media &amp; broadcast support</h3>
+            <div class="v1-pillar__body">
+                <ul class="v1-pillar__list">
+                    <li>International Broadcast Center (IBC) setup</li>
+                    <li>Press facilities and mixed zones</li>
+                    <li>Photographer and media positions</li>
+                    <li>Digital content creation support</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- 6. SELECTED WORK -->
+<section class="v1-selected">
+    <div class="v1-grid">
+        <header class="v1-selected__head">
+            <h2 class="v1-display v1-selected__heading">
+                Selected <em>work.</em>
+            </h2>
+            <a href="portfolio.html" style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--v1-ink); text-decoration: none; border-bottom: 1px solid var(--v1-ink); padding-bottom: 4px;">All projects →</a>
+        </header>
+
+        <ul class="v1-selected__list">
+            <li>
+                <a href="port_world-aquatics-championship.html" class="v1-selected__item">
+                    <span class="v1-selected__year">2025</span>
+                    <span class="v1-selected__name">World Aquatics Championships, Singapore</span>
+                    <span class="v1-selected__cat">Championship</span>
+                    <span class="v1-selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_hsbc-svns-singapore-2025.html" class="v1-selected__item">
+                    <span class="v1-selected__year">2025</span>
+                    <span class="v1-selected__name">HSBC SVNS, Singapore</span>
+                    <span class="v1-selected__cat">Rugby Sevens</span>
+                    <span class="v1-selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_wtt-singapore-smash-2025.html" class="v1-selected__item">
+                    <span class="v1-selected__year">2025</span>
+                    <span class="v1-selected__name">WTT Singapore Smash</span>
+                    <span class="v1-selected__cat">Table Tennis</span>
+                    <span class="v1-selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_fiba-intercontinental-cup-2024.html" class="v1-selected__item">
+                    <span class="v1-selected__year">2024</span>
+                    <span class="v1-selected__name">FIBA Intercontinental Cup</span>
+                    <span class="v1-selected__cat">Basketball</span>
+                    <span class="v1-selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_fide-world-championship-2024.html" class="v1-selected__item">
+                    <span class="v1-selected__year">2024</span>
+                    <span class="v1-selected__name">FIDE World Championship</span>
+                    <span class="v1-selected__cat">Chess</span>
+                    <span class="v1-selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_singapore-tennis-open-2021.html" class="v1-selected__item">
+                    <span class="v1-selected__year">2021</span>
+                    <span class="v1-selected__name">Singapore Tennis Open ATP 250</span>
+                    <span class="v1-selected__cat">Tennis</span>
+                    <span class="v1-selected__arrow">→</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- 7. CLOSING -->
+<section class="v1-edm-close">
+    <div class="v1-grid">
+        <div class="v1-edm-close__inner">
+            <h2 class="v1-edm-close__heading">
+                A championship in <em>your city?</em><br>Let's plan it.
+            </h2>
+            <div class="v1-edm-close__cta">
+                <a href="contact.html" class="v1-edm-close__btn">Start the brief</a>
+                <p class="v1-edm-close__note">Singapore HQ, Mon–Fri 9am–6pm SGT.<br>We respond within one business day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav = document.getElementById('nav');
+        if (!nav) return;
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        if (burger && mobNav) {
+            burger.addEventListener('click', () => {
+                const open = mobNav.classList.toggle('is-open');
+                burger.classList.toggle('is-open', open);
+                burger.setAttribute('aria-expanded', String(open));
+                document.body.classList.toggle('nav-open', open);
+            });
+        }
+    });
+
+    loadInclude('footer-include', 'includes/footer-light.html');
+</script>
+
+</body>
+</html>

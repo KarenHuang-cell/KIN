@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Corporate Information | KIN Global, Singapore</title>
+    <meta name="description" content="Board of Directors and Executive Officers of KIN Global Limited (SGX Catalist)." />
+    <link rel="canonical" href="https://www.kin.net/corporate-information.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+
+    <style>
+        /* ─────────────────────────────────────────────────────────
+           CORPORATE INFORMATION v1 — INSTITUTIONAL REGISTER
+           Same rules as investor-relations_v2:
+           - Display weight ≤ 500, scale ≤ 64px
+           - Tabular numerals globally
+           - Source Serif italic only for citations/dates
+           - Cyan used SEMANTICALLY (Independent badge), not decoratively
+           ───────────────────────────────────────────────────────── */
+
+        :root {
+            --cream: #ECECE8;
+            --warmer: #E3E2DE;
+            --card: #F5F4F0;
+            --ink: #0E1A2B;
+            --body: #2c2c2c;
+            --muted: #6e6e6e;
+            --soft: #8e8e8e;
+            --cyan: #6BC9E8;
+            --rule: rgba(14,26,43,0.10);
+            --rule-strong: rgba(14,26,43,0.20);
+            --grid-gutter: 24px;
+            --grid-max: 1200px;
+            --grid-pad: clamp(24px, 5vw, 80px);
+        }
+
+        body.ci-v1 {
+            background: var(--cream);
+            color: var(--body);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "tnum" 1, "lnum" 1;
+        }
+
+        body.ci-v1 .reveal,
+        body.ci-v1 [class*="reveal-delay"] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gutter);
+            max-width: var(--grid-max);
+            margin: 0 auto;
+            padding: 0 var(--grid-pad);
+        }
+
+        /* ── Type primitives — institutional ── */
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 20px;
+        }
+        .eyebrow--ink { color: var(--ink); }
+
+        .h-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .h-section {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        .lead {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300;
+            font-size: clamp(18px, 1.6vw, 22px);
+            line-height: 1.5;
+            color: var(--ink);
+            letter-spacing: -0.005em;
+            margin: 0 0 32px;
+        }
+
+        .body {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--body);
+            margin: 0 0 16px;
+        }
+        .body:last-child { margin-bottom: 0; }
+
+        .cite {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ── Frosted nav (light) ── */
+        #nav.scrolled,
+        #nav.is-light {
+            background: rgba(236, 236, 232, 0.8) !important;
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            box-shadow: 0 1px 0 rgba(14,26,43,0.06);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           1. HERO — restrained, breadcrumb-style eyebrow
+           ───────────────────────────────────────────────────────── */
+        .hero {
+            padding: clamp(120px, 14vw, 180px) 0 clamp(56px, 7vw, 88px);
+        }
+
+        .hero__breadcrumb {
+            grid-column: 1 / -1;
+            margin-bottom: 16px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .hero__breadcrumb a { color: var(--muted); text-decoration: none; transition: color 200ms; }
+        .hero__breadcrumb a:hover { color: var(--ink); }
+        .hero__breadcrumb-sep { display: inline-block; margin: 0 10px; color: rgba(14,26,43,0.25); }
+
+        .hero__head { grid-column: 1 / span 7; }
+
+        .hero__title {
+            font-size: clamp(40px, 4.6vw, 64px);
+            margin-bottom: 28px;
+        }
+
+        .hero__lead {
+            grid-column: 1 / span 8;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           2. GOVERNANCE SUMMARY — quiet figures, not billboard
+           ───────────────────────────────────────────────────────── */
+        .summary {
+            background: var(--warmer);
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: clamp(48px, 6vw, 72px) 0;
+        }
+
+        .summary__head {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .summary__list {
+            grid-column: 1 / -1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .summary-fig {
+            padding: 18px 24px 0 0;
+            border-top: 1px solid var(--rule-strong);
+        }
+        .summary-fig + .summary-fig {
+            padding-left: 24px;
+            border-left: 1px solid var(--rule);
+        }
+
+        .summary-fig__num {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300;
+            font-size: clamp(36px, 4vw, 56px);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 12px;
+            font-variant-numeric: tabular-nums lining-nums;
+        }
+        .summary-fig__num small {
+            font-size: 0.5em;
+            font-weight: 400;
+            color: var(--muted);
+            margin-left: 2px;
+            vertical-align: 0.4em;
+        }
+
+        .summary-fig__label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.4;
+            display: block;
+            max-width: 22ch;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           3. BOARD COMPOSITION TABLE — scannable overview
+           This is what an SGX investor wants to see in 5 seconds.
+           ───────────────────────────────────────────────────────── */
+        .composition {
+            padding: clamp(80px, 12vw, 140px) 0;
+        }
+
+        .composition__head {
+            grid-column: 1 / -1;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .composition__heading {
+            font-size: clamp(28px, 3vw, 40px);
+        }
+
+        .composition__index {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .comp-table {
+            grid-column: 1 / -1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid var(--rule-strong);
+        }
+
+        .comp-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 1.4fr 1fr 1fr;
+            gap: 24px;
+            align-items: baseline;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--rule);
+            font-size: 14px;
+        }
+
+        .comp-row--head {
+            border-bottom: 1px solid var(--rule);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 14px 0;
+        }
+
+        .comp-row__num {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--soft);
+            font-size: 16px;
+        }
+
+        .comp-row__name {
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.005em;
+        }
+
+        .comp-row__role {
+            color: var(--body);
+        }
+
+        .comp-row__type {
+            color: var(--ink);
+        }
+
+        .comp-row__appointed {
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+            font-size: 13px;
+        }
+
+        /* Semantic badge — cyan = independent, navy = executive */
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid currentColor;
+            color: var(--ink);
+            background: transparent;
+        }
+        .badge--ind {
+            color: #2c8aaa;  /* darker cyan for cream-bg contrast */
+            border-color: #2c8aaa;
+        }
+        .badge--exec {
+            color: var(--ink);
+            border-color: var(--rule-strong);
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+        }
+        .badge--off {
+            color: var(--muted);
+            border-color: var(--rule-strong);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           4. PROFILE SECTIONS — quieter typography
+           ───────────────────────────────────────────────────────── */
+        .people {
+            padding: clamp(80px, 12vw, 140px) 0;
+            background: var(--warmer);
+        }
+        .people + .people { padding-top: clamp(40px, 6vw, 80px); }
+
+        .people__head {
+            grid-column: 1 / -1;
+            margin-bottom: 56px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .person {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 56px;
+            padding: 48px 0;
+            border-top: 1px solid var(--rule);
+        }
+        .person:last-child { border-bottom: 1px solid var(--rule); }
+
+        .person__photo-wrap {
+            position: relative;
+        }
+        .person__photo {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: grayscale(100%) contrast(1.04);
+            transition: filter 0.6s ease;
+            border-radius: 2px;
+        }
+        .person:hover .person__photo {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .person__bio {
+            display: flex;
+            flex-direction: column;
+            max-width: 680px;
+        }
+
+        .person__meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .person__name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            font-size: clamp(22px, 2.2vw, 28px);
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin: 0 0 6px;
+        }
+
+        .person__role {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            margin: 0 0 4px;
+            letter-spacing: -0.005em;
+        }
+
+        .person__appointed {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 12px;
+            color: var(--soft);
+            margin: 0 0 24px;
+        }
+
+        .person__body p {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--body);
+            margin: 0 0 14px;
+        }
+        .person__body p:last-child { margin-bottom: 0; }
+
+        .person__toggle { display: none; }
+
+        /* ─────────────────────────────────────────────────────────
+           5. CLOSING — IR contact, quiet
+           ───────────────────────────────────────────────────────── */
+        .contact {
+            padding: clamp(80px, 12vw, 140px) 0;
+        }
+
+        .contact__inner {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gutter);
+            align-items: end;
+            border-top: 1px solid var(--rule-strong);
+            padding-top: 56px;
+        }
+
+        .contact__heading {
+            grid-column: 1 / span 7;
+            font-size: clamp(28px, 3.2vw, 40px);
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            font-weight: 400;
+            margin: 0;
+            max-width: 24ch;
+        }
+
+        .contact__cta {
+            grid-column: 9 / span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .contact__email {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 14px 22px;
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            transition: background 220ms ease, color 220ms ease;
+        }
+        .contact__email:hover { background: var(--ink); color: #fff; }
+        .contact__email::after { content: "→"; font-size: 14px; }
+
+        .contact__hours {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           Responsive
+           ───────────────────────────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .comp-row {
+                grid-template-columns: 40px 1fr 1fr auto;
+                font-size: 13px;
+            }
+            .comp-row__appointed { display: none; }
+            .comp-row--head .comp-row__appointed { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            .hero__head, .hero__lead { grid-column: 1 / -1; }
+            .summary__list { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+            .summary-fig { border-left: none; padding-left: 0; }
+            .summary-fig:nth-child(2) { padding-left: 24px; border-left: 1px solid var(--rule); }
+            .summary-fig:nth-child(4) { padding-left: 24px; border-left: 1px solid var(--rule); }
+            .person { grid-template-columns: 1fr; gap: 24px; }
+            .person__photo { max-width: 280px; }
+            .contact__inner { grid-template-columns: 1fr; }
+            .contact__heading, .contact__cta { grid-column: 1 / -1; }
+        }
+
+        @media (max-width: 640px) {
+            .summary__list { grid-template-columns: 1fr; }
+            .summary-fig { border-left: none !important; padding-left: 0 !important; }
+            .summary-fig + .summary-fig { border-top: 1px solid var(--rule); padding-top: 24px; margin-top: 24px; }
+
+            .comp-row {
+                grid-template-columns: 1fr auto;
+                gap: 8px 16px;
+                padding: 16px 0;
+            }
+            .comp-row__num { display: none; }
+            .comp-row--head { display: none; }
+            .comp-row__role { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+
+            .person { padding: 36px 0; }
+
+            /* Mobile bio toggle — collapse to first paragraph */
+            .person__body p:not(:first-child) { display: none; }
+            .person__bio.bio-open .person__body p { display: block; }
+
+            .person__toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 16px;
+                padding: 10px 18px;
+                background: none;
+                border: 1px solid var(--rule-strong);
+                border-radius: 999px;
+                font-family: inherit;
+                font-size: 11px;
+                font-weight: 500;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ink);
+                cursor: pointer;
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="corp-page ci-v1">
+
+<div id="nav-include"></div>
+
+<!-- 1. HERO -->
+<section class="hero">
+    <div class="grid">
+        <div class="hero__head">
+            <p class="eyebrow">Investor Relations · Governance</p>
+            <h1 class="h-display hero__title">Corporate Information</h1>
+        </div>
+        <p class="lead hero__lead">
+            KIN Global Limited is led by a Board of five Directors and an executive team responsible for the day-to-day operations of the Group.
+        </p>
+    </div>
+</section>
+
+
+<!-- 2. GOVERNANCE SUMMARY -->
+<section class="summary" aria-labelledby="summary-h">
+    <div class="grid">
+        <header class="summary__head">
+            <p class="eyebrow eyebrow--ink" id="summary-h">Governance at a glance</p>
+            <p class="cite">As at 30 March 2026</p>
+        </header>
+
+        <ul class="summary__list">
+            <li class="summary-fig">
+                <span class="summary-fig__num">5</span>
+                <span class="summary-fig__label">Board Directors</span>
+            </li>
+            <li class="summary-fig">
+                <span class="summary-fig__num">3</span>
+                <span class="summary-fig__label">Independent Directors</span>
+            </li>
+            <li class="summary-fig">
+                <span class="summary-fig__num">2</span>
+                <span class="summary-fig__label">Executive Directors</span>
+            </li>
+            <li class="summary-fig">
+                <span class="summary-fig__num">3</span>
+                <span class="summary-fig__label">Executive Officers</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- 3. BOARD COMPOSITION TABLE -->
+<section class="composition" aria-labelledby="comp-h">
+    <div class="grid">
+        <header class="composition__head">
+            <h2 class="h-section composition__heading" id="comp-h">Board composition</h2>
+            <span class="composition__index">Five members</span>
+        </header>
+
+        <ol class="comp-table">
+            <li class="comp-row comp-row--head">
+                <span></span>
+                <span>Name</span>
+                <span>Role</span>
+                <span>Type</span>
+                <span>Appointed</span>
+            </li>
+            <li class="comp-row">
+                <span class="comp-row__num">i</span>
+                <span class="comp-row__name">Ko Chee Wah</span>
+                <span class="comp-row__role">Executive Chairman</span>
+                <span class="comp-row__type"><span class="badge badge--exec">Executive</span></span>
+                <span class="comp-row__appointed">6 Jan 2023</span>
+            </li>
+            <li class="comp-row">
+                <span class="comp-row__num">ii</span>
+                <span class="comp-row__name">Vincent Chai</span>
+                <span class="comp-row__role">Executive Director &amp; Chief Executive Officer</span>
+                <span class="comp-row__type"><span class="badge badge--exec">Executive</span></span>
+                <span class="comp-row__appointed">6 Jan 2023</span>
+            </li>
+            <li class="comp-row">
+                <span class="comp-row__num">iii</span>
+                <span class="comp-row__name">Leong Yue Kheong</span>
+                <span class="comp-row__role">Lead Independent Director</span>
+                <span class="comp-row__type"><span class="badge badge--ind">Independent</span></span>
+                <span class="comp-row__appointed">30 Mar 2026</span>
+            </li>
+            <li class="comp-row">
+                <span class="comp-row__num">iv</span>
+                <span class="comp-row__name">Ong Lizhen, Daisy</span>
+                <span class="comp-row__role">Independent Director</span>
+                <span class="comp-row__type"><span class="badge badge--ind">Independent</span></span>
+                <span class="comp-row__appointed">30 Mar 2026</span>
+            </li>
+            <li class="comp-row">
+                <span class="comp-row__num">v</span>
+                <span class="comp-row__name">Lim Jun Xiong, Steven</span>
+                <span class="comp-row__role">Independent Director</span>
+                <span class="comp-row__type"><span class="badge badge--ind">Independent</span></span>
+                <span class="comp-row__appointed">30 Mar 2026</span>
+            </li>
+        </ol>
+    </div>
+</section>
+
+
+<!-- 4. BOARD OF DIRECTORS PROFILES -->
+<section class="people" aria-labelledby="bod-h">
+    <div class="grid">
+        <header class="people__head">
+            <h2 class="h-section composition__heading" id="bod-h">Board of Directors</h2>
+            <span class="composition__index">Profiles</span>
+        </header>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-Ko_Chee_Wah_2026.webp" alt="Ko Chee Wah" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Ko Chee Wah</h3>
+                <p class="person__role">Executive Chairman <span class="badge badge--exec" style="margin-left: 8px;">Executive</span></p>
+                <p class="person__appointed">Director since 6 January 2023 — redesignated Executive Chairman, 30 March 2026</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>Mr Ko Chee Wah is the Executive Chairman and co-founder of the Group, providing strategic mentorship and guidance on business direction and development.</p>
+                    <p>With over 30 years of experience in the MICE industry, Mr Ko brings deep industry expertise and an extensive global network. Prior to founding the Group, Mr Ko was the co-founder, Executive Director and Group Managing Director of Cityneon Holdings Pte. Ltd., where he led the origination and execution of major international projects, including Universal Studios Singapore at Resorts World Sentosa, the Nanjing Youth Olympic Games 2014, and the Southeast Asian Games 2015. Earlier in his career, he held management roles at Sim Lim Company (Pte) Limited and Wing Tai Enterprises Pte. Ltd.</p>
+                    <p>Mr Ko holds a Bachelor of Business Administration from the University of Singapore, now known as the National University of Singapore.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-Vincent_2026.webp" alt="Vincent Chai" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Vincent Chai</h3>
+                <p class="person__role">Executive Director &amp; Chief Executive Officer <span class="badge badge--exec" style="margin-left: 8px;">Executive</span></p>
+                <p class="person__appointed">Director since 6 January 2023 — redesignated Executive Director, 30 March 2026</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>As Chief Executive Officer and co-founder of the Group, Mr Vincent Chai is responsible for setting its overall vision and strategic direction. He brings over 20 years of experience in events and experience creation.</p>
+                    <p>Prior to co-founding the Group, Mr Chai was a Senior Project Manager at Cityneon Events Pte. Ltd., where he played a key role in delivering major projects such as the Nanjing Youth Olympic Games 2014 and the Southeast Asian Games 2015. He was also the founder of Kinemat Pte. Ltd., a youth marketing agency, and has entrepreneurial experience in establishing and operating dining and entertainment businesses in Singapore.</p>
+                    <p>Mr Chai holds a Bachelor of Social Science (Money, Banking and Finance) from the University of Birmingham, as well as a Diploma in Mechatronics from Singapore Polytechnic. His combined experience across project execution, entrepreneurship, and strategic leadership underpins the Group's ability to innovate and scale within the evolving events and experiential tourism landscape.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-BOD_Leong.webp" alt="Leong Yue Kheong" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Leong Yue Kheong</h3>
+                <p class="person__role">Lead Independent Director <span class="badge badge--ind" style="margin-left: 8px;">Independent</span></p>
+                <p class="person__appointed">Appointed 30 March 2026</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>Mr Leong brings extensive leadership experience across tourism, public sector development, and strategic planning. He is the founder of 3 Quensz, a consulting firm specialising in coaching, mentoring, and tourism master planning.</p>
+                    <p>Mr Leong previously served as Deputy Chief Executive Officer (Development) of Mandai Park Development Pte. Ltd., where he led the planning and execution of key developments within the Mandai wildlife and nature precinct, including Bird Paradise and the Mandai Rainforest Resort.</p>
+                    <p>Prior to that, he was Assistant Chief Executive of the Singapore Tourism Board, where he led international and marketing efforts to strengthen Singapore's global tourism positioning. He also served as Project Director for the inaugural Formula One Singapore night race in 2008.</p>
+                    <p>Before entering the tourism sector, Mr Leong served in the Singapore Armed Forces for 30 years, attaining the rank of Brigadier-General and receiving multiple Public Administration Medals for his contributions.</p>
+                    <p>He holds a Master of Social Science (Counselling) from the University of South Australia and completed the Stanford–National University of Singapore Executive Program. He is also a Fellow of the Australian College of Defence and Strategic Studies.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-BOD_Daisy.webp" alt="Ong Lizhen, Daisy" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Ong Lizhen, Daisy</h3>
+                <p class="person__role">Independent Director <span class="badge badge--ind" style="margin-left: 8px;">Independent</span></p>
+                <p class="person__appointed">Appointed 30 March 2026</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>With over 20 years of experience in audit, accounting, investments, and finance, Ms Ong is currently the Chief Financial Officer of Fu Yu Corporation Limited and also serves as an Independent Director of HG Metal Manufacturing Limited, a company listed on the SGX Mainboard. Prior to her current roles, she was the Chief Financial Officer of Allied Technologies Limited.</p>
+                    <p>Ms Ong began her career with Ernst &amp; Young LLP and subsequently held various finance and leadership roles across companies listed on the SGX, Hong Kong Exchange, and Australian Securities Exchange.</p>
+                    <p>Ms Ong holds a Bachelor of Accountancy from Nanyang Technological University and is a member of the Institute of Singapore Chartered Accountants.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-BOD_Steven.webp" alt="Lim Jun Xiong, Steven" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Lim Jun Xiong, Steven</h3>
+                <p class="person__role">Independent Director <span class="badge badge--ind" style="margin-left: 8px;">Independent</span></p>
+                <p class="person__appointed">Appointed 30 March 2026</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>Mr Lim brings more than 30 years of experience in the financial, trust, and wealth management industry. Mr Lim has held senior leadership roles across major financial institutions, including serving as Chief Executive Officer of SG Trust (Asia) Ltd, a subsidiary of Société Générale Private Banking, and as Managing Director of Global Wealth Solutions at HSBC Investment Bank Asia Limited.</p>
+                    <p>He began his career at PricewaterhouseCoopers LLP and has since built extensive expertise in financial services and wealth advisory. Mr Lim currently serves as an independent director for several SGX-listed companies, including HC Surgical Specialists Limited, Baker Technology Limited, and Riverstone Holdings Limited.</p>
+                    <p>He holds a Bachelor of Commerce from the University of Newcastle (New South Wales) and is a Fellow of CPA Australia and the Institute of Certified Public Accountants of Singapore, as well as a member of the Society of Trust and Estate Practitioners (Singapore Branch).</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+<!-- 5. EXECUTIVE OFFICERS -->
+<section class="people" aria-labelledby="exec-h">
+    <div class="grid">
+        <header class="people__head">
+            <h2 class="h-section composition__heading" id="exec-h">Executive Officers</h2>
+            <span class="composition__index">Profiles</span>
+        </header>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-adrian_2026.webp" alt="Adrian Tan" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Adrian Tan</h3>
+                <p class="person__role">Chief Commercial Officer <span class="badge badge--off" style="margin-left: 8px;">Officer</span></p>
+                <p class="person__appointed">Co-founder of the Group</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>Mr Adrian Tan is the CCO and co-founder of the Group, and is responsible for overseeing sales, commercial strategy, partnerships, and marketing initiatives.</p>
+                    <p>With almost 20 years of experience in experience creation and event presentation, Mr Tan previously served as an Accounts Manager at Cityneon Events Pte. Ltd., where he was involved in the delivery and execution of major events, including the Singapore 2010 Youth Olympic Games, Singapore National Games 2012, and the 2015 Southeast Asian and Para Games.</p>
+                    <p>He also served as Deputy Overlay Manager for the Malaysian Southeast Asian Games Organising Committee, advising on venue planning, logistics, and cross-functional coordination for the 2017 Southeast Asian Games in Kuala Lumpur. Mr Tan began his career as a producer at Kinemat Pte. Ltd., where he led the creation of live shows and advertising content.</p>
+                    <p>He holds a Diploma in Audio Engineering from the School of Audio Engineering. His strong commercial acumen and hands-on experience in large-scale event execution support the Group's ability to drive revenue growth and build long-term client partnerships.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-Clement_2026.webp" alt="Clement Tan" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Clement Tan</h3>
+                <p class="person__role">Chief Operating Officer <span class="badge badge--off" style="margin-left: 8px;">Officer</span></p>
+                <p class="person__appointed">Co-founder of the Group</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>Mr Clement Tan oversees project operations and manpower resources across the Group's businesses, with extensive experience in operational leadership and large-scale event execution.</p>
+                    <p>Prior to co-founding the Group, Mr Tan was the General Manager (Sports Division) and Business Development Manager at Cityneon Events Pte. Ltd., where he was responsible for managing operations, driving business development, and overseeing staff training. During his tenure, he was involved in major international events, including the Nanjing 2013 Asian Youth Games, Nanjing 2014 Youth Olympic Games, and the 2015 Southeast Asian and Para Games in Singapore.</p>
+                    <p>Mr Tan has also served as a consultant for the Nanjing 2014 Youth Olympic Games and provided consultancy services for the 2018 FIFA World Cup in Russia. Earlier in his career, he was the Head of Logistics Resource Management for the Singapore Youth Olympic Games Organising Committee and served as an officer in the Singapore Armed Forces for 10 years.</p>
+                    <p>Mr Tan holds a Diploma in Business from Temasek Polytechnic and a Bachelor of Science in Management (Honours) from the University of London. His deep operational expertise and disciplined leadership underpin the Group's ability to deliver complex, large-scale projects efficiently.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="person">
+            <div class="person__photo-wrap">
+                <img src="assets/images/mgmt-Raymond.webp" alt="Raymond Lee" class="person__photo" />
+            </div>
+            <div class="person__bio">
+                <h3 class="person__name">Raymond Lee</h3>
+                <p class="person__role">Group Financial Controller <span class="badge badge--off" style="margin-left: 8px;">Officer</span></p>
+                <p class="person__appointed">Joined February 2025</p>
+                <button class="person__toggle" aria-expanded="false">Read full bio</button>
+                <div class="person__body">
+                    <p>Mr Raymond Lee is responsible for overseeing the Group's financial reporting, audit, treasury, tax, mergers and acquisitions, and internal control functions. Mr Lee has significant experience in financial management within SGX-listed companies.</p>
+                    <p>Prior to joining the Group, Mr Lee served as Group Financial Controller at Catalist-listed Livingstone Health Holdings Limited, and has held senior finance roles at Dyna-Mac Holdings Pte. Ltd., ISDN Holdings Limited, and Chasen Holdings Limited. His experience has provided him with strong familiarity with financial reporting standards and compliance requirements for companies listed on the SGX-ST.</p>
+                    <p>Mr Lee began his career as an auditor at BDO LLP. He holds a Master of Business (Professional Accounting) from the University of South Australia and a Bachelor of Business Administration (Honours) from Northwood University. He is also a member of CPA Australia.</p>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+<!-- 6. CLOSING — IR contact -->
+<section class="contact">
+    <div class="grid">
+        <div class="contact__inner">
+            <h2 class="contact__heading">For investor enquiries, we respond personally.</h2>
+            <div class="contact__cta">
+                <a href="mailto:ir@kin.net" class="contact__email">ir@kin.net</a>
+                <p class="contact__hours">Monday–Friday, 9am–6pm SGT.<br>Response within one business day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav = document.getElementById('nav');
+        if (!nav) return;
+        nav.classList.add('is-light');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        if (burger && mobNav) {
+            burger.addEventListener('click', () => {
+                const open = mobNav.classList.toggle('is-open');
+                burger.classList.toggle('is-open', open);
+                burger.setAttribute('aria-expanded', String(open));
+                document.body.classList.toggle('nav-open', open);
+            });
+        }
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+
+    // Mobile bio toggle
+    document.querySelectorAll('.person__toggle').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const bio = this.closest('.person__bio');
+            const open = bio.classList.toggle('bio-open');
+            this.setAttribute('aria-expanded', String(open));
+            this.textContent = open ? 'Close bio' : 'Read full bio';
+        });
+    });
+</script>
+
+</body>
+</html>

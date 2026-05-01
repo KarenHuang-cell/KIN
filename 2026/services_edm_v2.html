@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Event Management &amp; Delivery | KIN Global, Singapore</title>
+    <meta name="description" content="KIN specialises in world-class international sporting events that attract global audiences and elevate destination profiles." />
+    <link rel="canonical" href="https://www.kin.net/services_edm.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+    <style>
+        /* ─────────────────────────────────────────────────────────
+           SERVICES — EDM v2
+           Type: Plus Jakarta Sans + Source Serif 4 (roman bold, sturdy)
+           Direction: DARK page. Cinematic, championship-grade.
+           Italic used only as caption metadata, never as decoration.
+           ───────────────────────────────────────────────────────── */
+
+        :root {
+            --v2-ink: #0B1422;
+            --v2-ink-2: #121C2D;
+            --v2-cream: #ECECE8;
+            --v2-warm-light: #1A2436;
+            --v2-text: rgba(255,255,255,0.92);
+            --v2-text-2: rgba(255,255,255,0.66);
+            --v2-text-3: rgba(255,255,255,0.45);
+            --v2-cyan: #6BC9E8;
+            --v2-rule: rgba(255,255,255,0.10);
+            --v2-rule-strong: rgba(255,255,255,0.20);
+            --grid-max: 1280px;
+            --grid-pad: clamp(24px, 5vw, 80px);
+            --grid-gap: 24px;
+        }
+
+        body.svc-edm-v2 {
+            background: var(--v2-ink);
+            color: var(--v2-text);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.svc-edm-v2 .reveal,
+        body.svc-edm-v2 [class*="reveal-delay"] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap);
+            max-width: var(--grid-max);
+            margin: 0 auto;
+            padding: 0 var(--grid-pad);
+        }
+
+        /* ── Type primitives — sturdy, not pretty ── */
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v2-cyan);
+            margin: 0 0 24px;
+        }
+        .eyebrow--muted { color: var(--v2-text-3); }
+
+        .display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: #fff;
+            line-height: 0.98;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
+
+        /* Source Serif 4 — used ROMAN at heavy weights for label moments.
+           This is the move: serif gives texture, weight gives gravity. */
+        .serif-label {
+            font-family: 'Source Serif 4', serif;
+            font-style: normal;
+            font-weight: 700;
+            font-variation-settings: "opsz" 24;
+            font-size: 22px;
+            line-height: 1.2;
+            letter-spacing: -0.005em;
+            color: #fff;
+            margin: 0 0 14px;
+        }
+
+        .serif-display {
+            font-family: 'Source Serif 4', serif;
+            font-style: normal;
+            font-weight: 600;
+            font-variation-settings: "opsz" 60;
+            color: #fff;
+            line-height: 0.98;
+            letter-spacing: -0.02em;
+        }
+
+        /* Italic ONLY at small/caption sizes — never as headline decoration */
+        .meta-italic {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-variation-settings: "opsz" 14;
+            font-size: 14px;
+            color: var(--v2-text-2);
+        }
+
+        .body {
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--v2-text-2);
+            margin: 0 0 20px;
+        }
+
+        /* ── Frosted dark nav ── */
+        #nav.scrolled,
+        #nav.is-light {
+            background: rgba(11, 20, 34, 0.72) !important;
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+            transition: background 280ms ease;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           1. HERO — dark, breadcrumb, big H1, right-rail meta
+           ───────────────────────────────────────────────────────── */
+        .hero {
+            padding: clamp(140px, 18vw, 220px) 0 clamp(80px, 10vw, 120px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle stadium-light grain on hero */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(107,201,232,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 10% 90%, rgba(107,201,232,0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero__breadcrumb {
+            grid-column: 1 / -1;
+            margin-bottom: 24px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v2-text-3);
+        }
+        .hero__breadcrumb a { color: var(--v2-text-3); text-decoration: none; transition: color 200ms; }
+        .hero__breadcrumb a:hover { color: #fff; }
+        .hero__breadcrumb-sep { display: inline-block; margin: 0 12px; color: rgba(255,255,255,0.2); }
+
+        .hero__head { grid-column: 1 / span 8; }
+
+        .hero__title {
+            font-size: clamp(48px, 8vw, 116px);
+            line-height: 0.94;
+            margin: 0;
+            max-width: 14ch;
+        }
+
+        /* Underline the verb subtly with a cyan rule, not italic */
+        .hero__title .accent {
+            position: relative;
+            display: inline-block;
+        }
+        .hero__title .accent::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0.04em;
+            height: 4px;
+            background: var(--v2-cyan);
+        }
+
+        .hero__meta {
+            grid-column: 9 / span 4;
+            align-self: end;
+            border-top: 1px solid var(--v2-rule-strong);
+            padding-top: 24px;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--v2-rule);
+        }
+
+        .meta-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v2-text-3);
+        }
+        .meta-val { font-size: 14px; font-weight: 600; color: #fff; text-align: right; }
+
+        /* ─────────────────────────────────────────────────────────
+           2. FEATURE IMAGE — full bleed, no border
+           ───────────────────────────────────────────────────────── */
+        .feature-img { position: relative; }
+        .feature-img__img {
+            display: block;
+            width: 100%;
+            height: clamp(420px, 70vh, 720px);
+            object-fit: cover;
+        }
+        .feature-img__caption {
+            position: absolute;
+            bottom: 24px;
+            left: clamp(24px, 5vw, 80px);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            backdrop-filter: blur(8px);
+            background: rgba(11,20,34,0.5);
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           3. INTRO — large statement, no italic display
+           ───────────────────────────────────────────────────────── */
+        .intro { padding: clamp(96px, 14vw, 160px) 0; background: var(--v2-ink-2); }
+
+        .intro__head { grid-column: 2 / span 9; margin-bottom: 56px; }
+
+        .intro__heading {
+            font-size: clamp(40px, 5.4vw, 68px);
+        }
+
+        .intro__statement {
+            grid-column: 2 / span 7;
+            font-size: clamp(20px, 2vw, 26px);
+            line-height: 1.45;
+            color: #fff;
+            font-weight: 400;
+            letter-spacing: -0.005em;
+            margin: 0 0 32px;
+        }
+
+        .intro__body { grid-column: 2 / span 6; }
+
+        .intro__aside {
+            grid-column: 9 / span 4;
+            border-left: 1px solid var(--v2-rule);
+            padding-left: 24px;
+            align-self: start;
+        }
+
+        .intro__aside-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .intro__aside-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .intro__aside-list li {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--v2-text-2);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--v2-rule);
+        }
+        .intro__aside-list li:last-child { border-bottom: none; }
+
+        /* ─────────────────────────────────────────────────────────
+           4. CAPABILITY MATRIX — Source Serif 4 BOLD ROMAN labels
+           This is where the second face does its work.
+           ───────────────────────────────────────────────────────── */
+        .matrix {
+            padding: clamp(96px, 14vw, 160px) 0;
+        }
+
+        .matrix__head { grid-column: 2 / -2; margin-bottom: 64px; }
+        .matrix__heading { font-size: clamp(36px, 4.6vw, 56px); }
+
+        .matrix__sub {
+            grid-column: 2 / span 7;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--v2-text-2);
+            margin-top: 24px;
+        }
+
+        .matrix__grid {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .matrix-col { padding-top: 40px; border-top: 1px solid var(--v2-rule-strong); }
+        .matrix-col + .matrix-col {
+            padding-left: clamp(24px, 4vw, 56px);
+            border-left: 1px solid var(--v2-rule-strong);
+        }
+
+        .cluster { margin-bottom: 40px; }
+        .cluster:last-child { margin-bottom: 0; }
+
+        .cap-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .cap-list li {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--v2-text-2);
+            padding: 7px 0;
+            position: relative;
+            padding-left: 18px;
+        }
+        .cap-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 8px;
+            height: 1px;
+            background: var(--v2-cyan);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           5. PILLARS — numbered, structural, not pretty
+           Numbers in heavy serif (Source Serif 4 700)
+           ───────────────────────────────────────────────────────── */
+        .pillars {
+            background: var(--v2-ink-2);
+            padding: clamp(96px, 14vw, 160px) 0;
+        }
+
+        .pillars__head { grid-column: 2 / -2; margin-bottom: 80px; }
+        .pillars__heading { font-size: clamp(36px, 4.6vw, 56px); }
+
+        .pillar {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap);
+            padding: clamp(40px, 6vw, 72px) 0;
+            border-top: 1px solid var(--v2-rule-strong);
+        }
+        .pillar:last-child { border-bottom: 1px solid var(--v2-rule-strong); }
+
+        .pillar__num {
+            grid-column: 2 / span 1;
+            font-family: 'Source Serif 4', serif;
+            font-style: normal;
+            font-weight: 700;
+            font-variation-settings: "opsz" 60;
+            font-size: clamp(40px, 5vw, 72px);
+            line-height: 0.9;
+            color: var(--v2-cyan);
+            letter-spacing: -0.02em;
+        }
+
+        .pillar__title {
+            grid-column: 4 / span 5;
+            font-size: clamp(22px, 2.4vw, 32px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: #fff;
+            margin: 0;
+        }
+
+        .pillar__body { grid-column: 9 / span 4; }
+
+        .pillar__desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--v2-text-2);
+            margin: 0 0 16px;
+        }
+
+        .pillar__list { list-style: none; margin: 0; padding: 0; }
+        .pillar__list li {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--v2-text-2);
+            padding: 6px 0;
+            position: relative;
+            padding-left: 18px;
+        }
+        .pillar__list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 1px;
+            background: var(--v2-cyan);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           6. SELECTED WORK — light interruption for visual relief
+           Cream background. The dark page breathes here.
+           ───────────────────────────────────────────────────────── */
+        .selected {
+            background: var(--v2-cream);
+            color: #0B1422;
+            padding: clamp(96px, 14vw, 160px) 0;
+        }
+
+        .selected__head {
+            grid-column: 2 / -2;
+            margin-bottom: 56px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .selected__heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: #0B1422;
+            font-size: clamp(36px, 4.6vw, 52px);
+            line-height: 1.0;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
+
+        .selected__all {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #0B1422;
+            text-decoration: none;
+            border-bottom: 1px solid #0B1422;
+            padding-bottom: 4px;
+        }
+
+        .selected__list { grid-column: 2 / -2; list-style: none; margin: 0; padding: 0; }
+
+        .selected__item {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px auto;
+            gap: 24px;
+            align-items: baseline;
+            padding: 28px 0;
+            border-top: 1px solid rgba(11,20,34,0.10);
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 220ms ease;
+        }
+        .selected__item:last-child { border-bottom: 1px solid rgba(11,20,34,0.10); }
+        .selected__item:hover { padding-left: 8px; }
+
+        .selected__year {
+            font-family: 'Source Serif 4', serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            color: rgba(11,20,34,0.55);
+        }
+
+        .selected__name {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            color: #0B1422;
+        }
+
+        .selected__cat {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(11,20,34,0.55);
+        }
+
+        .selected__arrow {
+            font-size: 20px;
+            opacity: 0.4;
+            transition: opacity 200ms ease, transform 200ms ease;
+        }
+        .selected__item:hover .selected__arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           7. CLOSING — back to dark, decisive
+           ───────────────────────────────────────────────────────── */
+        .close { padding: clamp(96px, 14vw, 160px) 0; }
+
+        .close__inner {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap);
+            align-items: end;
+            border-top: 1px solid var(--v2-rule-strong);
+            padding-top: 64px;
+        }
+
+        .close__heading {
+            grid-column: 1 / span 8;
+            font-size: clamp(32px, 4vw, 56px);
+            line-height: 1.0;
+            letter-spacing: -0.025em;
+            color: #fff;
+            font-weight: 700;
+            margin: 0;
+            max-width: 22ch;
+        }
+
+        .close__cta {
+            grid-column: 9 / span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .close__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--v2-cyan);
+            color: var(--v2-ink);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 220ms ease, color 220ms ease;
+        }
+        .close__btn:hover { background: #fff; color: var(--v2-ink); }
+        .close__btn::after { content: "→"; font-size: 16px; }
+
+        .close__note {
+            font-size: 13px;
+            color: var(--v2-text-3);
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .pillar__num { grid-column: 2 / span 2; }
+            .pillar__title { grid-column: 4 / span 5; }
+            .pillar__body { grid-column: 2 / -2; margin-top: 16px; }
+            .selected__item { grid-template-columns: 60px 1fr auto; }
+            .selected__cat { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            .hero__head, .hero__meta,
+            .intro__head, .intro__statement, .intro__body, .intro__aside,
+            .matrix__sub,
+            .close__heading, .close__cta {
+                grid-column: 1 / -1;
+            }
+            .hero__meta { margin-top: 48px; }
+            .intro__aside { border-left: none; padding-left: 0; border-top: 1px solid var(--v2-rule); padding-top: 24px; margin-top: 32px; }
+            .matrix__grid { grid-template-columns: 1fr; }
+            .matrix-col + .matrix-col { padding-left: 0; border-left: none; border-top: 1px solid var(--v2-rule-strong); margin-top: 40px; padding-top: 40px; }
+            .pillar__num, .pillar__title, .pillar__body { grid-column: 1 / -1; }
+            .close__inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="svc-edm-v2">
+
+<div id="nav-include"></div>
+
+<!-- 1. HERO -->
+<section class="hero">
+    <div class="grid">
+        <p class="hero__breadcrumb">
+            <a href="services.html">Services</a>
+            <span class="hero__breadcrumb-sep">/</span>
+            <span>Event Delivery &amp; Management</span>
+        </p>
+        <div class="hero__head">
+            <p class="eyebrow">01 — Discipline</p>
+            <h1 class="display hero__title">
+                World-class events that <span class="accent">transform</span> destinations.
+            </h1>
+        </div>
+
+        <aside class="hero__meta">
+            <div class="meta-row">
+                <span class="meta-label">Segment</span>
+                <span class="meta-val">Event Delivery &amp; Management</span>
+            </div>
+            <div class="meta-row">
+                <span class="meta-label">Market position</span>
+                <span class="meta-val">17.3% share, Singapore</span>
+            </div>
+            <div class="meta-row">
+                <span class="meta-label">Track record</span>
+                <span class="meta-val">500+ projects since 2017</span>
+            </div>
+            <div class="meta-row">
+                <span class="meta-label">Repeat business</span>
+                <span class="meta-val">79.6% of segment, 9M2025</span>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- 2. FEATURE IMAGE -->
+<section class="feature-img">
+    <img src="assets/images/KIN_WAC2025_Arena_03.webp"
+         alt="World Aquatics Championships 2025 — arena built by KIN in Singapore"
+         class="feature-img__img" />
+    <span class="feature-img__caption">World Aquatics Championships, Singapore 2025</span>
+</section>
+
+<!-- 3. INTRO -->
+<section class="intro">
+    <div class="grid">
+        <header class="intro__head">
+            <p class="eyebrow eyebrow--muted">02 — The work</p>
+            <h2 class="display intro__heading">
+                End-to-end events delivery.
+            </h2>
+        </header>
+
+        <p class="intro__statement">
+            We specialise in world-class international sporting events that attract global audiences, generate tourism dollars, and elevate destination profiles.
+        </p>
+
+        <div class="intro__body">
+            <p class="body">
+                Founded in 2017, KIN is the largest sports events management company in Singapore. We operate as principal commercial actors for sports events — contracting directly with rights holders or local organising committees to deliver full-scale events management services, from conceptualisation and planning through to execution.
+            </p>
+        </div>
+
+        <aside class="intro__aside">
+            <span class="intro__aside-label">At a glance</span>
+            <ul class="intro__aside-list">
+                <li>500+ successful projects since 2017</li>
+                <li>17.3% market share — Singapore's largest <span class="meta-italic">(Euromonitor, 2024)</span></li>
+                <li>29 full-time specialists <span class="meta-italic">(Sept 2025)</span></li>
+                <li>75+ years of collective management experience</li>
+            </ul>
+        </aside>
+    </div>
+</section>
+
+<!-- 4. CAPABILITY MATRIX -->
+<section class="matrix">
+    <div class="grid">
+        <header class="matrix__head">
+            <p class="eyebrow eyebrow--muted">03 — Capabilities</p>
+            <h2 class="display matrix__heading">
+                What we do.
+            </h2>
+        </header>
+        <p class="matrix__sub">
+            Our expertise spans the full value chain — from strategic planning through delivery, infrastructure, and stakeholder management.
+        </p>
+
+        <div class="matrix__grid">
+            <div class="matrix-col">
+                <div class="cluster">
+                    <p class="serif-label">Strategic event planning</p>
+                    <ul class="cap-list">
+                        <li>Strategic event planning</li>
+                        <li>Economic impact assessment and planning</li>
+                    </ul>
+                </div>
+                <div class="cluster">
+                    <p class="serif-label">Event infrastructure &amp; build-up</p>
+                    <ul class="cap-list">
+                        <li>Temporary and permanent venue transformation</li>
+                        <li>Technical installation and overlay</li>
+                        <li>Spectator experience design</li>
+                        <li>Media and broadcast facility setup</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="matrix-col">
+                <div class="cluster">
+                    <p class="serif-label">Logistics coordination &amp; operations</p>
+                    <ul class="cap-list">
+                        <li>Multi-stakeholder project management</li>
+                        <li>Transportation and accommodation coordination</li>
+                        <li>Accreditation and security protocols</li>
+                        <li>Vendor management and procurement</li>
+                    </ul>
+                </div>
+                <div class="cluster">
+                    <p class="serif-label">Stakeholder management</p>
+                    <ul class="cap-list">
+                        <li>International federation liaison</li>
+                        <li>Government agency coordination</li>
+                        <li>Sponsor activation support</li>
+                        <li>Community engagement programmes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. PILLARS -->
+<section class="pillars">
+    <div class="grid">
+        <header class="pillars__head">
+            <p class="eyebrow eyebrow--muted">04 — How we deliver</p>
+            <h2 class="display pillars__heading">
+                Four pillars, one standard.
+            </h2>
+        </header>
+
+        <article class="pillar">
+            <span class="pillar__num">01</span>
+            <h3 class="pillar__title">Championship-level sports event expertise</h3>
+            <div class="pillar__body">
+                <p class="pillar__desc">
+                    Tournament-grade operations for international federations — on time, on budget, and to the standard the world expects.
+                </p>
+            </div>
+        </article>
+
+        <article class="pillar">
+            <span class="pillar__num">02</span>
+            <h3 class="pillar__title">Tournament operations excellence</h3>
+            <div class="pillar__body">
+                <ul class="pillar__list">
+                    <li>Competition management and scheduling</li>
+                    <li>Athlete services and team coordination</li>
+                    <li>Technical officials and judging systems</li>
+                    <li>Results management and technology integration</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="pillar">
+            <span class="pillar__num">03</span>
+            <h3 class="pillar__title">Spectator experience design</h3>
+            <div class="pillar__body">
+                <ul class="pillar__list">
+                    <li>Fan zones and activation spaces</li>
+                    <li>Hospitality and VIP experiences</li>
+                    <li>Wayfinding and venue navigation</li>
+                    <li>Food &amp; beverage operations</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="pillar">
+            <span class="pillar__num">04</span>
+            <h3 class="pillar__title">Media &amp; broadcast support</h3>
+            <div class="pillar__body">
+                <ul class="pillar__list">
+                    <li>International Broadcast Center (IBC) setup</li>
+                    <li>Press facilities and mixed zones</li>
+                    <li>Photographer and media positions</li>
+                    <li>Digital content creation support</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- 6. SELECTED WORK — light interruption -->
+<section class="selected">
+    <div class="grid">
+        <header class="selected__head">
+            <h2 class="selected__heading">Selected work.</h2>
+            <a href="portfolio.html" class="selected__all">All projects →</a>
+        </header>
+
+        <ul class="selected__list">
+            <li>
+                <a href="port_world-aquatics-championship.html" class="selected__item">
+                    <span class="selected__year">2025</span>
+                    <span class="selected__name">World Aquatics Championships Singapore</span>
+                    <span class="selected__cat">Venue Overlay Partner</span>
+                    <span class="selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_hsbc-svns-singapore-2025.html" class="selected__item">
+                    <span class="selected__year">2025</span>
+                    <span class="selected__name">HSBC SVNS Singapore</span>
+                    <span class="selected__cat">Event Delivery &amp; Official Partner</span>
+                    <span class="selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_wtt-singapore-smash-2025.html" class="selected__item">
+                    <span class="selected__year">2025</span>
+                    <span class="selected__name">WTT Singapore Smash</span>
+                    <span class="selected__cat">Event Delivery Partner</span>
+                    <span class="selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_fiba-intercontinental-cup-2024.html" class="selected__item">
+                    <span class="selected__year">2024</span>
+                    <span class="selected__name">FIBA Intercontinental Cup, Singapore</span>
+                    <span class="selected__cat">Event Management Company</span>
+                    <span class="selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_world-taekwondo-virtual-championships-2024.html" class="selected__item">
+                    <span class="selected__year">2024</span>
+                    <span class="selected__name">World Taekwondo Virtual Championships</span>
+                    <span class="selected__cat">Event Delivery Partner</span>
+                    <span class="selected__arrow">→</span>
+                </a>
+            </li>
+            <li>
+                <a href="port_singapore-tennis-open-2021.html" class="selected__item">
+                    <span class="selected__year">2021</span>
+                    <span class="selected__name">Singapore Tennis Open ATP 250</span>
+                    <span class="selected__cat">Event Delivery Partner</span>
+                    <span class="selected__arrow">→</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- 7. CLOSING — back to dark -->
+<section class="close">
+    <div class="grid">
+        <div class="close__inner">
+            <h2 class="close__heading">
+                A championship in your city? Let's plan it.
+            </h2>
+            <div class="close__cta">
+                <a href="contact.html" class="close__btn">Start the brief</a>
+                <p class="close__note">Singapore HQ, Mon–Fri 9am–6pm SGT.<br>We respond within one business day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav = document.getElementById('nav');
+        if (!nav) return;
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        if (burger && mobNav) {
+            burger.addEventListener('click', () => {
+                const open = mobNav.classList.toggle('is-open');
+                burger.classList.toggle('is-open', open);
+                burger.setAttribute('aria-expanded', String(open));
+                document.body.classList.toggle('nav-open', open);
+            });
+        }
+    });
+
+    loadInclude('footer-include', 'includes/footer.html');
+</script>
+
+</body>
+</html>

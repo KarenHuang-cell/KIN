@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Investor Relations | KIN Global, Singapore (SGX Catalist)</title>
+    <meta name="description" content="KIN Global is Singapore's largest sports events management company. Investor relations, SGX disclosures, prospectus and corporate structure." />
+    <link rel="canonical" href="https://www.kin.net/investor-relations.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+    <style>
+        /* ─────────────────────────────────────────────────────────
+           IR v2 — INSTITUTIONAL REGISTER
+           Same Plus Jakarta family, different voice:
+           - Display weight 400 (regular), not 700–800
+           - Display scale 40–64px, not 120px
+           - Tabular numerals throughout
+           - Source Serif 4 italic ONLY for citations (8–14px)
+           - Restrained spacing, annual-report rhythm
+           ───────────────────────────────────────────────────────── */
+
+        :root {
+            --cream: #ECECE8;
+            --warmer: #E3E2DE;
+            --card: #F5F4F0;
+            --ink: #0E1A2B;
+            --body: #2c2c2c;
+            --muted: #6e6e6e;
+            --soft: #8e8e8e;
+            --cyan: #6BC9E8;
+            --rule: rgba(14,26,43,0.10);
+            --rule-strong: rgba(14,26,43,0.20);
+            --grid-gutter: 24px;
+            --grid-max: 1200px;
+            --grid-pad: clamp(24px, 5vw, 80px);
+        }
+
+        body.ir-v2 {
+            background: var(--cream);
+            color: var(--body);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "tnum" 1, "lnum" 1;  /* tabular numerals everywhere */
+        }
+
+        body.ir-v2 .reveal,
+        body.ir-v2 [class*="reveal-delay"] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gutter);
+            max-width: var(--grid-max);
+            margin: 0 auto;
+            padding: 0 var(--grid-pad);
+        }
+
+        /* ── Type primitives — institutional register ── */
+
+        /* Eyebrow — small caps, modest tracking, navy not cyan */
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 20px;
+        }
+        .eyebrow--ink { color: var(--ink); }
+
+        /* H1 — Plus Jakarta REGULAR 400, restrained scale */
+        .h-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        /* H2 — Plus Jakarta MEDIUM 500, smaller */
+        .h-section {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        /* H3 — Plus Jakarta MEDIUM 500, modest */
+        .h-block {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 18px;
+            line-height: 1.3;
+            letter-spacing: -0.005em;
+            margin: 0;
+        }
+
+        /* Lead — Plus Jakarta LIGHT 300, slightly larger than body */
+        .lead {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300;
+            font-size: clamp(18px, 1.6vw, 22px);
+            line-height: 1.5;
+            color: var(--ink);
+            letter-spacing: -0.005em;
+            margin: 0 0 32px;
+        }
+
+        /* Body — 16px, generous line-height */
+        .body {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--body);
+            margin: 0 0 20px;
+        }
+        .body:last-child { margin-bottom: 0; }
+
+        /* Citation — Source Serif 4 italic, ONLY use for sources */
+        .cite {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0;
+        }
+        .cite--small { font-size: 11px; }
+
+        /* ── Frosted nav (light variant) ── */
+        #nav.scrolled,
+        #nav.is-light {
+            background: rgba(236, 236, 232, 0.8) !important;
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            box-shadow: 0 1px 0 rgba(14,26,43,0.06);
+            transition: background 280ms ease;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           1. HERO — restrained scale, right-rail key facts
+           ───────────────────────────────────────────────────────── */
+        .hero {
+            padding: clamp(120px, 14vw, 180px) 0 clamp(72px, 9vw, 120px);
+        }
+
+        .hero__head { grid-column: 1 / span 7; }
+
+        .hero__title {
+            font-size: clamp(40px, 4.6vw, 64px);
+            margin-bottom: 28px;
+        }
+
+        .hero__lead {
+            grid-column: 1 / span 7;
+        }
+
+        .hero__body {
+            grid-column: 1 / span 6;
+        }
+
+        /* Key facts — quieter rail, no cyan accents */
+        .facts {
+            grid-column: 9 / span 4;
+            align-self: start;
+            border-top: 1px solid var(--rule-strong);
+            padding-top: 20px;
+            margin-top: 8px;
+        }
+
+        .facts__row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+        .facts__row:last-child { border-bottom: none; }
+
+        .facts__label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .facts__value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink);
+            text-align: right;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           2. KEY FIGURES — quiet table, not display billboard
+           Numbers are LARGER than body but not display.
+           ───────────────────────────────────────────────────────── */
+        .figures {
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: clamp(56px, 7vw, 88px) 0;
+            background: var(--warmer);
+        }
+
+        .figures__head {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .figures__list {
+            grid-column: 1 / -1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .figure {
+            padding: 20px 24px 0 0;
+            border-top: 1px solid var(--rule-strong);
+            position: relative;
+        }
+        .figure + .figure {
+            padding-left: 24px;
+            border-left: 1px solid var(--rule);
+        }
+
+        /* Numerals — Plus Jakarta LIGHT 300, modest scale, tabular */
+        .figure__num {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300;
+            font-size: clamp(40px, 4.4vw, 60px);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 14px;
+            font-variant-numeric: tabular-nums lining-nums;
+        }
+        .figure__num small {
+            font-size: 0.55em;
+            font-weight: 400;
+            color: var(--muted);
+            margin-left: 2px;
+            vertical-align: 0.4em;
+        }
+
+        .figure__label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+            line-height: 1.4;
+            display: block;
+            max-width: 22ch;
+        }
+
+        .figure__cite {
+            display: block;
+            margin-top: 8px;
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 12px;
+            color: var(--soft);
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           3. CORPORATE STRUCTURE
+           ───────────────────────────────────────────────────────── */
+        .section { padding: clamp(80px, 12vw, 140px) 0; }
+
+        .section__head {
+            grid-column: 1 / -1;
+            margin-bottom: 56px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .section__heading {
+            font-size: clamp(28px, 3vw, 40px);
+        }
+
+        .section__index {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .corp__figure {
+            grid-column: 3 / span 8;
+            background: var(--card);
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 48px);
+            text-align: center;
+        }
+
+        .corp__img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 28px;
+        }
+
+        .corp__caption {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--muted);
+            max-width: 50ch;
+            margin: 0 auto;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           4. DISCLOSURES — table-like, not feed-like
+           ───────────────────────────────────────────────────────── */
+        .disclosures {
+            background: var(--warmer);
+            padding: clamp(80px, 12vw, 140px) 0;
+        }
+
+        .disclosures__head {
+            grid-column: 1 / -1;
+            margin-bottom: 56px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .sgx { grid-column: 1 / span 7; }
+        .filings { grid-column: 9 / span 4; }
+
+        .block-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            padding-bottom: 14px;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--rule-strong);
+        }
+
+        .block-head__title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 0;
+            letter-spacing: -0.005em;
+        }
+
+        .block-head__count {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* SGX list — table rhythm, no hover-shift, no cyan dates */
+        .sgx__list { list-style: none; margin: 0; padding: 0; }
+
+        .sgx__item {
+            display: block;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--rule);
+            text-decoration: none;
+            color: inherit;
+            transition: background 200ms ease;
+        }
+        .sgx__item:hover { background: rgba(14,26,43,0.02); }
+
+        .sgx__date {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .sgx__category {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--soft);
+            margin-bottom: 8px;
+        }
+
+        .sgx__name {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--ink);
+            letter-spacing: -0.005em;
+        }
+
+        .sgx__name svg {
+            flex-shrink: 0;
+            margin-top: 4px;
+            opacity: 0.4;
+            transition: opacity 220ms ease;
+        }
+        .sgx__item:hover .sgx__name svg { opacity: 0.8; }
+
+        .sgx__more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 28px;
+            padding: 10px 0;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--ink);
+            transition: gap 220ms ease;
+        }
+        .sgx__more:hover { gap: 14px; }
+
+        /* Filings — list, not iconography-heavy */
+        .filings__list { list-style: none; margin: 0; padding: 0; }
+
+        .filing {
+            display: flex;
+            gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--rule);
+            text-decoration: none;
+            color: inherit;
+            transition: background 220ms ease;
+            align-items: center;
+        }
+        .filing:hover { background: rgba(14,26,43,0.02); }
+
+        .filing__icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+        }
+
+        .filing__text { flex: 1; min-width: 0; }
+
+        .filing__date {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .filing__title {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.3;
+            color: var(--ink);
+            letter-spacing: -0.005em;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           5. INVESTOR CONTACT — quiet outro
+           ───────────────────────────────────────────────────────── */
+        .contact { padding: clamp(80px, 12vw, 140px) 0; }
+
+        .contact__inner {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gutter);
+            align-items: end;
+            border-top: 1px solid var(--rule-strong);
+            padding-top: 56px;
+        }
+
+        .contact__heading {
+            grid-column: 1 / span 7;
+            font-size: clamp(28px, 3.2vw, 40px);
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            font-weight: 400;
+            margin: 0;
+            max-width: 24ch;
+        }
+
+        .contact__cta {
+            grid-column: 9 / span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .contact__email {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 14px 22px;
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            transition: background 220ms ease, color 220ms ease;
+        }
+        .contact__email:hover {
+            background: var(--ink);
+            color: #fff;
+        }
+        .contact__email::after { content: "→"; font-size: 14px; }
+
+        .contact__hours {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           Responsive
+           ───────────────────────────────────────────────────────── */
+        @media (max-width: 1100px) {
+            .corp__figure { grid-column: 2 / -2; }
+        }
+
+        @media (max-width: 900px) {
+            .hero__head, .hero__lead, .hero__body, .facts,
+            .sgx, .filings,
+            .contact__heading, .contact__cta {
+                grid-column: 1 / -1;
+            }
+            .facts { margin-top: 40px; }
+            .figures__list { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+            .figure { border-left: none; padding-left: 0; }
+            .figure:nth-child(2) { padding-left: 24px; border-left: 1px solid var(--rule); }
+            .figure:nth-child(4) { padding-left: 24px; border-left: 1px solid var(--rule); }
+            .contact__inner { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 620px) {
+            .figures__list { grid-template-columns: 1fr; }
+            .figure { border-left: none !important; padding-left: 0 !important; }
+            .figure + .figure { border-top: 1px solid var(--rule); padding-top: 24px; margin-top: 24px; }
+        }
+    </style>
+</head>
+<body class="corp-page ir-v2">
+
+<div id="nav-include"></div>
+
+<!-- 1. HERO — institutional register, restrained scale -->
+<section class="hero">
+    <div class="grid">
+        <div class="hero__head">
+            <p class="eyebrow">Investor Relations</p>
+            <h1 class="h-display hero__title">Investor Relations</h1>
+        </div>
+
+        <p class="lead hero__lead">
+            KIN Global is Singapore's largest sports events management company and curator of global sports events.
+        </p>
+
+        <div class="hero__body">
+            <p class="body">
+                Since its inception in 2017, the Group has delivered over 500 successful projects, specialising in the full value chain of sporting experiences and events — from conceptualisation, planning and design through to coordination, management and execution of major local and international events. KIN Global is positioning itself as a key player across the broader events tourism sector, encompassing MICE, entertainment, sports, lifestyle and experiential, and arts and culture.
+            </p>
+        </div>
+
+        <aside class="facts" aria-label="Key facts">
+            <div class="facts__row">
+                <span class="facts__label">Listed</span>
+                <span class="facts__value">SGX Catalist</span>
+            </div>
+            <div class="facts__row">
+                <span class="facts__label">Founded</span>
+                <span class="facts__value">Singapore, 2017</span>
+            </div>
+            <div class="facts__row">
+                <span class="facts__label">Divisions</span>
+                <span class="facts__value">Three</span>
+            </div>
+            <div class="facts__row">
+                <span class="facts__label">Projects</span>
+                <span class="facts__value">500+ delivered</span>
+            </div>
+            <div class="facts__row">
+                <span class="facts__label">FY end</span>
+                <span class="facts__value">31 December</span>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- 2. KEY FIGURES — quiet table, modest numerals -->
+<section class="figures">
+    <div class="grid">
+        <header class="figures__head">
+            <p class="eyebrow eyebrow--ink">Key figures</p>
+            <p class="cite cite--small">As at 30 September 2025</p>
+        </header>
+
+        <ul class="figures__list">
+            <li class="figure">
+                <span class="figure__num">500<small>+</small></span>
+                <span class="figure__label">Projects delivered since 2017</span>
+            </li>
+            <li class="figure">
+                <span class="figure__num">17.3<small>%</small></span>
+                <span class="figure__label">Singapore market share</span>
+                <span class="figure__cite">Euromonitor, 2024</span>
+            </li>
+            <li class="figure">
+                <span class="figure__num">75<small>+</small></span>
+                <span class="figure__label">Years collective management experience</span>
+            </li>
+            <li class="figure">
+                <span class="figure__num">29</span>
+                <span class="figure__label">Full-time specialists</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- 3. CORPORATE STRUCTURE -->
+<section class="section">
+    <div class="grid">
+        <header class="section__head">
+            <h2 class="h-section section__heading">Corporate structure</h2>
+            <span class="section__index">Group</span>
+        </header>
+
+        <figure class="corp__figure">
+            <img src="assets/images/CorporateStructure.svg"
+                 alt="KIN corporate structure: Kin Global Limited → Kin Productions Pte Ltd → Kin D+B Pte Ltd (75%) and Kin Middle East W.L.L. (100%)"
+                 class="corp__img" />
+            <figcaption class="corp__caption">
+                Kin Global Limited holds full ownership of its operating subsidiaries, with controlling stakes in two specialised regional entities.
+            </figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- 4. DISCLOSURES -->
+<section class="disclosures">
+    <div class="grid">
+        <header class="disclosures__head">
+            <h2 class="h-section section__heading">Disclosures &amp; filings</h2>
+            <span class="section__index">Latest</span>
+        </header>
+
+        <section class="sgx" aria-labelledby="sgx-h">
+            <header class="block-head">
+                <h3 class="block-head__title" id="sgx-h">SGX Announcements</h3>
+                <span class="block-head__count">4 latest</span>
+            </header>
+
+            <ul class="sgx__list">
+                <li>
+                    <a class="sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
+                        <span class="sgx__date">28 April 2026</span>
+                        <span class="sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Tan Thiam Hoe, Clement
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
+                        <span class="sgx__date">28 April 2026</span>
+                        <span class="sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Tan Soo Meng Adrian
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
+                        <span class="sgx__date">28 April 2026</span>
+                        <span class="sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Vincent Chai Cheng Hong
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
+                        <span class="sgx__date">28 April 2026</span>
+                        <span class="sgx__category">Disclosure of Interest — Director / CEO</span>
+                        <span class="sgx__name">
+                            Disclosure of Interest of Director and Substantial Shareholder — Mr. Ko Chee Wah
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <a href="sgx-announcements.html" class="sgx__more">All announcements <span aria-hidden="true">→</span></a>
+        </section>
+
+        <aside class="filings" aria-labelledby="filings-h">
+            <header class="block-head">
+                <h3 class="block-head__title" id="filings-h">Prospectus</h3>
+                <span class="block-head__count">3 docs</span>
+            </header>
+
+            <ul class="filings__list">
+                <li>
+                    <a href="https://www.kin.net/wp-content/uploads/2026/04/Final_Offer_Document.pdf" class="filing" target="_blank" rel="noopener">
+                        <span class="filing__icon">PDF</span>
+                        <span class="filing__text">
+                            <span class="filing__date">14 Apr 2026</span>
+                            <span class="filing__title">Final Offer Document</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kin.net/wp-content/uploads/2026/04/Final_Product_Highlights_Sheet.pdf" class="filing" target="_blank" rel="noopener">
+                        <span class="filing__icon">PDF</span>
+                        <span class="filing__text">
+                            <span class="filing__date">14 Apr 2026</span>
+                            <span class="filing__title">Final Product Highlights Sheet</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kin.net/wp-content/uploads/2026/04/Kin_Global_Limited_CorporatePresentation.pdf" class="filing" target="_blank" rel="noopener">
+                        <span class="filing__icon">PDF</span>
+                        <span class="filing__text">
+                            <span class="filing__date">14 Apr 2026</span>
+                            <span class="filing__title">Corporate Presentation</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</section>
+
+<!-- 5. INVESTOR CONTACT -->
+<section class="contact">
+    <div class="grid">
+        <div class="contact__inner">
+            <h2 class="contact__heading">
+                For investor enquiries, we respond personally.
+            </h2>
+            <div class="contact__cta">
+                <a href="mailto:ir@kin.net" class="contact__email">ir@kin.net</a>
+                <p class="contact__hours">Monday–Friday, 9am–6pm SGT.<br>Response within one business day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav = document.getElementById('nav');
+        if (!nav) return;
+        nav.classList.add('is-light');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        if (burger && mobNav) {
+            burger.addEventListener('click', () => {
+                const open = mobNav.classList.toggle('is-open');
+                burger.classList.toggle('is-open', open);
+                burger.setAttribute('aria-expanded', String(open));
+                document.body.classList.toggle('nav-open', open);
+            });
+        }
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+</script>
+
+</body>
+</html>

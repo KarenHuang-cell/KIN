@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type studies · KIN</title>
+    <meta name="description" content="Typography exploration for KIN homepage — Plus Jakarta Sans alone vs paired serif options." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- All test families loaded together so panels render with their assigned face -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,700;1,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,900;1,8..60,400;1,8..60,600;1,8..60,700&family=Roboto+Slab:wght@300;400;500;600;700;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,500;0,8..144,700;1,8..144,300;1,8..144,500&family=Spectral:ital,wght@0,300;0,500;0,700;1,300;1,500&family=Petrona:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400;1,6..72,500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --ink: #0B1422;
+            --ink-2: #131D2F;
+            --cream: #ECECE8;
+            --cream-2: #E3E2DE;
+            --text: rgba(255,255,255,0.92);
+            --text-2: rgba(255,255,255,0.62);
+            --text-3: rgba(255,255,255,0.42);
+            --cyan: #6BC9E8;
+            --rule: rgba(255,255,255,0.12);
+            --rule-light: rgba(11,20,34,0.10);
+            --pad: clamp(20px, 4vw, 56px);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body { background: var(--ink); }
+        body {
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            line-height: 1.5;
+        }
+
+        /* ── Page header ── */
+        .doc-header {
+            padding: clamp(80px, 10vw, 140px) var(--pad) clamp(56px, 7vw, 88px);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .doc-header__row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .doc-header__title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: clamp(28px, 3vw, 44px);
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+
+        .micro {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+        .micro--cyan { color: var(--cyan); }
+
+        .doc-header__lede {
+            max-width: 70ch;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text-2);
+        }
+
+        .doc-header__legend {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 13px;
+            color: var(--text-2);
+        }
+        .doc-header__legend strong { display: block; color: #fff; font-weight: 600; margin-bottom: 4px; }
+
+        /* ── Panel scaffold ── */
+        .panel {
+            padding: clamp(72px, 9vw, 120px) var(--pad);
+            border-bottom: 1px solid var(--rule);
+            position: relative;
+        }
+        .panel--light { background: var(--cream); color: var(--ink); border-bottom-color: var(--rule-light); }
+
+        .panel__head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            margin-bottom: clamp(48px, 6vw, 80px);
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+            flex-wrap: wrap;
+        }
+        .panel--light .panel__head { border-bottom-color: var(--rule-light); }
+
+        .panel__id {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--cyan);
+        }
+        .panel__name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.04em;
+        }
+        .panel--light .panel__name { color: var(--ink); }
+        .panel__name span { color: var(--text-3); font-weight: 400; margin-left: 8px; }
+        .panel--light .panel__name span { color: rgba(11,20,34,0.55); }
+
+        /* ── Specimen layout ── */
+        .specimen {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 56px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .spec-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 18px;
+        }
+        .panel--light .spec-eyebrow { color: rgba(11,20,34,0.55); }
+
+        .spec-headline {
+            font-size: clamp(48px, 9vw, 156px);
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin: 0 0 24px;
+        }
+        .panel--light .spec-headline { color: var(--ink); }
+
+        .spec-body {
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--text-2);
+            max-width: 60ch;
+        }
+        .panel--light .spec-body { color: rgba(11,20,34,0.78); }
+
+        .spec-row {
+            display: grid;
+            grid-template-columns: minmax(200px, 1fr) 2fr;
+            gap: 56px;
+            align-items: end;
+            padding-top: 32px;
+            border-top: 1px solid var(--rule);
+        }
+        .panel--light .spec-row { border-top-color: var(--rule-light); }
+
+        .spec-num {
+            font-size: clamp(64px, 9vw, 144px);
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            color: #fff;
+        }
+        .panel--light .spec-num { color: var(--ink); }
+
+        .spec-take {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-2);
+            border-left: 1px solid var(--rule);
+            padding-left: 20px;
+            max-width: 60ch;
+        }
+        .panel--light .spec-take { color: rgba(11,20,34,0.7); border-left-color: var(--rule-light); }
+        .spec-take strong { display: block; color: #fff; font-weight: 600; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.04em; }
+        .panel--light .spec-take strong { color: var(--ink); }
+
+        /* ─────────────────────────────────────────────────────────
+           PANEL TYPOGRAPHY DEFINITIONS
+           Each panel overrides .spec-headline / .spec-num
+           ───────────────────────────────────────────────────────── */
+
+        /* PANEL A — Plus Jakarta Sans alone, weight + size contrast (800 huge + 200 line) */
+        .panel--A .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+        }
+        .panel--A .spec-headline em {
+            font-style: normal;
+            font-weight: 200;
+            color: var(--cyan);
+        }
+        .panel--A .spec-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
+        }
+        .panel--A .spec-num em { font-style: normal; font-weight: 800; }
+
+        /* PANEL B — Plus Jakarta ULTRALIGHT 200 huge (the inverse: light bold display) */
+        .panel--B .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
+            letter-spacing: -0.025em;
+        }
+        .panel--B .spec-headline em {
+            font-style: italic;
+            font-weight: 200;
+            color: var(--cyan);
+        }
+        .panel--B .spec-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 200;
+            letter-spacing: -0.04em;
+        }
+
+        /* PANEL C — Plus Jakarta + Source Serif 4 (sturdy, current pick) */
+        .panel--C .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--C .spec-headline em {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-variation-settings: "opsz" 144;
+        }
+        .panel--C .spec-num {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-variation-settings: "opsz" 60;
+        }
+
+        /* PANEL D — Plus Jakarta + Roboto Slab (slab, signage/sporty) */
+        .panel--D .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--D .spec-headline em {
+            font-family: 'Roboto Slab', serif;
+            font-style: normal;
+            font-weight: 700;
+        }
+        .panel--D .spec-num {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        /* PANEL E — Plus Jakarta + Petrona (chunky transitional, body-grotesque) */
+        .panel--E .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--E .spec-headline em {
+            font-family: 'Petrona', serif;
+            font-style: italic;
+            font-weight: 700;
+        }
+        .panel--E .spec-num {
+            font-family: 'Petrona', serif;
+            font-weight: 800;
+            font-style: normal;
+            letter-spacing: -0.02em;
+        }
+
+        /* PANEL F — Plus Jakarta + Roboto Serif (variable, neutral, screen-native) */
+        .panel--F .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--F .spec-headline em {
+            font-family: 'Roboto Serif', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-variation-settings: "opsz" 144;
+        }
+        .panel--F .spec-num {
+            font-family: 'Roboto Serif', serif;
+            font-style: normal;
+            font-weight: 700;
+            font-variation-settings: "opsz" 144;
+        }
+
+        /* PANEL G — Plus Jakarta + Spectral (workhorse editorial) */
+        .panel--G .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--G .spec-headline em {
+            font-family: 'Spectral', serif;
+            font-style: italic;
+            font-weight: 500;
+        }
+        .panel--G .spec-num {
+            font-family: 'Spectral', serif;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        /* PANEL H — Plus Jakarta + Newsreader (ref / what we tried earlier) */
+        .panel--H .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--H .spec-headline em {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-variation-settings: "opsz" 72;
+        }
+        .panel--H .spec-num {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-variation-settings: "opsz" 72;
+        }
+
+        /* PANEL I — Plus Jakarta + Fraunces (ref / first attempt) */
+        .panel--I .spec-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        .panel--I .spec-headline em {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-variation-settings: "opsz" 144;
+        }
+        .panel--I .spec-num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-variation-settings: "opsz" 144;
+        }
+
+        /* ── Light variants apply same family rules but body color flips ── */
+        .panel--light .spec-headline em { color: var(--ink); }
+        .panel--A.panel--light .spec-headline em { color: rgba(11,20,34,0.5); }
+
+        @media (max-width: 800px) {
+            .spec-row { grid-template-columns: 1fr; gap: 24px; align-items: start; }
+            .spec-take { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 16px; }
+            .panel--light .spec-take { border-top-color: var(--rule-light); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════════════════════════════ -->
+<header class="doc-header">
+    <div class="doc-header__row">
+        <h1 class="doc-header__title">Type studies — KIN homepage.</h1>
+        <p class="micro micro--cyan">Internal · v1</p>
+    </div>
+    <p class="doc-header__lede">
+        Same content, nine type systems. Each panel uses the same headline ("Your city is the destination"), the same eyebrow, the same body, and the same display numeral — only the type changes. Goal: pick the voice that feels sporty and cultural without going pretty or brittle.
+    </p>
+    <div class="doc-header__legend">
+        <div><strong>What's tested</strong>Hero H1 · eyebrow · body line · display numeral.</div>
+        <div><strong>What stays constant</strong>Plus Jakarta Sans for sans roles. Only the second face (or weight contrast) changes.</div>
+        <div><strong>What to look for</strong>Voice. Confidence at scale. How "is" or italic words sit in line. Whether numerals carry weight.</div>
+    </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL A — Plus Jakarta only, BOLD + ULTRALIGHT contrast
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--A">
+    <div class="panel__head">
+        <span class="panel__id">A — Sans only · weight contrast</span>
+        <span class="panel__name">Plus Jakarta Sans 800 + 200 <span>no second face</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num"><em>500</em>+</span>
+            <p class="spec-take"><strong>The voice</strong>Modern sport-brand. The 200-weight "is" reads as a confident pause inside the bolder line. No serif anywhere — Nike / Olympic Channel territory. Numerals work but feel less editorial.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL B — Plus Jakarta ULTRALIGHT 200 huge
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--B panel--light">
+    <div class="panel__head">
+        <span class="panel__id">B — Sans only · ultralight at scale</span>
+        <span class="panel__name">Plus Jakarta Sans 200 <span>no second face</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Architectural, gallery-floor stillness. Italic 200 inside the line is barely italic — more like a tone shift. Reads as cultural-institution, less sport. Risk: feels cold at small sizes.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL C — Plus Jakarta + Source Serif 4 (current)
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--C">
+    <div class="panel__head">
+        <span class="panel__id">C — Sans + serif · current pick</span>
+        <span class="panel__name">Plus Jakarta Sans + Source Serif 4 <span>roman 600 + italic 600</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Considered. Source Serif italic has shape but holds weight. Pairs cleanly with sans. Risk: at very large sizes the italic becomes the most decorative thing on the page.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL D — Plus Jakarta + Roboto Slab
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--D">
+    <div class="panel__head">
+        <span class="panel__id">D — Sans + slab · signage / sporty</span>
+        <span class="panel__name">Plus Jakarta Sans + Roboto Slab <span>roman 700 / 800</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Stadium scoreboard. Slab gives weight + signage energy. No italic = no fashion magazine. Numerals feel like jersey numbers. Risk: leans more sport than cultural.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL E — Plus Jakarta + Petrona
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--E panel--light">
+    <div class="panel__head">
+        <span class="panel__id">E — Sans + chunky transitional</span>
+        <span class="panel__name">Plus Jakarta Sans + Petrona <span>roman 700 / italic 700</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Chunky, body-grotesque. Petrona italic has shoulders, not curls — less brittle than Fraunces or Newsreader. Reads sports broadcast meets serious editorial. Strong contender.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL F — Plus Jakarta + Roboto Serif
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--F">
+    <div class="panel__head">
+        <span class="panel__id">F — Sans + variable serif · neutral</span>
+        <span class="panel__name">Plus Jakarta Sans + Roboto Serif <span>italic 500 + roman 700</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Quietly modern. Roboto Serif is screen-native and pairs exceptionally well with Plus Jakarta. Italic is restrained, not showy. Risk: too neutral — could read as generic.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL G — Plus Jakarta + Spectral
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--G">
+    <div class="panel__head">
+        <span class="panel__id">G — Sans + workhorse editorial</span>
+        <span class="panel__name">Plus Jakarta Sans + Spectral <span>italic 500 / 700</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Production Type / journalistic. Spectral italic has presence at body sizes too — useful if italic spreads beyond headlines. Less expressive than Source Serif at display.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL H — Newsreader (reference, what was tried before)
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--H">
+    <div class="panel__head">
+        <span class="panel__id">H — Reference · earlier attempt</span>
+        <span class="panel__name">Plus Jakarta Sans + Newsreader <span>italic 500</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Magazine-editorial. You called this out as too pretty / too brittle — included for direct comparison so you can confirm the rejection.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PANEL I — Fraunces (reference, very first attempt)
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel panel--I panel--light">
+    <div class="panel__head">
+        <span class="panel__id">I — Reference · first attempt</span>
+        <span class="panel__name">Plus Jakarta Sans + Fraunces <span>italic 400</span></span>
+    </div>
+    <div class="specimen">
+        <div>
+            <p class="spec-eyebrow">Event tourism, engineered</p>
+            <h2 class="spec-headline">Your city <em>is</em><br>the destination.</h2>
+            <p class="spec-body">From international championships to signature attractions — concept to execution, design to delivery.</p>
+        </div>
+        <div class="spec-row">
+            <span class="spec-num">500+</span>
+            <p class="spec-take"><strong>The voice</strong>Friendly, fashionable. Friendliest of the serifs — too pretty for the brief. Included as the reference baseline so the others can be judged against it.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SUMMARY
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel" style="border-bottom: none;">
+    <div class="panel__head">
+        <span class="panel__id">Summary</span>
+        <span class="panel__name">My take, ranked</span>
+    </div>
+    <div class="specimen">
+        <div class="spec-take" style="border-left: 1px solid var(--cyan); padding-left: 24px; max-width: 70ch; font-size: 16px; line-height: 1.7;">
+            <strong style="font-size: 12px; color: var(--cyan); margin-bottom: 12px;">FOR KIN, IN ORDER OF FIT</strong>
+            <p style="margin-bottom: 16px;"><strong style="display:inline; color:#fff; margin:0;">1. Panel A — Plus Jakarta only.</strong> If we trust the brand, this is the most modern, most sport-native, lowest risk. The 200-weight "is" inside an 800-weight line gives all the contrast we need. No second family to maintain.</p>
+            <p style="margin-bottom: 16px;"><strong style="display:inline; color:#fff; margin:0;">2. Panel D — Roboto Slab.</strong> If we want a second face, this is the sportiest. Reads as signage, jersey numbers, broadcast graphics. The cultural side gets carried by Plus Jakarta in the body.</p>
+            <p style="margin-bottom: 16px;"><strong style="display:inline; color:#fff; margin:0;">3. Panel E — Petrona.</strong> Chunky transitional with shoulders. Less common than the rest, gives genuine character without prettiness. Worth a real look.</p>
+            <p style="margin-bottom: 16px;"><strong style="display:inline; color:#fff; margin:0;">4. Panel F — Roboto Serif.</strong> The safe pick. Quietly elegant. Risk of generic.</p>
+            <p style="margin-bottom: 0;"><strong style="display:inline; color:#fff; margin:0;">Reject:</strong> Newsreader and Fraunces — both too pretty for the brief, as you flagged.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
