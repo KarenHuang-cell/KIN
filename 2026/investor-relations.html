@@ -200,46 +200,7 @@
 
         /* SGX list now uses the .feed component (Tier 0 system, defined in styles.css). */
 
-        /* Prospectus PDFs — borders only BETWEEN rows */
-        .ir-prospectus__item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 28px 0;
-            text-decoration: none;
-            color: inherit;
-            transition: padding-left 0.25s ease;
-        }
-        .ir-prospectus__item:hover { padding-left: 8px; opacity: 1; }
-
-        .ir-prospectus__icon {
-            width: 24px;
-            height: auto;
-            flex-shrink: 0;
-            opacity: 0.55;
-            margin-top: 2px;
-        }
-
-        .ir-prospectus__text {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .ir-prospectus__date {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--v3-text-dim);
-        }
-
-        .ir-prospectus__title {
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 1.45;
-            color: var(--v3-navy);
-        }
+        /* Prospectus list now uses .feed with .feed__item--icon (Tier 0 system, see styles.css). */
 
 
         /* CTA is the .cta-light component (Tier 0 system) — see styles.css. */
@@ -464,27 +425,27 @@
     <div class="ir-below__col reveal" id="prospectus" aria-labelledby="prospectus-heading">
         <h2 class="ir-below__heading" id="prospectus-heading">Prospectus</h2>
 
-        <a href="assets/pdfs/Final_Offer_Document.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
-            <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
-            <span class="ir-prospectus__text">
-                <span class="ir-prospectus__date">14 April 2026 · PDF</span>
-                <span class="ir-prospectus__title">Final Offer Document</span>
+        <a href="assets/pdfs/Final_Offer_Document.pdf" class="feed__item feed__item--icon" target="_blank" rel="noopener">
+            <img src="assets/images/PDFicon.svg" alt="" class="feed__icon" aria-hidden="true" />
+            <span class="feed__body">
+                <span class="feed__date">14 April 2026 · PDF</span>
+                <span class="feed__name">Final Offer Document</span>
             </span>
         </a>
 
-        <a href="assets/pdfs/Final_Product_Highlights_Sheet.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
-            <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
-            <span class="ir-prospectus__text">
-                <span class="ir-prospectus__date">14 April 2026 · PDF</span>
-                <span class="ir-prospectus__title">Final Product Highlights Sheet</span>
+        <a href="assets/pdfs/Final_Product_Highlights_Sheet.pdf" class="feed__item feed__item--icon" target="_blank" rel="noopener">
+            <img src="assets/images/PDFicon.svg" alt="" class="feed__icon" aria-hidden="true" />
+            <span class="feed__body">
+                <span class="feed__date">14 April 2026 · PDF</span>
+                <span class="feed__name">Final Product Highlights Sheet</span>
             </span>
         </a>
 
-        <a href="assets/pdfs/Kin_Global_Limited-Corporate_Presentation.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
-            <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
-            <span class="ir-prospectus__text">
-                <span class="ir-prospectus__date">14 April 2026 · PDF</span>
-                <span class="ir-prospectus__title">Corporate Presentation</span>
+        <a href="assets/pdfs/Kin_Global_Limited-Corporate_Presentation.pdf" class="feed__item feed__item--icon" target="_blank" rel="noopener">
+            <img src="assets/images/PDFicon.svg" alt="" class="feed__icon" aria-hidden="true" />
+            <span class="feed__body">
+                <span class="feed__date">14 April 2026 · PDF</span>
+                <span class="feed__name">Corporate Presentation</span>
             </span>
         </a>
     </div>

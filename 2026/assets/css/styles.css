@@ -2454,49 +2454,8 @@ body.nav-open { overflow: hidden; }
     .ir-corp-structure__img { padding: 0; }
 }
 
-/* Prospectus list items */
-.ir-prospectus__item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 0 0 40px 0;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s ease;
-}
-
-.ir-prospectus__item:last-child { padding-bottom: 0; }
-.ir-prospectus__item:hover { opacity: 0.7; }
-
-.ir-prospectus__icon {
-    width: 32px;
-    height: auto;
-    flex-shrink: 0;
-    display: block;
-}
-
-.ir-prospectus__text {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.ir-prospectus__date {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--clr-accent);
-}
-
-.ir-prospectus__title {
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 25px;
-    color: var(--clr-navy);
-}
+/* Prospectus list now uses .feed with the .feed__item--icon variant
+   (Tier 0 system, see end of file). */
 
 /* Corporate Structure — full-width feature slot */
 .ir-corp-feature {
@@ -2527,7 +2486,6 @@ body.nav-open { overflow: hidden; }
 
 @media (max-width: 620px) {
     .ir-below__heading { font-size: 24px; line-height: 32px; margin-bottom: 28px; }
-    .ir-prospectus__title { font-size: 16px; line-height: 22px; }
 }
 
 /* ============================================================
@@ -3630,6 +3588,20 @@ body.nav-open { overflow: hidden; }
     margin: 0;
 }
 
+/* Display H1 — sport-agency / editorial register.
+   Used by case studies, about hero, services, portfolio.
+   Inherits color from parent so it works on both dark and light pages.
+   Pair with: <p class="eyebrow"> (sport-agency cyan) on dark pages,
+              <p class="eyebrow eyebrow--inst"> on light editorial pages. */
+.h-display {
+    font-size: clamp(56px, 7vw, 104px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    margin: 0;
+}
+
 /* Institutional eyebrow — muted navy, NOT cyan.
    Cyan is reserved for action (links, buttons) per the register rules.
    Selector .eyebrow.eyebrow--inst (specificity 0,2,0) so it beats
@@ -3690,10 +3662,12 @@ body.nav-open { overflow: hidden; }
 }
 
 
-/* ── Feed — dated-article list (SGX, media coverage, future news) ──
+/* ── Feed — dated-article list (SGX, media coverage, prospectus, future news) ──
    No row borders; whitespace separation. Muted-navy meta date,
-   navy title, inline external-link icon. Cyan reserved for the
-   "more" link (semantic action). */
+   navy title, inline external-link icon. Title goes cyan on hover
+   (cyan = action). The .feed__item--icon variant prepends a
+   generic icon (PDF, audio, video, anything) — the slot is image-
+   agnostic, the markup decides what icon to use. */
 
 .feed {
     display: flex;
@@ -3707,9 +3681,30 @@ body.nav-open { overflow: hidden; }
     padding: 28px 0;
     color: inherit;
     text-decoration: none;
-    transition: padding-left 0.25s ease;
 }
-.feed__item:hover { padding-left: 8px; }
+
+/* Icon variant — flex-row with icon prefix and body column */
+.feed__item--icon {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.feed__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: auto;
+    margin-top: 2px;
+    opacity: 0.55;
+}
+
+.feed__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+}
 
 .feed__date {
     font-size: 11px;
@@ -3721,11 +3716,16 @@ body.nav-open { overflow: hidden; }
 
 .feed__name {
     display: block;        /* not inline-flex — let icon ride with last word */
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     line-height: 1.45;
     color: var(--clr-navy);
+    transition: color 0.25s ease;
 }
+
+.feed__item:hover .feed__name { color: var(--clr-accent); }
+.feed__item:hover .feed__ext  { opacity: 1; }
+.feed__item:hover .feed__icon { opacity: 1; }
 
 .feed__ext {
     display: inline-block;
@@ -3734,7 +3734,10 @@ body.nav-open { overflow: hidden; }
     margin-left: 6px;
     vertical-align: -0.12em;
     opacity: 0.55;
+    transition: opacity 0.25s ease;
 }
+
+.feed__icon { transition: opacity 0.25s ease; }
 
 .feed__more {
     display: inline-block;
@@ -3750,7 +3753,7 @@ body.nav-open { overflow: hidden; }
 .feed__more:hover { color: var(--clr-navy); }
 
 @media (max-width: 620px) {
-    .feed__name { font-size: 14px; line-height: 1.4; }
-    .feed__ext { display: none; }
+    .feed__name { font-size: 16px; line-height: 1.4; }
+    .feed__ext  { display: none; }
 }
 
