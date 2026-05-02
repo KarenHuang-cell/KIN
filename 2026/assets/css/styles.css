@@ -3579,6 +3579,16 @@ body.nav-open { overflow: hidden; }
 
 /* ── Type primitives ── */
 
+/* H1 type primitives — register × theme matrix.
+   Two registers: .h-inst (page labels) and .h-display (brand statements).
+   Each has a --dark modifier that flips colour only — same scale/weight.
+   Light is default; pages opt into dark via the modifier on the element.
+
+   Decision rule:
+     - Page label ("Investor Relations") → .h-inst
+     - Brand statement ("80+ years in the arena.") → .h-display
+*/
+
 .h-inst {
     font-size: clamp(40px, 5vw, 64px);
     font-weight: 500;
@@ -3588,6 +3598,18 @@ body.nav-open { overflow: hidden; }
     text-wrap: balance;
     margin: 0;
 }
+.h-inst--dark { color: #fff; }
+
+.h-display {
+    font-size: clamp(64px, 8vw, 144px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--clr-navy);
+    text-wrap: balance;
+    margin: 0;
+}
+.h-display--dark { color: #fff; }
 
 /* Display H1 — sport-agency / editorial register.
    Used by case studies, about hero, services, portfolio.
