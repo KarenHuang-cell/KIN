@@ -36,6 +36,7 @@
     --clr-accent:   #00C1E6;                    /* Teal highlight / CTA     */
     --clr-navy:     #031D45;                    /* KIN corporate navy       */
     --clr-bg-light: #ECECE8;                    /* Light page background    */
+    --clr-ink:      #3a3a3a;                    /* Body text on light bg    */
     --clr-ink-dim:  #6e6e6e;                    /* Muted text on light bg   */
 
     /* --- Typography --- */
@@ -3755,5 +3756,140 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 620px) {
     .feed__name { font-size: 16px; line-height: 1.4; }
     .feed__ext  { display: none; }
+}
+
+
+/* ── Profile — leadership / team bio row ──
+   Used by management-team and corporate-information.
+   Photo column + text column with name, role-eyebrow, body.
+   Optional ::after on .profile__photo-wrap shows tenure marker
+   via data-since="Since 2023" (e.g. board director appointment year). */
+
+.profile {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 64px;
+    padding: 80px 0;
+    align-items: start;
+}
+
+.profile + .profile {
+    border-top: 1px solid rgba(3,29,69,0.14);
+}
+
+.profile__photo-wrap {
+    position: relative;
+}
+
+.profile__photo-wrap[data-since]::after {
+    content: attr(data-since);
+    display: block;
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(3,29,69,0.5);
+}
+
+.profile__photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.6);
+}
+
+.profile__bio {
+    display: flex;
+    flex-direction: column;
+    max-width: 64ch;
+}
+
+.profile__name {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--clr-navy);
+    margin: 0 0 8px;
+}
+
+.profile__role {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-ink-dim);
+    margin: 0 0 40px;
+}
+
+.profile__body p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--clr-ink);
+    margin-bottom: 18px;
+}
+
+/* Final paragraph reads as a quiet citation block (qualifications, education) */
+.profile__body p:last-child {
+    margin-top: 28px;
+    margin-bottom: 0;
+    padding-top: 28px;
+    border-top: 1px solid rgba(3,29,69,0.14);
+    font-size: 14px;
+    color: var(--clr-ink-dim);
+}
+
+/* Mobile bio toggle — hidden by default, shown ≤620px to truncate to first paragraph */
+.profile__toggle { display: none; }
+
+@media (max-width: 1024px) {
+    .profile {
+        grid-template-columns: 220px 1fr;
+        gap: 56px;
+    }
+}
+
+@media (max-width: 640px) {
+    .profile {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 56px 0;
+    }
+    .profile__photo {
+        max-width: 200px;
+        aspect-ratio: 3 / 4;
+    }
+    .profile__photo-wrap[data-since]::after { margin-top: 12px; }
+    .profile__role { margin-bottom: 28px; }
+
+    /* Truncate to first paragraph; toggle reveals the rest */
+    .profile__body p:not(:first-child) { display: none; }
+    .profile__bio.is-open .profile__body p { display: block; }
+
+    .profile__toggle {
+        order: 1;
+        align-self: flex-start;
+        margin-top: 24px;
+        display: inline-block;
+        background: none;
+        border: 0;
+        padding: 0;
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--clr-navy);
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: rgba(3,29,69,0.32);
+        text-underline-offset: 6px;
+        text-decoration-thickness: 1px;
+        transition: text-decoration-color 0.25s ease;
+    }
+    .profile__toggle:hover { text-decoration-color: var(--clr-accent); }
 }
 
