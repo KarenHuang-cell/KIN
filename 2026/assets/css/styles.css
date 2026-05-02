@@ -36,6 +36,7 @@
     --clr-accent:   #00C1E6;                    /* Teal highlight / CTA     */
     --clr-navy:     #031D45;                    /* KIN corporate navy       */
     --clr-bg-light: #ECECE8;                    /* Light page background    */
+    --clr-ink-dim:  #6e6e6e;                    /* Muted text on light bg   */
 
     /* --- Typography --- */
     --font:         'Plus Jakarta Sans', sans-serif;
@@ -3720,5 +3721,89 @@ body.nav-open { overflow: hidden; }
     .media-year-group:last-child .media-articles .media-article:last-child {
         border-bottom: none;
     }
+}
+
+
+/* ============================================================
+   TIER 0 — Phase 2 design system (institutional register)
+   ------------------------------------------------------------
+   Added 2026-05-02. Consumed by IR-family light pages
+   (investor-relations, corporate-information, sgx-announcements).
+
+   Pure type utilities + the canonical light CTA component.
+   Pages keep their own layout containers; these only define
+   typography and the shared CTA composition.
+
+   Sport-agency H1 (.h-sport, weight 700–800, scale 80–144px)
+   will land here when the dark pages migrate.
+============================================================ */
+
+/* ── Type primitives ── */
+
+.h-inst {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--clr-navy);
+    text-wrap: balance;
+    margin: 0;
+}
+
+/* Institutional eyebrow — muted navy, NOT cyan.
+   Cyan is reserved for action (links, buttons) per the register rules. */
+.eyebrow--inst {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(3,29,69,0.55);
+    line-height: 1.4;
+    margin: 0 0 28px;
+}
+
+
+/* ── CTA — light-page, single source of truth ── */
+
+.cta-light {
+    background: var(--clr-bg-light);
+    padding: clamp(96px, 12vw, 140px) var(--margin);
+}
+.cta-light__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    border-top: 1px solid rgba(3,29,69,0.22);
+    padding-top: clamp(56px, 7vw, 88px);
+}
+.cta-light__heading {
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--clr-navy);
+    max-width: 24ch;
+    text-wrap: balance;
+    margin: 0 0 56px;
+}
+.cta-light__email {
+    font-size: clamp(20px, 1.6vw, 26px);
+    font-weight: 500;
+    color: var(--clr-navy);
+    text-decoration: underline;
+    text-decoration-color: rgba(3,29,69,0.32);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.25s ease;
+}
+.cta-light__email::after { content: ' →'; }
+.cta-light__email:hover { text-decoration-color: var(--clr-accent); }
+
+.cta-light__hours {
+    display: block;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--clr-ink-dim);
 }
 

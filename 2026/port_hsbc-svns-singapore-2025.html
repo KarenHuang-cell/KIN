@@ -131,43 +131,64 @@
             letter-spacing: -0.04em;
         }
 
-        /* (2) Proof band — film-credits style. No hairlines, no boxes,
-           label-above-value with generous gaps. Editorial register. */
+        /* (2) Proof band — visible hairlines between cells, light type.
+           Grid (not flex) so hairlines render predictably per column. */
         .cs-proof {
-            padding: 56px var(--margin) 64px;
-            border-bottom: 1px solid var(--clr-border);
+            padding: 0 var(--margin);
+            border-bottom: 1px solid rgba(255,255,255,0.22);
         }
         .cs-proof__inner {
             max-width: var(--max-w);
             margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px 72px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
         }
         .cs-proof__cell {
+            padding: 36px 24px 36px 28px;
+            border-left: 1px solid rgba(255,255,255,0.22);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 14px;
+        }
+        .cs-proof__cell:first-child {
+            border-left: 0;
+            padding-left: 0;
+        }
+        .cs-proof__cell:last-child {
+            padding-right: 0;
         }
         .cs-proof__label {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 0.24em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.42);
+            color: rgba(255,255,255,0.78);
         }
         .cs-proof__value {
-            font-size: 16px;
-            font-weight: 400;
+            font-size: 17px;
+            font-weight: 500;
             line-height: 1.4;
-            color: #fff;
+            color: #ffffff;
             font-feature-settings: "tnum" 1;
-            max-width: 24ch;
+        }
+        @media (max-width: 1100px) {
+            .cs-proof__inner { grid-template-columns: repeat(3, 1fr); }
+            .cs-proof__cell:nth-child(4),
+            .cs-proof__cell:nth-child(5) {
+                border-top: 1px solid rgba(255,255,255,0.22);
+            }
+            .cs-proof__cell:nth-child(4) { border-left: 0; padding-left: 0; }
         }
         @media (max-width: 620px) {
-            .cs-proof { padding: 36px var(--margin) 44px; }
-            .cs-proof__inner { gap: 24px 40px; }
-            .cs-proof__value { font-size: 15px; }
+            .cs-proof__inner { grid-template-columns: 1fr 1fr; }
+            .cs-proof__cell {
+                padding: 24px 16px 24px 18px;
+            }
+            .cs-proof__cell:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+            .cs-proof__cell:nth-child(n+3) {
+                border-top: 1px solid rgba(255,255,255,0.22);
+            }
+            .cs-proof__cell:nth-child(5) { grid-column: 1 / -1; }
         }
 
         /* (3) Italic-light em accent within intro headline */
@@ -181,6 +202,91 @@
         .cs-hero__img,
         .cs-gallery__img {
             filter: saturate(0.6);
+        }
+
+        /* (5) Prev/next as image cards (replaces text nav) */
+        .cs-proj-nav.cs-proj-nav--cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 80px;
+            padding-top: 64px;
+            border-top: 1px solid var(--clr-border);
+            align-items: stretch;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card-media {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #1a1a22;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.9s cubic-bezier(.2,.6,.2,1);
+            filter: saturate(0.6);
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card:hover .cs-proj-nav__card-img {
+            transform: scale(1.04);
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.45), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card:hover .cs-proj-nav__card-media::after {
+            opacity: 1;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card-meta {
+            padding: 18px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card-dir {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--clr-accent, #00C1E6);
+            transition: gap 0.25s ease, opacity 0.25s ease;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card:hover .cs-proj-nav__card-dir {
+            opacity: 0.85;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card-name {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+            color: #fff;
+            max-width: 22ch;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card--next {
+            text-align: right;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card--next .cs-proj-nav__card-meta {
+            flex-direction: row-reverse;
+        }
+        .cs-proj-nav--cards .cs-proj-nav__card--next .cs-proj-nav__card-name {
+            margin-left: auto;
+        }
+        @media (max-width: 620px) {
+            .cs-proj-nav.cs-proj-nav--cards {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
         }
     </style>
 </head>
@@ -420,10 +526,28 @@
 
         </div><!-- /cs-body -->
 
-        <!-- Project navigation -->
-        <nav class="cs-proj-nav" aria-label="Project navigation">
-            <a href="port_world-aquatics-championship.html" class="cs-proj-nav__link cs-proj-nav__link--prev">&larr;&nbsp;&nbsp;World Aquatics Championship</a>
-            <a href="port_singapore-tennis-open-2021.html" class="cs-proj-nav__link cs-proj-nav__link--next">Singapore Tennis Open&nbsp;&nbsp;&rarr;</a>
+        <!-- Project navigation — image cards (v3 pattern) -->
+        <nav class="cs-proj-nav cs-proj-nav--cards" aria-label="Project navigation">
+            <a href="port_world-aquatics-championship.html" class="cs-proj-nav__card cs-proj-nav__card--prev">
+                <div class="cs-proj-nav__card-media">
+                    <div class="cs-proj-nav__card-img"
+                         style="background-image: url('assets/images/KIN_WAC2025_Arena_03.webp'); background-position: center 30%;"></div>
+                </div>
+                <div class="cs-proj-nav__card-meta">
+                    <span class="cs-proj-nav__card-dir">&larr;&nbsp;&nbsp;Previous</span>
+                    <span class="cs-proj-nav__card-name">World Aquatics Championship</span>
+                </div>
+            </a>
+            <a href="port_singapore-tennis-open-2021.html" class="cs-proj-nav__card cs-proj-nav__card--next">
+                <div class="cs-proj-nav__card-media">
+                    <div class="cs-proj-nav__card-img"
+                         style="background-image: url('assets/images/ATP250_2021_05.webp');"></div>
+                </div>
+                <div class="cs-proj-nav__card-meta">
+                    <span class="cs-proj-nav__card-dir">Next&nbsp;&nbsp;&rarr;</span>
+                    <span class="cs-proj-nav__card-name">Singapore Tennis Open</span>
+                </div>
+            </a>
         </nav>
 
     </div><!-- /cs-content__inner -->
