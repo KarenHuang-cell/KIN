@@ -20,7 +20,6 @@
                 z-index: 1;
                 height: 100vh;
             }
-            .cs-proof,
             .cs-intro,
             .cs-stats,
             .cs-gallery,
@@ -31,20 +30,11 @@
                 z-index: 10;
                 background: var(--clr-bg);
             }
+            /* Hero→intro gradient disabled — proof band now serves
+               as the visual transition, so the 460px black overlay
+               above .cs-intro was darkening the proof band text. */
             .cs-intro::before {
-                content: '';
-                position: absolute;
-                bottom: 100%;
-                left: 0;
-                right: 0;
-                height: 460px;
-                background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(13,13,13,0.45) 50%, transparent 100%);
-                pointer-events: none;
-                opacity: 0;
-                transition: opacity 0.4s ease;
-            }
-            .cs-intro.gradient-active::before {
-                opacity: 1;
+                display: none;
             }
         }
 
@@ -55,18 +45,68 @@
            Unchanged: hero h1, stat numerals (sport-agency register)
         ───────────────────────────────────────────────────────── */
 
-        /* Body narrative — readability fix */
+        /* Body narrative — readability fix.
+           Line-height pulled back from 1.75 to 1.55 (was too airy). */
         .cs-body p {
             font-weight: 400;
-            line-height: 1.75;
+            line-height: 1.55;
             font-size: 17px;
             color: rgba(255,255,255,0.78);
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
         .cs-body h3 {
-            line-height: 1.4;
-            margin-top: 44px;
-            letter-spacing: -0.005em;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.14);
+            letter-spacing: -0.018em;
+        }
+        /* First H3 in body — no top hairline (it would orphan above content) */
+        .cs-body > h3:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: 0;
+        }
+        /* The h3 immediately after the lede paragraph — needs its hairline */
+        .cs-body > p:first-child + h3 {
+            margin-top: 40px;
+        }
+
+        /* Intro lede — larger, lighter, more editorial breathing room
+           (v3 about__lede register, scoped to case-study intro) */
+        .cs-intro__body p {
+            font-size: clamp(18px, 1.6vw, 22px);
+            font-weight: 400;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+            max-width: 56ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Inline section heads (Services Provided / KIN Targets) — match h3 register */
+        .cs-services__heading,
+        .cs-targets__heading {
+            font-weight: 500;
+            letter-spacing: -0.018em;
+        }
+        /* Stat numerals — pull back from 600 to 500, less broadcast-loud */
+        .cs-stat__num {
+            font-weight: 500;
+        }
+        /* Stat labels — quieter, matching v3 eyebrow register */
+        .cs-stat__label {
+            color: rgba(255,255,255,0.55);
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.22em;
+        }
+
+        /* Quiet eyebrows — reserve cyan for action only (v3 rule).
+           Intro section eyebrow + sidebar dt labels go white-50%. */
+        .cs-intro .eyebrow,
+        .cs-meta dt.eyebrow {
+            color: rgba(255,255,255,0.55);
         }
         .cs-targets__list li {
             font-weight: 400;
@@ -84,12 +124,6 @@
             font-weight: 500;
             letter-spacing: -0.018em;
             line-height: 1.1;
-        }
-
-        /* Hero sub — slightly lighter, less corporate */
-        .cs-hero__sub {
-            font-weight: 500;
-            letter-spacing: 0.22em;
         }
 
         /* Stat numerals — condensed sans for data display only.
@@ -133,70 +167,32 @@
 
         /* (2) Proof band — visible hairlines between cells, light type.
            Grid (not flex) so hairlines render predictably per column. */
-        .cs-proof {
-            padding: 0 var(--margin);
-            border-bottom: 1px solid rgba(255,255,255,0.22);
+        /* Hero sub — tagline + editorial context, inline.
+           Lead = caps tracked weight 600. Body = light weight 300. */
+        .cs-hero__sub {
+            margin-top: 20px;
+            font-size: clamp(17px, 1.6vw, 21px);
+            font-weight: 300;
+            letter-spacing: -0.005em;
+            line-height: 1.45;
+            text-transform: none;
+            color: rgba(255,255,255,0.88);
+            max-width: 60ch;
         }
-        .cs-proof__inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-        }
-        .cs-proof__cell {
-            padding: 36px 24px 36px 28px;
-            border-left: 1px solid rgba(255,255,255,0.22);
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .cs-proof__cell:first-child {
-            border-left: 0;
-            padding-left: 0;
-        }
-        .cs-proof__cell:last-child {
-            padding-right: 0;
-        }
-        .cs-proof__label {
-            font-size: 11px;
+        .cs-hero__sub-lead {
             font-weight: 600;
-            letter-spacing: 0.22em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.78);
-        }
-        .cs-proof__value {
-            font-size: 17px;
-            font-weight: 500;
-            line-height: 1.4;
             color: #ffffff;
-            font-feature-settings: "tnum" 1;
-        }
-        @media (max-width: 1100px) {
-            .cs-proof__inner { grid-template-columns: repeat(3, 1fr); }
-            .cs-proof__cell:nth-child(4),
-            .cs-proof__cell:nth-child(5) {
-                border-top: 1px solid rgba(255,255,255,0.22);
-            }
-            .cs-proof__cell:nth-child(4) { border-left: 0; padding-left: 0; }
-        }
-        @media (max-width: 620px) {
-            .cs-proof__inner { grid-template-columns: 1fr 1fr; }
-            .cs-proof__cell {
-                padding: 24px 16px 24px 18px;
-            }
-            .cs-proof__cell:nth-child(2n+1) { border-left: 0; padding-left: 0; }
-            .cs-proof__cell:nth-child(n+3) {
-                border-top: 1px solid rgba(255,255,255,0.22);
-            }
-            .cs-proof__cell:nth-child(5) { grid-column: 1 / -1; }
         }
 
-        /* (3) Italic-light em accent within intro headline */
+        /* (3) Em accent within intro headline — weight contrast only, no italic */
         .cs-intro__headline em {
-            font-style: italic;
+            font-style: normal;
             font-weight: 300;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.78);
         }
+
 
         /* (4) Photos — saturate(0.6) calibration (matches v3 home) */
         .cs-hero__img,
@@ -309,36 +305,9 @@
     <div class="cs-hero__gradient" aria-hidden="true"></div>
     <div class="cs-hero__text">
         <h1 class="cs-hero__title">HSBC SVNS Singapore</h1>
-        <p class="cs-hero__sub">Rugby Meets Festival Culture</p>
-    </div>
-</section>
-
-
-<!-- ================================================================
-     PROOF BAND — institutional metadata strip under hero (v3 pattern)
-================================================================ -->
-<section class="cs-proof" aria-label="Project snapshot">
-    <div class="cs-proof__inner">
-        <div class="cs-proof__cell">
-            <span class="cs-proof__label">Client</span>
-            <span class="cs-proof__value">World Rugby</span>
-        </div>
-        <div class="cs-proof__cell">
-            <span class="cs-proof__label">Date</span>
-            <span class="cs-proof__value">5&ndash;6 April 2025</span>
-        </div>
-        <div class="cs-proof__cell">
-            <span class="cs-proof__label">Venue</span>
-            <span class="cs-proof__value">Singapore National Stadium</span>
-        </div>
-        <div class="cs-proof__cell">
-            <span class="cs-proof__label">KIN&rsquo;s Role</span>
-            <span class="cs-proof__value">Event Delivery Partner</span>
-        </div>
-        <div class="cs-proof__cell">
-            <span class="cs-proof__label">Reach</span>
-            <span class="cs-proof__value">42,000+ fans</span>
-        </div>
+        <p class="cs-hero__sub">
+            <span class="cs-hero__sub-lead">World Rugby&rsquo;s SVNS Series</span>: Rugby meets festival culture
+        </p>
     </div>
 </section>
 
@@ -355,7 +324,6 @@
         </h2>
         <div class="cs-intro__body reveal reveal-delay-2">
             <p>In April 2025, the National Stadium at Singapore Sports Hub once again played host to one of the most anticipated events in sports: HSBC SVNS Singapore 2025. The stadium was transformed into a vibrant playground for rugby enthusiasts and culture aficionados alike, redefining sports entertainment with over 42,000 attendees expected.</p>
-            <p>More than a tournament, it was a global festival blending rugby&rsquo;s fast-paced action with immersive entertainment, sustainable practices, and next-level fan engagement. World Rugby envisioned the Singapore edition to expand rugby&rsquo;s reach beyond the pitch and appeal to broader audiences through sport, food, music, and interactive experiences.</p>
         </div>
     </div>
 </section>
@@ -460,6 +428,8 @@
 
         <!-- Right narrative -->
         <div class="cs-body reveal reveal-delay-1">
+
+            <p>More than a tournament, it was a global festival blending rugby&rsquo;s fast-paced action with immersive entertainment, sustainable practices, and next-level fan engagement. World Rugby envisioned the Singapore edition to expand rugby&rsquo;s reach beyond the pitch and appeal to broader audiences through sport, food, music, and interactive experiences.</p>
 
             <h3>The Vision</h3>
             <p>World Rugby designed the Singapore edition with three key objectives: promote the global growth of rugby by creating a shared cultural experience that resonated across borders; attract a diverse audience by integrating sports with entertaining fan zones, live performances, and interactive activities; and craft a unique festival atmosphere with innovations like Beach Clubs and Gourmet Food Markets.</p>

@@ -21,16 +21,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
-    <style>
-        .about-page { background: #000; }
 
-        /* ── HERO — sticky behind everything ── */
+    <!-- ==========================================================
+         ABOUT_V3 (light) — applies the v3 visual system on the
+         light/institutional surface. Cream + navy palette, editorial
+         typography matching the IR_v3 patterns. No copy is changed.
+    ============================================================ -->
+    <style>
+        /* ─── Tokens (v3 light) ────────────────────────────────── */
+        :root {
+            --v3-cream:      #ECECE8;            /* primary bg */
+            --v3-cream-deep: #E3E2DE;            /* recessed (unused for now) */
+            --v3-navy:       #031D45;            /* brand navy — headings, type colour */
+            --v3-text:       #3a3a3a;            /* body text */
+            --v3-text-dim:   #6e6e6e;            /* muted/secondary */
+            --v3-rule:       rgba(3,29,69,0.14); /* divider lines */
+            --v3-signal:     #00C1E6;            /* cyan — action only */
+        }
+
+        body.about-page { background: var(--v3-cream); color: var(--v3-text); }
+
+
+        /* ─── Quiet eyebrows (light variant — navy at 50%) ──── */
+        body.about-page .eyebrow {
+            color: rgba(3,29,69,0.55);
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            font-size: 12px;
+            margin-bottom: 28px;
+        }
+
+
+        /* ─── HERO — kept as a dark photo moment then transitions to cream below ─ */
         .about-hero-img {
-            position: sticky;
-            top: 0;
+            position: relative;
             height: 100vh;
             width: 100%;
-            z-index: 0;
             overflow: hidden;
         }
 
@@ -44,12 +70,13 @@
             animation: hero-zoom 8s cubic-bezier(.25,.46,.45,.94) forwards;
         }
 
+        /* Dark overlay so the white title is readable on the photo */
         .about-hero-img__overlay {
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(110deg, rgba(8,8,15,0.78) 0%, rgba(8,8,15,0.22) 55%, rgba(8,8,15,0.04) 100%),
-                linear-gradient(to top, rgba(8,8,15,0.92) 0%, rgba(8,8,15,0.18) 40%, transparent 65%);
+                linear-gradient(110deg, rgba(11,11,15,0.72) 0%, rgba(11,11,15,0.18) 55%, rgba(11,11,15,0.04) 100%),
+                linear-gradient(to top, rgba(11,11,15,0.88) 0%, rgba(11,11,15,0.15) 40%, transparent 65%);
             z-index: 1;
         }
 
@@ -59,58 +86,35 @@
             height: 100%;
             display: flex;
             align-items: flex-end;
-            padding: 0 var(--margin) 80px;
+            padding: 0 var(--margin) 96px;
             max-width: var(--max-w);
             margin: 0 auto;
         }
 
         .about-hero-img__title {
-            font-weight: 800;
+            font-weight: 600;
             color: #fff;
-            max-width: 900px;
+            max-width: 18ch;
+            font-size: clamp(40px, 5.4vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -0.025em;
         }
 
-        @media (min-width: 1101px) {
-            .about-hero-img__title {
-                font-size: clamp(48px, 6vw, 80px);
-                line-height: 1.0;
-                letter-spacing: -2.5px;
-            }
-        }
+        .about-hero-img__title .br-desktop { display: none; }
 
-        /* ── STICKY PANELS — recede as the next one scrolls up ── */
+
+        /* ─── SECTIONS — linear flow on cream ──────────────── */
         .about-panel {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            will-change: transform, opacity;
-        }
-
-        .about-panel--dark {
-            background: #000;
-            z-index: 1;
-            text-align: center;
+            display: block;
+            padding: 140px 0;
+            background: var(--v3-cream);
         }
 
         .about-panel--dark .about-panel__content {
-            max-width: 720px;
+            max-width: 980px;
+            margin: 0;
             padding: 0 var(--margin);
-        }
-
-        .about-panel--mission {
-            background: var(--clr-bg-light);
-            z-index: 2;
-            box-shadow: 0 -20px 60px rgba(0,0,0,0.1);
-        }
-
-        .about-panel--timeline {
-            background: #E3E2DE;
-            z-index: 3;
-            box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
+            text-align: left;
         }
 
         .about-panel__content {
@@ -120,68 +124,175 @@
             padding: 0 var(--margin);
         }
 
-        /* Spacer after each sticky panel */
-        .about-panel-spacer {
-            height: 40vh;
-            position: relative;
-        }
 
-        /* Dark panel typography */
+        /* ─── PANEL 1 (Intro) — v3 editorial, navy on cream ──── */
         .about-dark__heading {
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 36px;
-            letter-spacing: -0.6px;
-            color: #fff;
-            margin-bottom: 32px;
+            font-size: clamp(34px, 4.4vw, 56px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--v3-navy);
+            margin-bottom: 36px;
+            max-width: 18ch;
         }
 
         .about-dark__body p {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 22px;
-            color: var(--clr-muted);
-            margin-bottom: 16px;
+            font-size: clamp(17px, 1.4vw, 19px);
+            font-weight: 400;     /* readability over editorial thinness */
+            line-height: 1.65;
+            color: var(--v3-text);
+            margin-bottom: 18px;
+            max-width: 56ch;
         }
 
         .about-dark__body p:last-child { margin-bottom: 0; }
 
-        .about-panel--dark .eyebrow { margin-bottom: 20px; }
 
-        /* Mission overrides */
+        /* ─── PANEL 2 (Mission) — asymmetric grid, navy headings ── */
         .about-panel .about-mission {
             border-top: none;
             padding: 0;
             max-width: none;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
         }
 
-        /* Timeline overrides */
+        .about-panel--mission .about-mission__heading {
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--v3-navy);
+            max-width: 14ch;
+        }
+
+        .about-panel--mission .about-mission__body p {
+            font-size: clamp(16px, 1.3vw, 18px);
+            font-weight: 400;
+            line-height: 1.65;
+            color: var(--v3-text);
+            max-width: 56ch;
+            margin-bottom: 22px;
+        }
+
+
+        /* ─── PANEL 3 (Timeline) — light bg defaults from styles.css apply ── */
         .about-panel .about-timeline {
             padding: 0;
         }
 
-        /* ── FINAL SECTION — normal scroll, not sticky ── */
+        .about-panel--timeline .about-timeline__heading {
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--v3-navy);
+            margin-bottom: 80px;
+            max-width: 18ch;
+        }
+        /* Year labels, dots, track, content all use styles.css light-bg defaults — no override */
+
+
+        /* ─── FINAL SECTION (Leadership) — cream, asymmetric ── */
         .about-final {
-            position: relative;
-            z-index: 4;
-            background: var(--clr-bg-light);
-            box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
+            background: var(--v3-cream);
         }
 
         .about-final .about-leadership {
-            padding-top: 80px;
+            padding: 140px var(--margin) 120px;
+            text-align: left;
+            border-top: 0;
+            max-width: var(--max-w);
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            column-gap: 80px;
+            align-items: start;
         }
 
-        /* ── RESPONSIVE ── */
+        .about-final .about-leadership .eyebrow { margin-bottom: 28px; }
+
+        .about-final .about-leadership__heading {
+            font-size: clamp(32px, 3.6vw, 48px);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: var(--v3-navy);
+            max-width: 18ch;
+            margin: 0 0 48px;
+        }
+
+        /* Photo column — small, anchored to the right */
+        .about-final .about-leadership > a:has(.about-leadership__photo) {
+            grid-column: 2;
+            grid-row: 1 / span 4;
+            align-self: start;
+            max-width: 360px;
+            width: 100%;
+            margin: 0;
+        }
+        .about-final .about-leadership__photo {
+            width: 100%;
+            margin: 0;
+        }
+
+        .about-final .about-leadership > .eyebrow,
+        .about-final .about-leadership__heading,
+        .about-final .about-leadership > .btn--outline {
+            grid-column: 1;
+        }
+
+        /* "Meet The Team" — text-link pattern, matches IR_v3 CTA action */
+        .about-final .btn--outline {
+            all: unset;
+            cursor: pointer;
+            display: inline-block;
+            justify-self: start;
+            font-size: clamp(17px, 1.3vw, 20px);
+            font-weight: 500;
+            color: var(--v3-navy);
+            text-decoration: underline;
+            text-decoration-color: rgba(3,29,69,0.32);
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1px;
+            transition: text-decoration-color 0.25s ease;
+        }
+        .about-final .btn--outline::after { content: ' →'; }
+        .about-final .btn--outline:hover {
+            text-decoration-color: var(--v3-signal);
+        }
+
+
+        /* ─── RESPONSIVE ──────────────────────────────────────── */
         @media (max-width: 1100px) {
-            .about-hero-img__content { padding-bottom: 56px; }
+            .about-hero-img__content { padding-bottom: 64px; }
+            .about-panel .about-mission {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-final .about-leadership {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+            }
+            .about-final .about-leadership > a:has(.about-leadership__photo) {
+                grid-column: 1;
+                grid-row: auto;
+                max-width: 320px;
+                margin: 40px 0 0;
+            }
         }
 
         @media (max-width: 620px) {
-            .about-hero-img__title { font-size: clamp(32px, 14vw, 72px); line-height: 1.05; letter-spacing: -1px; overflow-wrap: break-word; }
-            .about-hero-img__content { padding-bottom: 40px; }
-            .about-panel { min-height: 100vh; height: auto; padding: 80px 0; }
-            .about-panel--dark { padding: 80px 0; }
+            .about-hero-img__title {
+                font-size: clamp(32px, 11vw, 56px);
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+                overflow-wrap: break-word;
+            }
+            .about-hero-img__content { padding-bottom: 48px; }
+            .about-panel { padding: 80px 0; }
+            .about-final .about-leadership { padding: 80px 24px 60px; }
         }
     </style>
 </head>
@@ -199,7 +310,7 @@
 </section>
 
 <!-- ── PANEL 1: DARK ── -->
-<div class="about-panel about-panel--dark" data-panel>
+<div class="about-panel about-panel--dark">
     <div class="about-panel__content">
         <p class="eyebrow reveal">About Us</p>
         <h2 class="about-dark__heading reveal reveal-delay-1">From stadium floors to museum halls</h2>
@@ -208,10 +319,9 @@
         </div>
     </div>
 </div>
-<div class="about-panel-spacer"></div>
 
 <!-- ── PANEL 2: MISSION ── -->
-<div class="about-panel about-panel--mission" data-panel>
+<div class="about-panel about-panel--mission">
     <div class="about-panel__content">
         <section class="about-mission reveal" aria-label="Brand mission">
             <div class="about-mission__left">
@@ -224,10 +334,9 @@
         </section>
     </div>
 </div>
-<div class="about-panel-spacer"></div>
 
 <!-- ── PANEL 3: TIMELINE ── -->
-<div class="about-panel about-panel--timeline" data-panel>
+<div class="about-panel about-panel--timeline">
     <div class="about-panel__content">
         <section class="about-timeline" aria-labelledby="timeline-heading">
             <p class="eyebrow">The Journey</p>
@@ -266,7 +375,6 @@
         </section>
     </div>
 </div>
-<div class="about-panel-spacer"></div>
 
 <!-- ── FINAL SECTION — leadership + CTA + footer, scrolls normally ── -->
 <div class="about-final">
@@ -445,43 +553,7 @@
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
 
-    // ── Receding panel animation ──────────────────────────────
-    (function () {
-        const panels = Array.from(document.querySelectorAll('[data-panel]'));
-        const finalSection = document.querySelector('.about-final');
-        if (!panels.length) return;
-
-        function onScroll() {
-            const vh = window.innerHeight;
-
-            panels.forEach((panel, i) => {
-                const nextEl = panels[i + 1] || finalSection;
-                if (!nextEl) {
-                    panel.style.transform = '';
-                    panel.style.opacity = '';
-                    panel.style.filter = '';
-                    return;
-                }
-
-                const nextRect = nextEl.getBoundingClientRect();
-                const overlap = Math.max(0, vh - nextRect.top);
-                const progress = Math.min(1, overlap / vh);
-
-                if (progress > 0) {
-                    const scale = 1 - (progress * 0.05);
-                    const opacity = 1 - (progress * 0.6);
-                    panel.style.transform = `scale(${scale})`;
-                    panel.style.opacity = opacity;
-                } else {
-                    panel.style.transform = '';
-                    panel.style.opacity = '';
-                }
-            });
-        }
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    })();
+    // Receding-panel animation removed — page uses linear scroll now.
 </script>
 
 </body>

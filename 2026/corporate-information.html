@@ -55,22 +55,7 @@
             display: flex;
             flex-direction: column;
         }
-        .ci-v2__eyebrow {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: rgba(3,29,69,0.55);
-            margin: 0 0 28px;
-        }
-        .ci-v2__hero-title {
-            font-size: clamp(40px, 5vw, 64px);
-            font-weight: 500;
-            line-height: 1.05;
-            letter-spacing: -0.025em;
-            color: var(--v3-navy);
-            margin: 0;
-        }
+        /* Hero eyebrow + H1 use .eyebrow--inst / .h-inst from Tier 0 — see styles.css. */
 
         /* HERO TOC — directory on right side */
         .ci-v2__hero-toc {
@@ -256,47 +241,7 @@
         .ci-v2__toggle { display: none; }
 
 
-        /* ── SHARED LIGHT CTA — mirrored on investor-relations.html ── */
-        .ci-contact {
-            background: var(--v3-cream);
-            padding: clamp(96px, 12vw, 140px) var(--margin);
-        }
-        .ci-contact__inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            border-top: 1px solid rgba(3,29,69,0.22);
-            padding-top: clamp(56px, 7vw, 88px);
-        }
-        .ci-contact__heading {
-            font-size: clamp(28px, 3.2vw, 40px);
-            font-weight: 400;
-            line-height: 1.1;
-            letter-spacing: -0.015em;
-            color: var(--v3-navy);
-            max-width: 24ch;
-            text-wrap: balance;
-            margin: 0 0 56px;
-        }
-        .ci-contact__email {
-            font-size: clamp(20px, 1.6vw, 26px);
-            font-weight: 500;
-            color: var(--v3-navy);
-            text-decoration: underline;
-            text-decoration-color: rgba(3,29,69,0.32);
-            text-underline-offset: 6px;
-            text-decoration-thickness: 1px;
-            transition: text-decoration-color 0.25s ease;
-        }
-        .ci-contact__email::after { content: ' →'; }
-        .ci-contact__email:hover { text-decoration-color: var(--v3-signal); }
-        .ci-contact__hours {
-            display: block;
-            margin-top: 24px;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--v3-text-dim);
-        }
+        /* CTA is the .cta-light component (Tier 0 system) — see styles.css. */
 
 
         /* ── Mobile (≤ 640px) ── */
@@ -360,8 +305,8 @@
     <!-- Hero -->
     <div class="ci-v2__hero reveal">
         <div class="ci-v2__hero-text">
-            <p class="ci-v2__eyebrow">Investor Relations</p>
-            <h1 class="ci-v2__hero-title">Corporate Information</h1>
+            <p class="eyebrow eyebrow--inst">Investor Relations</p>
+            <h1 class="h-inst">Corporate Information</h1>
         </div>
         <aside class="ci-v2__hero-toc" aria-label="In this section">
             <div>
@@ -541,12 +486,12 @@
 
 </div><!-- /site-wrap -->
 
-<!-- Investor enquiries — page-specific CTA, mirrored on investor-relations.html -->
-<section class="ci-contact" aria-label="Investor enquiries">
-    <div class="ci-contact__inner">
-        <h2 class="ci-contact__heading">For investor enquiries, we respond personally.</h2>
-        <a href="mailto:ir@kin.net" class="ci-contact__email">Email ir@kin.net</a>
-        <!-- <p class="ci-contact__hours">Mon&ndash;Fri, 9am&ndash;6pm SGT<br>Response within one business day.</p> -->
+<!-- ── CTA — .cta-light component (Tier 0 system, defined in styles.css) ── -->
+<section class="cta-light" aria-label="Investor enquiries">
+    <div class="cta-light__inner">
+        <h2 class="cta-light__heading">For investor enquiries, we respond personally.</h2>
+        <a href="mailto:ir@kin.net" class="cta-light__email">Email ir@kin.net</a>
+        <!-- <p class="cta-light__hours">Mon&ndash;Fri, 9am&ndash;6pm SGT<br>Response within one business day.</p> -->
         <!-- Hours/response-time line removed: invented by an earlier session,
              not a commitment the client has confirmed. Restore only if confirmed. -->
     </div>

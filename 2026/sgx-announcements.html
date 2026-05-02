@@ -21,61 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
-
-    <style>
-        /* ─── v3 institutional-register tokens for this IR sub-page ─── */
-        :root {
-            --v3-navy:     #031D45;
-            --v3-cream:    #ECECE8;
-            --v3-text-dim: #6e6e6e;
-            --v3-signal:   #00C1E6;
-        }
-
-        /* H1 — institutional register, matches investor-relations.html */
-        .media-hero__title {
-            font-size: clamp(40px, 5vw, 64px);
-            font-weight: 500;
-            line-height: 1.05;
-            letter-spacing: -0.025em;
-            color: var(--v3-navy);
-            text-wrap: balance;
-            max-width: 18ch;
-        }
-
-        /* ─── IR CTA — mirrored from corporate-information.html / investor-relations.html ─── */
-        .ir-cta {
-            background: var(--v3-cream);
-            padding: clamp(96px, 12vw, 140px) var(--margin);
-        }
-        .ir-cta__inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            border-top: 1px solid rgba(3,29,69,0.22);
-            padding-top: clamp(56px, 7vw, 88px);
-        }
-        .ir-cta__heading {
-            font-size: clamp(28px, 3.2vw, 40px);
-            font-weight: 400;
-            line-height: 1.1;
-            letter-spacing: -0.015em;
-            color: var(--v3-navy);
-            max-width: 24ch;
-            text-wrap: balance;
-            margin: 0 0 56px;
-        }
-        .ir-cta__email {
-            font-size: clamp(20px, 1.6vw, 26px);
-            font-weight: 500;
-            color: var(--v3-navy);
-            text-decoration: underline;
-            text-decoration-color: rgba(3,29,69,0.32);
-            text-underline-offset: 6px;
-            text-decoration-thickness: 1px;
-            transition: text-decoration-color 0.25s ease;
-        }
-        .ir-cta__email::after { content: ' →'; }
-        .ir-cta__email:hover { text-decoration-color: var(--v3-signal); }
-    </style>
 </head>
 <body class="corp-page">
 
@@ -85,8 +30,8 @@
 
     <!-- Hero -->
     <div class="media-hero reveal">
-        <p class="eyebrow eyebrow--page">Investor Relations</p>
-        <h1 class="media-hero__title">SGX Announcements</h1>
+        <p class="eyebrow eyebrow--inst">Investor Relations</p>
+        <h1 class="h-inst">SGX Announcements</h1>
     </div>
 
     <!-- Announcement list, year-grouped -->
@@ -97,52 +42,52 @@
             <div class="media-year">2026</div>
             <div class="media-articles">
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Thiam Hoe, Clement<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
+                    <span class="feed__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
+                    <span class="feed__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Thiam Hoe, Clement<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Soo Meng Adrian<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
+                    <span class="feed__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
+                    <span class="feed__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Soo Meng Adrian<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Vincent Chai Cheng Hong<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
+                    <span class="feed__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
+                    <span class="feed__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Vincent Chai Cheng Hong<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Ko Chee Wah<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
+                    <span class="feed__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
+                    <span class="feed__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Ko Chee Wah<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/T79GQJ1S0FVLIWH8/6acd6d8f78bb448234ae8a47b98f2715e9af691e4dd789a5dbf2aee9ca1c1862" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">24 April 2026 // Waiver</span>
-                    <span class="ir-sgx__name">Extension of Time to Hold the First AGM for the Financial Year Ended 31 December 2025<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/T79GQJ1S0FVLIWH8/6acd6d8f78bb448234ae8a47b98f2715e9af691e4dd789a5dbf2aee9ca1c1862" target="_blank" rel="noopener">
+                    <span class="feed__date">24 April 2026 // Waiver</span>
+                    <span class="feed__name">Extension of Time to Hold the First AGM for the Financial Year Ended 31 December 2025<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="assets/pdfs/Kin%20Global%20Limited%20-%20Trading%20Day%20Debut%20Press%20Release.pdf" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">23 April 2026 // Press Release</span>
-                    <span class="ir-sgx__name">Kin Global Closes Trading Debut at S$0.265, 15.2% higher than IPO Issue Price<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="assets/pdfs/Kin%20Global%20Limited%20-%20Trading%20Day%20Debut%20Press%20Release.pdf" target="_blank" rel="noopener">
+                    <span class="feed__date">23 April 2026 // Press Release</span>
+                    <span class="feed__name">Kin Global Closes Trading Debut at S$0.265, 15.2% higher than IPO Issue Price<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DE3OXOCIJDGV7IBL/5e9acb6ead8da825ae2cf20bee3d003af3e6bf62e29af92f16d2389f29424d20" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">23 April 2026 // Equity - Listing Confirmation</span>
-                    <span class="ir-sgx__name">Admission to the Official List of SGX-Catalist<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DE3OXOCIJDGV7IBL/5e9acb6ead8da825ae2cf20bee3d003af3e6bf62e29af92f16d2389f29424d20" target="_blank" rel="noopener">
+                    <span class="feed__date">23 April 2026 // Equity - Listing Confirmation</span>
+                    <span class="feed__name">Admission to the Official List of SGX-Catalist<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/HN3BVA8FTQGOAEF3/83aa1d6a9c8e3b08b3f7999900b03599f73dc4133a85e025be2ac3bab4ee340a" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">22 April 2026 // General</span>
-                    <span class="ir-sgx__name">Balloting Results Announcement<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/HN3BVA8FTQGOAEF3/83aa1d6a9c8e3b08b3f7999900b03599f73dc4133a85e025be2ac3bab4ee340a" target="_blank" rel="noopener">
+                    <span class="feed__date">22 April 2026 // General</span>
+                    <span class="feed__name">Balloting Results Announcement<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/4CVWU9KJMH4TJIAM/9d7f4683c3ab3ab82366c30e2044e393b9463f39d173a1b0d747374582f032d1" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">22 April 2026 // General</span>
-                    <span class="ir-sgx__name">Balloting Results Press Release and Corporate Presentation<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
+                <a class="feed__item" href="https://links.sgx.com/1.0.0/corporate-announcements/4CVWU9KJMH4TJIAM/9d7f4683c3ab3ab82366c30e2044e393b9463f39d173a1b0d747374582f032d1" target="_blank" rel="noopener">
+                    <span class="feed__date">22 April 2026 // General</span>
+                    <span class="feed__name">Balloting Results Press Release and Corporate Presentation<img class="feed__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
                 </a>
 
-                <a href="https://www.sgx.com/securities/company-announcements?value=KIN%20GLOBAL%20LIMITED&type=company" class="ir-sgx__more" target="_blank" rel="noopener">View on SGX&nbsp;&nbsp;&rarr;</a>
+                <a href="https://www.sgx.com/securities/company-announcements?value=KIN%20GLOBAL%20LIMITED&type=company" class="feed__more" target="_blank" rel="noopener">View on SGX&nbsp;&nbsp;&rarr;</a>
 
             </div>
         </div>
@@ -151,12 +96,12 @@
 
 </div><!-- /site-wrap -->
 
-<!-- ── IR CTA — mirrored from corporate-information.html ── -->
-<section class="ir-cta" aria-label="Investor enquiries">
-    <div class="ir-cta__inner">
-        <h2 class="ir-cta__heading">For investor enquiries, we respond personally.</h2>
-        <a href="mailto:ir@kin.net" class="ir-cta__email">Email ir@kin.net</a>
-        <!-- <p class="ir-cta__hours">Mon&ndash;Fri, 9am&ndash;6pm SGT<br>Response within one business day.</p> -->
+<!-- ── CTA — .cta-light component (Tier 0 system, defined in styles.css) ── -->
+<section class="cta-light" aria-label="Investor enquiries">
+    <div class="cta-light__inner">
+        <h2 class="cta-light__heading">For investor enquiries, we respond personally.</h2>
+        <a href="mailto:ir@kin.net" class="cta-light__email">Email ir@kin.net</a>
+        <!-- <p class="cta-light__hours">Mon&ndash;Fri, 9am&ndash;6pm SGT<br>Response within one business day.</p> -->
         <!-- Hours/response-time line removed: invented by an earlier session,
              not a commitment the client has confirmed. Restore only if confirmed. -->
     </div>
