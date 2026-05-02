@@ -9,108 +9,602 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <title>Investor Relations | KIN Global, Singapore (SGX Catalist)</title>
     <meta name="description" content="KIN Global is Singapore's largest sports events management company and curator of global sports events." />
-    <link rel="canonical" href="https://www.kin.net/investor-relations.html" />
-    <meta property="og:title" content="Investor Relations | KIN Global, Singapore (SGX Catalist)" />
-    <meta property="og:description" content="KIN Global is Singapore's largest sports events management company and curator of global sports events." />
-    <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.webp" />
-    <meta property="og:url" content="https://www.kin.net/investor-relations.html" />
-    <meta property="og:type" content="website" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+
+    <!-- ==========================================================
+         IR_V3 — applies the v3 system to the IR page (light variant).
+         Cream + navy palette kept; editorial typography applied.
+         Corporate structure rebuilt as semantic HTML, not an SVG.
+    ============================================================ -->
+    <style>
+        /* ─── Tokens (v3 light variant) ─────────────────────── */
+        :root {
+            --v3-cream:      #ECECE8;
+            --v3-cream-deep: #E3E2DE;
+            --v3-navy:       #031D45;
+            --v3-text:       #3a3a3a;     /* darker = more contrast, matches v1 */
+            --v3-text-dim:   #6e6e6e;     /* slightly lifted muted */
+            --v3-rule:       rgba(3,29,69,0.14);
+            --v3-signal:     #00C1E6;
+        }
+
+        body.corp-page { background: var(--v3-cream); color: var(--v3-text); }
+
+
+        /* ─── Quiet eyebrows (light variant — navy at 50%) ──── */
+        body.corp-page .eyebrow {
+            color: rgba(3,29,69,0.55);
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+
+        /* ─── HERO — editorial: light large title, generous body ── */
+        .ir-hero {
+            padding: calc(var(--nav-h) + 96px) var(--margin) 80px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;       /* body column is wider — dense content gets the room */
+            gap: 96px;
+            align-items: end;                       /* bottom-align: right col body sits to the same baseline as left col intro */
+        }
+
+        .ir-hero__title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: var(--v3-navy);
+            margin: 0 0 24px;
+            max-width: 14ch;
+        }
+
+        .ir-hero__intro {
+            font-size: clamp(18px, 1.4vw, 22px);
+            font-weight: 400;
+            line-height: 1.45;
+            color: var(--v3-navy);
+            max-width: 28ch;
+            margin: 0;
+        }
+
+        .ir-hero__body {
+            max-width: 56ch;
+        }
+
+        .ir-hero__body p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--v3-text);
+            margin-bottom: 16px;
+        }
+        .ir-hero__body p:last-child { margin-bottom: 0; }
+
+
+        /* ─── CORPORATE STRUCTURE — native HTML/CSS tree ──── */
+        .ir-corp {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 80px var(--margin) 80px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            align-items: start;
+            border-top: 1px solid var(--v3-rule);
+        }
+
+        .ir-corp__heading {
+            font-size: clamp(24px, 2.2vw, 32px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--v3-navy);
+            margin: 0;
+            max-width: 12ch;
+        }
+
+        .ir-corp__note {
+            margin-top: 24px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--v3-text-dim);
+            max-width: 32ch;
+        }
+
+        /* The tree — flexible HTML, fully editorial */
+        .corp-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .corp-node {
+            border: 1px solid var(--v3-rule);
+            background: rgba(255,255,255,0.45);
+            padding: 20px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px 16px;
+        }
+
+        .corp-node--root {
+            background: var(--v3-navy);
+            border-color: var(--v3-navy);
+        }
+
+        .corp-node--root .corp-node__name { color: #fff; }
+        .corp-node--root .corp-node__role { color: rgba(255,255,255,0.7); }
+        .corp-node--root .corp-node__pct  { color: rgba(255,255,255,0.85); }
+
+        .corp-node__name {
+            font-size: clamp(17px, 1.4vw, 20px);
+            font-weight: 600;
+            color: var(--v3-navy);
+            letter-spacing: -0.005em;
+            line-height: 1.25;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .corp-node__role {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v3-text-dim);
+            flex-shrink: 0;
+        }
+
+        .corp-node__pct {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--v3-navy);
+            flex-shrink: 0;
+        }
+
+        /* Children sit indented, with a connecting rule */
+        .corp-children {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 0 0 0 32px;
+            padding-left: 28px;
+            border-left: 1px solid var(--v3-rule);
+        }
+
+
+        /* ─── IR-BELOW (SGX + Prospectus) ─────────────────── */
+        .ir-below {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 80px var(--margin) 120px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px 96px;
+            align-items: start;
+            border-top: 1px solid var(--v3-rule);
+        }
+
+        .ir-below__heading {
+            font-size: clamp(24px, 2.2vw, 32px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--v3-navy);
+            margin: 0 0 32px;
+            padding: 0 0 20px;
+            border: 0;
+            border-bottom: 1px solid var(--v3-rule);
+        }
+
+        /* SGX list — borders only BETWEEN rows, no orphan opening/closing */
+        .ir-sgx__item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 28px 0;
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 0.25s ease;
+        }
+        .ir-sgx__item:hover { padding-left: 8px; }
+
+        .ir-sgx__date {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v3-text-dim);
+        }
+
+        .ir-sgx__name {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.45;
+            color: var(--v3-navy);
+            display: block;        /* not inline-flex — let icon ride with last word */
+        }
+
+        .ir-sgx__ext {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            opacity: 0.55;
+            margin-left: 6px;
+            vertical-align: -0.12em;     /* baseline-relative — proper inline-image alignment */
+        }
+
+        .ir-sgx__more {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v3-signal);
+            text-decoration: none;
+            transition: gap 0.25s ease, color 0.25s ease;
+        }
+        .ir-sgx__more:hover { color: var(--v3-navy); }
+
+        /* Prospectus PDFs — borders only BETWEEN rows */
+        .ir-prospectus__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 28px 0;
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 0.25s ease;
+        }
+        .ir-prospectus__item:hover { padding-left: 8px; opacity: 1; }
+
+        .ir-prospectus__icon {
+            width: 24px;
+            height: auto;
+            flex-shrink: 0;
+            opacity: 0.55;
+            margin-top: 2px;
+        }
+
+        .ir-prospectus__text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .ir-prospectus__date {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--v3-text-dim);
+        }
+
+        .ir-prospectus__title {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.45;
+            color: var(--v3-navy);
+        }
+
+
+        /* ─── IR CTA — mirrored from corporate-information.html (.ci-contact) ─── */
+        .ir-cta {
+            background: var(--v3-cream);
+            padding: clamp(96px, 12vw, 140px) var(--margin);
+        }
+        .ir-cta__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            border-top: 1px solid rgba(3,29,69,0.22);
+            padding-top: clamp(56px, 7vw, 88px);
+        }
+        .ir-cta__heading {
+            font-size: clamp(28px, 3.2vw, 40px);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: var(--v3-navy);
+            max-width: 24ch;
+            text-wrap: balance;
+            margin: 0 0 56px;
+        }
+        .ir-cta__email {
+            font-size: clamp(20px, 1.6vw, 26px);
+            font-weight: 500;
+            color: var(--v3-navy);
+            text-decoration: underline;
+            text-decoration-color: rgba(3,29,69,0.32);
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1px;
+            transition: text-decoration-color 0.25s ease;
+        }
+        .ir-cta__email::after { content: ' →'; }
+        .ir-cta__email:hover { text-decoration-color: var(--v3-signal); }
+        .ir-cta__hours {
+            display: block;
+            margin-top: 24px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--v3-text-dim);
+        }
+
+
+        /* ─── COPY TOGGLE (demo control) ─────────────────────── */
+        .copy-toggle {
+            position: fixed;
+            top: 88px;
+            right: 24px;
+            z-index: 90;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px 9px 16px;
+            background: rgba(255,255,255,0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(3,29,69,0.18);
+            border-radius: 999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(3,29,69,0.6);
+            cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .copy-toggle:hover {
+            color: var(--v3-navy);
+            border-color: rgba(3,29,69,0.32);
+        }
+        .copy-toggle__label { color: rgba(3,29,69,0.45); }
+        .copy-toggle__state { color: var(--v3-navy); }
+        .copy-toggle__dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(3,29,69,0.4);
+            transition: background 0.2s ease;
+        }
+        body.is-proposed .copy-toggle__dot { background: var(--v3-signal); }
+
+        body:not(.is-proposed) [data-mode="proposed"] { display: none !important; }
+        body.is-proposed       [data-mode="client"]   { display: none !important; }
+
+
+        /* ─── FOOTER LIGHT — restore contrast (overrides quiet-eyebrow + sleepy greys) ─ */
+        body.corp-page .footer--light .footer__col-label {
+            color: var(--v3-navy);
+            font-weight: 700;
+            opacity: 1;
+        }
+        body.corp-page .footer--light .footer__contact-info,
+        body.corp-page .footer--light .footer__contact-info a {
+            color: #3a3a3a;
+        }
+        body.corp-page .footer--light .footer__contact-info a:hover {
+            color: var(--v3-navy);
+        }
+        body.corp-page .footer--light .footer__join-text {
+            color: #3a3a3a;
+        }
+        body.corp-page .footer--light .footer__legal,
+        body.corp-page .footer--light .footer__legal a {
+            color: #6e6e6e;
+        }
+        body.corp-page .footer--light .footer__legal a:hover {
+            color: var(--v3-navy);
+        }
+        body.corp-page .footer--light .social-icon {
+            border-color: rgba(3,29,69,0.28);
+        }
+        body.corp-page .footer--light .social-icon svg {
+            fill: var(--v3-navy);
+        }
+
+
+        /* ─── Responsive ──────────────────────────────────────── */
+        @media (max-width: 1100px) {
+            .ir-hero,
+            .ir-corp,
+            .ir-below {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .ir-hero__body { justify-self: start; }
+            .corp-children { margin-left: 16px; padding-left: 20px; }
+        }
+
+        @media (max-width: 620px) {
+            .ir-hero { padding: calc(var(--nav-h) + 56px) 24px 56px; }
+            .ir-corp,
+            .ir-below { padding-left: 24px; padding-right: 24px; }
+            .corp-node { padding: 16px 18px; }
+        }
+    </style>
 </head>
 <body class="corp-page">
 
+<!-- Copy toggle (demo control) -->
+<button type="button" class="copy-toggle" id="copyToggle" aria-pressed="false" aria-label="Toggle copy variant">
+    <span class="copy-toggle__dot" aria-hidden="true"></span>
+    <span class="copy-toggle__label">Copy:</span>
+    <span class="copy-toggle__state">Client</span>
+</button>
+
+
 <div id="nav-include"></div>
 
-<div class="site-wrap">
 
-    <!-- Hero -->
-    <div class="ir-hero reveal">
+<!-- ── HERO ── -->
+<section class="ir-hero reveal">
+    <div>
+        <p class="eyebrow" data-mode="proposed">SGX Catalist</p>
         <h1 class="ir-hero__title">Investor Relations</h1>
-        <p class="svc-intro">Kin Global is Singapore's largest sports events management company and curator of global sports events.</p>
-        <div class="ir-hero__body">
+        <p class="ir-hero__intro" data-mode="client">Kin Global is Singapore&rsquo;s largest sports events management company and curator of global sports events.</p>
+        <p class="ir-hero__intro" data-mode="proposed">Singapore&rsquo;s largest sports events company. SGX Catalist-listed since 2026.</p>
+    </div>
+    <div class="ir-hero__body">
+        <!-- CLIENT COPY (verbatim) -->
+        <div data-mode="client">
             <p>Since its inception in 2017, the Group has delivered over 500 successful projects, specialising in delivering the full value chain in sporting experiences and events, providing local expertise and a comprehensive suite of services from conceptualisation, planning, design, coordination, management and execution of major local and international events in Singapore. Kin Global is positioning itself as a key player across the broader events tourism sector, which encompasses MICE, entertainment, sports, lifestyle and experiential, and arts and culture.</p>
         </div>
-    </div>
-
-    <!-- Corporate Structure (full-width slot) -->
-    <div class="ir-corp-feature reveal">
-        <p class="eyebrow eyebrow--navy ir-corp-label">Corporate Structure</p>
-        <div class="ir-corp-figure">
-            <img src="assets/images/CorporateStructure.svg"
-                 alt="KIN corporate structure: Kin Global Limited → Kin Productions Pte Ltd → Kin D+B Pte Ltd (75%) and Kin Middle East W.L.L. (100%)"
-                 class="ir-corp-structure__img" />
+        <!-- PROPOSED COPY (tighter) -->
+        <div data-mode="proposed">
+            <p>Founded 2017. Over 500 projects delivered &mdash; from concept and planning through to delivery of major local and international events.</p>
+            <p>Today the Group operates across the full event tourism sector: MICE, entertainment, sport, lifestyle, and arts and culture.</p>
         </div>
     </div>
+</section>
 
-    <!-- SGX Announcements + Prospectus -->
-    <div class="ir-below">
 
-        <!-- SGX Announcements -->
-        <section class="ir-below__col reveal" id="sgx-announcements" aria-labelledby="sgx-heading">
-            <h2 class="ir-below__heading" id="sgx-heading">SGX Announcements</h2>
-            <div class="ir-sgx__list">
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Thiam Hoe, Clement<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
-                </a>
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Soo Meng Adrian<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
-                </a>
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Vincent Chai Cheng Hong<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
-                </a>
-                <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
-                    <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer</span>
-                    <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Ko Chee Wah<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" width="20" height="20"></span>
-                </a>
- 
+<!-- ── CORPORATE STRUCTURE — native HTML, replaces SVG ── -->
+<section class="ir-corp reveal" aria-labelledby="corp-heading">
+    <div>
+        <p class="eyebrow">Corporate Structure</p>
+        <h2 class="ir-corp__heading" id="corp-heading">The Group, at a glance.</h2>
+        <p class="ir-corp__note">Listed on SGX Catalist as Kin Global Limited. Two operating subsidiaries deliver across Singapore and the Middle East.</p>
+    </div>
+
+    <div class="corp-tree" role="tree" aria-label="KIN corporate structure">
+        <!-- Parent -->
+        <div class="corp-node corp-node--root" role="treeitem" aria-expanded="true">
+            <span class="corp-node__name">Kin Global Limited</span>
+            <span class="corp-node__role">Listed parent · SGX Catalist</span>
+        </div>
+
+        <div class="corp-children" role="group">
+            <!-- Operating subsidiary -->
+            <div class="corp-node" role="treeitem" aria-expanded="true">
+                <span class="corp-node__name">Kin Productions Pte Ltd</span>
+                <span class="corp-node__role">Operating subsidiary</span>
+                <span class="corp-node__pct">100%</span>
             </div>
-            <a href="sgx-announcements.html" class="ir-sgx__more" rel="noopener">View More&nbsp;&nbsp;&rarr;</a>
-        </section>
 
-        <!-- Prospectus -->
-        <section class="ir-below__col reveal" id="prospectus" aria-labelledby="prospectus-heading">
-            <h2 class="ir-below__heading" id="prospectus-heading">Prospectus</h2>
+            <div class="corp-children" role="group">
+                <div class="corp-node" role="treeitem">
+                    <span class="corp-node__name">Kin D+B Pte Ltd</span>
+                    <span class="corp-node__role">Design &amp; Build</span>
+                    <span class="corp-node__pct">75%</span>
+                </div>
+                <div class="corp-node" role="treeitem">
+                    <span class="corp-node__name">Kin Middle East W.L.L.</span>
+                    <span class="corp-node__role">Regional</span>
+                    <span class="corp-node__pct">100%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <a href="assets/pdfs/Final_Offer_Document.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
-                <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
-                <span class="ir-prospectus__text">
-                    <span class="ir-prospectus__date">14th Apr 2026</span>
-                    <span class="ir-prospectus__title">Final Offer Document</span>
-                </span>
+
+<!-- ── SGX Announcements + Prospectus ── -->
+<section class="ir-below">
+
+    <div class="ir-below__col reveal" id="sgx-announcements" aria-labelledby="sgx-heading">
+        <h2 class="ir-below__heading" id="sgx-heading">SGX Announcements</h2>
+        <!-- CLIENT — verbatim original copy -->
+        <div class="ir-sgx__list" data-mode="client">
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest</span>
+                <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Thiam Hoe, Clement<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
             </a>
-
-            <a href="assets/pdfs/Final_Product_Highlights_Sheet.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
-                <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
-                <span class="ir-prospectus__text">
-                    <span class="ir-prospectus__date">14th Apr 2026</span>
-                    <span class="ir-prospectus__title">Final Product Highlights Sheet</span>
-                </span>
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest</span>
+                <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Tan Soo Meng Adrian<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
             </a>
-
-            <a href="assets/pdfs/Kin_Global_Limited-Corporate_Presentation.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
-                <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
-                <span class="ir-prospectus__text">
-                    <span class="ir-prospectus__date">14th Apr 2026</span>
-                    <span class="ir-prospectus__title">Corporate Presentation</span>
-                </span>
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest</span>
+                <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Vincent Chai Cheng Hong<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
             </a>
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure of Interest/ Changes in Interest</span>
+                <span class="ir-sgx__name">Disclosure of Interest of Director and Substantial Shareholder - Mr. Ko Chee Wah<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
+            </a>
+        </div>
 
-        </section>
+        <!-- PROPOSED — shortened, two lines per item -->
+        <div class="ir-sgx__list" data-mode="proposed">
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/TJBDSAAWC0WOMCAL/d7f7737a960462a419e84fc0eb75779f37622ce947a4d5a6480679a4b37cdecf" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure or Change of Interest</span>
+                <span class="ir-sgx__name">Mr. Tan Thiam Hoe, Clement<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
+            </a>
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/CE62M7CXSIXFX5IB/0d5754d20cafe0d5c0095434c437085ca16fe08b871a97fac5496d2bdb7d7a4c" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure or Change of Interest</span>
+                <span class="ir-sgx__name">Mr. Tan Soo Meng Adrian<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
+            </a>
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/DB2J98VI7BD4J0DD/a83bd30a721f2bc09f42265585cd4cc8b96c049f8d122ecd5a57bbdaf093eb01" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure or Change of Interest</span>
+                <span class="ir-sgx__name">Mr. Vincent Chai Cheng Hong<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
+            </a>
+            <a class="ir-sgx__item" href="https://links.sgx.com/1.0.0/corporate-announcements/UWG0ITRRJHJIJPR2/ab0f5fc4300138be380e933e86529887e42580849991e7e6c38ad728993f1715" target="_blank" rel="noopener">
+                <span class="ir-sgx__date">28 April 2026 // Disclosure or Change of Interest</span>
+                <span class="ir-sgx__name">Mr. Ko Chee Wah<img class="ir-sgx__ext" src="assets/icons/newwindow.svg" alt="" aria-hidden="true" /></span>
+            </a>
+        </div>
+        <a href="sgx-announcements.html" class="ir-sgx__more" rel="noopener">View More →</a>
+    </div>
 
-    </div><!-- /ir-below -->
+    <div class="ir-below__col reveal" id="prospectus" aria-labelledby="prospectus-heading">
+        <h2 class="ir-below__heading" id="prospectus-heading">Prospectus</h2>
 
-</div><!-- /site-wrap -->
+        <a href="assets/pdfs/Final_Offer_Document.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+            <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+            <span class="ir-prospectus__text">
+                <span class="ir-prospectus__date">14 April 2026 · PDF</span>
+                <span class="ir-prospectus__title">Final Offer Document</span>
+            </span>
+        </a>
 
-<div id="cta-include"></div>
+        <a href="assets/pdfs/Final_Product_Highlights_Sheet.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+            <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+            <span class="ir-prospectus__text">
+                <span class="ir-prospectus__date">14 April 2026 · PDF</span>
+                <span class="ir-prospectus__title">Final Product Highlights Sheet</span>
+            </span>
+        </a>
+
+        <a href="assets/pdfs/Kin_Global_Limited-Corporate_Presentation.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+            <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+            <span class="ir-prospectus__text">
+                <span class="ir-prospectus__date">14 April 2026 · PDF</span>
+                <span class="ir-prospectus__title">Corporate Presentation</span>
+            </span>
+        </a>
+    </div>
+
+</section>
+
+
+<!-- ── IR CTA — mirrored from corporate-information.html ── -->
+<section class="ir-cta" aria-label="Investor enquiries">
+    <div class="ir-cta__inner">
+        <h2 class="ir-cta__heading">For investor enquiries, we respond personally.</h2>
+        <a href="mailto:ir@kin.net" class="ir-cta__email">Email ir@kin.net</a>
+        <!-- <p class="ir-cta__hours">Mon&ndash;Fri, 9am&ndash;6pm SGT<br>Response within one business day.</p> -->
+        <!-- Hours/response-time line removed: invented by an earlier session,
+             not a commitment the client has confirmed. Restore only if confirmed. -->
+    </div>
+</section>
+
 <div id="footer-include"></div>
+
 
 <script>
     function loadInclude(id, url, callback) {
@@ -138,7 +632,6 @@
         });
     });
 
-    loadInclude('cta-include', 'includes/cta-light.html');
     loadInclude('footer-include', 'includes/footer-light.html');
 
     // Scroll reveal
@@ -159,6 +652,31 @@
     }
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
+
+    // Copy toggle (client / proposed)
+    (function() {
+        const STORE_KEY = 'ir-v3-copy-mode';
+        const toggle = document.getElementById('copyToggle');
+        if (!toggle) return;
+        const stateEl = toggle.querySelector('.copy-toggle__state');
+
+        function apply(mode) {
+            const proposed = mode === 'proposed';
+            document.body.classList.toggle('is-proposed', proposed);
+            stateEl.textContent = proposed ? 'Proposed' : 'Client';
+            toggle.setAttribute('aria-pressed', String(proposed));
+        }
+
+        toggle.addEventListener('click', () => {
+            const next = document.body.classList.contains('is-proposed') ? 'client' : 'proposed';
+            apply(next);
+            try { localStorage.setItem(STORE_KEY, next); } catch(e) {}
+        });
+
+        let saved = 'client';
+        try { saved = localStorage.getItem(STORE_KEY) || 'client'; } catch(e) {}
+        apply(saved);
+    })();
 </script>
 
 </body>

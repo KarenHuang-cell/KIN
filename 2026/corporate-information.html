@@ -10,11 +10,6 @@
     <title>Corporate Information | KIN Global, Singapore</title>
     <meta name="description" content="Meet the Board of Directors and Executive Officers of KIN Experience Management." />
     <link rel="canonical" href="https://www.kin.net/corporate-information.html" />
-    <meta property="og:title" content="Corporate Information | KIN Global, Singapore" />
-    <meta property="og:description" content="Meet the Board of Directors and Executive Officers of KIN Experience Management." />
-    <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.webp" />
-    <meta property="og:url" content="https://www.kin.net/corporate-information.html" />
-    <meta property="og:type" content="website" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,81 +17,176 @@
 
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
 
+    <!-- ==========================================================
+         CORPORATE INFORMATION — compact variant (snapshot)
+         Kept for reference: hero with TOC sidebar (directory of
+         names + roles), chapter-numbered section headings, small
+         tenure markers below each portrait. Compact governance feel.
+    ============================================================ -->
     <style>
-        /* ── Corporate Information V2 — aligned to management-team-redesign-v2 ── */
-
-        .ci-v2 {
-            background: var(--clr-bg-light);
+        /* ── Tokens (v3 light) ── */
+        :root {
+            --v3-cream:    #ECECE8;
+            --v3-navy:     #031D45;
+            --v3-text:     #3a3a3a;
+            --v3-text-dim: #6e6e6e;
+            --v3-rule:     rgba(3,29,69,0.14);
+            --v3-signal:   #00C1E6;
         }
 
-        /* Hero */
+        body.ci-v2 {
+            background: var(--v3-cream);
+            color: var(--v3-text);
+            counter-reset: section;
+        }
+
+
+        /* ── HERO — 2-column grid: title + editorial directory ── */
         .ci-v2__hero {
-            padding: calc(var(--nav-h) + 64px) var(--margin) 56px;
+            padding: calc(var(--nav-h) + 96px) var(--margin) 96px;
             max-width: var(--max-w);
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 96px;
+            align-items: start;
+        }
+        .ci-v2__hero-text {
+            display: flex;
+            flex-direction: column;
         }
         .ci-v2__eyebrow {
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 3.5px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--clr-accent);
-            margin-bottom: 16px;
+            color: rgba(3,29,69,0.55);
+            margin: 0 0 28px;
         }
         .ci-v2__hero-title {
-            font-size: 80px;
-            font-weight: 800;
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 500;
             line-height: 1.05;
-            letter-spacing: -2px;
-            color: var(--clr-navy);
-            margin-bottom: 28px;
+            letter-spacing: -0.025em;
+            color: var(--v3-navy);
+            margin: 0;
         }
 
-        /* Section wrapper */
+        /* HERO TOC — directory on right side */
+        .ci-v2__hero-toc {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+        .ci-v2__toc-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(3,29,69,0.45);
+            margin: 0 0 4px;
+        }
+        .ci-v2__toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ci-v2__toc-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            padding: 10px 0;
+            border-top: 1px solid var(--v3-rule);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .ci-v2__toc-list li:last-child {
+            border-bottom: 1px solid var(--v3-rule);
+        }
+        .ci-v2__toc-list li span:first-child {
+            color: var(--v3-navy);
+            font-weight: 500;
+        }
+        .ci-v2__toc-list li span:last-child {
+            color: var(--v3-text-dim);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+
+        /* ── SECTIONS ── */
         .ci-v2__section {
             max-width: var(--max-w);
             margin: 0 auto;
-            padding: 0 var(--margin) 80px;
+            padding: 0 var(--margin) 140px;
         }
         .ci-v2__section + .ci-v2__section {
-            padding-top: 40px;
+            padding-top: 60px;
+            border-top: 1px solid var(--v3-rule);
         }
-
-        /* Section heading */
         .ci-v2__heading {
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 30px;
-            color: var(--clr-navy);
-            margin-bottom: 8px;
+            font-size: clamp(24px, 2.2vw, 32px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--v3-navy);
+            text-transform: none;
+            margin: 0 0 64px;
+            padding: 0 0 24px;
+            border-bottom: 1px solid var(--v3-rule);
+            counter-increment: section;
         }
-        .ci-v2__rule {
-            display: none;
+        .ci-v2__heading::before {
+            content: counter(section, decimal-leading-zero) '.';
+            display: inline-block;
+            margin-right: 16px;
+            color: rgba(3,29,69,0.4);
+            font-weight: 400;
+            font-size: 0.7em;
+            vertical-align: 0.18em;
+            letter-spacing: 0.04em;
         }
+        .ci-v2__rule { display: none; }
 
-        /* Person row */
+
+        /* ── PERSON ROW ── */
         .ci-v2__person {
             display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 64px;
-            padding: 56px 0;
-            border-top: 1px solid rgba(3,29,69,0.12);
+            grid-template-columns: 220px 1fr;
+            gap: 96px;
+            padding: 80px 0;
             position: relative;
+            align-items: start;
             opacity: 0;
             transform: translateY(24px);
             transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .ci-v2__person + .ci-v2__person {
+            border-top: 1px solid var(--v3-rule);
         }
         .ci-v2__person.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .ci-v2__person:last-child {
-            border-bottom: none;
-        }
 
-        /* Photo */
+
+        /* ── PHOTO COLUMN — portrait with tenure marker below ── */
         .ci-v2__photo-wrap {
             position: relative;
+        }
+        .ci-v2__photo-wrap::after {
+            content: attr(data-since);
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(3,29,69,0.5);
+            margin-top: 16px;
+            line-height: 1;
         }
         .ci-v2__photo {
             width: 100%;
@@ -104,139 +194,159 @@
             object-fit: cover;
             object-position: center top;
             display: block;
-            filter: grayscale(100%) contrast(1.04);
-            transition: filter 0.5s ease;
-        }
-        .ci-v2__person:hover .ci-v2__photo {
-            filter: grayscale(0%) contrast(1);
+            filter: saturate(0.6);
         }
 
-        /* Bio column */
+
+        /* ── BIO ── */
         .ci-v2__bio {
             padding-top: 0;
-            max-width: 680px;
+            max-width: 64ch;
             display: flex;
             flex-direction: column;
         }
         .ci-v2__name {
-            font-size: 30px;
-            font-weight: 800;
-            line-height: 36px;
-            letter-spacing: -0.6px;
-            color: var(--clr-navy);
-            margin-bottom: 10px;
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: var(--v3-navy);
+            margin: 0 0 8px;
         }
         .ci-v2__title {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 20px;
-            color: #555;
-            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v3-text-dim);
+            margin: 0 0 40px;
         }
-        .ci-v2__accent {
-            width: 32px;
-            height: 2px;
-            background: var(--clr-accent);
-            margin-bottom: 20px;
-        }
+        .ci-v2__accent { display: none; }
+
         .ci-v2__body p {
             font-size: 16px;
-            font-weight: 300;
-            line-height: 22px;
-            color: #555;
-            margin-bottom: 12px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--v3-text);
+            margin-bottom: 18px;
         }
         .ci-v2__body p:last-child {
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--v3-rule);
+            font-size: 14px;
+            color: var(--v3-text-dim);
             margin-bottom: 0;
         }
+
 
         /* ── Tablet (≤ 1024px) ── */
         @media (max-width: 1024px) {
             .ci-v2__hero {
-                padding: calc(var(--nav-h) + 48px) 48px 48px;
+                padding: calc(var(--nav-h) + 64px) 48px 56px;
+                grid-template-columns: 1fr;
+                gap: 56px;
+                align-items: start;
             }
-            .ci-v2__section {
-                padding: 0 48px 64px;
-            }
-            .ci-v2__hero-title {
-                font-size: 64px;
-                line-height: 68px;
-                letter-spacing: -2px;
-            }
+            .ci-v2__section { padding: 0 48px 64px; }
         }
 
-        /* Hide toggle by default — shown on mobile via media query below */
-        .ci-v2__toggle {
-            display: none;
+
+        /* Hide toggle by default */
+        .ci-v2__toggle { display: none; }
+
+
+        /* ── SHARED LIGHT CTA — mirrored on investor-relations.html ── */
+        .ci-contact {
+            background: var(--v3-cream);
+            padding: clamp(96px, 12vw, 140px) var(--margin);
         }
+        .ci-contact__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            border-top: 1px solid rgba(3,29,69,0.22);
+            padding-top: clamp(56px, 7vw, 88px);
+        }
+        .ci-contact__heading {
+            font-size: clamp(28px, 3.2vw, 40px);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: var(--v3-navy);
+            max-width: 24ch;
+            text-wrap: balance;
+            margin: 0 0 56px;
+        }
+        .ci-contact__email {
+            font-size: clamp(20px, 1.6vw, 26px);
+            font-weight: 500;
+            color: var(--v3-navy);
+            text-decoration: underline;
+            text-decoration-color: rgba(3,29,69,0.32);
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1px;
+            transition: text-decoration-color 0.25s ease;
+        }
+        .ci-contact__email::after { content: ' →'; }
+        .ci-contact__email:hover { text-decoration-color: var(--v3-signal); }
+        .ci-contact__hours {
+            display: block;
+            margin-top: 24px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--v3-text-dim);
+        }
+
 
         /* ── Mobile (≤ 640px) ── */
         @media (max-width: 640px) {
             .ci-v2__hero {
-                padding: calc(var(--nav-h) + 40px) 24px 40px;
+                padding: calc(var(--nav-h) + 56px) 24px 80px;
             }
-            .ci-v2__section {
-                padding: 0 24px 56px;
-            }
-            .ci-v2__hero-title {
-                font-size: clamp(32px, 14vw, 72px);
-                line-height: 1.05;
-                letter-spacing: -1px;
-                overflow-wrap: break-word;
-            }
-            .ci-v2__heading {
-                font-size: 18px;
-                line-height: 26px;
-            }
+            .ci-v2__section { padding: 0 24px 80px; }
+            .ci-v2__heading { margin-bottom: 56px; }
             .ci-v2__person {
                 grid-template-columns: 1fr;
                 gap: 32px;
-                padding: 48px 0;
+                padding: 56px 0;
             }
-            .ci-v2__section .ci-v2__person:first-of-type {
-                padding-top: 16px;
-            }
+            .ci-v2__section .ci-v2__person:first-of-type { padding-top: 24px; }
             .ci-v2__photo {
-                aspect-ratio: 1 / 1;
+                max-width: 160px;
+                aspect-ratio: 3 / 4;
                 object-position: center top;
-                width: 100%;
             }
-            .ci-v2__name {
-                font-size: 26px;
-                line-height: 32px;
+            .ci-v2__photo-wrap::after {
+                margin-top: 12px;
             }
+            .ci-v2__title { margin-bottom: 28px; }
 
             /* Mobile bio toggle */
-            .ci-v2__body p:not(:first-child) {
-                display: none;
-            }
-            .ci-v2__bio.bio-open .ci-v2__body p {
-                display: block;
-            }
+            .ci-v2__body p:not(:first-child) { display: none; }
+            .ci-v2__bio.bio-open .ci-v2__body p { display: block; }
+
             .ci-v2__toggle {
                 order: 1;
                 align-self: flex-start;
-                margin-top: 28px;
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
+                margin-top: 24px;
+                display: inline-block;
                 background: none;
-                border: 1px solid rgba(3,29,69,0.12);
-                padding: 8px 16px;
+                border: 0;
+                padding: 0;
                 font-family: var(--font);
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                color: var(--clr-navy);
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--v3-navy);
                 cursor: pointer;
-                transition: background 0.2s, color 0.2s;
+                text-decoration: underline;
+                text-decoration-color: rgba(3,29,69,0.32);
+                text-underline-offset: 6px;
+                text-decoration-thickness: 1px;
+                transition: text-decoration-color 0.25s ease;
             }
-            @media (hover: hover) {
-                .ci-v2__toggle:hover {
-                    background: var(--clr-navy);
-                    color: #fff;
-                }
+            .ci-v2__toggle:hover {
+                text-decoration-color: var(--v3-signal);
             }
         }
     </style>
@@ -249,8 +359,30 @@
 
     <!-- Hero -->
     <div class="ci-v2__hero reveal">
-        <p class="ci-v2__eyebrow">Investor Relations</p>
-        <h1 class="ci-v2__hero-title">Corporate Information</h1>
+        <div class="ci-v2__hero-text">
+            <p class="ci-v2__eyebrow">Investor Relations</p>
+            <h1 class="ci-v2__hero-title">Corporate Information</h1>
+        </div>
+        <aside class="ci-v2__hero-toc" aria-label="In this section">
+            <div>
+                <p class="ci-v2__toc-label">Board of Directors</p>
+                <ul class="ci-v2__toc-list">
+                    <li><span>Ko Chee Wah</span><span>Executive Chairman</span></li>
+                    <li><span>Vincent Chai</span><span>Executive Director &amp; CEO</span></li>
+                    <li><span>Leong Yue Kheong</span><span>Lead Independent Director</span></li>
+                    <li><span>Ong Lizhen, Daisy</span><span>Independent Director</span></li>
+                    <li><span>Lim Jun Xiong, Steven</span><span>Independent Director</span></li>
+                </ul>
+            </div>
+            <div>
+                <p class="ci-v2__toc-label">Executive Officers</p>
+                <ul class="ci-v2__toc-list">
+                    <li><span>Adrian Tan</span><span>Chief Commercial Officer</span></li>
+                    <li><span>Clement Tan</span><span>Chief Operating Officer</span></li>
+                    <li><span>Raymond Lee</span><span>Group Financial Controller</span></li>
+                </ul>
+            </div>
+        </aside>
     </div>
 
     <!-- Board of Directors -->
@@ -258,12 +390,9 @@
         <h2 class="ci-v2__heading" id="bod-heading">Board of Directors</h2>
         <hr class="ci-v2__rule" />
 
-        <!-- Ko Chee Wah -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-Ko_Chee_Wah_2026.webp"
-                     alt="Ko Chee Wah"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2023">
+                <img src="assets/images/mgmt-Ko_Chee_Wah_2026.webp" alt="Ko Chee Wah" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Ko Chee Wah</p>
@@ -278,12 +407,9 @@
             </div>
         </div>
 
-        <!-- Vincent Chai -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-Vincent_2026.webp"
-                     alt="Vincent Chai"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2023">
+                <img src="assets/images/mgmt-Vincent_2026.webp" alt="Vincent Chai" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Vincent Chai</p>
@@ -298,12 +424,9 @@
             </div>
         </div>
 
-        <!-- Leong Yue Kheong -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-BOD_Leong.webp"
-                     alt="Leong Yue Kheong"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2026">
+                <img src="assets/images/mgmt-BOD_Leong.webp" alt="Leong Yue Kheong" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Leong Yue Kheong</p>
@@ -315,17 +438,14 @@
                 <p>Mr Leong previously served as Deputy Chief Executive Officer (Development) of Mandai Park Development Pte. Ltd., where he led the planning and execution of key developments within the Mandai wildlife and nature precinct, including Bird Paradise and the Mandai Rainforest Resort.</p>
                 <p>Prior to that, he was Assistant Chief Executive of the Singapore Tourism Board, where he led international and marketing efforts to strengthen Singapore's global tourism positioning. He also served as Project Director for the inaugural Formula One Singapore night race in 2008.</p>
                 <p>Before entering the tourism sector, Mr Leong served in the Singapore Armed Forces for 30 years, attaining the rank of Brigadier-General and receiving multiple Public Administration Medals for his contributions.</p>
-                <p>He holds a Master of Social Science (Counselling) from the University of South Australia and completed the Stanford–National University of Singapore Executive Program. He is also a Fellow of the Australian College of Defence and Strategic Studies.</p>
+                <p>He holds a Master of Social Science (Counselling) from the University of South Australia and completed the Stanford&ndash;National University of Singapore Executive Program. He is also a Fellow of the Australian College of Defence and Strategic Studies.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Ong Lizhen, Daisy -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-BOD_Daisy.webp"
-                     alt="Ong Lizhen, Daisy"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2026">
+                <img src="assets/images/mgmt-BOD_Daisy.webp" alt="Ong Lizhen, Daisy" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Ong Lizhen, Daisy</p>
@@ -340,12 +460,9 @@
             </div>
         </div>
 
-        <!-- Lim Jun Xiong, Steven -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-BOD_Steven.webp"
-                     alt="Lim Jun Xiong, Steven"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2026">
+                <img src="assets/images/mgmt-BOD_Steven.webp" alt="Lim Jun Xiong, Steven" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Lim Jun Xiong, Steven</p>
@@ -353,7 +470,7 @@
                 <div class="ci-v2__accent"></div>
                 <button class="ci-v2__toggle" aria-expanded="false">Read full bio</button>
                 <div class="ci-v2__body">
-                <p>Mr Steven Lim was appointed as Independent Director on 30 March 2026, and brings more than 30 years of experience in the financial, trust, and wealth management industry. Mr Steven Lim has held senior leadership roles across major financial institutions, including serving as Chief Executive Officer of SG Trust (Asia) Ltd, a subsidiary of Société Générale Private Banking, and as Managing Director of Global Wealth Solutions at HSBC Investment Bank Asia Limited.</p>
+                <p>Mr Steven Lim was appointed as Independent Director on 30 March 2026, and brings more than 30 years of experience in the financial, trust, and wealth management industry. Mr Steven Lim has held senior leadership roles across major financial institutions, including serving as Chief Executive Officer of SG Trust (Asia) Ltd, a subsidiary of Soci&eacute;t&eacute; G&eacute;n&eacute;rale Private Banking, and as Managing Director of Global Wealth Solutions at HSBC Investment Bank Asia Limited.</p>
                 <p>He began his career at PricewaterhouseCoopers LLP and has since built extensive expertise in financial services and wealth advisory. Mr Lim currently serves as an independent director for several SGX-listed companies, including HC Surgical Specialists Limited, Baker Technology Limited, and Riverstone Holdings Limited.</p>
                 <p>He holds a Bachelor of Commerce from the University of Newcastle (New South Wales) and is a Fellow of CPA Australia and the Institute of Certified Public Accountants of Singapore, as well as a member of the Society of Trust and Estate Practitioners (Singapore Branch).</p>
                 </div>
@@ -367,12 +484,9 @@
         <h2 class="ci-v2__heading" id="exec-heading">Executive Officers</h2>
         <hr class="ci-v2__rule" />
 
-        <!-- Adrian Tan -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-adrian_2026.webp"
-                     alt="Adrian Tan"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2017">
+                <img src="assets/images/mgmt-adrian_2026.webp" alt="Adrian Tan" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Adrian Tan</p>
@@ -388,12 +502,9 @@
             </div>
         </div>
 
-        <!-- Clement Tan -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-Clement_2026.webp"
-                     alt="Clement Tan"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2017">
+                <img src="assets/images/mgmt-Clement_2026.webp" alt="Clement Tan" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Clement Tan</p>
@@ -409,12 +520,9 @@
             </div>
         </div>
 
-        <!-- Raymond Lee -->
         <div class="ci-v2__person reveal">
-            <div class="ci-v2__photo-wrap">
-                <img src="assets/images/mgmt-Raymond.webp"
-                     alt="Raymond Lee"
-                     class="ci-v2__photo" />
+            <div class="ci-v2__photo-wrap" data-since="Since 2025">
+                <img src="assets/images/mgmt-Raymond.webp" alt="Raymond Lee" class="ci-v2__photo" />
             </div>
             <div class="ci-v2__bio">
                 <p class="ci-v2__name">Raymond Lee</p>
@@ -433,7 +541,17 @@
 
 </div><!-- /site-wrap -->
 
-<div id="cta-include"></div>
+<!-- Investor enquiries — page-specific CTA, mirrored on investor-relations.html -->
+<section class="ci-contact" aria-label="Investor enquiries">
+    <div class="ci-contact__inner">
+        <h2 class="ci-contact__heading">For investor enquiries, we respond personally.</h2>
+        <a href="mailto:ir@kin.net" class="ci-contact__email">Email ir@kin.net</a>
+        <!-- <p class="ci-contact__hours">Mon&ndash;Fri, 9am&ndash;6pm SGT<br>Response within one business day.</p> -->
+        <!-- Hours/response-time line removed: invented by an earlier session,
+             not a commitment the client has confirmed. Restore only if confirmed. -->
+    </div>
+</section>
+
 <div id="footer-include"></div>
 
 <script>
@@ -462,7 +580,6 @@
         });
     });
 
-    loadInclude('cta-include', 'includes/cta-light.html');
     loadInclude('footer-include', 'includes/footer-light.html');
 
     // Scroll reveal

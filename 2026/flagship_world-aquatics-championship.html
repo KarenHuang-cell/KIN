@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>World Aquatics Championships 2025 — KIN</title>
+    <meta name="description" content="How KIN delivered world-class aquatics infrastructure in Singapore for 2,500 elite athletes from nearly 200 countries — in under six months." />
+    <meta name="theme-color" content="#0B0B0F" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+
+    <!-- ==========================================================
+         CASE STUDY V3 OVERRIDES
+         All v3 case-study system layered on top of styles.css.
+         Pattern intended to be lifted into shared CSS once approved.
+    ============================================================ -->
+    <style>
+        /* ─── Tokens (v3) ─────────────────────────────────────── */
+        :root {
+            --v3-ink:        #0B0B0F;
+            --v3-ink-deeper: #050507;
+            --v3-cream:      #F4EFE6;
+            --v3-signal:     #00C1E6;
+            --v3-rule:       rgba(255,255,255,0.12);
+            --v3-rule-soft:  rgba(255,255,255,0.06);
+            --v3-text:       rgba(255,255,255,0.88);
+            --v3-mute:       rgba(255,255,255,0.62);
+            --v3-quiet:      rgba(255,255,255,0.5);
+            --cs-margin:     56px;
+            --cs-max:        1280px;
+        }
+
+        body.cs-v3 { background: var(--v3-ink); color: var(--v3-text); }
+
+        /* Photos: saturate(0.6) — keeps skin tone, drops loud casts */
+        body.cs-v3 .cs-photo,
+        body.cs-v3 .cs-hero-v3__img,
+        body.cs-v3 .cs-chapter__img,
+        body.cs-v3 .cs-next__img {
+            filter: saturate(0.6);
+        }
+
+        /* Quiet eyebrows — reserve cyan for action only */
+        body.cs-v3 .eyebrow,
+        body.cs-v3 .cs-eyebrow {
+            color: var(--v3-quiet);
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        /* ─── HERO ────────────────────────────────────────────── */
+        .cs-hero-v3 {
+            position: relative;
+            height: 100vh;
+            min-height: 640px;
+            overflow: hidden;
+            background: #000;
+        }
+        .cs-hero-v3__img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center 35%;
+            transform: scale(1.02);
+        }
+        .cs-hero-v3__scrim {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, rgba(11,11,15,0.95) 0%, rgba(11,11,15,0.4) 32%, transparent 60%),
+                linear-gradient(to bottom, rgba(11,11,15,0.55) 0%, transparent 30%);
+        }
+
+        .cs-hero-v3__pin {
+            position: absolute;
+            top: 132px;
+            left: var(--cs-margin);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .cs-hero-v3__pin::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--v3-signal);
+        }
+
+        .cs-hero-v3__meta {
+            position: absolute;
+            top: 132px;
+            right: var(--cs-margin);
+            display: grid;
+            grid-template-columns: auto;
+            gap: 18px;
+            text-align: right;
+        }
+        .cs-hero-v3__meta-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .cs-hero-v3__meta-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+        .cs-hero-v3__meta-value {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.92);
+            font-feature-settings: "tnum" 1;
+        }
+
+        .cs-hero-v3__title-block {
+            position: absolute;
+            left: var(--cs-margin);
+            right: var(--cs-margin);
+            bottom: 64px;
+        }
+        .cs-hero-v3__eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.68);
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .cs-hero-v3__eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: rgba(255,255,255,0.6);
+        }
+        .cs-hero-v3__title {
+            font-size: clamp(44px, 6.4vw, 88px);
+            line-height: 0.96;
+            letter-spacing: -0.035em;
+            color: #fff;
+            max-width: 18ch;
+        }
+        .cs-hero-v3__title .ital {
+            display: block;
+            font-weight: 200;
+            font-style: italic;
+            font-size: 0.62em;
+            letter-spacing: 0.005em;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 0.18em;
+        }
+        .cs-hero-v3__title .bold {
+            display: block;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+        .cs-hero-v3__sub {
+            margin-top: 26px;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.78);
+            max-width: 46ch;
+        }
+
+        .cs-hero-v3__cue {
+            position: absolute;
+            right: var(--cs-margin);
+            bottom: 64px;
+            color: rgba(255,255,255,0.7);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .cs-hero-v3__cue::after {
+            content: '';
+            width: 1px;
+            height: 32px;
+            background: rgba(255,255,255,0.55);
+            display: inline-block;
+            animation: cs-cue 2.4s ease-in-out infinite;
+        }
+        @keyframes cs-cue {
+            0%, 100% { transform: scaleY(0.55); transform-origin: top; opacity: 0.5; }
+            50%      { transform: scaleY(1);    opacity: 1; }
+        }
+
+
+        /* ─── SNAPSHOT STRIP ──────────────────────────────────── */
+        .cs-snapshot {
+            background: var(--v3-ink);
+            border-bottom: 1px solid var(--v3-rule);
+            padding: 0 var(--cs-margin);
+        }
+        .cs-snapshot__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .cs-snapshot__cell {
+            padding: 36px 28px 36px 0;
+            border-left: 1px solid var(--v3-rule);
+            padding-left: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cs-snapshot__cell:first-child {
+            border-left: 0;
+            padding-left: 0;
+        }
+        .cs-snapshot__label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--v3-quiet);
+        }
+        .cs-snapshot__value {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: rgba(255,255,255,0.92);
+            font-feature-settings: "tnum" 1;
+        }
+        .cs-snapshot__value strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+
+        /* ─── BRIEF ───────────────────────────────────────────── */
+        .cs-brief {
+            padding: 140px var(--cs-margin) 100px;
+        }
+        .cs-brief__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .cs-brief__col-l { display: flex; flex-direction: column; gap: 24px; }
+        .cs-brief__headline {
+            font-size: clamp(34px, 4.4vw, 56px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.024em;
+            color: #fff;
+            max-width: 14ch;
+        }
+        .cs-brief__headline em {
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+        }
+        .cs-brief__col-r {
+            font-size: clamp(17px, 1.4vw, 19px);
+            font-weight: 400;
+            line-height: 1.65;
+            color: var(--v3-text);
+            max-width: 60ch;
+        }
+        .cs-brief__col-r p + p { margin-top: 22px; }
+
+
+        /* ─── BY THE NUMBERS ──────────────────────────────────── */
+        .cs-numbers {
+            padding: 100px var(--cs-margin);
+            border-top: 1px solid var(--v3-rule);
+        }
+        .cs-numbers__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+        }
+        .cs-numbers__head {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 80px;
+            align-items: end;
+            margin-bottom: 64px;
+        }
+        .cs-numbers__title {
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.022em;
+            color: #fff;
+            margin-top: 14px;
+        }
+        .cs-numbers__caption {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--v3-mute);
+            max-width: 50ch;
+        }
+        .cs-numbers__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+        .cs-num {
+            padding: 36px 28px 32px 0;
+            border-top: 1px solid var(--v3-rule);
+            border-right: 1px solid var(--v3-rule);
+        }
+        .cs-num:nth-child(3n) { border-right: 0; padding-right: 0; }
+        .cs-num:nth-child(n+1) { padding-left: 0; }
+        .cs-num:nth-child(3n+2) { padding-left: 28px; padding-right: 28px; }
+        .cs-num:nth-child(3n) { padding-left: 28px; }
+        .cs-num__figure {
+            font-size: clamp(48px, 5.4vw, 72px);
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #fff;
+            font-feature-settings: "tnum" 1;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+        .cs-num__figure .unit {
+            font-size: 0.32em;
+            font-weight: 400;
+            letter-spacing: 0;
+            color: rgba(255,255,255,0.6);
+            margin-left: 4px;
+            text-transform: uppercase;
+        }
+        .cs-num__label {
+            margin-top: 18px;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.55;
+            color: var(--v3-mute);
+            max-width: 28ch;
+        }
+
+
+        /* ─── CHAPTERS ────────────────────────────────────────── */
+        .cs-chapter {
+            padding: 100px var(--cs-margin) 0;
+            border-top: 1px solid var(--v3-rule);
+        }
+        .cs-chapter__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+        }
+        .cs-chapter__head {
+            display: grid;
+            grid-template-columns: 1fr 5fr 6fr;
+            gap: 32px;
+            align-items: start;
+        }
+        .cs-chapter__num {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--v3-quiet);
+            padding-top: 10px;
+        }
+        .cs-chapter__title {
+            font-size: clamp(28px, 3vw, 42px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.022em;
+            color: #fff;
+            max-width: 14ch;
+        }
+        .cs-chapter__title em {
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255,255,255,0.72);
+        }
+        .cs-chapter__body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.65;
+            color: var(--v3-text);
+            max-width: 56ch;
+        }
+        .cs-chapter__body p + p { margin-top: 16px; }
+        .cs-chapter__media {
+            margin-top: 80px;
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: #1a1a22;
+            overflow: hidden;
+        }
+        .cs-chapter__img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        .cs-chapter__caption {
+            margin-top: 16px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.55;
+            color: var(--v3-quiet);
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+
+        /* ─── PULL-LINE ───────────────────────────────────────── */
+        .cs-pull {
+            padding: 140px var(--cs-margin);
+        }
+        .cs-pull__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 11fr;
+            gap: 32px;
+        }
+        .cs-pull__mark {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--v3-quiet);
+            padding-top: 14px;
+        }
+        .cs-pull__text {
+            font-size: clamp(28px, 3.6vw, 52px);
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: -0.022em;
+            color: #fff;
+            max-width: 22ch;
+        }
+        .cs-pull__text em {
+            font-style: italic;
+            font-weight: 200;
+            color: rgba(255,255,255,0.62);
+        }
+
+
+        /* ─── LOGISTICS / CARE — two-column coda ──────────────── */
+        .cs-coda {
+            padding: 100px var(--cs-margin);
+            border-top: 1px solid var(--v3-rule);
+        }
+        .cs-coda__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .cs-coda__title {
+            font-size: clamp(26px, 2.6vw, 36px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-top: 14px;
+            max-width: 14ch;
+        }
+        .cs-coda__split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .cs-coda__cell {
+            padding: 0 28px 0 0;
+        }
+        .cs-coda__cell + .cs-coda__cell {
+            border-left: 1px solid var(--v3-rule);
+            padding-left: 28px;
+            padding-right: 0;
+        }
+        .cs-coda__cell h4 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .cs-coda__cell p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--v3-text);
+        }
+
+
+        /* ─── OUTCOMES ────────────────────────────────────────── */
+        .cs-outcomes {
+            background: var(--v3-ink-deeper);
+            padding: 120px var(--cs-margin);
+        }
+        .cs-outcomes__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+        }
+        .cs-outcomes__head {
+            margin-bottom: 56px;
+        }
+        .cs-outcomes__title {
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.022em;
+            color: #fff;
+            margin-top: 14px;
+        }
+        .cs-outcomes__list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .cs-outcomes__item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 32px;
+            padding: 28px 0;
+            border-top: 1px solid var(--v3-rule);
+            align-items: baseline;
+        }
+        .cs-outcomes__item:last-child {
+            border-bottom: 1px solid var(--v3-rule);
+        }
+        .cs-outcomes__figure {
+            font-size: clamp(28px, 2.4vw, 32px);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            font-feature-settings: "tnum" 1;
+        }
+        .cs-outcomes__text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--v3-text);
+            max-width: 60ch;
+        }
+
+
+        /* ─── SERVICES STRIP ──────────────────────────────────── */
+        .cs-services-v3 {
+            padding: 100px var(--cs-margin);
+            border-top: 1px solid var(--v3-rule);
+        }
+        .cs-services-v3__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .cs-services-v3__title {
+            font-size: clamp(24px, 2.4vw, 32px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-top: 14px;
+        }
+        .cs-services-v3__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+        .cs-svc {
+            padding: 28px 24px 28px 0;
+            border-top: 1px solid var(--v3-rule);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .cs-svc:nth-child(2n+1) { border-right: 1px solid var(--v3-rule); }
+        .cs-svc:nth-child(2n)   { padding-left: 24px; padding-right: 0; }
+        .cs-svc__icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.85;
+        }
+        .cs-svc__icon img { width: 100%; height: 100%; filter: brightness(0) invert(1); opacity: 0.78; }
+        .cs-svc__label {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.35;
+            color: rgba(255,255,255,0.92);
+        }
+
+
+        /* ─── NEXT PROJECTS ───────────────────────────────────── */
+        .cs-next {
+            padding: 120px var(--cs-margin);
+            border-top: 1px solid var(--v3-rule);
+        }
+        .cs-next__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+        }
+        .cs-next__head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 48px;
+            gap: 32px;
+        }
+        .cs-next__title {
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.022em;
+            color: #fff;
+            margin-top: 14px;
+        }
+        .cs-next__all {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--v3-signal);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: gap 0.25s ease;
+        }
+        .cs-next__all:hover { gap: 16px; }
+        .cs-next__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .cs-next__card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .cs-next__media {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #1a1a22;
+        }
+        .cs-next__img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.9s cubic-bezier(.2,.6,.2,1);
+        }
+        .cs-next__card:hover .cs-next__img { transform: scale(1.04); }
+        .cs-next__media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11,11,15,0.55), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .cs-next__card:hover .cs-next__media::after { opacity: 1; }
+        .cs-next__num {
+            position: absolute;
+            top: 18px;
+            left: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            mix-blend-mode: difference;
+            z-index: 2;
+        }
+        .cs-next__meta {
+            padding: 20px 4px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+        }
+        .cs-next__name {
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            color: #fff;
+            max-width: 30ch;
+        }
+        .cs-next__when {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--v3-quiet);
+            white-space: nowrap;
+            font-feature-settings: "tnum" 1;
+        }
+        .cs-next__cta {
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.25s ease, gap 0.25s ease;
+        }
+        .cs-next__card:hover .cs-next__cta {
+            color: var(--v3-signal);
+            gap: 14px;
+        }
+
+
+        /* ─── CTA BAND ────────────────────────────────────────── */
+        .cs-cta-v3 {
+            padding: 140px var(--cs-margin);
+            border-top: 1px solid var(--v3-rule);
+        }
+        .cs-cta-v3__inner {
+            max-width: var(--cs-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 80px;
+            align-items: end;
+        }
+        .cs-cta-v3__eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--v3-quiet);
+            margin-bottom: 22px;
+            display: block;
+        }
+        .cs-cta-v3__headline {
+            font-size: clamp(32px, 3.8vw, 52px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.022em;
+            color: #fff;
+            max-width: 18ch;
+        }
+        .cs-cta-v3__headline em {
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255,255,255,0.55);
+        }
+        .cs-cta-v3__action {
+            justify-self: end;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 32px 18px 36px;
+            background: var(--v3-signal);
+            color: var(--v3-ink);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: gap 0.3s ease, background 0.3s ease;
+        }
+        .cs-cta-v3__action:hover {
+            background: #fff;
+            gap: 22px;
+        }
+        .cs-cta-v3__action::after { content: '→'; font-size: 16px; letter-spacing: 0; }
+
+
+        /* ─── COPY TOGGLE (design-demo control) ───────────────── */
+        .copy-toggle {
+            position: fixed;
+            top: 88px;
+            right: 24px;
+            z-index: 90;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px 9px 16px;
+            background: rgba(11,11,15,0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        .copy-toggle:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.32);
+            background: rgba(11,11,15,0.92);
+        }
+        .copy-toggle__label { color: rgba(255,255,255,0.45); }
+        .copy-toggle__state { color: #fff; }
+        .copy-toggle__dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            transition: background 0.2s ease;
+        }
+        body.is-proposed .copy-toggle__dot { background: var(--v3-signal); }
+        body:not(.is-proposed) [data-mode="proposed"] { display: none !important; }
+        body.is-proposed       [data-mode="client"]   { display: none !important; }
+
+
+        /* ─── RESPONSIVE ──────────────────────────────────────── */
+        @media (max-width: 1100px) {
+            :root { --cs-margin: 32px; }
+
+            .cs-hero-v3__pin,
+            .cs-hero-v3__meta { top: 110px; }
+
+            .cs-snapshot__inner { grid-template-columns: repeat(3, 1fr); }
+            .cs-snapshot__cell:nth-child(4),
+            .cs-snapshot__cell:nth-child(5) {
+                border-top: 1px solid var(--v3-rule);
+                margin-top: -1px;
+            }
+            .cs-snapshot__cell:nth-child(4) { border-left: 0; padding-left: 0; }
+
+            .cs-brief__inner,
+            .cs-numbers__head,
+            .cs-coda__inner,
+            .cs-services-v3__inner,
+            .cs-cta-v3__inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .cs-numbers__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cs-num:nth-child(2n)   { border-right: 0; padding-right: 0; padding-left: 24px; }
+            .cs-num:nth-child(2n+1) { border-right: 1px solid var(--v3-rule); padding-right: 24px; padding-left: 0; }
+            .cs-num:nth-child(3n)   { padding-left: 0; padding-right: 0; }
+            .cs-chapter__head {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .cs-cta-v3__action { justify-self: start; }
+            .cs-next__grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 620px) {
+            :root { --cs-margin: 24px; }
+
+            .cs-hero-v3 { min-height: 540px; }
+            .cs-hero-v3__pin { top: 88px; left: 24px; }
+            .cs-hero-v3__meta { display: none; }
+            .cs-hero-v3__title-block { bottom: 40px; }
+            .cs-hero-v3__cue { display: none; }
+
+            .cs-snapshot__inner {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cs-snapshot__cell {
+                padding: 24px 16px 24px 0;
+                border-top: 1px solid var(--v3-rule);
+                margin-top: -1px;
+            }
+            .cs-snapshot__cell:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+            .cs-snapshot__cell:nth-child(2n)   { border-left: 1px solid var(--v3-rule); padding-left: 16px; }
+
+            .cs-brief,
+            .cs-numbers,
+            .cs-pull,
+            .cs-coda,
+            .cs-outcomes,
+            .cs-services-v3,
+            .cs-next,
+            .cs-cta-v3 {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+
+            .cs-numbers__grid {
+                grid-template-columns: 1fr;
+            }
+            .cs-num,
+            .cs-num:nth-child(n) {
+                padding: 24px 0;
+                border-right: 0;
+                border-top: 1px solid var(--v3-rule);
+            }
+
+            .cs-coda__split {
+                grid-template-columns: 1fr;
+            }
+            .cs-coda__cell + .cs-coda__cell {
+                border-left: 0;
+                border-top: 1px solid var(--v3-rule);
+                padding-left: 0;
+                padding-top: 24px;
+                margin-top: 24px;
+            }
+
+            .cs-services-v3__grid {
+                grid-template-columns: 1fr;
+            }
+            .cs-svc,
+            .cs-svc:nth-child(n) {
+                padding: 20px 0;
+                border-right: 0;
+            }
+
+            .cs-outcomes__item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body class="cs-v3">
+
+
+<!-- ================================================================
+     COPY TOGGLE — design-demo control. Default: client copy.
+================================================================ -->
+<button type="button" class="copy-toggle" id="copyToggle" aria-pressed="false" aria-label="Toggle copy variant">
+    <span class="copy-toggle__dot" aria-hidden="true"></span>
+    <span class="copy-toggle__label">Copy:</span>
+    <span class="copy-toggle__state">Client</span>
+</button>
+
+
+<!-- ================================================================
+     NAVIGATION (shared include)
+================================================================ -->
+<div id="nav-include"></div>
+
+
+<!-- ================================================================
+     HERO — full viewport, dive-tower pano. Mixed-weight title bottom-left,
+     discipline pin top-left, project metadata top-right.
+================================================================ -->
+<section class="cs-hero-v3" aria-label="World Aquatics Championships 2025 hero">
+    <div class="cs-hero-v3__img"
+         style="background-image: url('assets/images/WCH_DiveTwr_pano.webp');"></div>
+    <div class="cs-hero-v3__scrim" aria-hidden="true"></div>
+
+    <span class="cs-hero-v3__pin">Sports</span>
+
+    <div class="cs-hero-v3__meta" aria-label="Project metadata">
+        <div class="cs-hero-v3__meta-row">
+            <span class="cs-hero-v3__meta-label">Year</span>
+            <span class="cs-hero-v3__meta-value">2025</span>
+        </div>
+        <div class="cs-hero-v3__meta-row">
+            <span class="cs-hero-v3__meta-label">Location</span>
+            <span class="cs-hero-v3__meta-value">Singapore</span>
+        </div>
+        <div class="cs-hero-v3__meta-row">
+            <span class="cs-hero-v3__meta-label">Federation</span>
+            <span class="cs-hero-v3__meta-value">World Aquatics</span>
+        </div>
+    </div>
+
+    <div class="cs-hero-v3__title-block">
+        <p class="cs-hero-v3__eyebrow">Case Study · World Aquatics Championships</p>
+
+        <!-- CLIENT COPY -->
+        <div data-mode="client">
+            <h1 class="cs-hero-v3__title">
+                <span class="ital">World&nbsp;Aquatics</span>
+                <span class="bold">Singapore 2025.</span>
+            </h1>
+            <p class="cs-hero-v3__sub">
+                World-class aquatic infrastructure for 2,500 athletes from nearly
+                200 countries &mdash; engineered in under six months.
+            </p>
+        </div>
+
+        <!-- PROPOSED COPY -->
+        <div data-mode="proposed">
+            <h1 class="cs-hero-v3__title">
+                <span class="ital">Car park to</span>
+                <span class="bold">championship arena.</span>
+            </h1>
+            <p class="cs-hero-v3__sub">
+                Three venues, one Broadcast Centre, six months. The aquatics
+                championships that put Singapore on the global broadcast map.
+            </p>
+        </div>
+    </div>
+
+    <a href="#cs-snapshot" class="cs-hero-v3__cue" aria-label="Scroll to project details">Scroll</a>
+</section>
+
+
+<!-- ================================================================
+     SNAPSHOT — 5-cell hairline-divided metadata strip.
+================================================================ -->
+<section class="cs-snapshot" id="cs-snapshot" aria-label="Project snapshot">
+    <div class="cs-snapshot__inner">
+        <div class="cs-snapshot__cell">
+            <span class="cs-snapshot__label">Client</span>
+            <span class="cs-snapshot__value"><strong>WAC 2025</strong>Organising Committee</span>
+        </div>
+        <div class="cs-snapshot__cell">
+            <span class="cs-snapshot__label">Dates</span>
+            <span class="cs-snapshot__value"><strong>11 Jul &ndash; 22 Aug 2025</strong>Six-week tournament window</span>
+        </div>
+        <div class="cs-snapshot__cell">
+            <span class="cs-snapshot__label">Venues</span>
+            <span class="cs-snapshot__value"><strong>3 venues</strong>Singapore Sports Hub &amp; Sentosa</span>
+        </div>
+        <div class="cs-snapshot__cell">
+            <span class="cs-snapshot__label">KIN&rsquo;s Role</span>
+            <span class="cs-snapshot__value"><strong>Venue Overlay Partner</strong>Main Contractor, D&amp;B</span>
+        </div>
+        <div class="cs-snapshot__cell">
+            <span class="cs-snapshot__label">Reach</span>
+            <span class="cs-snapshot__value"><strong>150 territories</strong>11 broadcast languages</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     BRIEF — 12-col grid: editorial headline + body lede.
+================================================================ -->
+<section class="cs-brief" aria-labelledby="cs-brief-hl">
+    <div class="cs-brief__inner">
+        <div class="cs-brief__col-l">
+            <span class="eyebrow">The brief</span>
+
+            <!-- CLIENT COPY -->
+            <h2 id="cs-brief-hl" class="cs-brief__headline" data-mode="client">
+                Innovation <em>under pressure.</em>
+            </h2>
+            <!-- PROPOSED COPY -->
+            <h2 class="cs-brief__headline" data-mode="proposed">
+                A timeline <em>nobody had attempted.</em>
+            </h2>
+        </div>
+
+        <div class="cs-brief__col-r">
+            <!-- CLIENT COPY -->
+            <div data-mode="client">
+                <p>When Singapore was selected to host the prestigious World Aquatics Championships in 2025, the engineering challenge was unprecedented: transform multiple venues across the island into world-class aquatic facilities capable of hosting 2,500 elite athletes from nearly 200 countries &mdash; all in under six months.</p>
+                <p>KIN was appointed Official Venue Overlay Planning Service Partner and Main Contractor for design &amp; build. From a 250,000&nbsp;sq&nbsp;ft car park converted to championship arena, to Southeast Asia&rsquo;s first 37&#8209;metre high diving tower, to a fully&#8209;operational International Broadcast Centre stood up in 1.5 weeks &mdash; the brief was precision delivery on impossible timelines.</p>
+            </div>
+
+            <!-- PROPOSED COPY -->
+            <div data-mode="proposed">
+                <p>Singapore won the right to host the 2025 World Aquatics Championships with one of the most ambitious overlay programmes ever staged in the region: 2,500 athletes, three venues, a six&#8209;month build window. KIN was appointed Official Venue Overlay Planning Service Partner and Main Contractor for design &amp; build.</p>
+                <p>What we built: a 250,000&nbsp;sq&nbsp;ft car park converted into a competition arena. Southeast Asia&rsquo;s first 37&#8209;metre high diving tower, on a 21&#8209;tonne steel base, on a Sentosa beach. A fully operational International Broadcast Centre, stood up in 1.5 weeks, broadcasting to 150 territories.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     BY THE NUMBERS — six tabular figures, hairlines not boxes.
+================================================================ -->
+<section class="cs-numbers" aria-label="By the numbers">
+    <div class="cs-numbers__inner">
+        <div class="cs-numbers__head">
+            <div>
+                <span class="eyebrow">By the numbers</span>
+                <h2 class="cs-numbers__title">Engineered to scale.</h2>
+            </div>
+            <p class="cs-numbers__caption">
+                Six metrics that frame the build &mdash; from the temporary
+                competition pool that held 3.9 million litres, to a broadcast
+                hub feeding 150 territories worldwide.
+            </p>
+        </div>
+
+        <div class="cs-numbers__grid">
+            <div class="cs-num">
+                <div class="cs-num__figure">2,500<span class="unit">athletes</span></div>
+                <div class="cs-num__label">From nearly 200 countries, across all six aquatic disciplines.</div>
+            </div>
+            <div class="cs-num">
+                <div class="cs-num__figure">6<span class="unit">months</span></div>
+                <div class="cs-num__label">Total build window for arena, dive tower and broadcast hub.</div>
+            </div>
+            <div class="cs-num">
+                <div class="cs-num__figure">37<span class="unit">m</span></div>
+                <div class="cs-num__label">High diving tower &mdash; Southeast Asia&rsquo;s first.</div>
+            </div>
+            <div class="cs-num">
+                <div class="cs-num__figure">125<span class="unit">+ cameras</span></div>
+                <div class="cs-num__label">Across five venues, fed back to a central broadcast hub.</div>
+            </div>
+            <div class="cs-num">
+                <div class="cs-num__figure">280<span class="unit">hrs</span></div>
+                <div class="cs-num__label">Live coverage in 11 languages, 300+ broadcast professionals from 20 countries.</div>
+            </div>
+            <div class="cs-num">
+                <div class="cs-num__figure">150<span class="unit">territories</span></div>
+                <div class="cs-num__label">International reach &mdash; including NBC and CCTV.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CHAPTER 01 — The Arena
+================================================================ -->
+<section class="cs-chapter" aria-labelledby="cs-ch-01">
+    <div class="cs-chapter__inner">
+        <div class="cs-chapter__head">
+            <span class="cs-chapter__num">Chapter 01</span>
+            <h2 id="cs-ch-01" class="cs-chapter__title">
+                Car park <em>to championship arena.</em>
+            </h2>
+            <div class="cs-chapter__body">
+                <p>The centrepiece was a 250,000&nbsp;sq&nbsp;ft car park next to Leisure Park Kallang, converted into the WCH Arena in six months. The competition pool &mdash; 50m long, 26m wide, 3m deep, holding 3.9 million litres &mdash; was engineered to reduce turbulence and optimise conditions for world-record performances.</p>
+                <p>Around 4,800 spectators were accommodated with optimised sightlines and 177 metres of LED screens, including a 29&#8209;metre screen on the south wall.</p>
+            </div>
+        </div>
+        <div class="cs-chapter__media">
+            <div class="cs-chapter__img"
+                 style="background-image: url('assets/images/KIN_WAC2025_Arena_03.webp'); background-position: center 30%;"></div>
+        </div>
+        <div class="cs-chapter__caption">
+            <span>WCH Arena, Singapore Sports Hub.</span>
+            <span>177m of LED · 4,800 seats · 3.9M litres.</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     PULL-LINE — derived from existing facts, no fabrication.
+================================================================ -->
+<section class="cs-pull" aria-hidden="false">
+    <div class="cs-pull__inner">
+        <span class="cs-pull__mark">Build</span>
+        <p class="cs-pull__text">
+            A pool that holds <em>3.9 million litres,</em> engineered to reduce
+            turbulence under the eye of <em>world records.</em>
+        </p>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CHAPTER 02 — The Dive Tower
+================================================================ -->
+<section class="cs-chapter" aria-labelledby="cs-ch-02">
+    <div class="cs-chapter__inner">
+        <div class="cs-chapter__head">
+            <span class="cs-chapter__num">Chapter 02</span>
+            <h2 id="cs-ch-02" class="cs-chapter__title">
+                A <em>37&#8209;metre</em> first for Southeast Asia.
+            </h2>
+            <div class="cs-chapter__body">
+                <p>At Palawan Green, Sentosa, KIN constructed Southeast Asia&rsquo;s first high diving tower &mdash; a 37&#8209;metre temporary structure built on a 21&#8209;tonne steel foundation comprising 108 precision&#8209;manufactured curved panels secured by 6,400 bolts. Panel expansion was monitored to the millimetre as the pool filled.</p>
+                <p>Singapore&rsquo;s tropical climate added pressure: UV&#8209;tinted film, additional cooling, and specialised chemical treatments were deployed to keep the venue competition&#8209;ready. High diving sessions sold out entirely.</p>
+            </div>
+        </div>
+        <div class="cs-chapter__media">
+            <div class="cs-chapter__img"
+                 style="background-image: url('assets/images/wch-30_DiveTwr.webp');"></div>
+        </div>
+        <div class="cs-chapter__caption">
+            <span>High diving tower, Palawan Green, Sentosa.</span>
+            <span>21t steel base · 108 panels · 6,400 bolts.</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     PULL-LINE 2
+================================================================ -->
+<section class="cs-pull" aria-hidden="false">
+    <div class="cs-pull__inner">
+        <span class="cs-pull__mark">Broadcast</span>
+        <p class="cs-pull__text">
+            <em>11 languages.</em> 20 countries.
+            <em>One broadcast hub,</em> stood up in 1.5 weeks.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CHAPTER 03 — The IBC
+================================================================ -->
+<section class="cs-chapter" aria-labelledby="cs-ch-03">
+    <div class="cs-chapter__inner">
+        <div class="cs-chapter__head">
+            <span class="cs-chapter__num">Chapter 03</span>
+            <h2 id="cs-ch-03" class="cs-chapter__title">
+                Broadcasting <em>to 150 territories.</em>
+            </h2>
+            <div class="cs-chapter__body">
+                <p>Perhaps the most complex challenge was building a fully&#8209;functional International Broadcast Centre inside OCBC Arena Hall in just 1.5 weeks &mdash; handling live coverage from all venues and broadcasting to 150 territories worldwide.</p>
+                <p>KIN installed precision air conditioning for sensitive equipment, engineered STC40&#8209;rated soundproof walls, and implemented double&#8209;layer tempered glass panels to maintain visual connectivity without compromising audio quality. Dual synchronised generators ensured zero downtime, while custom cable&#8209;tray systems and high&#8209;speed fibre linked all venues to the central hub.</p>
+            </div>
+        </div>
+        <div class="cs-chapter__media">
+            <div class="cs-chapter__img"
+                 style="background-image: url('assets/images/IBC_03.webp');"></div>
+        </div>
+        <div class="cs-chapter__caption">
+            <span>International Broadcast Centre, OCBC Arena Hall.</span>
+            <span>STC40 walls · dual generators · 1.5 weeks to live.</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     LOGISTICS & CARE — coda.
+================================================================ -->
+<section class="cs-coda" aria-labelledby="cs-coda-hl">
+    <div class="cs-coda__inner">
+        <div>
+            <span class="eyebrow">Logistics &amp; care</span>
+            <h2 id="cs-coda-hl" class="cs-coda__title">Working around what we couldn&rsquo;t move.</h2>
+        </div>
+        <div class="cs-coda__split">
+            <div class="cs-coda__cell">
+                <h4>2 AM gangway operations</h4>
+                <p>Installing gangways for the open&#8209;water swimming venue required a coordinated 2&nbsp;AM operation with police and ranger escorts &mdash; navigating Sentosa&rsquo;s spatial and environmental constraints when the island was at its quietest.</p>
+            </div>
+            <div class="cs-coda__cell">
+                <h4>Designing around resident trees</h4>
+                <p>KIN worked closely with Sentosa Development Corporation to protect resident trees with complex root systems &mdash; designing the venue layout around natural features rather than removing them.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     OUTCOMES — structured list.
+================================================================ -->
+<section class="cs-outcomes" aria-labelledby="cs-outcomes-hl">
+    <div class="cs-outcomes__inner">
+        <div class="cs-outcomes__head">
+            <span class="eyebrow">Outcomes</span>
+            <h2 id="cs-outcomes-hl" class="cs-outcomes__title">What we delivered.</h2>
+        </div>
+        <ul class="cs-outcomes__list">
+            <li class="cs-outcomes__item">
+                <span class="cs-outcomes__figure">2,500</span>
+                <span class="cs-outcomes__text">elite athletes hosted across the six&#8209;week tournament &mdash; from nearly 200 countries, across all six aquatic disciplines.</span>
+            </li>
+            <li class="cs-outcomes__item">
+                <span class="cs-outcomes__figure">280 hrs</span>
+                <span class="cs-outcomes__text">live coverage in 11 languages, delivered by 300+ broadcast professionals from 20 countries &mdash; including NBC and CCTV.</span>
+            </li>
+            <li class="cs-outcomes__item">
+                <span class="cs-outcomes__figure">125+</span>
+                <span class="cs-outcomes__text">cameras across five venues, fed back to a central broadcast hub serving 150 territories worldwide.</span>
+            </li>
+            <li class="cs-outcomes__item">
+                <span class="cs-outcomes__figure">3</span>
+                <span class="cs-outcomes__text">first&#8209;of&#8209;their&#8209;kind builds: WCH Arena (car park to championship venue in six months), Southeast Asia&rsquo;s first 37&#8209;metre high diving tower, and an International Broadcast Centre stood up in 1.5 weeks.</span>
+            </li>
+            <li class="cs-outcomes__item">
+                <span class="cs-outcomes__figure">Sold out</span>
+                <span class="cs-outcomes__text">high diving sessions &mdash; demonstrating commercial pull for an event format new to the region.</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     SERVICES STRIP
+================================================================ -->
+<section class="cs-services-v3" aria-labelledby="cs-svc-hl">
+    <div class="cs-services-v3__inner">
+        <div>
+            <span class="eyebrow">Services delivered</span>
+            <h2 id="cs-svc-hl" class="cs-services-v3__title">From concept to broadcast feed.</h2>
+        </div>
+        <div class="cs-services-v3__grid">
+            <div class="cs-svc">
+                <span class="cs-svc__icon"><img src="assets/icons/venue-overlay.svg" alt="" /></span>
+                <span class="cs-svc__label">Venue Overlay Planning</span>
+            </div>
+            <div class="cs-svc">
+                <span class="cs-svc__icon"><img src="assets/icons/compass.svg" alt="" /></span>
+                <span class="cs-svc__label">Design &amp; Build</span>
+            </div>
+            <div class="cs-svc">
+                <span class="cs-svc__icon"><img src="assets/icons/truck.svg" alt="" /></span>
+                <span class="cs-svc__label">Logistics, Operations &amp; Furnishing</span>
+            </div>
+            <div class="cs-svc">
+                <span class="cs-svc__icon"><img src="assets/icons/speakers.svg" alt="" /></span>
+                <span class="cs-svc__label">Audio&#8209;Visual Systems</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     NEXT PROJECTS — image cards (replaces text prev/next).
+================================================================ -->
+<section class="cs-next" aria-labelledby="cs-next-hl">
+    <div class="cs-next__inner">
+        <div class="cs-next__head">
+            <div>
+                <span class="eyebrow">Continue</span>
+                <h2 id="cs-next-hl" class="cs-next__title">More from the portfolio.</h2>
+            </div>
+            <a href="portfolio.html" class="cs-next__all">View all projects →</a>
+        </div>
+
+        <div class="cs-next__grid">
+            <a href="port_hsbc-svns-singapore-2025.html" class="cs-next__card">
+                <div class="cs-next__media">
+                    <span class="cs-next__num">Sports · 2025</span>
+                    <div class="cs-next__img"
+                         style="background-image: url('assets/images/HSBC SVNS 2025_selected_01.webp');"></div>
+                </div>
+                <div class="cs-next__meta">
+                    <span class="cs-next__name">HSBC SVNS Singapore</span>
+                    <span class="cs-next__when">Singapore</span>
+                </div>
+                <span class="cs-next__cta">Read case study →</span>
+            </a>
+
+            <a href="port_fide-world-championship-2024.html" class="cs-next__card">
+                <div class="cs-next__media">
+                    <span class="cs-next__num">Sports · 2024</span>
+                    <div class="cs-next__img"
+                         style="background-image: url('assets/images/hl-fide.webp');"></div>
+                </div>
+                <div class="cs-next__meta">
+                    <span class="cs-next__name">FIDE World Championship</span>
+                    <span class="cs-next__when">Singapore</span>
+                </div>
+                <span class="cs-next__cta">Read case study →</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CTA BAND
+================================================================ -->
+<section class="cs-cta-v3" aria-label="Call to action">
+    <div class="cs-cta-v3__inner">
+        <div>
+            <span class="cs-cta-v3__eyebrow">Partner with us</span>
+            <h2 class="cs-cta-v3__headline" data-mode="client">
+                Got an event <em>that needs engineering?</em>
+            </h2>
+            <h2 class="cs-cta-v3__headline" data-mode="proposed">
+                Bring us your <em>impossible timeline.</em>
+            </h2>
+        </div>
+        <a href="contact.html" class="cs-cta-v3__action" data-mode="client">Partner with Us</a>
+        <a href="contact.html" class="cs-cta-v3__action" data-mode="proposed">Start a conversation</a>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER (shared include)
+================================================================ -->
+<div id="footer-include"></div>
+
+
+<script>
+    // ── Load includes ─────────────────────────────────────────
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        burger.addEventListener('click', () => {
+            const open = mobNav.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('footer-include', 'includes/footer.html');
+
+
+    // ── Copy toggle (client / proposed) ───────────────────────
+    (function() {
+        const STORE_KEY = 'v3-copy-mode';
+        const toggle = document.getElementById('copyToggle');
+        if (!toggle) return;
+        const stateEl = toggle.querySelector('.copy-toggle__state');
+
+        function apply(mode) {
+            const proposed = mode === 'proposed';
+            document.body.classList.toggle('is-proposed', proposed);
+            stateEl.textContent = proposed ? 'Proposed' : 'Client';
+            toggle.setAttribute('aria-pressed', String(proposed));
+        }
+
+        toggle.addEventListener('click', () => {
+            const next = document.body.classList.contains('is-proposed') ? 'client' : 'proposed';
+            apply(next);
+            try { localStorage.setItem(STORE_KEY, next); } catch(e) {}
+        });
+
+        let saved = 'client';
+        try { saved = localStorage.getItem(STORE_KEY) || 'client'; } catch(e) {}
+        apply(saved);
+    })();
+</script>
+
+</body>
+</html>

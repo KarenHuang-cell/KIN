@@ -9,7 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
     <style>
@@ -20,6 +20,7 @@
                 z-index: 1;
                 height: 100vh;
             }
+            .cs-proof,
             .cs-intro,
             .cs-stats,
             .cs-gallery,
@@ -45,6 +46,141 @@
             .cs-intro.gradient-active::before {
                 opacity: 1;
             }
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           TYPOGRAPHIC TEST — page-scoped only
+           Settled: body weight 400, wider line-height (was 300/1.375)
+           Test:    lighter heading weights for editorial register
+           Unchanged: hero h1, stat numerals (sport-agency register)
+        ───────────────────────────────────────────────────────── */
+
+        /* Body narrative — readability fix */
+        .cs-body p {
+            font-weight: 400;
+            line-height: 1.75;
+            font-size: 17px;
+            color: rgba(255,255,255,0.78);
+            margin-bottom: 24px;
+        }
+        .cs-body h3 {
+            line-height: 1.4;
+            margin-top: 44px;
+            letter-spacing: -0.005em;
+        }
+        .cs-targets__list li {
+            font-weight: 400;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* Test weight — editorial headings in case-study body */
+        .cs-intro__headline {
+            font-weight: 500;
+            letter-spacing: -0.022em;
+            line-height: 1.1;
+        }
+        .cs-sidebar__title {
+            font-weight: 500;
+            letter-spacing: -0.018em;
+            line-height: 1.1;
+        }
+
+        /* Hero sub — slightly lighter, less corporate */
+        .cs-hero__sub {
+            font-weight: 500;
+            letter-spacing: 0.22em;
+        }
+
+        /* Stat numerals — condensed sans for data display only.
+           Scoped exception to "Plus Jakarta only": numerals as data,
+           not narrative or decorative type. Sports-broadcast register. */
+        .cs-stat__num {
+            font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 96px;
+            line-height: 0.95;
+            letter-spacing: -0.005em;
+            font-feature-settings: "tnum" 1;
+        }
+
+        /* ─────────────────────────────────────────────────────────
+           V3 IMPROVEMENTS — mirrored from index_v3 home page
+        ───────────────────────────────────────────────────────── */
+
+        /* (1) Hero — mixed-weight title (italic-light + bold) */
+        .cs-hero__title.cs-hero__title--mixed {
+            font-size: clamp(48px, 6.4vw, 96px);
+            font-weight: 400;
+            line-height: 0.96;
+            letter-spacing: -0.035em;
+            max-width: 18ch;
+        }
+        .cs-hero__title--mixed .ital {
+            display: block;
+            font-weight: 200;
+            font-style: italic;
+            font-size: 0.62em;
+            letter-spacing: 0.005em;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 0.18em;
+        }
+        .cs-hero__title--mixed .bold {
+            display: block;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        /* (2) Proof band — film-credits style. No hairlines, no boxes,
+           label-above-value with generous gaps. Editorial register. */
+        .cs-proof {
+            padding: 56px var(--margin) 64px;
+            border-bottom: 1px solid var(--clr-border);
+        }
+        .cs-proof__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px 72px;
+        }
+        .cs-proof__cell {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cs-proof__label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.42);
+        }
+        .cs-proof__value {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #fff;
+            font-feature-settings: "tnum" 1;
+            max-width: 24ch;
+        }
+        @media (max-width: 620px) {
+            .cs-proof { padding: 36px var(--margin) 44px; }
+            .cs-proof__inner { gap: 24px 40px; }
+            .cs-proof__value { font-size: 15px; }
+        }
+
+        /* (3) Italic-light em accent within intro headline */
+        .cs-intro__headline em {
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* (4) Photos — saturate(0.6) calibration (matches v3 home) */
+        .cs-hero__img,
+        .cs-gallery__img {
+            filter: saturate(0.6);
         }
     </style>
 </head>
@@ -73,6 +209,35 @@
 
 
 <!-- ================================================================
+     PROOF BAND — institutional metadata strip under hero (v3 pattern)
+================================================================ -->
+<section class="cs-proof" aria-label="Project snapshot">
+    <div class="cs-proof__inner">
+        <div class="cs-proof__cell">
+            <span class="cs-proof__label">Client</span>
+            <span class="cs-proof__value">World Rugby</span>
+        </div>
+        <div class="cs-proof__cell">
+            <span class="cs-proof__label">Date</span>
+            <span class="cs-proof__value">5&ndash;6 April 2025</span>
+        </div>
+        <div class="cs-proof__cell">
+            <span class="cs-proof__label">Venue</span>
+            <span class="cs-proof__value">Singapore National Stadium</span>
+        </div>
+        <div class="cs-proof__cell">
+            <span class="cs-proof__label">KIN&rsquo;s Role</span>
+            <span class="cs-proof__value">Event Delivery Partner</span>
+        </div>
+        <div class="cs-proof__cell">
+            <span class="cs-proof__label">Reach</span>
+            <span class="cs-proof__value">42,000+ fans</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
      INTRO  (centred, max-width 1100px)
 ================================================================ -->
 <section class="cs-intro" aria-labelledby="cs-intro-hl">
@@ -80,7 +245,7 @@
         <p class="eyebrow reveal">Fan-first, future-forward</p>
         <h2 id="cs-intro-hl" class="cs-intro__headline reveal reveal-delay-1">
             Redefining sports entertainment<br />
-            at the National Stadium
+            <em>at the National Stadium.</em>
         </h2>
         <div class="cs-intro__body reveal reveal-delay-2">
             <p>In April 2025, the National Stadium at Singapore Sports Hub once again played host to one of the most anticipated events in sports: HSBC SVNS Singapore 2025. The stadium was transformed into a vibrant playground for rugby enthusiasts and culture aficionados alike, redefining sports entertainment with over 42,000 attendees expected.</p>
