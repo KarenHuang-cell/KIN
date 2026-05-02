@@ -31,7 +31,6 @@
         /* ─── Tokens (v3 light) ────────────────────────────────── */
         :root {
             --v3-cream:      #ECECE8;            /* primary bg */
-            --v3-cream-deep: #E3E2DE;            /* recessed (unused for now) */
             --v3-navy:       #031D45;            /* brand navy — headings, type colour */
             --v3-text:       #3a3a3a;            /* body text */
             --v3-text-dim:   #6e6e6e;            /* muted/secondary */
@@ -42,14 +41,7 @@
         body.about-page { background: var(--v3-cream); color: var(--v3-text); }
 
 
-        /* ─── Quiet eyebrows (light variant — navy at 50%) ──── */
-        body.about-page .eyebrow {
-            color: rgba(3,29,69,0.55);
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            font-size: 12px;
-            margin-bottom: 28px;
-        }
+        /* Eyebrows use .eyebrow + .eyebrow--inst (Tier 0 system, see styles.css). */
 
 
         /* ─── HERO — kept as a dark photo moment then transitions to cream below ─ */
@@ -91,16 +83,11 @@
             margin: 0 auto;
         }
 
+        /* Type comes from .h-display + .h-display--dark (Tier 0).
+           This rule keeps about-hero-specific layout (max-width). */
         .about-hero-img__title {
-            font-weight: 600;
-            color: #fff;
             max-width: 18ch;
-            font-size: clamp(40px, 5.4vw, 68px);
-            line-height: 1.05;
-            letter-spacing: -0.025em;
         }
-
-        .about-hero-img__title .br-desktop { display: none; }
 
 
         /* ─── SECTIONS — linear flow on cream ──────────────── */
@@ -305,14 +292,14 @@
     <div class="about-hero-img__bg"></div>
     <div class="about-hero-img__overlay"></div>
     <div class="about-hero-img__content">
-        <h1 class="about-hero-img__title">KIN Global puts cities on <br class="br-desktop">the world stage</h1>
+        <h1 class="about-hero-img__title h-display h-display--dark">KIN Global puts cities on the world stage</h1>
     </div>
 </section>
 
 <!-- ── PANEL 1: DARK ── -->
 <div class="about-panel about-panel--dark">
     <div class="about-panel__content">
-        <p class="eyebrow reveal">About Us</p>
+        <p class="eyebrow eyebrow--inst reveal">About Us</p>
         <h2 class="about-dark__heading reveal reveal-delay-1">From stadium floors to museum halls</h2>
         <div class="about-dark__body reveal reveal-delay-2">
             <p>KIN was founded on a simple conviction: world-class events and cultural experiences can transform a city&rsquo;s identity, economy, and global standing. We obsess over every detail &mdash; from the first planning meeting to the final celebration &mdash; because that&rsquo;s what turns a good event into a defining one. Today, we&rsquo;re a leading event tourism company — driving visitor engagement and destination growth through three specialised divisions: sports and live events, experiential design and build, and cultural and IP programming.</p>
@@ -339,7 +326,7 @@
 <div class="about-panel about-panel--timeline">
     <div class="about-panel__content">
         <section class="about-timeline" aria-labelledby="timeline-heading">
-            <p class="eyebrow">The Journey</p>
+            <p class="eyebrow eyebrow--inst">The Journey</p>
             <h2 class="about-timeline__heading" id="timeline-heading">Our Milestones</h2>
 
             <div class="tl-vertical" id="tl-vertical" aria-hidden="true"></div>

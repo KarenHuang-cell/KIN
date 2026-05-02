@@ -794,8 +794,8 @@ video.hero__bg {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(var(--max-w) - 2 * var(--margin));
-    max-width: 100%;
+    width: calc(100% - 2 * var(--margin));
+    max-width: var(--max-w);
     height: 1px;
     background: var(--clr-border);
 }
@@ -3601,7 +3601,7 @@ body.nav-open { overflow: hidden; }
 .h-inst--dark { color: #fff; }
 
 .h-display {
-    font-size: clamp(64px, 8vw, 144px);
+    font-size: clamp(40px, 6vw, 72px);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.04em;
@@ -3610,20 +3610,6 @@ body.nav-open { overflow: hidden; }
     margin: 0;
 }
 .h-display--dark { color: #fff; }
-
-/* Display H1 — sport-agency / editorial register.
-   Used by case studies, about hero, services, portfolio.
-   Inherits color from parent so it works on both dark and light pages.
-   Pair with: <p class="eyebrow"> (sport-agency cyan) on dark pages,
-              <p class="eyebrow eyebrow--inst"> on light editorial pages. */
-.h-display {
-    font-size: clamp(56px, 7vw, 104px);
-    font-weight: 700;
-    line-height: 0.95;
-    letter-spacing: -0.035em;
-    text-wrap: balance;
-    margin: 0;
-}
 
 /* Institutional eyebrow — muted navy, NOT cyan.
    Cyan is reserved for action (links, buttons) per the register rules.
