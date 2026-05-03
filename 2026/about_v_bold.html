@@ -23,6 +23,14 @@
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
 
     <!-- ==========================================================
+         ABOUT_V_BOLD — heading-weight experiment.
+         All four section heads bumped to weight 700 to test pulling
+         about.html toward the EDM (services_edm.html) voice. Body,
+         layout, scale, and copy all unchanged — single-axis compare.
+         Override block sits BELOW the v3 styles so it wins specificity.
+    ========================================================== -->
+
+    <!-- ==========================================================
          ABOUT_V3 (light) — applies the v3 visual system on the
          light/institutional surface. Cream + navy palette, editorial
          typography matching the IR_v3 patterns. No copy is changed.
@@ -280,6 +288,15 @@
             .about-hero-img__content { padding-bottom: 48px; }
             .about-panel { padding: 80px 0; }
             .about-final .about-leadership { padding: 80px 24px 60px; }
+        }
+
+
+        /* ── ABOUT_V_BOLD heading-weight override (single axis) ── */
+        .about-dark__heading,
+        .about-panel--mission .about-mission__heading,
+        .about-panel--timeline .about-timeline__heading,
+        .about-final .about-leadership__heading {
+            font-weight: 700;
         }
     </style>
 </head>

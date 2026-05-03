@@ -24,35 +24,18 @@
     <link rel="stylesheet" href="assets/css/services-edm.css?v=2" />
 
     <!-- ==========================================================
-         Capabilities — large 2-col experiment.
-         Page-scoped so the other services pages stay on the small
-         4-col reference styling for now. Single-axis test: bigger
-         items, fewer columns, lighter title weight, more air.
+         V3 OVERRIDES — align section heads to about.html register.
+         Lighter weight (500), larger scale, tighter tracking, no
+         period stops. Body and layout unchanged so v2 vs v3 is a
+         clean compare on heading typography only.
     ========================================================== -->
     <style>
-        .edm-cap__grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 72px 80px;
-        }
-
-        .edm-cap__title {
-            font-size: 18px;
+        .edm-section__heading {
+            font-size: clamp(32px, 3.6vw, 52px);
             font-weight: 500;
-            letter-spacing: -0.005em;
-            padding-bottom: 18px;
-            border-bottom-color: rgba(255,255,255,0.12);
-        }
-
-        .edm-cap__list { gap: 14px; }
-
-        .edm-cap__list li {
-            font-size: 16px;
-            line-height: 1.55;
-            color: rgba(255,255,255,0.78);
-        }
-
-        @media (max-width: 620px) {
-            .edm-cap__grid { grid-template-columns: 1fr; gap: 48px; }
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            max-width: 22ch;
         }
     </style>
 </head>
@@ -139,7 +122,7 @@
         <header class="edm-section__head reveal">
             <p class="eyebrow eyebrow--white">What we deliver</p>
             <h2 id="edm-deliver-h" class="edm-section__heading">
-                End-to-end events delivery.
+                End-to-end events delivery
             </h2>
         </header>
 
@@ -219,7 +202,7 @@
         <header class="edm-section__head reveal">
             <p class="eyebrow eyebrow--white">Our Expertise Spans</p>
             <h2 id="edm-cap-h" class="edm-section__heading">
-                Capabilities at a glance.
+                Capabilities at a glance
             </h2>
         </header>
 
@@ -275,7 +258,7 @@
         <header class="edm-section__head reveal">
             <p class="eyebrow eyebrow--white">Our role</p>
             <h2 id="edm-pos-h" class="edm-section__heading">
-                Where KIN sits in the sports events value chain.
+                Where KIN sits in the value chain
             </h2>
         </header>
 

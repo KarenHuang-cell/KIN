@@ -7,10 +7,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <title>Museums, Galleries &amp; Attractions | KIN Global, Singapore</title>
+    <title>Design &amp; Build | KIN Global, Singapore</title>
     <meta name="description" content="KIN crafts immersive spaces that become must-visit destinations — combining innovation, craftsmanship, and storytelling." />
     <link rel="canonical" href="https://www.kin.net/services_designbuild.html" />
-    <meta property="og:title" content="Museums, Galleries &amp; Attractions | KIN Global, Singapore" />
+    <meta property="og:title" content="Design &amp; Build | KIN Global, Singapore" />
     <meta property="og:description" content="KIN crafts immersive spaces that become must-visit destinations — combining innovation, craftsmanship, and storytelling." />
     <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.webp" />
     <meta property="og:url" content="https://www.kin.net/services_designbuild.html" />
@@ -21,21 +21,124 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+    <link rel="stylesheet" href="assets/css/services-edm.css?v=2" />
+
+    <!-- ==========================================================
+         D&B page-scoped: 6-step process grid.
+         Currently shows TWO variants for comparison:
+           v1 — 6-col horizontal, breathed (original strip, louder)
+           v2 — 3-col x 2 rows, larger text (mid-density)
+         Pick one and delete the other when decided.
+    ========================================================== -->
+    <style>
+        .edm-process {
+            display: grid;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .edm-process__step {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .edm-process__index {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.20em;
+            color: var(--clr-accent);
+            margin: 0;
+        }
+
+        .edm-process__title {
+            line-height: 1.25;
+            letter-spacing: -0.005em;
+            color: #fff;
+            margin: 0;
+        }
+
+        .edm-process__body {
+            font-weight: 400;
+            color: rgba(255,255,255,0.72);
+            margin: 0;
+        }
+
+        /* ── Variant 1: 6-col horizontal, breathed ── */
+        .edm-process--v1 {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 32px 40px;
+        }
+        .edm-process--v1 .edm-process__title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .edm-process--v1 .edm-process__body {
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        /* ── Variant 2: 3-col x 2 rows, larger text ── */
+        .edm-process--v2 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 56px 64px;
+        }
+        .edm-process--v2 .edm-process__title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .edm-process--v2 .edm-process__body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ── Compare-mode label ── */
+        .compare-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin: 0 0 24px;
+        }
+
+        @media (max-width: 1100px) {
+            .edm-process--v1 { grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
+            .edm-process--v2 { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
+        }
+        @media (max-width: 620px) {
+            .edm-process--v1,
+            .edm-process--v2 { grid-template-columns: 1fr; gap: 32px; }
+        }
+    </style>
 </head>
 <body>
 
+<!-- ================================================================
+     NAVIGATION
+================================================================ -->
 <div id="nav-include"></div>
+
 
 <div class="site-wrap">
 
+<!-- ================================================================
+     HERO — kept verbatim from original
+================================================================ -->
 <section class="svc-hero" aria-labelledby="svc-db-hl">
     <div class="svc-hero__inner">
         <p class="eyebrow eyebrow--page reveal">Design &amp; Build</p>
-        <h1 id="svc-db-hl" class="svc-hero__title reveal reveal-delay-1" style="max-width: 1050px;">Experiential destinations that drive tourism</h1>
+        <h1 id="svc-db-hl" class="svc-hero__title reveal reveal-delay-1" style="max-width: 1050px;">
+            Experiential destinations that drive tourism
+        </h1>
     </div>
 </section>
 
-<section class="svc-image" aria-label="Design and build event venue">
+
+<!-- ================================================================
+     FEATURE IMAGE — kept verbatim from original
+================================================================ -->
+<section class="svc-image" aria-label="Singapore Odyssea 2025 — KIN design and build">
     <div class="svc-image__inner reveal">
         <img src="assets/images/SGOdyssea2025_web_02.webp"
              alt="Singapore Odyssea 2025 — immersive exhibition design and build"
@@ -45,94 +148,239 @@
 
 </div><!-- /site-wrap -->
 
-<section class="svc-content" aria-label="Design and build services">
-    <div class="svc-content__inner">
 
-        <p class="svc-intro reveal">
-            We work with galleries, museums, visitor centers, themed attractions, and world
-            expositions to craft immersive spaces that become must-visit destinations —
-            combining innovation, craftsmanship, and storytelling to captivate audiences
-            and drive sustained visitation.
-        </p>
+<!-- ================================================================
+     1. INTRO BAND — statement + D&B-segment proof aside
+     (stats from Corporate Presentation, Apr 2026: pp.13, 30, 32)
+================================================================ -->
+<section class="edm-section" aria-label="Introduction">
+    <div class="edm-wrap">
+        <div class="edm-intro__grid">
 
-        <div class="svc-expertise reveal">
-            <p class="svc-expertise__heading">Transforming Spaces into Tourism Assets:</p>
-            <div class="svc-expertise__cols">
-                <ul class="svc-expertise__list">
-                    <li>Experience Centers &amp; Visitor Attractions</li>
+            <p class="edm-intro__statement reveal">
+                We work with galleries, museums, visitor centers, themed
+                attractions, and world expositions to craft immersive spaces
+                that become must-visit destinations &mdash; combining innovation,
+                craftsmanship, and storytelling to captivate audiences and
+                drive sustained visitation.
+            </p>
+
+            <aside class="edm-intro__aside reveal reveal-delay-1">
+                <span class="edm-intro__aside-label">Segment proof points</span>
+                <ul class="edm-intro__aside-list">
+                    <li class="edm-intro__aside-row">
+                        <span class="edm-intro__stat-num">S$48.8M</span>
+                        <span class="edm-intro__stat-label">D&amp;B segment revenue, 9M 2025</span>
+                    </li>
+                    <li class="edm-intro__aside-row">
+                        <span class="edm-intro__stat-num">30,400m&sup2;</span>
+                        <span class="edm-intro__stat-label">WAC Singapore Arena, built from a public car park in under 6 months</span>
+                    </li>
+                    <li class="edm-intro__aside-row">
+                        <span class="edm-intro__stat-num">37m</span>
+                        <span class="edm-intro__stat-label">High-Dive Tower, Sentosa &mdash; SE Asia&rsquo;s first, completed in under 3 months</span>
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     2. OUR PROCESS — variant 1: 6-col horizontal, breathed
+================================================================ -->
+<section class="edm-section edm-section--ruled" aria-labelledby="edm-process-h-v1">
+    <div class="edm-wrap">
+        <header class="edm-section__head reveal">
+            <p class="eyebrow eyebrow--white">Our process</p>
+            <h2 id="edm-process-h-v1" class="edm-section__heading">
+                From consultation to commissioning.
+            </h2>
+            <p class="compare-label" style="margin-top:24px;">Variant 1 &middot; 6-col horizontal</p>
+        </header>
+
+        <div class="edm-process edm-process--v1">
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">01</p>
+                <h3 class="edm-process__title">Strategic Consultation</h3>
+                <p class="edm-process__body">Understanding your vision, audience, and destination goals.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">02</p>
+                <h3 class="edm-process__title">Concept Development</h3>
+                <p class="edm-process__body">Creative storytelling that aligns with tourism positioning.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">03</p>
+                <h3 class="edm-process__title">Design &amp; Engineering</h3>
+                <p class="edm-process__body">Technical planning that ensures quality and durability.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">04</p>
+                <h3 class="edm-process__title">Fabrication &amp; Production</h3>
+                <p class="edm-process__body">Trusted partner networks.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">05</p>
+                <h3 class="edm-process__title">Installation &amp; Commissioning</h3>
+                <p class="edm-process__body">Seamless on-site execution and testing.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">06</p>
+                <h3 class="edm-process__title">Operations Support</h3>
+                <p class="edm-process__body">Ongoing maintenance and experience optimization.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     2b. OUR PROCESS — variant 2: 3-col x 2 rows, larger text
+     (DELETE one of v1 / v2 once decided)
+================================================================ -->
+<section class="edm-section edm-section--ruled" aria-labelledby="edm-process-h-v2">
+    <div class="edm-wrap">
+        <header class="edm-section__head reveal">
+            <p class="eyebrow eyebrow--white">Our process</p>
+            <h2 id="edm-process-h-v2" class="edm-section__heading">
+                From consultation to commissioning.
+            </h2>
+            <p class="compare-label" style="margin-top:24px;">Variant 2 &middot; 3-col &times; 2 rows</p>
+        </header>
+
+        <div class="edm-process edm-process--v2">
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">01</p>
+                <h3 class="edm-process__title">Strategic Consultation</h3>
+                <p class="edm-process__body">Understanding your vision, audience, and destination goals.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">02</p>
+                <h3 class="edm-process__title">Concept Development</h3>
+                <p class="edm-process__body">Creative storytelling that aligns with tourism positioning.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">03</p>
+                <h3 class="edm-process__title">Design &amp; Engineering</h3>
+                <p class="edm-process__body">Technical planning that ensures quality and durability.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">04</p>
+                <h3 class="edm-process__title">Fabrication &amp; Production</h3>
+                <p class="edm-process__body">Trusted partner networks.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">05</p>
+                <h3 class="edm-process__title">Installation &amp; Commissioning</h3>
+                <p class="edm-process__body">Seamless on-site execution and testing.</p>
+            </div>
+
+            <div class="edm-process__step reveal">
+                <p class="edm-process__index">06</p>
+                <h3 class="edm-process__title">Operations Support</h3>
+                <p class="edm-process__body">Ongoing maintenance and experience optimization.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     3. ATMOSPHERIC IMAGE BAND
+================================================================ -->
+<section class="edm-band" aria-hidden="true">
+    <div class="edm-band__inner reveal">
+        <img src="assets/images/SGOdyssea2025_web_05.webp"
+             alt=""
+             class="edm-band__img" />
+    </div>
+</section>
+
+
+<!-- ================================================================
+     4. CAPABILITIES — 4-col reference grid
+     (preserves all 17 items, regrouped under their original
+      implicit parent headers)
+================================================================ -->
+<section class="edm-section" aria-labelledby="edm-cap-h">
+    <div class="edm-wrap">
+        <header class="edm-section__head reveal">
+            <p class="eyebrow eyebrow--white">Transforming Spaces into Tourism Assets</p>
+            <h2 id="edm-cap-h" class="edm-section__heading">
+                Capabilities at a glance.
+            </h2>
+        </header>
+
+        <div class="edm-cap__grid">
+
+            <div class="edm-cap__col reveal">
+                <h3 class="edm-cap__title">Experience Centers &amp; Visitor Attractions</h3>
+                <ul class="edm-cap__list">
                     <li>Brand experience centers</li>
                     <li>Heritage and cultural centers</li>
                     <li>Interactive discovery spaces</li>
                     <li>Tourism information centers</li>
-                    <li>Museums &amp; Galleries</li>
+                </ul>
+            </div>
+
+            <div class="edm-cap__col reveal reveal-delay-1">
+                <h3 class="edm-cap__title">Museums &amp; Galleries</h3>
+                <ul class="edm-cap__list">
                     <li>Permanent exhibition design and build</li>
                     <li>Temporary exhibition installation</li>
-                    <li>Themed Attractions</li>
                 </ul>
-                <ul class="svc-expertise__list">
+            </div>
+
+            <div class="edm-cap__col reveal reveal-delay-2">
+                <h3 class="edm-cap__title">Themed Attractions</h3>
+                <ul class="edm-cap__list">
                     <li>Immersive storytelling environments</li>
                     <li>Character-based experiences</li>
                     <li>Themed retail and F&amp;B spaces</li>
-                    <li>World Expositions &amp; Major Events</li>
+                </ul>
+            </div>
+
+            <div class="edm-cap__col reveal reveal-delay-3">
+                <h3 class="edm-cap__title">World Expositions &amp; Major Events</h3>
+                <ul class="edm-cap__list">
                     <li>National pavilion design and build</li>
                     <li>Thematic zone creation</li>
                     <li>Large-scale installations</li>
                     <li>Experiential journey design</li>
                 </ul>
             </div>
+
         </div>
-
-        <dl class="svc-detail svc-detail--cols">
-
-            <div class="svc-detail__item reveal">
-                <dt class="svc-detail__term">Strategic Consultation</dt>
-                <dd class="svc-detail__desc">
-                    <p>Understanding your vision, audience, and destination goals.</p>
-                </dd>
-            </div>
-
-            <div class="svc-detail__item reveal">
-                <dt class="svc-detail__term">Concept Development</dt>
-                <dd class="svc-detail__desc">
-                    <p>Creative storytelling that aligns with tourism positioning.</p>
-                </dd>
-            </div>
-
-            <div class="svc-detail__item reveal">
-                <dt class="svc-detail__term">Design &amp; Engineering</dt>
-                <dd class="svc-detail__desc">
-                    <p>Technical planning that ensures quality and durability.</p>
-                </dd>
-            </div>
-
-            <div class="svc-detail__item reveal">
-                <dt class="svc-detail__term">Fabrication &amp; Production</dt>
-                <dd class="svc-detail__desc">
-                    <p>Trusted partner networks.</p>
-                </dd>
-            </div>
-
-            <div class="svc-detail__item reveal">
-                <dt class="svc-detail__term">Installation &amp; Commissioning</dt>
-                <dd class="svc-detail__desc">
-                    <p>Seamless on-site execution and testing.</p>
-                </dd>
-            </div>
-
-            <div class="svc-detail__item reveal">
-                <dt class="svc-detail__term">Operations Support</dt>
-                <dd class="svc-detail__desc">
-                    <p>Ongoing maintenance and experience optimization.</p>
-                </dd>
-            </div>
-
-        </dl>
-
     </div>
 </section>
 
+
+<!-- ================================================================
+     CTA BAND (dark)
+================================================================ -->
 <div id="cta-include"></div>
+
+<!-- ================================================================
+     FOOTER (dark)
+================================================================ -->
 <div id="footer-include"></div>
+
 
 <script>
     function loadInclude(id, url, callback) {
@@ -149,9 +397,11 @@
         const nav    = document.getElementById('nav');
         const burger = nav.querySelector('.nav__hamburger');
         const mobNav = document.getElementById('mob-nav');
+
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         }, { passive: true });
+
         burger.addEventListener('click', () => {
             const open = mobNav.classList.toggle('is-open');
             burger.classList.toggle('is-open', open);
@@ -160,8 +410,8 @@
         });
     });
 
-    loadInclude('cta-include', 'includes/cta-light.html');
-    loadInclude('footer-include', 'includes/footer-light.html');
+    loadInclude('cta-include', 'includes/cta.html');
+    loadInclude('footer-include', 'includes/footer.html');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -178,6 +428,7 @@
             observer.observe(el);
         });
     }
+
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
 </script>

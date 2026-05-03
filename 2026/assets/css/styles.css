@@ -127,9 +127,6 @@ ul  { list-style: none; }
     line-height: 16px;
 }
 
-/* Colour modifier — navy instead of teal */
-.eyebrow--navy { color: var(--clr-navy); }
-
 /* Extra margin above page-level H1 titles */
 .eyebrow--page { margin-bottom: 16px; }
 
@@ -1572,9 +1569,9 @@ video.hero__bg {
 ─────────────────────────────────────────────────────────── */
 
 .svc-intro {
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.45;
+    font-size: clamp(18px, 1.4vw, 22px);
+    font-weight: 400;
+    line-height: 1.5;
     color: var(--clr-navy);
     max-width: var(--w-mid);
     margin-bottom: 56px;
@@ -3239,9 +3236,18 @@ body.nav-open { overflow: hidden; }
 
 .mv-split__content {
     align-self: stretch;
+    height: 100%;             /* explicit fill — align-self alone collapses
+                                  to flex-intrinsic height in some browsers */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+}
+
+/* Heading anchors at top of column; intro pushes to bottom so it
+   aligns with the bottom of the photo on the left. */
+.mv-split__content .svc-intro {
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .mv-split__heading {
@@ -3611,11 +3617,11 @@ body.nav-open { overflow: hidden; }
 }
 .h-display--dark { color: #fff; }
 
-/* Institutional eyebrow — muted navy, NOT cyan.
+/* Navy eyebrow — muted navy, used on light pages.
    Cyan is reserved for action (links, buttons) per the register rules.
-   Selector .eyebrow.eyebrow--inst (specificity 0,2,0) so it beats
+   Selector .eyebrow.eyebrow--navy (specificity 0,2,0) so it beats
    wrapper-scoped rules like .media-hero .eyebrow that set their own margin. */
-.eyebrow.eyebrow--inst {
+.eyebrow.eyebrow--navy {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.22em;

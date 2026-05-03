@@ -1,0 +1,358 @@
+/* ============================================================
+   SERVICES — EVENT DELIVERY & MANAGEMENT (exploration v3)
+
+   Direction: dark page throughout. Karen's original hero kept
+   verbatim (.svc-hero / .svc-hero__title / .eyebrow--page from
+   styles.css). Everything BELOW the hero is rebuilt here.
+
+   Constraints:
+   - Plus Jakarta only (no serif, no italic decoration)
+   - Section heads stay modest: clamp(28–44px). Not h-display.
+   - Pure black bg (#000), HRs constrained to footer-width
+   - Cyan = action only; eyebrows use muted-white
+   - One feature image (existing) + one atmospheric mid-page band
+============================================================ */
+
+
+/* Page-scoped helpers — bg already #000 from body root.
+   No body class flip needed. */
+
+.edm-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--margin);
+}
+
+
+/* ── Eyebrow modifier: white-muted (decoration on dark) ────── */
+.eyebrow.eyebrow--white {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+    margin: 0 0 28px;
+}
+
+
+/* ── Section scaffold ──────────────────────────────────────── */
+.edm-section {
+    padding: clamp(80px, 10vw, 140px) 0;
+}
+
+.edm-section--ruled {
+    border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.edm-section__head {
+    margin-bottom: clamp(56px, 7vw, 96px);
+    max-width: 64ch;
+}
+
+.edm-section__heading {
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: 0;
+    text-wrap: balance;
+}
+
+
+/* ── 1. Intro band (post-hero/feature) ─────────────────────── */
+.edm-intro__grid {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+}
+
+.edm-intro__statement {
+    font-size: clamp(22px, 2.2vw, 34px);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: #fff;
+    max-width: 32ch;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.edm-intro__aside {
+    border-top: 1px solid rgba(255,255,255,0.20);
+    padding-top: 28px;
+}
+
+.edm-intro__aside-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 24px;
+}
+
+.edm-intro__aside-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.edm-intro__aside-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.edm-intro__aside-row:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.edm-intro__stat-num {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.edm-intro__stat-label {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.62);
+}
+
+
+/* ── 2. Pillars — stacked editorial rows ───────────────────── */
+.edm-pillars__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.edm-pillar {
+    display: grid;
+    grid-template-columns: 80px 5fr 6fr;
+    gap: clamp(24px, 4vw, 64px);
+    padding: clamp(40px, 5vw, 64px) 0;
+    border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.edm-pillar:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.edm-pillar__index {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    padding-top: 8px;
+}
+
+.edm-pillar__title {
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: #fff;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.edm-pillar__body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.72);
+}
+
+.edm-pillar__body p {
+    margin: 0;
+}
+
+.edm-pillar__body ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edm-pillar__body li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.edm-pillar__body li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 1px;
+    background: var(--clr-accent);
+}
+
+
+/* ── 3. Atmospheric image band (mid-page punctuation) ──────── */
+.edm-band {
+    padding: 0 var(--margin);
+}
+
+.edm-band__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+.edm-band__img {
+    width: 100%;
+    height: clamp(360px, 48vw, 520px);
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ── 4. Capabilities — quiet 4-col reference grid ──────────── */
+.edm-cap__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 56px 40px;
+}
+
+.edm-cap__col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.edm-cap__title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin: 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.edm-cap__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edm-cap__list li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.70);
+}
+
+
+/* ── 5. Value-chain position — 2-col split ─────────────────── */
+.edm-position {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+}
+
+.edm-position__statement {
+    font-size: clamp(20px, 1.8vw, 28px);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: #fff;
+    max-width: 32ch;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.edm-position__statement em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--clr-accent);
+}
+
+.edm-position__source {
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+}
+
+.edm-position__tiers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.edm-position__tier {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.edm-position__tier:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.edm-position__tier-num {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.20em;
+    color: rgba(255,255,255,0.45);
+    flex-shrink: 0;
+    width: 28px;
+}
+
+.edm-position__tier-name {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
+}
+
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .edm-intro__grid { grid-template-columns: 1fr; gap: 56px; }
+    .edm-pillar { grid-template-columns: 60px 1fr; }
+    .edm-pillar__body { grid-column: 2; margin-top: 8px; }
+    .edm-cap__grid { grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
+    .edm-position { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+    .edm-intro__statement { font-size: 22px; }
+    .edm-pillar {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 36px 0;
+    }
+    .edm-pillar__index { padding-top: 0; }
+    .edm-pillar__body { margin-top: 0; }
+    .edm-cap__grid { grid-template-columns: 1fr; gap: 36px; }
+    .edm-section__head { margin-bottom: 40px; }
+}
