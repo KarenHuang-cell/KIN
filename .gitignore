@@ -17,3 +17,4 @@ test.txt
 
 # Claude Code worktrees
 .claude/worktrees/
+phase2/
