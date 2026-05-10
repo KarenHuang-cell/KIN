@@ -30,14 +30,6 @@
             max-width: var(--max-w);
             margin: 0 auto;
         }
-        .whistle-hero__eyebrow {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--clr-accent);
-            margin-bottom: 16px;
-        }
         .whistle-hero__title {
             color: var(--clr-navy);
         }
@@ -84,6 +76,16 @@
             color: var(--clr-navy);
             margin-bottom: 12px;
         }
+
+        .whistle-content__body a {
+            color: #031d45;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        .whistle-content__body a:hover {
+            border-bottom-color: #031d45;
+        }
     </style>
 </head>
 <body class="whistle-page">
@@ -98,7 +100,7 @@
      HERO
 ================================================================ -->
 <section class="whistle-hero" aria-labelledby="whistle-hl">
-    <p class="whistle-hero__eyebrow reveal">Corporate Governance</p>
+    <p class="eyebrow eyebrow--page reveal">Corporate Governance</p>
     <h1 id="whistle-hl" class="ir-hero__title reveal reveal-delay-1">Whistle-Blowing Policy</h1>
 </section>
 
@@ -161,7 +163,8 @@
             <p>Concerns may be raised verbally, via email, or in writing, and should include sufficient details and supporting evidence, where available, to facilitate proper assessment and investigation.</p>
             <p>All complaints and concerns raised under this policy shall be submitted directly to the ARMC.</p>
             <p>Email: <a href="mailto:whistleblow@kin.net">whistleblow@kin.net</a></p>
-            <p>Mail: 51 Tai Seng Avenue #04-06<br />
+            <p>Mail:<br />
+            51 Tai Seng Avenue #04-06<br />
             Pixel Red<br />
             Singapore 533941<br />
             (to be marked &ldquo;Private &amp; Confidential&rdquo; to the Audit &amp; Risk Management Committee Chairman)</p>

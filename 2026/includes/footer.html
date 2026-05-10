@@ -1,4 +1,15 @@
 <footer class="footer" aria-label="Site footer">
+<style>
+    @media (min-width: 1101px) {
+        .footer:not(.footer--light) .footer__top {
+            grid-template-columns: repeat(4, auto);
+            justify-content: space-between;
+        }
+    }
+    @media (max-width: 1100px) {
+        .footer:not(.footer--light) .footer__top > div:first-child { grid-row: span 3; }
+    }
+</style>
 <div class="footer__inner">
 
     <div class="footer__top">
@@ -13,6 +24,17 @@
                 51 Tai Seng Avenue, Pixel Red<br />
                 #04-06, Lift Lobby C<br />
                 Singapore 533941
+            </p>
+        </div>
+
+        <div>
+            <p class="footer__col-label eyebrow">Investor Relations</p>
+            <p class="footer__join-text">
+                <a href="mailto:investor@kin.net">investor@kin.net</a>
+            </p>
+            <p class="footer__col-label eyebrow" style="margin-top: 24px;">Whistle Blowing</p>
+            <p class="footer__join-text">
+                <a href="mailto:whistleblow@kin.net">whistleblow@kin.net</a>
             </p>
         </div>
 
