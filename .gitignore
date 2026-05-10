@@ -18,3 +18,4 @@ test.txt
 # Claude Code worktrees
 .claude/worktrees/
 phase2/
+.claude/settings.local.json
