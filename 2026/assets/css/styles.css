@@ -1714,8 +1714,7 @@ body.nav-open { overflow: hidden; }
     .contact-hero__title,
     .mv-split__heading,
     .mgmt-hero__title,
-    .media-hero__title,
-    .privacy-hero__title {
+    .media-hero__title {
         font-size: 64px;
         line-height: 68px;
         letter-spacing: -2px;
@@ -2409,8 +2408,7 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 620px) {
     .ir-video__img  { height: 240px; }
     .ir-hero__title,
-    .media-hero__title,
-    .privacy-hero__title { letter-spacing: -1px; }
+    .media-hero__title { letter-spacing: -1px; }
 }
 
 
@@ -3447,8 +3445,7 @@ body.nav-open { overflow: hidden; }
 
 .media-hero .eyebrow { margin-bottom: 16px; }
 
-.media-hero__title,
-.privacy-hero__title {
+.media-hero__title {
     font-size: 80px;
     font-weight: 800;
     line-height: 1.05;
@@ -3701,8 +3698,7 @@ body.nav-open { overflow: hidden; }
     .contact-hero__title,
     .mv-split__heading,
     .mgmt-hero__title,
-    .media-hero__title,
-    .privacy-hero__title {
+    .media-hero__title {
         font-size: clamp(32px, 14vw, 72px);
         line-height: 1.05;
         overflow-wrap: break-word;
@@ -3711,8 +3707,7 @@ body.nav-open { overflow: hidden; }
 
 /* ── Mobile letter-spacing override for light-hero pages ─────── */
 @media (max-width: 620px) {
-    .media-hero__title,
-    .privacy-hero__title { letter-spacing: -1px; }
+    .media-hero__title { letter-spacing: -1px; }
 }
 
 /* ── Mobile: drop the trailing line after the last media article ── */
