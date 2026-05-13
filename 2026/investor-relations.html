@@ -159,6 +159,27 @@
     }
     observeReveal();
     window.addEventListener('include-loaded', observeReveal);
+
+    // Glue external-link icon to last word
+    document.querySelectorAll('.ir-sgx__name').forEach(function(el) {
+        var img = el.querySelector('.ir-sgx__ext');
+        if (!img) return;
+        var prev = img.previousSibling;
+        if (!prev || prev.nodeType !== 3) return;
+        var text = prev.textContent.replace(/⁠/g, '');
+        var lastSpace = text.lastIndexOf(' ');
+        var wrap = document.createElement('span');
+        wrap.style.whiteSpace = 'nowrap';
+        if (lastSpace > -1) {
+            prev.textContent = text.slice(0, lastSpace + 1);
+            wrap.appendChild(document.createTextNode(text.slice(lastSpace + 1)));
+        } else {
+            prev.textContent = '';
+            wrap.appendChild(document.createTextNode(text));
+        }
+        wrap.appendChild(img);
+        el.appendChild(wrap);
+    });
 </script>
 
 </body>
