@@ -2427,6 +2427,12 @@ body.nav-open { overflow: hidden; }
 
 .ir-below__col { min-width: 0; }
 
+.ir-below__right {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
 .ir-below__heading {
     font-size: 30px;
     font-weight: 700;
@@ -2464,6 +2470,32 @@ body.nav-open { overflow: hidden; }
 
 .ir-prospectus__item:last-child { padding-bottom: 0; }
 .ir-prospectus__item:hover { opacity: 0.7; }
+
+/* Annual report cover variant — must come after base to win specificity */
+.ir-prospectus__item--cover {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 24px;
+    padding-bottom: 0;
+}
+
+.ir-prospectus__item--cover:hover {
+    opacity: 1;
+}
+
+.ir-prospectus__cover {
+    width: 140px;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ir-prospectus__item--cover:hover .ir-prospectus__cover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
 
 .ir-prospectus__icon {
     width: 32px;
@@ -3479,7 +3511,8 @@ body.nav-open { overflow: hidden; }
     padding-top: 30px; /* aligns with article title, below meta line */
 }
 
-.media-year-group:has(.ir-sgx__item) .media-year { padding-top: 0; }
+.media-year-group:has(.ir-sgx__item) .media-year,
+.media-year-group:has(.ir-prospectus__item) .media-year { padding-top: 0; }
 
 /* Right column — max-width controlled by variable */
 .media-articles {

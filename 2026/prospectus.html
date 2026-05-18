@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <title>Prospectus | KIN Global Limited</title>
+    <meta name="description" content="KIN Global Limited prospectus documents — Final Offer Document, Product Highlights Sheet, and Corporate Presentation filed in connection with our SGX-Catalist listing." />
+    <link rel="canonical" href="https://www.kin.net/prospectus.html" />
+    <meta property="og:title" content="Prospectus | KIN Global Limited" />
+    <meta property="og:description" content="KIN Global Limited prospectus documents — Final Offer Document, Product Highlights Sheet, and Corporate Presentation filed in connection with our SGX-Catalist listing." />
+    <meta property="og:image" content="https://www.kin.net/assets/images/OG_image.webp" />
+    <meta property="og:url" content="https://www.kin.net/prospectus.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=60" />
+</head>
+<body class="corp-page">
+
+<div id="nav-include"></div>
+
+<div class="site-wrap">
+
+    <!-- Hero -->
+    <div class="media-hero reveal">
+        <p class="eyebrow eyebrow--page">Investor Relations</p>
+        <h1 class="media-hero__title">Prospectus</h1>
+    </div>
+
+    <!-- Year-grouped document list -->
+    <section class="media-content" aria-label="Prospectus documents">
+
+        <!-- 2026 -->
+        <div class="media-year-group reveal">
+            <div class="media-year">2026</div>
+            <div class="media-articles">
+
+                <a href="assets/pdfs/Final_Offer_Document.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+                    <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+                    <span class="ir-prospectus__text">
+                        <span class="ir-prospectus__date">14th Apr 2026</span>
+                        <span class="ir-prospectus__title">Final Offer Document</span>
+                    </span>
+                </a>
+
+                <a href="assets/pdfs/Final_Product_Highlights_Sheet.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+                    <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+                    <span class="ir-prospectus__text">
+                        <span class="ir-prospectus__date">14th Apr 2026</span>
+                        <span class="ir-prospectus__title">Final Product Highlights Sheet</span>
+                    </span>
+                </a>
+
+                <a href="assets/pdfs/Kin_Global_Limited-Corporate_Presentation.pdf" class="ir-prospectus__item" target="_blank" rel="noopener">
+                    <img src="assets/images/PDFicon.svg" alt="" class="ir-prospectus__icon" aria-hidden="true" />
+                    <span class="ir-prospectus__text">
+                        <span class="ir-prospectus__date">14th Apr 2026</span>
+                        <span class="ir-prospectus__title">Corporate Presentation</span>
+                    </span>
+                </a>
+
+            </div>
+        </div>
+
+    </section>
+
+</div><!-- /site-wrap -->
+
+<div id="cta-include"></div>
+<div id="footer-include"></div>
+
+<script>
+    function loadInclude(id, url, callback) {
+        fetch(url + '?v=' + Date.now())
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById(id).outerHTML = html;
+                window.dispatchEvent(new Event('include-loaded'));
+                if (callback) callback();
+            });
+    }
+
+    loadInclude('nav-include', 'includes/nav-light.html', () => {
+        const nav    = document.getElementById('nav');
+        const burger = nav.querySelector('.nav__hamburger');
+        const mobNav = document.getElementById('mob-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+        burger.addEventListener('click', () => {
+            const open = mobNav.classList.toggle('is-open');
+            burger.classList.toggle('is-open', open);
+            burger.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-open', open);
+        });
+    });
+
+    loadInclude('cta-include', 'includes/cta-light.html');
+    loadInclude('footer-include', 'includes/footer-light.html');
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    function observeReveal() {
+        document.querySelectorAll('.reveal:not([data-observed])').forEach(el => {
+            el.dataset.observed = '1';
+            observer.observe(el);
+        });
+    }
+    observeReveal();
+    window.addEventListener('include-loaded', observeReveal);
+</script>
+
+</body>
+</html>
