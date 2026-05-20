@@ -3495,9 +3495,6 @@ body.nav-open { overflow: hidden; }
     border-top: 1px solid rgba(3,29,69,0.12);
 }
 
-.accred-item:last-child {
-    border-bottom: 1px solid rgba(3,29,69,0.12);
-}
 
 .accred-item__logo {
     width: 120px;
