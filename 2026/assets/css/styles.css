@@ -3512,6 +3512,10 @@ body.nav-open { overflow: hidden; }
     mix-blend-mode: multiply;
 }
 
+/* First 3 logos (ISO certs) — 15% larger */
+.accred-item:nth-child(-n+3) .accred-item__logo { width: 138px; }
+.accred-item:nth-child(-n+3) .accred-item__logo img { max-height: 110px; }
+
 .accred-item__text { flex: 1; min-width: 0; }
 
 .accred-item__name {
