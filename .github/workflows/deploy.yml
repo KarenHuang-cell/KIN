@@ -1,10 +1,9 @@
 name: Deploy 2026/ to Bluehost
 
-# Deploys automatically on every push to main, OR can be triggered manually.
+# DISABLED 2026-09-16: site migrated to Webflow. Bluehost is no longer live.
+# Manual trigger only — no auto-deploy on push. Do not re-enable unless kin.net moves back to Bluehost.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
 
 jobs:
   deploy:
