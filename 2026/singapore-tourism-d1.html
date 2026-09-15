@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Singapore's $740 Million Tourism Investment — Strategic Infrastructure Beyond the Headline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+:root {
+    --navy: #031D45;
+    --paper: #F4EFE5;
+    --body-color: #1c2949;
+    --body-muted: #4a5568;
+    --accent: #C97B4F;
+    --rule: rgba(3,29,69,0.16);
+    --rule-strong: rgba(3,29,69,0.32);
+    --max-w: 1280px;
+    --margin: clamp(24px, 5vw, 56px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--paper);
+    color: var(--body-color);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Progress bar */
+.progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 100;
+    width: 0;
+    transition: width 0.05s linear;
+}
+
+/* Mini nav strip (persists on scroll past hero) */
+.mini-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(244,239,229,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px var(--margin);
+    z-index: 90;
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mini-nav.visible { transform: translateY(0); }
+.mini-nav__brand { color: var(--accent); }
+
+/* Hero — cover page */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 600px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #1a2640;
+}
+.hero__media {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/singapore-marina-bay.jpg');
+    background-size: cover;
+    background-position: center 40%;
+}
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3,29,69,0.18) 0%, rgba(3,29,69,0.55) 100%);
+}
+.hero__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: var(--margin) var(--margin) calc(var(--margin) * 1.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--paper);
+}
+.hero__eyebrow {
+    position: absolute;
+    top: var(--margin);
+    left: var(--margin);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(244,239,229,0.78);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+.hero__eyebrow span { color: rgba(244,239,229,0.4); }
+.hero__title {
+    font-size: clamp(44px, 7.2vw, 88px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    max-width: 16ch;
+}
+.hero__dek {
+    font-size: clamp(20px, 2.4vw, 32px);
+    font-weight: 400;
+    line-height: 1.3;
+    max-width: 32ch;
+    color: rgba(244,239,229,0.94);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+.hero__meta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(244,239,229,0.7);
+}
+
+/* Stats ledger — directly under hero */
+.stats {
+    padding: 80px var(--margin);
+    max-width: var(--max-w);
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+}
+.stats__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+.stat {
+    padding: 0 40px;
+    position: relative;
+}
+.stat:first-child { padding-left: 0; }
+.stat:last-child { padding-right: 0; }
+.stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 0;
+    width: 1px;
+    background: var(--rule);
+}
+.stat__num {
+    font-size: clamp(36px, 4.8vw, 60px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+}
+.stat__num--small {
+    font-size: clamp(28px, 3.6vw, 44px);
+}
+.stat__label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+/* Body article */
+.body {
+    padding: 120px var(--margin);
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+/* Intro lede */
+.intro {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr minmax(0, 220px);
+    column-gap: 64px;
+    margin-bottom: 120px;
+}
+.intro__marg {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.intro__body {
+    grid-column: 2;
+    max-width: 60ch;
+}
+.intro__body p {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--navy);
+    letter-spacing: -0.005em;
+    margin-bottom: 24px;
+}
+.intro__body p:last-child { margin-bottom: 0; }
+
+/* Numbered body section */
+.section {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr minmax(0, 220px);
+    column-gap: 64px;
+    margin-bottom: 96px;
+}
+.section__marg {
+    position: sticky;
+    top: 72px;
+    height: fit-content;
+    padding-top: 8px;
+}
+.section__num {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-feature-settings: 'tnum';
+}
+.section__tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1.45;
+    max-width: 20ch;
+}
+.section__body {
+    grid-column: 2;
+    max-width: 62ch;
+}
+.section__body h3 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+.section__body h4 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-top: 28px;
+    margin-bottom: 16px;
+}
+.section__body p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body-color);
+}
+.section__body p strong {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+/* Blockquote — serif pull-quote */
+.pullquote {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.32;
+    text-align: center;
+    color: var(--navy);
+    max-width: 32ch;
+    margin: 96px auto;
+    padding: 48px 0;
+    position: relative;
+    letter-spacing: -0.01em;
+}
+.pullquote::before,
+.pullquote::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 1px;
+    background: var(--accent);
+}
+.pullquote::before { top: 0; }
+.pullquote::after { bottom: 0; }
+
+/* About / colophon paragraph */
+.about {
+    border-top: 1px solid var(--rule);
+    padding-top: 48px;
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr minmax(0, 220px);
+    column-gap: 64px;
+}
+.about__marg {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.about__body {
+    grid-column: 2;
+    max-width: 62ch;
+}
+.about__body p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body-muted);
+}
+
+/* CTA — closing */
+.cta {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 120px var(--margin);
+    margin-top: 0;
+}
+.cta__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+.cta__title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 40px;
+    max-width: 22ch;
+    color: var(--paper);
+}
+.cta__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 8px;
+    transition: color 0.2s, gap 0.2s, border-color 0.2s;
+}
+.cta__link:hover {
+    color: var(--accent);
+    gap: 18px;
+}
+
+/* Footer */
+.footer {
+    padding: 32px var(--margin) 48px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--body-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.footer__brand {
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    text-transform: none;
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    .stats__row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 0;
+    }
+    .stat { padding: 0 20px; }
+    .stat:nth-child(odd) { padding-left: 0; }
+    .stat:nth-child(even) { padding-right: 0; }
+    .stat::after { display: none; }
+}
+@media (max-width: 720px) {
+    .stats__row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .stat { padding: 0; }
+    .intro, .section, .about {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .intro__body, .section__body, .about__body { grid-column: 1; }
+    .section__marg {
+        position: static;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="mini-nav" id="miniNav">
+    <span class="mini-nav__brand">kin.</span>
+    <span>Singapore's $740M Tourism Investment — Industry Analysis</span>
+</div>
+
+<!-- ============== HERO ============== -->
+<header class="hero">
+    <div class="hero__media"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        <div class="hero__eyebrow">
+            Kin Global <span>·</span> Industry Analysis
+        </div>
+        <h1 class="hero__title">Singapore's $740 Million Tourism Investment</h1>
+        <p class="hero__dek">Strategic Infrastructure Beyond the Headline</p>
+        <div class="hero__meta">Published 19 May 2026 &nbsp;·&nbsp; Tourism Industry Conference 2026</div>
+    </div>
+</header>
+
+<!-- ============== STATS LEDGER ============== -->
+<section class="stats">
+    <div class="stats__row">
+        <div class="stat">
+            <div class="stat__num"><span class="stat__num--small">S$</span>740M</div>
+            <div class="stat__label">New tourism funding (5-year)</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num"><span class="stat__num--small">S$</span>32.8B</div>
+            <div class="stat__label">2025 tourism receipts (record)</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">16.9M</div>
+            <div class="stat__label">International arrivals 2025</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num"><span class="stat__num--small">S$</span>47–50B</div>
+            <div class="stat__label">2040 receipts target</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== ARTICLE BODY ============== -->
+<article class="body">
+
+    <!-- Intro lede -->
+    <div class="intro">
+        <div class="intro__marg">Overview</div>
+        <div class="intro__body">
+            <p>At the recent Tourism Industry Conference 2026, Singapore's government did something worth paying close attention to — not just if you operate here, but if you think seriously about how cities compete for global visitors.</p>
+            <p>The headline number is S$740 million: a fresh tranche injected into the Tourism Development Fund over the next five years, announced by Minister Grace Fu. That follows a S$300 million injection made just last year. In two years, Singapore has committed over a billion dollars to tourism infrastructure, capability, and experience development.</p>
+            <p>But the number is not the story. The strategy behind it is.</p>
+        </div>
+    </div>
+
+    <!-- Section 01 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">01</div>
+            <div class="section__tag">The Record That Sets the Context</div>
+        </div>
+        <div class="section__body">
+            <h3>The record that sets the context</h3>
+            <p>First, the baseline. Singapore closed 2025 with S$32.8 billion in tourism receipts — a record — and 16.9 million international visitor arrivals. Changi Airport handled nearly 70 million passenger movements, also an all-time high. MICE tourism receipts grew more than 35% year on year to reach S$2.3 billion, and Singapore retained its position as Asia Pacific's top meeting city for the 22nd consecutive year.</p>
+            <p>These are not the numbers of a destination coasting. They are the numbers of a destination that decided to treat tourism as strategic infrastructure rather than a hospitality sector, and has been executing that decision with unusual consistency.</p>
+            <p>The STB's own target: <strong>S$47 to S$50 billion in tourism receipts by 2040.</strong> That is roughly 50% growth from today's record high. The S$740 million is the funding instrument for getting there.</p>
+        </div>
+    </section>
+
+    <!-- Pull-quote 1 -->
+    <blockquote class="pullquote">
+        The number is not the story. The strategy behind it is.
+    </blockquote>
+
+    <!-- Section 02 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">02</div>
+            <div class="section__tag">Downtown MICE Hub at Straits View</div>
+        </div>
+        <div class="section__body">
+            <h3>Three things announced that the events and destination industry should take seriously</h3>
+            <h4>One: a Downtown MICE Hub at Straits View, near Marina Bay.</h4>
+            <p>This is the announcement with the longest tail. Singapore has identified the Straits View area — adjacent to Marina Bay Cruise Centre — as the location for a new integrated MICE development: world-class conference facilities, accommodation, dining, entertainment, and retail, in a single precinct connected to three MRT lines.</p>
+            <p>The ambition behind it is explicit: <strong>triple MICE tourism receipts by 2040.</strong> STB will launch a Request for Proposal in 2027, requiring developers to partner MICE operators jointly in their bids.</p>
+            <p>For anyone in the events industry, this matters because it signals the demand pipeline Singapore intends to generate — and it signals the type of events that pipeline will require. Large-format, multi-day, internationally significant events that can fill an integrated downtown hub. The hub does not build itself; the events have to come first.</p>
+        </div>
+    </section>
+
+    <!-- Section 03 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">03</div>
+            <div class="section__tag">Integrated Cruise &amp; Ferry Terminal</div>
+        </div>
+        <div class="section__body">
+            <h4>Two: a new integrated cruise and ferry terminal at Straits View.</h4>
+            <p>Running alongside the MICE Hub announcement is a feasibility study for an integrated cruise and ferry terminal at the same precinct, with capacity roughly <strong>1.5 times the existing Marina Bay Cruise Centre</strong> and twice that of HarbourFront.</p>
+            <p>The strategic logic here is compounding: put world-class MICE, leisure, cruise, and retail infrastructure in the same precinct, connected to the city, and you create conditions where MICE delegates extend their stays, cruise passengers become urban visitors, and the precinct operates at density rather than in spikes.</p>
+            <p>This is what a serious destination strategy looks like at the infrastructure level.</p>
+        </div>
+    </section>
+
+    <!-- Section 04 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">04</div>
+            <div class="section__tag">Greater Sentosa — 120 Hectares</div>
+        </div>
+        <div class="section__body">
+            <h4>Three: Greater Sentosa — 120 hectares of Pulau Brani, unlocked over two decades.</h4>
+            <p>The Greater Sentosa Master Plan is one of the largest destination development commitments in the region. Pulau Brani, 120 hectares, developed into hotels, attractions, experiences, coastal trails, and event spaces — with a projection that <strong>Greater Sentosa will attract twice its current visitor numbers</strong> when fully realised.</p>
+            <p>STB's framing: "Island Playground and Sanctuary in a Global City." The language matters. Singapore is not building a theme park. It is building a destination layer that sits alongside the city, distinct in character, designed to hold visitors for longer and serve residents who want world-class leisure without leaving the island.</p>
+            <p>The detail that sits underneath all three announcements: new transport connections between Greater Sentosa and the mainland. Infrastructure designed to increase access, not gate it.</p>
+        </div>
+    </section>
+
+    <!-- Section 05 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">05</div>
+            <div class="section__tag">The Marketing Shift</div>
+        </div>
+        <div class="section__body">
+            <h3>The marketing shift that deserves more attention</h3>
+            <p>Less discussed than the capital announcements, but equally significant: STB's marketing strategy is moving towards longer-term brand partnerships and a shift away from campaign-by-campaign thinking.</p>
+            <p>Two announcements stand out. A three-year global MOU with <strong>Universal Music Singapore</strong>, to inspire travel to Singapore through international artists' social platforms and exclusive fan experiences. And a three-year partnership with a <strong>Korean drama production house</strong>, with a financial drama starring major Korean actors already filming on location in Singapore.</p>
+            <p>STB is no longer primarily buying media. It is buying cultural placement — the kind that arrives in a Netflix drama watched by 40 million people in Southeast Asia, or in a K-drama fan's travel shortlist. This is a bet that destination desire is created through entertainment, not advertising, and that sustained cultural presence beats seasonal campaigns.</p>
+            <p>They are probably right.</p>
+        </div>
+    </section>
+
+    <!-- Pull-quote 2 -->
+    <blockquote class="pullquote">
+        The events come first. The destination follows.
+    </blockquote>
+
+    <!-- Section 06 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">06</div>
+            <div class="section__tag">What This Means for the Destination Business</div>
+        </div>
+        <div class="section__body">
+            <h3>What this means if you are in the destination business</h3>
+            <p>Singapore's TIC 2026 laid out a coherent multi-decade strategy: capital allocated, infrastructure identified, pipeline committed, marketing shifted toward cultural embedding.</p>
+            <p>The cities competing with Singapore — for MICE events, for major sports, for cultural IP, for high-value international visitors — need to understand that the gap is not in aspiration. Most destination strategies aspire to similar outcomes. <strong>The gap is in the architecture of commitment:</strong> a funded roadmap, a sequenced infrastructure pipeline, and a government that treats a conversation about cruise terminals and Korean dramas as part of the same strategic document.</p>
+            <p>For destinations building their own case for event tourism investment, the Singapore model offers something more useful than inspiration. It offers a replicable logic: anchor the case in receipts; invest in infrastructure that compounds visits rather than simply counting them; treat cultural presence as a long-term marketing asset; and sequence the events that prove you can deliver before building the infrastructure to scale them.</p>
+            <p>That last point is where most destinations underinvest, and where the gap between ambition and execution tends to open.</p>
+            <p><strong>The events come first. The destination follows.</strong></p>
+        </div>
+    </section>
+
+    <!-- About / colophon -->
+    <div class="about">
+        <div class="about__marg">About Kin</div>
+        <div class="about__body">
+            <p>Kin engineers world-class sporting events, immersive experiences, and cultural IPs that transform cities into destinations. We work with tourism boards, destination marketers, and government bodies across Asia to build the event pipeline that drives long-term destination growth. If this conversation is relevant to your work, we would welcome the exchange.</p>
+        </div>
+    </div>
+
+</article>
+
+<!-- ============== CTA ============== -->
+<section class="cta">
+    <div class="cta__inner">
+        <h2 class="cta__title">Let's talk about what's possible.</h2>
+        <a href="https://www.kinproduction.com" class="cta__link">
+            www.kinproduction.com →
+        </a>
+    </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+    <div class="footer__brand">kin.</div>
+    <div>© 2026 KIN Production. All Rights Reserved.</div>
+</footer>
+
+<script>
+// Progress bar
+const progress = document.getElementById('progress');
+const miniNav = document.getElementById('miniNav');
+const hero = document.querySelector('.hero');
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const max = document.body.scrollHeight - window.innerHeight;
+    progress.style.width = (scrolled / max * 100) + '%';
+
+    // Mini nav appears after scrolling past hero
+    if (scrolled > hero.offsetHeight - 100) {
+        miniNav.classList.add('visible');
+    } else {
+        miniNav.classList.remove('visible');
+    }
+}, { passive: true });
+</script>
+
+</body>
+</html>

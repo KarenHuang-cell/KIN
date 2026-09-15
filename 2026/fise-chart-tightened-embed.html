@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FISE Tightened Chart — Webflow Embed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body {
+    background: #F4EFE5;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #1c2949;
+    padding: 48px 56px 96px;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+.page-head {
+    max-width: 1180px;
+    margin: 0 auto 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(3,29,69,0.16);
+}
+.page-head__eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #00c1e6;
+    margin-bottom: 14px;
+}
+.page-head__title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #031D45;
+    line-height: 1.1;
+    margin: 0 0 12px;
+}
+.page-head__sub {
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.55;
+    max-width: 65ch;
+}
+.section-label {
+    max-width: 1180px;
+    margin: 56px auto 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #4a5568;
+}
+.preview-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px;
+    background: rgba(255,255,255,0.45);
+    border-radius: 4px;
+}
+.code-wrap {
+    max-width: 1180px;
+    margin: 24px auto 0;
+    padding: 24px 28px;
+    background: #031D45;
+    border-radius: 4px;
+    color: #E8EBF1;
+}
+.code-wrap__note {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #00c1e6;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+.code-wrap pre {
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    line-height: 1.55;
+    white-space: pre;
+    overflow-x: auto;
+    color: #E8EBF1;
+    margin: 0;
+}
+.howto {
+    max-width: 1180px;
+    margin: 32px auto 0;
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.45);
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a5568;
+}
+.howto ol { padding-left: 20px; margin: 8px 0 0; }
+.howto li { margin-bottom: 6px; }
+.howto strong { color: #031D45; }
+.howto code {
+    background: rgba(3,29,69,0.08);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    color: #031D45;
+}
+</style>
+</head>
+<body>
+
+<header class="page-head">
+    <div class="page-head__eyebrow">Tightened chart — full-paragraph variant</div>
+    <h1 class="page-head__title">Chart on the left, prose on the right.</h1>
+    <p class="page-head__sub">Donut sits centred at the top with each segment labelled at its perimeter. Labels fade in as their slice finishes drawing. The five descriptive sections stack below.</p>
+</header>
+
+<!-- ============================ LIVE PREVIEW ============================ -->
+<div class="section-label">Preview</div>
+<div class="preview-wrap">
+
+<style>
+.kin-mm-wrap {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: #1c2949;
+    padding: 32px 0 8px;
+}
+.kin-mm-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(3,29,69,0.16);
+    gap: 24px;
+}
+.kin-mm-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00c1e6;
+    line-height: 1;
+}
+.kin-mm-total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    line-height: 1;
+}
+.kin-mm-total-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #031D45;
+    font-feature-settings: 'tnum';
+}
+.kin-mm-total-sub {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a5568;
+    margin-top: 8px;
+}
+
+.kin-mm-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+}
+.kin-mm-chart {
+    display: flex;
+    justify-content: center;
+    padding-block: 16px;
+}
+.kin-mm-figure {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+.kin-mm-donut {
+    width: 280px;
+    height: 280px;
+    display: block;
+    overflow: visible;
+}
+
+/* Segment labels — positioned at each slice's outer perimeter */
+.kin-mm-label {
+    position: absolute;
+    line-height: 1.15;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.kin-mm-wrap--shown .kin-mm-label { opacity: 1; }
+.kin-mm-wrap--shown .kin-mm-label--social    { transition-delay: 0.70s; }
+.kin-mm-wrap--shown .kin-mm-label--online    { transition-delay: 0.83s; }
+.kin-mm-wrap--shown .kin-mm-label--print     { transition-delay: 0.96s; }
+.kin-mm-wrap--shown .kin-mm-label--broadcast { transition-delay: 1.09s; }
+
+.kin-mm-label__name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4a5568;
+    display: block;
+}
+.kin-mm-label__pct {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #031D45;
+    font-feature-settings: 'tnum';
+    display: block;
+    margin-top: 4px;
+    line-height: 1;
+}
+.kin-mm-label--social .kin-mm-label__pct { color: #00c1e6; }
+
+.kin-mm-label--social {
+    top: 47.9%; left: 94.6%;
+    transform: translate(8px, -50%);
+    text-align: left;
+}
+.kin-mm-label--online {
+    top: 78.1%; left: 15.3%;
+    transform: translate(calc(-100% - 8px), -50%);
+    text-align: right;
+}
+.kin-mm-label--print {
+    top: 23.1%; left: 14.4%;
+    transform: translate(calc(-100% - 8px), -50%);
+    text-align: right;
+}
+.kin-mm-label--broadcast {
+    top: 7.3%; left: 37.0%;
+    transform: translate(-50%, calc(-100% - 8px));
+    text-align: center;
+}
+
+.kin-mm-prose {
+    width: 100%;
+    max-width: 720px;
+}
+.kin-mm-seg {
+    fill: none;
+    stroke-width: 28;
+    stroke-dasharray: 0 100;
+    transition: stroke-dasharray 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.kin-mm-wrap--shown .kin-mm-seg {
+    stroke-dasharray: var(--seg-len) calc(100 - var(--seg-len));
+}
+.kin-mm-wrap--shown .kin-mm-seg--social    { transition-delay: 0.05s; }
+.kin-mm-wrap--shown .kin-mm-seg--online    { transition-delay: 0.18s; }
+.kin-mm-wrap--shown .kin-mm-seg--print     { transition-delay: 0.31s; }
+.kin-mm-wrap--shown .kin-mm-seg--broadcast { transition-delay: 0.44s; }
+.kin-mm-seg--social    { stroke: #00c1e6; }
+.kin-mm-seg--online    { stroke: #031D45; }
+.kin-mm-seg--print     { stroke: rgba(3,29,69,0.42); }
+.kin-mm-seg--broadcast { stroke: rgba(3,29,69,0.18); }
+.kin-mm-prose { display: flex; flex-direction: column; }
+.kin-mm-item {
+    padding: 22px 0 26px;
+    border-top: 1px solid rgba(3,29,69,0.16);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.kin-mm-item:first-child { padding-top: 4px; border-top: none; }
+.kin-mm-wrap--shown .kin-mm-item { opacity: 1; transform: translateY(0); }
+.kin-mm-wrap--shown .kin-mm-item:nth-child(1) { transition-delay: 0.45s; }
+.kin-mm-wrap--shown .kin-mm-item:nth-child(2) { transition-delay: 0.55s; }
+.kin-mm-wrap--shown .kin-mm-item:nth-child(3) { transition-delay: 0.65s; }
+.kin-mm-wrap--shown .kin-mm-item:nth-child(4) { transition-delay: 0.75s; }
+.kin-mm-wrap--shown .kin-mm-item:nth-child(5) { transition-delay: 0.85s; }
+
+.kin-mm-item__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+.kin-mm-item__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #031D45;
+    letter-spacing: -0.015em;
+    position: relative;
+    padding-left: 34px;
+    line-height: 1.2;
+}
+.kin-mm-item__name::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 22px;
+    height: 3px;
+    background: rgba(3,29,69,0.18);
+}
+.kin-mm-item[data-key="print"]     .kin-mm-item__name::before { background: rgba(3,29,69,0.42); }
+.kin-mm-item[data-key="online"]    .kin-mm-item__name::before { background: #031D45; }
+.kin-mm-item[data-key="broadcast"] .kin-mm-item__name::before { background: rgba(3,29,69,0.18); }
+.kin-mm-item[data-key="social"]    .kin-mm-item__name::before { background: #00c1e6; }
+.kin-mm-item[data-key="spillover"] .kin-mm-item__name::before { background: rgba(3,29,69,0.10); }
+.kin-mm-item__pct {
+    font-size: 26px;
+    font-weight: 700;
+    color: #031D45;
+    letter-spacing: -0.025em;
+    font-feature-settings: 'tnum';
+    line-height: 1;
+}
+.kin-mm-item[data-key="social"] .kin-mm-item__pct { color: #00c1e6; }
+.kin-mm-item__body {
+    font-size: 15px;
+    color: #4a5568;
+    padding-left: 34px;
+    line-height: 1.6;
+}
+
+/* Responsive — tighten layout below 720px, only hide labels at very narrow widths */
+@media (max-width: 720px) {
+    .kin-mm-body { gap: 40px; }
+    .kin-mm-head { flex-direction: column; align-items: flex-start; }
+    .kin-mm-total { align-items: flex-start; text-align: left; }
+    .kin-mm-item__body, .kin-mm-item__name { padding-left: 30px; }
+    .kin-mm-item__name::before { width: 20px; }
+}
+@media (max-width: 480px) {
+    .kin-mm-label { display: none; }
+}
+</style>
+
+<div class="kin-mm-wrap">
+    <div class="kin-mm-head">
+        <div class="kin-mm-eyebrow">PR Value by Channel</div>
+        <div class="kin-mm-total">
+            <span class="kin-mm-total-num">SGD 553.6k</span>
+            <span class="kin-mm-total-sub">across 30 pieces</span>
+        </div>
+    </div>
+    <div class="kin-mm-body">
+        <div class="kin-mm-chart">
+            <div class="kin-mm-figure">
+                <svg viewBox="0 0 240 240" class="kin-mm-donut">
+                    <g transform="rotate(-90 120 120)">
+                        <circle class="kin-mm-seg kin-mm-seg--social"    cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="0"     style="--seg-len: 47.7"/>
+                        <circle class="kin-mm-seg kin-mm-seg--online"    cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="-48.5" style="--seg-len: 30.6"/>
+                        <circle class="kin-mm-seg kin-mm-seg--print"     cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="-79.9" style="--seg-len: 9.8"/>
+                        <circle class="kin-mm-seg kin-mm-seg--broadcast" cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="-90.5" style="--seg-len: 8.6"/>
+                    </g>
+                </svg>
+                <div class="kin-mm-label kin-mm-label--social">
+                    <span class="kin-mm-label__name">Social Media</span>
+                    <span class="kin-mm-label__pct">48.5%</span>
+                </div>
+                <div class="kin-mm-label kin-mm-label--online">
+                    <span class="kin-mm-label__name">Online</span>
+                    <span class="kin-mm-label__pct">31.4%</span>
+                </div>
+                <div class="kin-mm-label kin-mm-label--print">
+                    <span class="kin-mm-label__name">Print</span>
+                    <span class="kin-mm-label__pct">10.6%</span>
+                </div>
+                <div class="kin-mm-label kin-mm-label--broadcast">
+                    <span class="kin-mm-label__name">Broadcast</span>
+                    <span class="kin-mm-label__pct">9.4%</span>
+                </div>
+            </div>
+        </div>
+        <div class="kin-mm-prose">
+            <div class="kin-mm-item" data-key="print">
+                <div class="kin-mm-item__head">
+                    <span class="kin-mm-item__name">Print</span>
+                    <span class="kin-mm-item__pct">10.6%</span>
+                </div>
+                <div class="kin-mm-item__body">A single Straits Times feature. One placement. One of Singapore's most trusted editorial voices carrying the FISE story to a mainstream, high-income readership.</div>
+            </div>
+            <div class="kin-mm-item" data-key="online">
+                <div class="kin-mm-item__head">
+                    <span class="kin-mm-item__name">Online</span>
+                    <span class="kin-mm-item__pct">31.4%</span>
+                </div>
+                <div class="kin-mm-item__body">14 placements across AsiaOne, Time Out Singapore, Expat Living, Baseline, Alvinology, NewsWav.com, and others. The event was covered before, during, and after — building sustained momentum rather than a single spike.</div>
+            </div>
+            <div class="kin-mm-item" data-key="broadcast">
+                <div class="kin-mm-item__head">
+                    <span class="kin-mm-item__name">Broadcast</span>
+                    <span class="kin-mm-item__pct">9.4%</span>
+                </div>
+                <div class="kin-mm-item__body">Money FM 89.3's Sports Minutes segment positioned Chloe — and by extension FISE Singapore — as a story about what Singapore's next generation of athletes looks like.</div>
+            </div>
+            <div class="kin-mm-item" data-key="social">
+                <div class="kin-mm-item__head">
+                    <span class="kin-mm-item__name">Social Media</span>
+                    <span class="kin-mm-item__pct">48.5%</span>
+                </div>
+                <div class="kin-mm-item__body">The largest slice of the pie, and the most telling. Urban sports content is inherently visual, shareable, and emotionally resonant. When the content is real — an eight-year-old defying injury in front of a hometown crowd — it moves.</div>
+            </div>
+            <div class="kin-mm-item" data-key="spillover">
+                <div class="kin-mm-item__head">
+                    <span class="kin-mm-item__name">Regional Spillover</span>
+                </div>
+                <div class="kin-mm-item__body">Malaysian publications The Star, Sinar Daily, Lumi News, and NewsWav.com all ran the story, delivering coverage across the Causeway before the event had even closed. For destination-marketing purposes, this kind of organic regional reach is the goal — and it was achieved without a separate Malaysia campaign.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    document.querySelectorAll('.kin-mm-wrap').forEach(function(wrap){
+        if (wrap.dataset.kinMmInit) return;
+        wrap.dataset.kinMmInit = '1';
+        if (!('IntersectionObserver' in window)) { wrap.classList.add('kin-mm-wrap--shown'); return; }
+        var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if (e.isIntersecting) {
+                    wrap.classList.add('kin-mm-wrap--shown');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        io.observe(wrap);
+    });
+})();
+</script>
+
+</div>
+
+<!-- ============================ COPY-PASTE CODE ============================ -->
+<div class="section-label">Copy this into the Webflow Custom Code Embed (replaces the existing one)</div>
+<div class="code-wrap">
+    <div class="code-wrap__note">▾ Select all (⌘A inside the block) and paste into the embed</div>
+    <pre id="embed-code">&lt;style&gt;
+.kin-mm-wrap{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#1c2949;padding:32px 0 8px}
+.kin-mm-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;padding-bottom:20px;border-bottom:1px solid rgba(3,29,69,0.16);gap:24px}
+.kin-mm-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00c1e6;line-height:1}
+.kin-mm-total{display:flex;flex-direction:column;align-items:flex-end;text-align:right;line-height:1}
+.kin-mm-total-num{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:#031D45;font-feature-settings:'tnum'}
+.kin-mm-total-sub{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4a5568;margin-top:8px}
+.kin-mm-body{display:flex;flex-direction:column;align-items:center;gap:64px}
+.kin-mm-chart{display:flex;justify-content:center;padding-block:16px}
+.kin-mm-figure{position:relative;width:280px;height:280px}
+.kin-mm-donut{width:280px;height:280px;display:block;overflow:visible}
+.kin-mm-label{position:absolute;line-height:1.15;opacity:0;transition:opacity .5s ease;pointer-events:none;white-space:nowrap}
+.kin-mm-wrap--shown .kin-mm-label{opacity:1}
+.kin-mm-wrap--shown .kin-mm-label--social{transition-delay:.70s}
+.kin-mm-wrap--shown .kin-mm-label--online{transition-delay:.83s}
+.kin-mm-wrap--shown .kin-mm-label--print{transition-delay:.96s}
+.kin-mm-wrap--shown .kin-mm-label--broadcast{transition-delay:1.09s}
+.kin-mm-label__name{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a5568;display:block}
+.kin-mm-label__pct{font-size:18px;font-weight:700;letter-spacing:-0.02em;color:#031D45;font-feature-settings:'tnum';display:block;margin-top:4px;line-height:1}
+.kin-mm-label--social .kin-mm-label__pct{color:#00c1e6}
+.kin-mm-label--social{top:47.9%;left:94.6%;transform:translate(8px,-50%);text-align:left}
+.kin-mm-label--online{top:78.1%;left:15.3%;transform:translate(calc(-100% - 8px),-50%);text-align:right}
+.kin-mm-label--print{top:23.1%;left:14.4%;transform:translate(calc(-100% - 8px),-50%);text-align:right}
+.kin-mm-label--broadcast{top:7.3%;left:37.0%;transform:translate(-50%,calc(-100% - 8px));text-align:center}
+.kin-mm-seg{fill:none;stroke-width:28;stroke-dasharray:0 100;transition:stroke-dasharray 1.4s cubic-bezier(.22,1,.36,1)}
+.kin-mm-wrap--shown .kin-mm-seg{stroke-dasharray:var(--seg-len) calc(100 - var(--seg-len))}
+.kin-mm-wrap--shown .kin-mm-seg--social{transition-delay:.05s}
+.kin-mm-wrap--shown .kin-mm-seg--online{transition-delay:.18s}
+.kin-mm-wrap--shown .kin-mm-seg--print{transition-delay:.31s}
+.kin-mm-wrap--shown .kin-mm-seg--broadcast{transition-delay:.44s}
+.kin-mm-seg--social{stroke:#00c1e6}
+.kin-mm-seg--online{stroke:#031D45}
+.kin-mm-seg--print{stroke:rgba(3,29,69,.42)}
+.kin-mm-seg--broadcast{stroke:rgba(3,29,69,.18)}
+.kin-mm-prose{display:flex;flex-direction:column;width:100%;max-width:720px}
+.kin-mm-item{padding:22px 0 26px;border-top:1px solid rgba(3,29,69,0.16);opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease}
+.kin-mm-item:first-child{padding-top:4px;border-top:none}
+.kin-mm-wrap--shown .kin-mm-item{opacity:1;transform:translateY(0)}
+.kin-mm-wrap--shown .kin-mm-item:nth-child(1){transition-delay:.45s}
+.kin-mm-wrap--shown .kin-mm-item:nth-child(2){transition-delay:.55s}
+.kin-mm-wrap--shown .kin-mm-item:nth-child(3){transition-delay:.65s}
+.kin-mm-wrap--shown .kin-mm-item:nth-child(4){transition-delay:.75s}
+.kin-mm-wrap--shown .kin-mm-item:nth-child(5){transition-delay:.85s}
+.kin-mm-item__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:10px}
+.kin-mm-item__name{font-size:18px;font-weight:700;color:#031D45;letter-spacing:-0.015em;position:relative;padding-left:34px;line-height:1.2}
+.kin-mm-item__name::before{content:'';position:absolute;left:0;top:10px;width:22px;height:3px;background:rgba(3,29,69,0.18)}
+.kin-mm-item[data-key="print"] .kin-mm-item__name::before{background:rgba(3,29,69,.42)}
+.kin-mm-item[data-key="online"] .kin-mm-item__name::before{background:#031D45}
+.kin-mm-item[data-key="broadcast"] .kin-mm-item__name::before{background:rgba(3,29,69,.18)}
+.kin-mm-item[data-key="social"] .kin-mm-item__name::before{background:#00c1e6}
+.kin-mm-item[data-key="spillover"] .kin-mm-item__name::before{background:rgba(3,29,69,.10)}
+.kin-mm-item__pct{font-size:26px;font-weight:700;color:#031D45;letter-spacing:-0.025em;font-feature-settings:'tnum';line-height:1}
+.kin-mm-item[data-key="social"] .kin-mm-item__pct{color:#00c1e6}
+.kin-mm-item__body{font-size:15px;color:#4a5568;padding-left:34px;line-height:1.6}
+@media (max-width:720px){.kin-mm-body{gap:40px}.kin-mm-head{flex-direction:column;align-items:flex-start}.kin-mm-total{align-items:flex-start;text-align:left}.kin-mm-item__body,.kin-mm-item__name{padding-left:30px}.kin-mm-item__name::before{width:20px}}
+@media (max-width:480px){.kin-mm-label{display:none}}
+&lt;/style&gt;
+
+&lt;div class="kin-mm-wrap"&gt;
+    &lt;div class="kin-mm-head"&gt;
+        &lt;div class="kin-mm-eyebrow"&gt;PR Value by Channel&lt;/div&gt;
+        &lt;div class="kin-mm-total"&gt;
+            &lt;span class="kin-mm-total-num"&gt;SGD 553.6k&lt;/span&gt;
+            &lt;span class="kin-mm-total-sub"&gt;across 30 pieces&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="kin-mm-body"&gt;
+        &lt;div class="kin-mm-chart"&gt;
+            &lt;div class="kin-mm-figure"&gt;
+                &lt;svg viewBox="0 0 240 240" class="kin-mm-donut"&gt;
+                    &lt;g transform="rotate(-90 120 120)"&gt;
+                        &lt;circle class="kin-mm-seg kin-mm-seg--social"    cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="0"     style="--seg-len: 47.7"/&gt;
+                        &lt;circle class="kin-mm-seg kin-mm-seg--online"    cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="-48.5" style="--seg-len: 30.6"/&gt;
+                        &lt;circle class="kin-mm-seg kin-mm-seg--print"     cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="-79.9" style="--seg-len: 9.8"/&gt;
+                        &lt;circle class="kin-mm-seg kin-mm-seg--broadcast" cx="120" cy="120" r="80" pathLength="100" stroke-dashoffset="-90.5" style="--seg-len: 8.6"/&gt;
+                    &lt;/g&gt;
+                &lt;/svg&gt;
+                &lt;div class="kin-mm-label kin-mm-label--social"&gt;
+                    &lt;span class="kin-mm-label__name"&gt;Social Media&lt;/span&gt;
+                    &lt;span class="kin-mm-label__pct"&gt;48.5%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-label kin-mm-label--online"&gt;
+                    &lt;span class="kin-mm-label__name"&gt;Online&lt;/span&gt;
+                    &lt;span class="kin-mm-label__pct"&gt;31.4%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-label kin-mm-label--print"&gt;
+                    &lt;span class="kin-mm-label__name"&gt;Print&lt;/span&gt;
+                    &lt;span class="kin-mm-label__pct"&gt;10.6%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-label kin-mm-label--broadcast"&gt;
+                    &lt;span class="kin-mm-label__name"&gt;Broadcast&lt;/span&gt;
+                    &lt;span class="kin-mm-label__pct"&gt;9.4%&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="kin-mm-prose"&gt;
+            &lt;div class="kin-mm-item" data-key="print"&gt;
+                &lt;div class="kin-mm-item__head"&gt;
+                    &lt;span class="kin-mm-item__name"&gt;Print&lt;/span&gt;
+                    &lt;span class="kin-mm-item__pct"&gt;10.6%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-item__body"&gt;A single Straits Times feature. One placement. One of Singapore's most trusted editorial voices carrying the FISE story to a mainstream, high-income readership.&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="kin-mm-item" data-key="online"&gt;
+                &lt;div class="kin-mm-item__head"&gt;
+                    &lt;span class="kin-mm-item__name"&gt;Online&lt;/span&gt;
+                    &lt;span class="kin-mm-item__pct"&gt;31.4%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-item__body"&gt;14 placements across AsiaOne, Time Out Singapore, Expat Living, Baseline, Alvinology, NewsWav.com, and others. The event was covered before, during, and after — building sustained momentum rather than a single spike.&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="kin-mm-item" data-key="broadcast"&gt;
+                &lt;div class="kin-mm-item__head"&gt;
+                    &lt;span class="kin-mm-item__name"&gt;Broadcast&lt;/span&gt;
+                    &lt;span class="kin-mm-item__pct"&gt;9.4%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-item__body"&gt;Money FM 89.3's Sports Minutes segment positioned Chloe — and by extension FISE Singapore — as a story about what Singapore's next generation of athletes looks like.&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="kin-mm-item" data-key="social"&gt;
+                &lt;div class="kin-mm-item__head"&gt;
+                    &lt;span class="kin-mm-item__name"&gt;Social Media&lt;/span&gt;
+                    &lt;span class="kin-mm-item__pct"&gt;48.5%&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-item__body"&gt;The largest slice of the pie, and the most telling. Urban sports content is inherently visual, shareable, and emotionally resonant. When the content is real — an eight-year-old defying injury in front of a hometown crowd — it moves.&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="kin-mm-item" data-key="spillover"&gt;
+                &lt;div class="kin-mm-item__head"&gt;
+                    &lt;span class="kin-mm-item__name"&gt;Regional Spillover&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="kin-mm-item__body"&gt;Malaysian publications The Star, Sinar Daily, Lumi News, and NewsWav.com all ran the story, delivering coverage across the Causeway before the event had even closed. For destination-marketing purposes, this kind of organic regional reach is the goal — and it was achieved without a separate Malaysia campaign.&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+    document.querySelectorAll('.kin-mm-wrap').forEach(function(wrap){
+        if(wrap.dataset.kinMmInit)return;
+        wrap.dataset.kinMmInit='1';
+        if(!('IntersectionObserver' in window)){wrap.classList.add('kin-mm-wrap--shown');return}
+        var io=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    wrap.classList.add('kin-mm-wrap--shown');
+                    io.unobserve(e.target);
+                }
+            });
+        },{threshold:.2});
+        io.observe(wrap);
+    });
+})();
+&lt;/script&gt;</pre>
+</div>
+
+<!-- ============================ HOW-TO ============================ -->
+<div class="section-label">Replacing the existing embed in the CMS</div>
+<div class="howto">
+    <ol>
+        <li>Open the Insights item in the <strong>Webflow CMS</strong> (FISE Singapore 2025).</li>
+        <li>In the rich text field for "The Media Footprint" section, <strong>click on the existing grey <code>&lt;/&gt;</code> embed block</strong> to open it.</li>
+        <li>Select all the existing code (⌘A inside the embed dialog) and <strong>delete</strong> it.</li>
+        <li>Paste the new code from the dark box above into the embed dialog.</li>
+        <li>Click <strong>Save & Close</strong> on the embed dialog.</li>
+        <li>Now <strong>delete the four plain-text paragraphs</strong> that start with "Print (10.6% of total):", "Online (31.4% of total):", "Broadcast (9.4% of total):", and "Social Media (48.5% of total):" — they're now inside the chart embed.</li>
+        <li>Also <strong>delete the "Regional spillover…" paragraph</strong> — it's now in the chart too.</li>
+        <li><strong>Save</strong> the CMS item, then <strong>Publish</strong> the site.</li>
+    </ol>
+    <p style="margin-top:14px;font-size:13px;color:#4a5568;">
+        <strong style="color:#031D45;">Note:</strong> segment labels are hidden on mobile (≤720px) since they crowd the small donut; the five prose items below still carry the names and percentages.
+    </p>
+</div>
+
+</body>
+</html>

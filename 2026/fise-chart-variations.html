@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FISE Pie Chart — Style Variations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+:root {
+    --navy: #031D45;
+    --paper: #F4EFE5;
+    --body-color: #1c2949;
+    --body-muted: #4a5568;
+    --accent: #00c1e6;
+    --rule: rgba(3,29,69,0.16);
+    --rule-strong: rgba(3,29,69,0.32);
+    --max-w: 1280px;
+    --margin: clamp(24px, 5vw, 56px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    background: var(--paper);
+    color: var(--body-color);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ============ Page header ============ */
+.page-head {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 96px var(--margin) 48px;
+    border-bottom: 1px solid var(--rule);
+}
+.page-head__eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+}
+.page-head__title {
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--navy);
+    max-width: 22ch;
+    margin-bottom: 24px;
+}
+.page-head__sub {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 60ch;
+    color: var(--body-muted);
+}
+
+/* ============ Variant section ============ */
+.variant {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 96px var(--margin);
+    border-bottom: 1px solid var(--rule);
+}
+.variant__head {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+}
+.variant__num {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-feature-settings: 'tnum';
+}
+.variant__body { max-width: 60ch; }
+.variant__title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+.variant__notes {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--body-muted);
+}
+.variant__notes strong { color: var(--navy); font-weight: 600; }
+
+.variant__stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 0;
+}
+
+/* ============ Variant 1 — Editorial callouts ============ */
+.v1__svg { display: block; width: 100%; max-width: 720px; height: auto; overflow: visible; }
+.v1__svg .leader { stroke: var(--navy); stroke-width: 0.75; fill: none; opacity: 0.5; }
+.v1__svg .leader__dot { fill: var(--navy); }
+.v1__svg .label-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    fill: var(--navy);
+}
+.v1__svg .label-pct {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    fill: var(--navy);
+    font-feature-settings: 'tnum';
+}
+.v1__svg .label-pct--accent { fill: var(--accent); }
+
+/* ============ Variant 2 — In-slice typography ============ */
+.v2 {
+    position: relative;
+    width: 460px;
+    height: 460px;
+}
+.v2__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.v2__lbl {
+    position: absolute;
+    text-align: center;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+}
+.v2__lbl-name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.85;
+}
+.v2__lbl-pct {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-feature-settings: 'tnum';
+}
+.v2__lbl--on-color { color: var(--paper); }
+.v2__lbl--on-color .v2__lbl-name { color: rgba(244,239,229,0.78); }
+.v2__lbl--social { top: 36%; left: 73%; }
+.v2__lbl--online { top: 72%; left: 41%; }
+.v2__lbl--print { color: var(--paper); top: 41%; left: 22%; }
+.v2__lbl--print .v2__lbl-name { color: rgba(244,239,229,0.78); }
+.v2__lbl--print .v2__lbl-pct { font-size: 22px; }
+.v2__lbl--print .v2__lbl-name { font-size: 8px; letter-spacing: 1.5px; margin-bottom: 4px; }
+.v2__lbl--broadcast { top: 27%; left: 36%; color: var(--navy); }
+.v2__lbl--broadcast .v2__lbl-pct { font-size: 18px; }
+.v2__lbl--broadcast .v2__lbl-name { font-size: 8px; letter-spacing: 1.5px; margin-bottom: 4px; }
+
+/* ============ Variant 3 — Pie + ranked bars ============ */
+.v3 {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+    max-width: 880px;
+}
+.v3__pie {
+    width: 320px;
+    height: 320px;
+    display: block;
+}
+.v3__bars { display: flex; flex-direction: column; gap: 22px; }
+.v3__bar { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.v3__bar-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+}
+.v3__bar-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+.v3__bar-pct {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    font-feature-settings: 'tnum';
+}
+.v3__bar-track {
+    height: 6px;
+    background: rgba(3,29,69,0.06);
+    border-radius: 0;
+    overflow: hidden;
+}
+.v3__bar-fill { height: 100%; }
+.v3__bar--social .v3__bar-fill { background: var(--accent); width: 48.5%; }
+.v3__bar--social .v3__bar-pct { color: var(--accent); }
+.v3__bar--online .v3__bar-fill { background: var(--navy); width: 31.4%; }
+.v3__bar--print .v3__bar-fill { background: #6F7C8D; width: 10.6%; }
+.v3__bar--broadcast .v3__bar-fill { background: #B1B4B8; width: 9.4%; }
+.v3__bar-sub {
+    font-size: 13px;
+    color: var(--body-muted);
+    line-height: 1.4;
+    margin-top: 2px;
+}
+
+/* ============ Variant 4 — Half-pie / semicircle ============ */
+.v4 { width: 100%; max-width: 720px; }
+.v4__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.v4__caption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    gap: 24px;
+}
+.v4__caption-item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.v4__caption-name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    position: relative;
+    padding-top: 16px;
+}
+.v4__caption-name::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #B1B4B8;
+}
+.v4__caption-item[data-key="social"] .v4__caption-name::before { background: var(--accent); }
+.v4__caption-item[data-key="online"] .v4__caption-name::before { background: var(--navy); }
+.v4__caption-item[data-key="print"] .v4__caption-name::before { background: #6F7C8D; }
+.v4__caption-pct {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    font-feature-settings: 'tnum';
+}
+.v4__caption-item[data-key="social"] .v4__caption-pct { color: var(--accent); }
+
+/* ============ Responsive ============ */
+@media (max-width: 760px) {
+    .variant__head { grid-template-columns: 1fr; gap: 12px; }
+    .v3 { grid-template-columns: 1fr; gap: 48px; }
+    .v3__pie { width: 240px; height: 240px; margin: 0 auto; }
+    .v2 { width: 320px; height: 320px; }
+    .v2__lbl-pct { font-size: 26px; }
+    .v4__caption { flex-wrap: wrap; }
+    .v4__caption-item { flex: 1 1 40%; }
+}
+
+/* Footer */
+.footer {
+    padding: 32px var(--margin) 48px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--body-muted);
+}
+</style>
+</head>
+<body>
+
+<header class="page-head">
+    <div class="page-head__eyebrow">FISE Singapore 2025 — Chart Studies</div>
+    <h1 class="page-head__title">Four ways to draw the same pie.</h1>
+    <p class="page-head__sub">Same data, same palette, four distinct editorial stances. Each variation answers the question "how much weight should the chart carry on the page?" differently — from quiet caption to full-spread statement.</p>
+</header>
+
+<!-- ============================ VARIANT 01 — Editorial Callouts ============================ -->
+<section class="variant">
+    <div class="variant__head">
+        <div class="variant__num">01 — EDITORIAL CALLOUTS</div>
+        <div class="variant__body">
+            <h2 class="variant__title">Solid pie, leader-line callouts</h2>
+            <p class="variant__notes">A classic editorial pie with hairline leader lines that fan out to perimeter labels. <strong>The most magazine-grade option</strong> — reads like a New York Times business graphic or an FT chart-of-the-day. Chart and legend are one object; no separate ledger needed.</p>
+        </div>
+    </div>
+    <div class="variant__stage">
+        <svg viewBox="0 0 720 440" class="v1__svg" id="v1-svg" shape-rendering="geometricPrecision">
+            <g id="v1-pie" transform="translate(360 220)"></g>
+            <g id="v1-callouts"></g>
+        </svg>
+    </div>
+</section>
+
+<!-- ============================ VARIANT 02 — In-slice Typography ============================ -->
+<section class="variant">
+    <div class="variant__head">
+        <div class="variant__num">02 — IN-SLICE TYPOGRAPHY</div>
+        <div class="variant__body">
+            <h2 class="variant__title">Bold, the numbers live in the slices</h2>
+            <p class="variant__notes">Percentages sit directly inside their slices, with paper-colored hairline gaps separating them. <strong>The loudest, most poster-like option</strong> — turns the chart into a visual statement. Works because three of the four slices are large enough to hold typography; smaller slices (Print, Broadcast) get scaled-down labels to stay legible.</p>
+        </div>
+    </div>
+    <div class="variant__stage">
+        <div class="v2">
+            <svg viewBox="0 0 460 460" class="v2__svg" id="v2-svg" shape-rendering="geometricPrecision">
+                <g id="v2-pie" transform="translate(230 230)"></g>
+            </svg>
+            <div class="v2__lbl v2__lbl--social v2__lbl--on-color">
+                <div class="v2__lbl-name">Social</div>
+                <div class="v2__lbl-pct">48.5%</div>
+            </div>
+            <div class="v2__lbl v2__lbl--online v2__lbl--on-color">
+                <div class="v2__lbl-name">Online</div>
+                <div class="v2__lbl-pct">31.4%</div>
+            </div>
+            <div class="v2__lbl v2__lbl--print">
+                <div class="v2__lbl-name">Print</div>
+                <div class="v2__lbl-pct">10.6%</div>
+            </div>
+            <div class="v2__lbl v2__lbl--broadcast">
+                <div class="v2__lbl-name">Broadcast</div>
+                <div class="v2__lbl-pct">9.4%</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ VARIANT 03 — Pie + Ranked Bars ============================ -->
+<section class="variant">
+    <div class="variant__head">
+        <div class="variant__num">03 — PIE + RANKED BARS</div>
+        <div class="variant__body">
+            <h2 class="variant__title">Pie for the shape, bars for the ranking</h2>
+            <p class="variant__notes">A solid pie carries the "share of whole" read; sorted horizontal bars on the right let the eye compare exact magnitudes (which pie slices, especially small ones, are genuinely bad at). <strong>The most analytical option</strong> — feels like a Bloomberg report or McKinsey deck. Each bar can carry sub-text without crowding the chart.</p>
+        </div>
+    </div>
+    <div class="variant__stage">
+        <div class="v3">
+            <svg viewBox="0 0 320 320" class="v3__pie" id="v3-svg" shape-rendering="geometricPrecision">
+                <g id="v3-pie" transform="translate(160 160)"></g>
+            </svg>
+            <div class="v3__bars">
+                <div class="v3__bar v3__bar--social">
+                    <div class="v3__bar-meta">
+                        <span class="v3__bar-name">Social Media</span>
+                        <span class="v3__bar-pct">48.5%</span>
+                    </div>
+                    <div class="v3__bar-track"><div class="v3__bar-fill"></div></div>
+                    <div class="v3__bar-sub">The largest slice — visual, shareable, emotionally resonant.</div>
+                </div>
+                <div class="v3__bar v3__bar--online">
+                    <div class="v3__bar-meta">
+                        <span class="v3__bar-name">Online</span>
+                        <span class="v3__bar-pct">31.4%</span>
+                    </div>
+                    <div class="v3__bar-track"><div class="v3__bar-fill"></div></div>
+                    <div class="v3__bar-sub">14 placements — AsiaOne, Time Out, Expat Living, Baseline.</div>
+                </div>
+                <div class="v3__bar v3__bar--print">
+                    <div class="v3__bar-meta">
+                        <span class="v3__bar-name">Print</span>
+                        <span class="v3__bar-pct">10.6%</span>
+                    </div>
+                    <div class="v3__bar-track"><div class="v3__bar-fill"></div></div>
+                    <div class="v3__bar-sub">One Straits Times feature.</div>
+                </div>
+                <div class="v3__bar v3__bar--broadcast">
+                    <div class="v3__bar-meta">
+                        <span class="v3__bar-name">Broadcast</span>
+                        <span class="v3__bar-pct">9.4%</span>
+                    </div>
+                    <div class="v3__bar-track"><div class="v3__bar-fill"></div></div>
+                    <div class="v3__bar-sub">Money FM 89.3's Sports Minutes.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ VARIANT 04 — Half-Pie ============================ -->
+<section class="variant">
+    <div class="variant__head">
+        <div class="variant__num">04 — HALF-PIE FAN</div>
+        <div class="variant__body">
+            <h2 class="variant__title">A 180° fan, like a press dashboard meter</h2>
+            <p class="variant__notes">A solid semicircle that arcs across the page — labels and percentages sit cleanly below the chart, mirroring the stat ledger at the top of the case study. <strong>The most editorial-magazine option</strong>, and the one that integrates best with the rest of the page's typographic system. Reads as a measurement, not a pie.</p>
+        </div>
+    </div>
+    <div class="variant__stage">
+        <div class="v4">
+            <svg viewBox="0 0 720 380" class="v4__svg" id="v4-svg" shape-rendering="geometricPrecision">
+                <g id="v4-fan" transform="translate(360 320)"></g>
+            </svg>
+            <div class="v4__caption">
+                <div class="v4__caption-item" data-key="social">
+                    <span class="v4__caption-name">Social</span>
+                    <span class="v4__caption-pct">48.5%</span>
+                </div>
+                <div class="v4__caption-item" data-key="online">
+                    <span class="v4__caption-name">Online</span>
+                    <span class="v4__caption-pct">31.4%</span>
+                </div>
+                <div class="v4__caption-item" data-key="print">
+                    <span class="v4__caption-name">Print</span>
+                    <span class="v4__caption-pct">10.6%</span>
+                </div>
+                <div class="v4__caption-item" data-key="broadcast">
+                    <span class="v4__caption-name">Broadcast</span>
+                    <span class="v4__caption-pct">9.4%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div>FISE Singapore 2025 — Chart Variations · KIN Production</div>
+</footer>
+
+<script>
+// ============ Shared data ============
+const DATA = [
+    { key: 'social',    name: 'Social Media', pct: 48.5, color: 'var(--accent)' },
+    { key: 'online',    name: 'Online',       pct: 31.4, color: 'var(--navy)' },
+    { key: 'print',     name: 'Print',        pct: 10.6, color: '#6F7C8D' },
+    { key: 'broadcast', name: 'Broadcast',    pct:  9.4, color: '#B1B4B8' },
+];
+
+const TAU = Math.PI * 2;
+const toRad = deg => deg * Math.PI / 180;
+const polar = (cx, cy, r, deg) => ({
+    x: cx + r * Math.cos(toRad(deg)),
+    y: cy + r * Math.sin(toRad(deg))
+});
+
+function arcPath(cx, cy, r, startDeg, endDeg) {
+    // SVG path for a pie slice from startDeg to endDeg (clockwise, 0° = right)
+    const s = polar(cx, cy, r, startDeg);
+    const e = polar(cx, cy, r, endDeg);
+    const large = (endDeg - startDeg) > 180 ? 1 : 0;
+    return `M ${cx} ${cy} L ${s.x} ${s.y} A ${r} ${r} 0 ${large} 1 ${e.x} ${e.y} Z`;
+}
+
+// Anti-alias seam fix: extend each slice by OVERLAP°/2 on each side,
+// so the boundary between two adjacent slices is fully covered by the later one.
+const OVERLAP = 0.5;
+
+// ============ Variant 1 — Editorial callouts ============
+(function buildV1() {
+    const pieG = document.getElementById('v1-pie');
+    const calloutG = document.getElementById('v1-callouts');
+    const r = 140;
+    let cursor = -90;
+    DATA.forEach((d, i) => {
+        const start = cursor;
+        const sweep = (d.pct / 100) * 360;
+        const end = cursor + sweep;
+        const mid = cursor + sweep / 2;
+        cursor = end;
+
+        // Pie slice — extend by OVERLAP on each end (except the very first/last edges)
+        const drawStart = start - (i === 0 ? 0 : OVERLAP);
+        const drawEnd = end + (i === DATA.length - 1 ? 0 : OVERLAP);
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', arcPath(0, 0, r, drawStart, drawEnd));
+        path.setAttribute('fill', d.color);
+        pieG.appendChild(path);
+
+        // Leader line from edge outward, ending at a "shelf" point, then label
+        const inner = polar(0, 0, r * 0.98, mid);
+        const elbow = polar(0, 0, r + 28, mid);
+        // Snap label to absolute coords in 720x440 viewBox (pie center at 360,220)
+        const innerAbs = { x: inner.x + 360, y: inner.y + 220 };
+        const elbowAbs = { x: elbow.x + 360, y: elbow.y + 220 };
+
+        // Horizontal extension to the side
+        const side = elbowAbs.x >= 360 ? 1 : -1;
+        const labelX = elbowAbs.x + side * 16;
+        const labelY = elbowAbs.y;
+        const lineEndX = labelX;
+
+        // Build leader: from inner → elbow → horizontal
+        const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+        polyline.setAttribute('points', `${innerAbs.x},${innerAbs.y} ${elbowAbs.x},${elbowAbs.y} ${lineEndX},${labelY}`);
+        polyline.setAttribute('class', 'leader');
+        calloutG.appendChild(polyline);
+
+        // Tiny dot at slice edge
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', innerAbs.x);
+        dot.setAttribute('cy', innerAbs.y);
+        dot.setAttribute('r', 1.6);
+        dot.setAttribute('class', 'leader__dot');
+        calloutG.appendChild(dot);
+
+        // Label group
+        const anchor = side === 1 ? 'start' : 'end';
+        const tx = labelX + side * 6;
+        const nameText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        nameText.setAttribute('x', tx);
+        nameText.setAttribute('y', labelY - 8);
+        nameText.setAttribute('text-anchor', anchor);
+        nameText.setAttribute('class', 'label-name');
+        nameText.textContent = d.name.toUpperCase();
+        calloutG.appendChild(nameText);
+
+        const pctText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        pctText.setAttribute('x', tx);
+        pctText.setAttribute('y', labelY + 18);
+        pctText.setAttribute('text-anchor', anchor);
+        pctText.setAttribute('class', 'label-pct' + (d.key === 'social' ? ' label-pct--accent' : ''));
+        pctText.textContent = d.pct + '%';
+        calloutG.appendChild(pctText);
+    });
+})();
+
+// ============ Variant 2 — In-slice typography (SVG, with 2° paper gaps) ============
+(function buildV2() {
+    const g = document.getElementById('v2-pie');
+    const r = 220;
+    const GAP = 1.0; // degrees of paper gap each side of every slice
+    let cursor = -90;
+    DATA.forEach(d => {
+        const start = cursor;
+        const sweep = (d.pct / 100) * 360;
+        const end = cursor + sweep;
+        cursor = end;
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', arcPath(0, 0, r, start + GAP, end - GAP));
+        path.setAttribute('fill', d.color);
+        g.appendChild(path);
+    });
+})();
+
+// ============ Variant 3 — Pie + ranked bars (SVG with overlap) ============
+(function buildV3() {
+    const g = document.getElementById('v3-pie');
+    const r = 156;
+    let cursor = -90;
+    DATA.forEach((d, i) => {
+        const start = cursor;
+        const sweep = (d.pct / 100) * 360;
+        const end = cursor + sweep;
+        cursor = end;
+        const drawStart = start - (i === 0 ? 0 : OVERLAP);
+        const drawEnd = end + (i === DATA.length - 1 ? 0 : OVERLAP);
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', arcPath(0, 0, r, drawStart, drawEnd));
+        path.setAttribute('fill', d.color);
+        g.appendChild(path);
+    });
+})();
+
+// ============ Variant 4 — Half-pie fan (SVG with overlap) ============
+(function buildV4() {
+    const g = document.getElementById('v4-fan');
+    const r = 280;
+    let cursor = 180;
+    DATA.forEach((d, i) => {
+        const sweep = (d.pct / 100) * 180;
+        const start = cursor;
+        const end = cursor + sweep;
+        cursor = end;
+        const drawStart = start - (i === 0 ? 0 : OVERLAP);
+        const drawEnd = end + (i === DATA.length - 1 ? 0 : OVERLAP);
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', arcPath(0, 0, r, drawStart, drawEnd));
+        path.setAttribute('fill', d.color);
+        g.appendChild(path);
+    });
+    // Hairline paper base to crisp the bottom edge
+    const base = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    base.setAttribute('x1', -r - 1);
+    base.setAttribute('y1', 0);
+    base.setAttribute('x2', r + 1);
+    base.setAttribute('y2', 0);
+    base.setAttribute('stroke', 'var(--paper)');
+    base.setAttribute('stroke-width', '1.5');
+    g.appendChild(base);
+})();
+</script>
+
+</body>
+</html>

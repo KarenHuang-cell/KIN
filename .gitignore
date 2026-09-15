@@ -6,6 +6,10 @@ _Backup-2018/
 Photos/
 backups/
 uploads/
+server backups/
+/Videos/
+/images/
+/screenshots/
 
 # Design source files
 *.psd

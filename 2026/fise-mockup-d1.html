@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FISE Singapore 2025 — Bringing World-Class Urban Sports to the Heart of Southeast Asia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+:root {
+    --navy: #031D45;
+    --paper: #F4EFE5;
+    --body-color: #1c2949;
+    --body-muted: #4a5568;
+    --accent: #00c1e6;
+    --rule: rgba(3,29,69,0.16);
+    --rule-strong: rgba(3,29,69,0.32);
+    --max-w: 1280px;
+    --margin: clamp(24px, 5vw, 56px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--paper);
+    color: var(--body-color);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Progress bar */
+.progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 100;
+    width: 0;
+    transition: width 0.05s linear;
+}
+
+/* Mini nav strip (persists on scroll past hero) */
+.mini-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(244,239,229,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px var(--margin);
+    z-index: 90;
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mini-nav.visible { transform: translateY(0); }
+.mini-nav__brand { color: var(--accent); }
+
+/* Hero — cover page */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 600px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #1a2640;
+}
+.hero__media {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/oleksandr-kurchev-skateboard-1395w.webp');
+    background-size: cover;
+    background-position: center 30%;
+}
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3,29,69,0.18) 0%, rgba(3,29,69,0.55) 100%);
+}
+.hero__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: var(--margin) var(--margin) calc(var(--margin) * 1.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--paper);
+}
+.hero__eyebrow {
+    position: absolute;
+    top: var(--margin);
+    left: var(--margin);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(244,239,229,0.78);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+.hero__eyebrow span { color: rgba(244,239,229,0.4); }
+.hero__title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    max-width: 14ch;
+}
+.hero__dek {
+    font-size: clamp(20px, 2.4vw, 32px);
+    font-weight: 400;
+    line-height: 1.3;
+    max-width: 28ch;
+    color: rgba(244,239,229,0.94);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+.hero__meta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(244,239,229,0.7);
+}
+
+/* Stats ledger — directly under hero */
+.stats {
+    padding: 80px var(--margin);
+    max-width: var(--max-w);
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+}
+.stats__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+.stat {
+    padding: 0 40px;
+    position: relative;
+}
+.stat:first-child { padding-left: 0; }
+.stat:last-child { padding-right: 0; }
+.stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 0;
+    width: 1px;
+    background: var(--rule);
+}
+.stat__num {
+    font-size: clamp(36px, 4.8vw, 60px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+}
+.stat__num--small {
+    font-size: clamp(28px, 3.6vw, 44px);
+}
+.stat__label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+/* Body article */
+.body {
+    padding: 120px var(--margin);
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+/* Intro lede */
+.intro {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr minmax(0, 220px);
+    column-gap: 64px;
+    margin-bottom: 120px;
+}
+.intro__marg {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.intro__body {
+    grid-column: 2;
+    max-width: 60ch;
+}
+.intro__body p {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--navy);
+    letter-spacing: -0.005em;
+}
+
+/* Numbered body section */
+.section {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr minmax(0, 220px);
+    column-gap: 64px;
+    margin-bottom: 96px;
+}
+.section__marg {
+    position: sticky;
+    top: 72px;
+    height: fit-content;
+    padding-top: 8px;
+}
+.section__num {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-feature-settings: 'tnum';
+}
+.section__tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1.45;
+    max-width: 20ch;
+}
+.section__body {
+    grid-column: 2;
+    max-width: 62ch;
+}
+.section__body h3 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+.section__body p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body-color);
+}
+.section__body p strong {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+/* Media-mix chart — editorial info-graphic inset */
+.mediamix {
+    margin: 48px 0 40px;
+    padding: 40px 0 8px;
+    border-top: 1px solid var(--rule);
+}
+.mediamix__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+    gap: 24px;
+}
+.mediamix__eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    line-height: 1;
+}
+.mediamix__total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    line-height: 1;
+}
+.mediamix__total-num {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    font-feature-settings: 'tnum';
+}
+.mediamix__total-sub {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--body-muted);
+    margin-top: 8px;
+}
+.mediamix__body {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 56px;
+    align-items: center;
+}
+.mediamix__chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.donut {
+    width: 280px;
+    height: 280px;
+    display: block;
+    overflow: visible;
+}
+.donut__track {
+    fill: none;
+    stroke: rgba(3,29,69,0.06);
+    stroke-width: 1;
+}
+.donut__seg {
+    fill: none;
+    stroke-width: 22;
+    stroke-dasharray: 0 100;
+    transition: stroke-dasharray 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.donut.is-visible .donut__seg {
+    stroke-dasharray: var(--seg-len) calc(100 - var(--seg-len));
+}
+.donut.is-visible .donut__seg--social    { transition-delay: 0.05s; }
+.donut.is-visible .donut__seg--online    { transition-delay: 0.18s; }
+.donut.is-visible .donut__seg--print     { transition-delay: 0.31s; }
+.donut.is-visible .donut__seg--broadcast { transition-delay: 0.44s; }
+
+.donut__seg--social    { stroke: var(--accent); }
+.donut__seg--online    { stroke: var(--navy); }
+.donut__seg--print     { stroke: rgba(3,29,69,0.55); }
+.donut__seg--broadcast { stroke: rgba(3,29,69,0.28); }
+
+.donut__centernum {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    fill: var(--navy);
+    font-feature-settings: 'tnum';
+}
+.donut__centerlbl {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    fill: var(--body-muted);
+}
+
+.mediamix__legend {
+    display: flex;
+    flex-direction: column;
+}
+.mm-row {
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 24px;
+    align-items: baseline;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.mm-row:last-child { border-bottom: 1px solid var(--rule); }
+.donut.is-visible ~ .mediamix__legend .mm-row,
+.mediamix.is-visible .mm-row { opacity: 1; transform: translateY(0); }
+.mediamix.is-visible .mm-row:nth-child(1) { transition-delay: 0.45s; }
+.mediamix.is-visible .mm-row:nth-child(2) { transition-delay: 0.55s; }
+.mediamix.is-visible .mm-row:nth-child(3) { transition-delay: 0.65s; }
+.mediamix.is-visible .mm-row:nth-child(4) { transition-delay: 0.75s; }
+
+.mm-row__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-left: 22px;
+    line-height: 1.2;
+}
+.mm-row__name::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(3,29,69,0.28);
+}
+.mm-row[data-key="social"]    .mm-row__name::before { background: var(--accent); }
+.mm-row[data-key="online"]    .mm-row__name::before { background: var(--navy); }
+.mm-row[data-key="print"]     .mm-row__name::before { background: rgba(3,29,69,0.55); }
+.mm-row[data-key="broadcast"] .mm-row__name::before { background: rgba(3,29,69,0.28); }
+
+.mm-row__pct {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.025em;
+    font-feature-settings: 'tnum';
+    line-height: 1;
+}
+.mm-row[data-key="social"] .mm-row__pct { color: var(--accent); }
+
+.mm-row__sub {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: var(--body-muted);
+    padding-left: 22px;
+    margin-top: 6px;
+    line-height: 1.45;
+    letter-spacing: 0;
+}
+
+@media (max-width: 720px) {
+    .mediamix__body {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .mediamix__chart { order: -1; }
+    .donut { width: 220px; height: 220px; }
+    .mediamix__head { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .mediamix__total { align-items: flex-start; text-align: left; }
+}
+
+/* Blockquote — serif pull-quote */
+.pullquote {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.32;
+    text-align: center;
+    color: var(--navy);
+    max-width: 32ch;
+    margin: 96px auto;
+    padding: 48px 0;
+    position: relative;
+    letter-spacing: -0.01em;
+}
+.pullquote::before,
+.pullquote::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 1px;
+    background: var(--accent);
+}
+.pullquote::before { top: 0; }
+.pullquote::after { bottom: 0; }
+
+/* About / colophon paragraph */
+.about {
+    border-top: 1px solid var(--rule);
+    padding-top: 48px;
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr minmax(0, 220px);
+    column-gap: 64px;
+}
+.about__marg {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.about__body {
+    grid-column: 2;
+    max-width: 62ch;
+}
+.about__body p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body-muted);
+}
+
+/* CTA — closing */
+.cta {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 120px var(--margin);
+    margin-top: 0;
+}
+.cta__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+.cta__title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 40px;
+    max-width: 22ch;
+    color: var(--paper);
+}
+.cta__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 8px;
+    transition: color 0.2s, gap 0.2s, border-color 0.2s;
+}
+.cta__link:hover {
+    color: var(--accent);
+    gap: 18px;
+}
+
+/* Footer */
+.footer {
+    padding: 32px var(--margin) 48px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--body-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.footer__brand {
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    text-transform: none;
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    .stats__row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 0;
+    }
+    .stat { padding: 0 20px; }
+    .stat:nth-child(odd) { padding-left: 0; }
+    .stat:nth-child(even) { padding-right: 0; }
+    .stat::after { display: none; }
+}
+@media (max-width: 720px) {
+    .stats__row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .stat { padding: 0; }
+    .intro, .section, .about {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .intro__body, .section__body, .about__body { grid-column: 1; }
+    .section__marg {
+        position: static;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="mini-nav" id="miniNav">
+    <span class="mini-nav__brand">kin.</span>
+    <span>FISE Singapore 2025 — Case Study</span>
+</div>
+
+<!-- ============== HERO ============== -->
+<header class="hero">
+    <div class="hero__media"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        <div class="hero__eyebrow">
+            KIN Production <span>·</span> Case Study
+        </div>
+        <h1 class="hero__title">FISE Singapore 2025</h1>
+        <p class="hero__dek">Bringing World-Class Urban Sports to the Heart of Southeast Asia</p>
+        <div class="hero__meta">22–23 November 2025 &nbsp;·&nbsp; *SCAPE &amp; Somerset Skatepark, Singapore</div>
+    </div>
+</header>
+
+<!-- ============== STATS LEDGER ============== -->
+<section class="stats">
+    <div class="stats__row">
+        <div class="stat">
+            <div class="stat__num"><span class="stat__num--small">SGD</span> 553.6k</div>
+            <div class="stat__label">Total PR Value</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">5,000<span style="font-size:0.65em;">+</span></div>
+            <div class="stat__label">Attendees over 2 days</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">30</div>
+            <div class="stat__label">Pieces of coverage</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">48.5%</div>
+            <div class="stat__label">PR value from social media</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== ARTICLE BODY ============== -->
+<article class="body">
+
+    <!-- Intro lede -->
+    <div class="intro">
+        <div class="intro__marg">Overview</div>
+        <div class="intro__body">
+            <p>Eight-year-old Singaporean inline skater Chloe Chua competed at *SCAPE on home soil for the first time in November — weeks after suffering a serious injury at the FISE World Series in Shanghai, taking 15 stitches, and choosing to get back on the ramp just two days later. At Singapore, she finished second in the rollerblading best line junior category, then was invited to showcase alongside representatives from the UK, Australia, Brazil, and the United States. The Straits Times sent a photographer. Mothership posted the story and it got more than 10k likes on Instagram. That, in a single moment, is what a well-produced urban sports event can do — it creates human stories that no advertising budget can manufacture.</p>
+        </div>
+    </div>
+
+    <!-- Section 01 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">01</div>
+            <div class="section__tag">The Story Behind the Numbers</div>
+        </div>
+        <div class="section__body">
+            <h3>The Story Behind the Numbers</h3>
+            <p>Tourism boards and government agencies understand the formula: sport attracts visitors, activates communities, and generates coverage that paid media cannot replicate. What is rarer — and far more valuable — is the ability to land an internationally recognised event IP in a new market in a way that feels genuinely local.</p>
+            <p>FISE (Festival International des Sports Extremes) is one of the world's most recognised urban sports properties, with a circuit running from Montpellier to Abu Dhabi to Shanghai. Bringing its inaugural Singapore edition to life required more than logistics. It required a local partner with the credibility to represent an international brand — and the cultural intelligence to make it resonate.</p>
+            <p><strong>That partner was Kin.</strong></p>
+        </div>
+    </section>
+
+    <!-- Section 02 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">02</div>
+            <div class="section__tag">From Co-Organiser to Story-Generator</div>
+        </div>
+        <div class="section__body">
+            <h3>From Co-Organiser to Story-Generator: The Chloe Effect</h3>
+            <p>The most powerful media moments are never the ones you script. Eight-year-old inline skater Chloe Chua suffered a serious gash during a practice run at the FISE World Series in Shanghai in October — 15 stitches, including nine on her chin. Just two days later, she was back on the ramp competing.</p>
+            <p>Then, fully recovered, she came home to Singapore and competed at FISE Singapore in November on home soil for the very first time, finishing second in the rollerblading best line junior category and earning an invitation to join a special demonstration showcase alongside representatives from four other nations.</p>
+            <p>What followed was a media cascade that money cannot buy. The story — Singapore's youngest FISE athlete, competing through injury on home soil for the first time — spread across significant platform and publication in the region.</p>
+            <p>The Chloe story was not manufactured. Kin and Hurricane Group created the conditions — the platform, the athlete pathway, the media access — that allowed a genuine human moment to become a regional media story. That is the hallmark of events produced with real strategic intent.</p>
+        </div>
+    </section>
+
+    <!-- Pull-quote 1 -->
+    <blockquote class="pullquote">
+        The best event PR doesn't feel like PR. It feels like news.
+    </blockquote>
+
+    <!-- Section 03 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">03</div>
+            <div class="section__tag">The Media Footprint</div>
+        </div>
+        <div class="section__body">
+            <h3>The Media Footprint: By the Numbers</h3>
+            <p>The coverage report documents more than SGD 500k in total PR value across 30 pieces of coverage spanning print, online, broadcast, and social media. For context, this is the equivalent advertising spend that would be required to replicate that exposure — and it would still lack the credibility of earned media.</p>
+            <p>The breakdown reveals something instructive about how urban sports content travels:</p>
+
+            <figure class="mediamix" id="mediamix">
+                <div class="mediamix__head">
+                    <div class="mediamix__eyebrow">PR Value by Channel</div>
+                    <div class="mediamix__total">
+                        <span class="mediamix__total-num">SGD 553.6k</span>
+                        <span class="mediamix__total-sub">across 30 pieces</span>
+                    </div>
+                </div>
+                <div class="mediamix__body">
+                    <div class="mediamix__chart">
+                        <svg viewBox="0 0 240 240" class="donut" id="donut" aria-label="Media mix by channel: Social Media 48.5%, Online 31.4%, Print 10.6%, Broadcast 9.4%">
+                            <circle class="donut__track" cx="120" cy="120" r="86"/>
+                            <g transform="rotate(-90 120 120)">
+                                <circle class="donut__seg donut__seg--social"    cx="120" cy="120" r="86" pathLength="100" stroke-dashoffset="0"     style="--seg-len: 48.5"/>
+                                <circle class="donut__seg donut__seg--online"    cx="120" cy="120" r="86" pathLength="100" stroke-dashoffset="-48.5"  style="--seg-len: 31.4"/>
+                                <circle class="donut__seg donut__seg--print"     cx="120" cy="120" r="86" pathLength="100" stroke-dashoffset="-79.9"  style="--seg-len: 10.6"/>
+                                <circle class="donut__seg donut__seg--broadcast" cx="120" cy="120" r="86" pathLength="100" stroke-dashoffset="-90.5"  style="--seg-len: 9.4"/>
+                            </g>
+                            <text x="120" y="124" text-anchor="middle" dominant-baseline="middle" class="donut__centernum">30</text>
+                            <text x="120" y="154" text-anchor="middle" dominant-baseline="middle" class="donut__centerlbl">PIECES OF COVERAGE</text>
+                        </svg>
+                    </div>
+                    <div class="mediamix__legend">
+                        <div class="mm-row" data-key="social">
+                            <span class="mm-row__name">Social Media</span>
+                            <span class="mm-row__pct">48.5%</span>
+                            <span class="mm-row__sub">The largest slice — and the most telling. Visual, shareable, emotionally resonant.</span>
+                        </div>
+                        <div class="mm-row" data-key="online">
+                            <span class="mm-row__name">Online</span>
+                            <span class="mm-row__pct">31.4%</span>
+                            <span class="mm-row__sub">14 placements — AsiaOne, Time Out, Expat Living, Baseline, Alvinology, NewsWav.</span>
+                        </div>
+                        <div class="mm-row" data-key="print">
+                            <span class="mm-row__name">Print</span>
+                            <span class="mm-row__pct">10.6%</span>
+                            <span class="mm-row__sub">One Straits Times feature — a mainstream, high-income readership.</span>
+                        </div>
+                        <div class="mm-row" data-key="broadcast">
+                            <span class="mm-row__name">Broadcast</span>
+                            <span class="mm-row__pct">9.4%</span>
+                            <span class="mm-row__sub">Money FM 89.3's Sports Minutes — Chloe as the next-generation story.</span>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+
+            <p>The shape is instructive. Social media carried nearly half of the total value — urban sports content is inherently visual, shareable, and emotionally resonant, and when the content is real (an eight-year-old defying injury in front of a hometown crowd) it moves. Online coverage built sustained momentum rather than a single spike, running before, during, and after the event. Print and broadcast were small in volume but disproportionately credible: a Straits Times feature and a Money FM segment carry weight that a hundred reposts cannot.</p>
+            <p>Regional spillover is worth noting separately. Malaysian publications The Star, Sinar Daily, Lumi News, and NewsWav.com all ran the story, delivering coverage across the Causeway before the event had even closed. For destination-marketing purposes, this kind of organic regional reach is the goal — and it was achieved without a separate Malaysia campaign.</p>
+        </div>
+    </section>
+
+    <!-- Section 04 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">04</div>
+            <div class="section__tag">The Athletes</div>
+        </div>
+        <div class="section__body">
+            <h3>The Athletes: World-Class, Locally Accessible</h3>
+            <p>The FISE roster for Singapore 2025 was built to impress and to inspire. Headlining the event was Ryan Williams — multi-time Nitro World Games and X Games medallist — who doubled as both host and featured performer on the ramps. International talent included BMX stars Jean-William Prevost (Canada) and Julien Baran (France), breaking standouts Carlota Dudek and Juan Xak De La Torre Sanchez, and skateboarding talent Pedro Quintas.</p>
+            <p>The programming structure was equally considered: each day opened with youth clinics and masterclasses — pathways for aspiring local athletes to learn from the world's best — before moving into afternoon competition, cash-for-tricks battles, and live demonstrations.</p>
+            <p>This is the model that works for youth engagement: elite spectacle combined with accessible participation. The child watching Ryan Williams on the ramp in the morning is the same child who signs up for inline skating lessons in the afternoon. That pipeline — from spectator to participant — is what sports federations and national agencies invest in when they back events like FISE.</p>
+        </div>
+    </section>
+
+    <!-- Section 05 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">05</div>
+            <div class="section__tag">The Partnership Model</div>
+        </div>
+        <div class="section__body">
+            <h3>How Kin Made It Work: The Partnership Model</h3>
+            <p>Producing an event across continents is not novel. Producing one well — with genuine parity between partners, consistent communication, and the humility to course-correct mid-process — is far less common.</p>
+            <p>Kin's role was not that of a subcontractor executing a French blueprint. As co-organiser and co-promoter alongside Hurricane Group, Kin held shared creative ownership and shared accountability for outcomes. This distinction matters enormously for clients evaluating event partners: it signals that Kin can be trusted not just to deliver a production but to take genuine strategic responsibility for a brand.</p>
+            <p>The operational approach reflected that ownership: bi-weekly work-in-progress meetings with the French counterpart team ensured alignment throughout a months-long planning process. When procedural differences emerged — as they inevitably do in cross-cultural partnerships — Kin implemented a structured hot-wash process, a post-incident debrief that straightened out both agencies' working methods and prevented recurrence.</p>
+            <p>The on-ground execution involved five days of setup, two days of event, and two days of teardown — a timeline that prioritised delivery quality over cost compression. Key vendors ensured technical production met the standards of a globally branded event. The event was offered to the public at free entry — a deliberate choice that maximised community accessibility and drove the 5,000-plus attendance figure.</p>
+        </div>
+    </section>
+
+    <!-- Pull-quote 2 -->
+    <blockquote class="pullquote">
+        A teaser year isn't about doing less. It's about doing the right things — so that the second year arrives with an audience already waiting.
+    </blockquote>
+
+    <!-- Section 06 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">06</div>
+            <div class="section__tag">Cities, Federations, Institutions</div>
+        </div>
+        <div class="section__body">
+            <h3>What This Means for Cities, Federations, and Cultural Institutions</h3>
+            <p>FISE Singapore 2025 is a proof-of-concept for a model that many cities are actively seeking: an internationally credible event IP that can be localised, owned in partnership, and grown into a signature property.</p>
+            <p>For tourism boards, the case is clear. The event generated more than SGD 500k in earned media from a two-day activation, with organic regional reach into Malaysia requiring no incremental marketing spend. The demographic profile of the audience — urban, youth-oriented, socially active — aligns with the visitor segments that drive both tourism volume and spending.</p>
+            <p>For sports federations and governing bodies, FISE Singapore demonstrates that urban sport — BMX, skateboarding, rollerblading, breaking, flatland — has crossed over into mainstream cultural relevance. This is not a niche subculture. It is a platform that generates Straits Times features, Money FM segments, and Mothership reels with six-figure PR value from a single story about an eight-year-old who got back on the ramp two days after a serious injury — and then did it all over again on home soil.</p>
+            <p>For cultural institutions and government agencies, the venue choice — Somerset, the Orchard corridor, *SCAPE — reflects a clear-eyed understanding of how sport animates public space. The event was embedded in the Singapore Urban Sports and Fitness Festival, aligning with ActiveSG programming and giving it institutional legitimacy while retaining the energy and credibility of an international property.</p>
+        </div>
+    </section>
+
+    <!-- Section 07 -->
+    <section class="section">
+        <div class="section__marg">
+            <div class="section__num">07</div>
+            <div class="section__tag">Looking Ahead</div>
+        </div>
+        <div class="section__body">
+            <h3>Looking Ahead: From Teaser to Tradition</h3>
+            <p>The 2025 edition was explicitly conceived as a teaser year — the first chapter of a longer story. The measure of a successful teaser is not just what happened on the day, but what it sets in motion.</p>
+            <p>By that measure, FISE Singapore 2025 succeeded. The media coverage was broad, deep, and regionally significant. The community response — from the crowd at Somerset to the 10,600 Instagram likes on the story of an eight-year-old who refused to quit — showed a city that was ready for this event, and an audience that already cares.</p>
+            <p>Kin's evolution in this project — from delivery partner to co-organiser and co-promoter — is itself a template for how event agencies can offer clients more than execution. When an agency can be trusted with strategic ownership, the relationship becomes a long-term partnership rather than a contract engagement. As FISE looks toward future Singapore editions, that foundation is already in place.</p>
+        </div>
+    </section>
+
+    <!-- About / colophon -->
+    <div class="about">
+        <div class="about__marg">About Kin</div>
+        <div class="about__body">
+            <p>Kin engineers world-class sporting events, immersive experiences, and cultural IPs that transform cities into destinations. We work with tourism boards, destination marketers, and government bodies across Asia to build the event pipeline that drives long-term destination growth. If this conversation is relevant to your work, we would welcome the exchange.</p>
+        </div>
+    </div>
+
+</article>
+
+<!-- ============== CTA ============== -->
+<section class="cta">
+    <div class="cta__inner">
+        <h2 class="cta__title">Let's talk about what's possible.</h2>
+        <a href="https://www.kinproduction.com" class="cta__link">
+            www.kinproduction.com →
+        </a>
+    </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+    <div class="footer__brand">kin.</div>
+    <div>© 2026 KIN Production. All Rights Reserved.</div>
+</footer>
+
+<script>
+// Progress bar
+const progress = document.getElementById('progress');
+const miniNav = document.getElementById('miniNav');
+const hero = document.querySelector('.hero');
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const max = document.body.scrollHeight - window.innerHeight;
+    progress.style.width = (scrolled / max * 100) + '%';
+
+    // Mini nav appears after scrolling past hero
+    if (scrolled > hero.offsetHeight - 100) {
+        miniNav.classList.add('visible');
+    } else {
+        miniNav.classList.remove('visible');
+    }
+}, { passive: true });
+
+// Media-mix donut — draw in on scroll into view
+const mediamix = document.getElementById('mediamix');
+const donut = document.getElementById('donut');
+if (mediamix && donut && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                donut.classList.add('is-visible');
+                mediamix.classList.add('is-visible');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.35 });
+    io.observe(mediamix);
+}
+</script>
+
+</body>
+</html>

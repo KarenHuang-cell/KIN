@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 720" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title desc">
+  <title id="title">FISE Singapore 2025 — PR Value by Channel</title>
+  <desc id="desc">Donut chart showing the breakdown of SGD 553.6k in PR value across Social Media 48.5 percent, Online 31.4 percent, Print 10.6 percent, and Broadcast 9.4 percent.</desc>
+
+  <defs>
+    <style>
+      .eyebrow      { font: 700 12px 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: 0.18em; fill: #00C1E6; text-transform: uppercase; }
+      .total        { font: 700 22px 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.02em; fill: #031D45; }
+      .total-sub    { font: 700 10px 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: 0.18em; fill: #4a5568; text-transform: uppercase; }
+      .donut-seg    { fill: none; stroke-width: 28; }
+      .seg-social   { stroke: #00C1E6; }
+      .seg-online   { stroke: #031D45; }
+      .seg-print    { stroke: rgba(3,29,69,0.42); }
+      .seg-bcast    { stroke: rgba(3,29,69,0.18); }
+      .spot-line    { stroke: #00C1E6; stroke-width: 0.75; fill: none; }
+      .spot-text    { font: 700 9px 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: 0.22em; fill: #00C1E6; text-transform: uppercase; }
+      .legend-name  { font: 600 15px 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.01em; fill: #031D45; }
+      .legend-pct   { font: 700 22px 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.025em; fill: #031D45; }
+      .legend-pct-social { fill: #00C1E6; }
+      .legend-sub   { font: 400 12px 'Plus Jakarta Sans', system-ui, sans-serif; fill: #4a5568; }
+      .legend-bar   { stroke-width: 3; stroke-linecap: square; }
+      .bar-social   { stroke: #00C1E6; }
+      .bar-online   { stroke: #031D45; }
+      .bar-print    { stroke: rgba(3,29,69,0.42); }
+      .bar-bcast    { stroke: rgba(3,29,69,0.18); }
+      .rule         { stroke: rgba(3,29,69,0.16); stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ============ HEADER ============ -->
+  <text x="40" y="45" class="eyebrow">PR Value by Channel</text>
+  <text x="440" y="45" text-anchor="end" class="total">SGD 553.6k</text>
+  <text x="440" y="68" text-anchor="end" class="total-sub">across 30 pieces</text>
+  <line x1="40" y1="90" x2="440" y2="90" class="rule"/>
+
+  <!-- ============ DONUT ============ -->
+  <g transform="rotate(-90 240 230)">
+    <circle class="donut-seg seg-social" cx="240" cy="230" r="80" pathLength="100" stroke-dasharray="47.7 52.3"  stroke-dashoffset="0"/>
+    <circle class="donut-seg seg-online" cx="240" cy="230" r="80" pathLength="100" stroke-dasharray="30.6 69.4"  stroke-dashoffset="-48.5"/>
+    <circle class="donut-seg seg-print"  cx="240" cy="230" r="80" pathLength="100" stroke-dasharray="9.8 90.2"   stroke-dashoffset="-79.9"/>
+    <circle class="donut-seg seg-bcast"  cx="240" cy="230" r="80" pathLength="100" stroke-dasharray="8.6 91.4"   stroke-dashoffset="-90.5"/>
+  </g>
+
+  <!-- ============ SPOTLIGHT ============ -->
+  <line class="spot-line" x1="334" y1="220" x2="358" y2="220"/>
+  <text x="362" y="223" class="spot-text">Nearly half</text>
+
+  <!-- ============ LEGEND ============ -->
+  <line x1="40" y1="370" x2="440" y2="370" class="rule"/>
+
+  <!-- Row 1: Social Media -->
+  <line x1="40" y1="402" x2="60" y2="402" class="legend-bar bar-social"/>
+  <text x="70" y="406" class="legend-name">Social Media</text>
+  <text x="440" y="408" text-anchor="end" class="legend-pct legend-pct-social">48.5%</text>
+  <text x="70" y="428" class="legend-sub">The largest slice — visual, shareable, emotionally resonant.</text>
+  <line x1="40" y1="448" x2="440" y2="448" class="rule"/>
+
+  <!-- Row 2: Online -->
+  <line x1="40" y1="480" x2="60" y2="480" class="legend-bar bar-online"/>
+  <text x="70" y="484" class="legend-name">Online</text>
+  <text x="440" y="486" text-anchor="end" class="legend-pct">31.4%</text>
+  <text x="70" y="506" class="legend-sub">14 placements — AsiaOne, Time Out, Expat Living, Baseline.</text>
+  <line x1="40" y1="526" x2="440" y2="526" class="rule"/>
+
+  <!-- Row 3: Print -->
+  <line x1="40" y1="558" x2="60" y2="558" class="legend-bar bar-print"/>
+  <text x="70" y="562" class="legend-name">Print</text>
+  <text x="440" y="564" text-anchor="end" class="legend-pct">10.6%</text>
+  <text x="70" y="584" class="legend-sub">One Straits Times feature.</text>
+  <line x1="40" y1="604" x2="440" y2="604" class="rule"/>
+
+  <!-- Row 4: Broadcast -->
+  <line x1="40" y1="636" x2="60" y2="636" class="legend-bar bar-bcast"/>
+  <text x="70" y="640" class="legend-name">Broadcast</text>
+  <text x="440" y="642" text-anchor="end" class="legend-pct">9.4%</text>
+  <text x="70" y="662" class="legend-sub">Money FM 89.3's Sports Minutes.</text>
+  <line x1="40" y1="682" x2="440" y2="682" class="rule"/>
+
+</svg>

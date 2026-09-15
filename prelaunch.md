@@ -4,6 +4,27 @@ Tasks to complete the day the site is published to its final domain `www.kin.net
 
 ---
 
+## Status (last verified 2026-06-26 via live curl checks)
+
+**Done & verified live:**
+- ✅ Site live on `www.kin.net` — DNS, valid HTTPS, `kinglobal.net` 301-redirects in
+- ✅ `robots.txt` clean — no `Disallow: /`, Sitemap line present
+- ✅ `sitemap.xml` auto-generating — all public pages, Style Guide correctly excluded
+- ✅ Organization JSON-LD on homepage — logo URL resolves (HTTP 200)
+- ✅ Favicon — light + dark variants on Webflow CDN (not the Webflow default)
+- ✅ Google Analytics (GA4) `G-PZ33Z200EJ` — firing site-wide (see GA section below)
+
+**Still to do:**
+- ☐ Google Search Console — domain verification (no verification meta tag live yet)
+- ☐ Submit `sitemap.xml` in Search Console (needs verification first)
+- ☐ Get GA *viewing* access — be added as a user on GA4 property `G-PZ33Z200EJ` (held in client's / previous developer's Google account)
+- ☐ Person JSON-LD schemas — not present on `/management-team` or `/corporate-information`
+- ☐ (nice-to-have) dedicated dark-mode favicon
+
+> Note: FISE appearing at both `/portfolio/fise-singapore-2025` and `/insights/fise-singapore-2025` is **intentional** — it's both a Case Study and an Insight. Not a duplicate to remove.
+
+---
+
 ## DNS migration — point kin.net at Webflow
 
 **Why:** The site lives on `kin-investor.webflow.io` (staging). To make `kin.net` and `www.kin.net` serve the Webflow site, KIN's DNS records (currently at Bluehost, or wherever the domain is hosted) need to point at Webflow's IP addresses.
@@ -68,6 +89,24 @@ Tasks to complete the day the site is published to its final domain `www.kin.net
 ### Quick sanity check before submitting
 
 Visit `https://www.kin.net/sitemap.xml` in a browser. You should see an XML list of all your public pages — Home, About, Services, Portfolio, Investor Relations, etc. Style Guide should *not* appear (since its Sitemap indexing is Off).
+
+---
+
+## Google Analytics (GA4) — DONE 2026-06-26
+
+**Measurement ID:** `G-PZ33Z200EJ` — the same GA4 property the old WordPress kin.net used. Found in the 16 Apr 2026 server backup (`server backups/kin.net 16 April 2026/kinprodu_re20new.sql`), where it was installed via the Salient theme's `google-analytics` header field.
+
+**Installed on the Webflow site via:** Site Settings → **Google tag** panel → *Google tag IDs* → Display name `KIN Global GA4`, tag ID `G-PZ33Z200EJ` → **Save** → **Publish**. Used the native Google tag field, NOT Head Code — avoids double-tracking.
+
+**Verified live 2026-06-26:** `gtag('config', 'G-PZ33Z200EJ')` present on homepage and `/about` — confirmed firing site-wide via curl.
+
+### Open item — viewing access (NOT done)
+
+The tag only *sends* data into the property. To *see* reports, Karen's Google account must be added as a user (Viewer role minimum) by an **Administrator** of property `G-PZ33Z200EJ`. That property lives in the **client's** — or their **previous web developer's** — Google account.
+
+- **Until access is granted:** data collects from launch onward but isn't viewable.
+- **Decision still open:** reuse `G-PZ33Z200EJ` (keeps historical continuity with the old site) vs. create a fresh GA4 property Karen controls (clean ownership, but starts from zero). If a fresh property is chosen, swap the new `G-` ID into the same Webflow Google tag field.
+- **To confirm hits once access exists:** GA4 → Reports → Realtime → load `www.kin.net` and watch your visit appear.
 
 ---
 
